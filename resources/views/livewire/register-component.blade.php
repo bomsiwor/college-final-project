@@ -118,21 +118,22 @@
                             <div class="col-sm-6">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="position" id="position1"
-                                        value="dosen" onclick="showIdInput('dosen')" />
+                                        value="dosen" wire:model.defer='position' onclick="showIdInput('dosen')" />
                                     <label class="form-check-label" for="position1">
                                         Dosen
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="position" id="position2"
-                                        value="mahasiswa" onclick="showIdInput('mahasiswa')" />
+                                        value="mahasiswa" onclick="showIdInput('mahasiswa')"
+                                        wire:model.defer='position' />
                                     <label class="form-check-label" for="position2">
                                         Mahasiswa
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="position" id="position3"
-                                        value="staff" onclick="showIdInput('staff')" />
+                                        value="staff" onclick="showIdInput('staff')" wire:model.defer='position' />
                                     <label class="form-check-label" for="position3">
                                         Staff
                                     </label>
@@ -145,27 +146,31 @@
                     <div class="col-12 d-none animate__animated" id="mahasiswa-input">
                         <!-- NIM -->
                         <label for="nim" class="form-label">NIM</label>
-                        <input type="text" name="nim" class="form-control" id="nim" />
-                        <div class="text-danger">
-                            Masukkan nomor induk!
-                        </div>
+                        <input type="text" name="nim" class="form-control" id="nim"
+                            wire:model='nim' />
+                        @error('nim')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     <!-- NIP -->
                     <div class="col-12 d-block animate__animated" id="dosenStaff-input">
                         <label for="nip" class="form-label">NIP</label>
                         <input type="text" name="nip" class="form-control" id="nip" />
-                        <div class="text-danger">
-                            Masukkan nomor induk!
-                        </div>
+                        @error('nip')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     <!-- Unit -->
-                    <div class="col-12 my-1 d-none" id="unitContainer">
+                    <div class="col-12 my-1 d-none" id="unitContainer" wire:ignore>
                         <label for="example" class="form-label">Unit</label>
                         <div>
-                            <select class="selectpicker" data-live-search="true" name="unit" id="unit"
-                                wire:ignore>
+                            <select class="selectpicker" data-live-search="true" name="unit" id="unit">
                                 @foreach ($units as $unit)
                                     <option value="{{ $unit->id }}">{{ $unit->unit_name }}
                                     </option>
@@ -177,7 +182,7 @@
 
                 <div id="nonWarga-callback" class="d-none animate__animated">
                     <!-- Pekerjaan -->
-                    <div class="col-12 my-1">
+                    <div class="col-12 my-1" wire:ignore>
                         <label for="profession" class="form-label">Pekerjaan</label>
                         <div>
                             <select class="selectpicker" data-live-search="true" name="profession" id="profession">
@@ -190,7 +195,7 @@
                     </div>
 
                     <!-- Instansi -->
-                    <div class="col-12">
+                    <div class="col-12" wire:ignore>
                         <label for="institution" class="form-label">Asal Instansi</label>
                         <div>
                             <select class="selectpicker" data-live-search="true" name="institution"
@@ -236,7 +241,7 @@
                 <!-- Setuju peraturan -->
                 <div class="col-12 my-2">
                     <div class="form-check">
-                        <input class="form-check-input" name="terms" type="checkbox" value=""
+                        <input class="form-check-input" name="terms" type="checkbox" value="yes"
                             id="acceptTerms" required wire:model='acceptTerms' />
                         <label class="form-check-label" for="acceptTerms">Saya yakin data yang
                             saya masukan sudah

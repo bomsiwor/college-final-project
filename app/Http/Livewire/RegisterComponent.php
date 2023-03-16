@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Profession;
 use App\Models\Institution;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 
 class RegisterComponent extends Component
@@ -18,14 +19,15 @@ class RegisterComponent extends Component
         'email' => 'required|email:dns|unique:users,email',
         'username' => 'required',
         'password' => 'required|min:8|regex:/^.*(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-        'acceptTerms' => 'required'
+        'nim' => 'required_if:position,mahasiswa',
+        'nip' => 'required_if:position,staff,dosen',
+        'acceptTerms' => 'accepted'
     ];
 
     protected $messages = [
         'firstName.min' => 'Tidak boleh terlalu pendek',
         'lastName.regex' => 'Tidak valid',
         'password.regex' => 'Tidak valid',
-        'acceptTerms.required' => 'Harus dicentang!'
     ];
 
     protected $validationAttributes = [
