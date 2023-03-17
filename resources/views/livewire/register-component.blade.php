@@ -5,38 +5,15 @@
             Masukkan data-data anda di bawah ini.
         </p>
     </div>
-    <div class="row justify-content-center">
-        @if ($notif)
-            <div class="col-8">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Holy guacamole!</strong> You should check in on
-                    some of those fields below.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        @endif
-    </div>
     <form class="row g-3" wire:submit.prevent="submit" id="formRegister" novalidate method="post">
         <div class="row">
             <div class="card-body col-md-6">
                 <!-- Nama depan -->
                 <div class="col-12 mb-2">
-                    <label for="firstName" class="form-label">Nama
-                        Depan</label>
-                    <input type="text" class="form-control  @if ($errors->has('firstName')) is-invalid @endif"
-                        id="firstName" required wire:model='firstName' />
-                    @error('firstName')
-                        <div class="text-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <!-- Nama Belakang -->
-                <div class="col-12 mb-2">
-                    <label for="lastName" class="form-label">Nama Belakang</label>
-                    <input type="text" name="last-name" class="form-control" id="lastName" wire:model='lastName' />
-                    @error('lastName')
+                    <label for="name" class="form-label">Nama <em>(tanpa gelar)</em> </label>
+                    <input type="text" class="form-control  @if ($errors->has('name')) is-invalid @endif"
+                        id="name" required wire:model='name' />
+                    @error('name')
                         <div class="text-danger">
                             {{ $message }}
                         </div>
@@ -92,14 +69,14 @@
                         <div class="col-sm-6 d-flex flex-row justify-content-evenly">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="wargaCheck" value="yes"
-                                    onclick="check_warga('yes')" />
+                                    onclick="check_warga('yes')" id="wargaYes" />
                                 <label class="form-check-label" for="wargaYes">
                                     Ya
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="wargaCheck" value="no"
-                                    onclick="check_warga('no')" />
+                                    onclick="check_warga('no')" id="wargaNo" />
                                 <label class="form-check-label" for="wargaNo">
                                     Tidak
                                 </label>
@@ -142,12 +119,26 @@
                         </div>
                     </div>
 
+                    {{-- Prodi --}}
+                    <div id="prodiContainer" class="col-12 my-1 d-none">
+                        <label for="prodi" class="form-label">Program Studi</label>
+                        <div wire:ignore>
+                            <select class="selectpicker" data-live-search="true" name="prodi" id="prodi"
+                                wire:model.defer='prodi'>
+                                @foreach ($study_program as $prodi)
+                                    <option value="{{ $prodi->id }}">{{ $prodi->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <!-- NIP/NIM -->
                     <div class="col-12 d-none animate__animated" id="mahasiswa-input">
                         <!-- NIM -->
                         <label for="nim" class="form-label">NIM</label>
                         <input type="text" name="nim" class="form-control" id="nim"
-                            wire:model='nim' />
+                            wire:model.defer='nim' />
                         @error('nim')
                             <div class="text-danger">
                                 {{ $message }}
@@ -158,7 +149,8 @@
                     <!-- NIP -->
                     <div class="col-12 d-block animate__animated" id="dosenStaff-input">
                         <label for="nip" class="form-label">NIP</label>
-                        <input type="text" name="nip" class="form-control" id="nip" />
+                        <input type="text" name="nip" class="form-control" id="nip"
+                            wire:model.defer='nip' />
                         @error('nip')
                             <div class="text-danger">
                                 {{ $message }}
@@ -198,17 +190,14 @@
                     <div class="col-12" wire:ignore>
                         <label for="institution" class="form-label">Asal Instansi</label>
                         <div>
-                            <select class="selectpicker" data-live-search="true" name="institution"
-                                id="institution">
+                            <select class="selectpicker" data-live-search="true" name="institution" id="institution"
+                                wire:model.defer='institution'>
                                 @foreach ($institutions as $inc)
                                     <option value="{{ $inc->id }}">
                                         {{ $inc->institution_name }}</option>
                                 @endforeach
                                 <option value="other">Lainnya</option>
                             </select>
-                        </div>
-                        <div class="text-danger">
-                            Masukkan instansi dengan benar
                         </div>
                     </div>
 
@@ -218,11 +207,13 @@
                         <div class="col-12">
                             <label for="institutionName" class="form-label">Nama
                                 Instansi</label>
-                            <input type="text" name="institutionName" class="form-control"
-                                id="institutionName" />
-                            <div class="text-danger">
-                                Masukkan asal instansi kamu!
-                            </div>
+                            <input type="text" name="institutionName" class="form-control" id="institutionName"
+                                wire:model.defer='institutionName' />
+                            @error('institutionName')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <!-- Alamat -->
@@ -242,12 +233,12 @@
                 <div class="col-12 my-2">
                     <div class="form-check">
                         <input class="form-check-input" name="terms" type="checkbox" value="yes"
-                            id="acceptTerms" required wire:model='acceptTerms' />
+                            id="acceptTerms" required wire:model.defer='acceptTerms' />
                         <label class="form-check-label" for="acceptTerms">Saya yakin data yang
                             saya masukan sudah
                             benar & jujur</label>
                         @error('acceptTerms')
-                            <div class="text-danger">Harus dicentang!</div>
+                            <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -285,12 +276,7 @@
 
         if (!wargaOption) {
             $('input[name="position"]').prop("checked", false);
-            $("#nim").removeAttr("required");
-            $("#nip").removeAttr("required");
         }
-
-        $("#institutionName").prop("required", !wargaOption);
-        $("#institutionAddress").prop("required", !wargaOption);
     }
 
     $("#institution").change(function(e) {
@@ -298,30 +284,25 @@
         $("#institutionAddressContainer")
             .toggleClass("d-none", $(this).val() !== "other")
             .toggleClass("d-block", $(this).val() === "other")
-            .find("input")
-            .prop("required", $(this).val() === "other");
     });
 
     function showIdInput(pos) {
         const $mahasiswaInput = $("#mahasiswa-input");
         const $dosenStaffInput = $("#dosenStaff-input");
         const $unitContainer = $("#unitContainer");
+        const $prodiContainer = $('#prodiContainer');
 
         $mahasiswaInput
             .toggleClass("d-none animate__fadeOut", pos !== "mahasiswa")
-            .toggleClass("d-block animate__fadeIn", pos === "mahasiswa")
-            .find("input")
-            .prop("required", pos === "mahasiswa" && wargaOption);
+            .toggleClass("d-block animate__fadeIn", pos === "mahasiswa");
 
         $dosenStaffInput
             .toggleClass("d-none animate__fadeOut", pos === "mahasiswa")
-            .toggleClass("d-block animate__fadeIn", pos !== "mahasiswa")
-            .find("input")
-            .prop("required", (pos === "dosen" || pos === "staff") && wargaOption);
+            .toggleClass("d-block animate__fadeIn", pos !== "mahasiswa");
 
         $unitContainer
-            .toggleClass("d-none", pos !== "staff")
-            .find("#nip")
-            .prop("required", pos === "staff" && wargaOption);
+            .toggleClass("d-none", pos !== "staff");
+        $prodiContainer
+            .toggleClass("d-none", pos !== "mahasiswa");
     }
 </script>

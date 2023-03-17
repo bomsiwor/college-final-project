@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignId('unit_id')->constrained('units');
             $table->string('staff_name');
             $table->integer('nip')->unique();
-            $table->string('staff_address');
-            $table->string('staff_phone');
+            $table->string('staff_address')->nullable();
+            $table->string('staff_phone')->nullable();
         });
     }
 

@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Extern::class);
     }
+
+    public function study_program()
+    {
+        return $this->hasOneThrough(StudyProgram::class, Student::class);
+    }
 }

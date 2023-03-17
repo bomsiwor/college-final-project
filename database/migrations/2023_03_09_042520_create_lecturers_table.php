@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->string('lecturer_name');
             $table->integer('nip')->unique();
-            $table->string('lecturer_address');
-            $table->string('lecturer_phone');
+            $table->string('lecturer_address')->nullable();
+            $table->string('lecturer_phone')->nullable();
         });
     }
 
