@@ -16,8 +16,8 @@ class Profession extends Model
         'id'
     ];
 
-    public function extern()
+    public function user()
     {
-        return $this->hasMany(Extern::class);
+        return $this->hasMany(User::class);
     }
 }

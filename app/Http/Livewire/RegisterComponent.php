@@ -6,16 +6,13 @@ use App\Models\User;
 use Livewire\Component;
 use App\Models\Profession;
 use App\Models\Institution;
-use App\Models\Person\Lecturer;
-use App\Models\Person\Staff;
-use App\Models\Person\Student;
 use App\Models\StudyProgram;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterComponent extends Component
 {
-    public $name, $email, $username, $password, $wargaCheck, $position, $nip, $nim, $acceptTerms, $prodi;
+    public $name, $email, $username, $password, $wargaCheck, $position, $nip, $nim, $acceptTerms, $prodi, $unit;
     public $institution, $institutionName, $institutionAddress;
 
     protected $rules = [
@@ -23,8 +20,8 @@ class RegisterComponent extends Component
         'email' => 'required|email:dns|unique:users,email',
         'username' => 'required',
         'password' => 'required|min:8|regex:/^.*(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-        'nim' => 'required_if:position,mahasiswa',
-        'nip' => 'required_if:position,staff,dosen',
+        'nim' => 'required_if:position,mahasiswa|unique:users,identification_number',
+        'nip' => 'required_if:position,staff,dosen|unique:users,identification_number',
         'institutionName' => 'required_if:institution,other',
         'institutionAddress' => 'required_if:institution,other',
         'acceptTerms' => 'accepted'
@@ -47,58 +44,49 @@ class RegisterComponent extends Component
     {
         $this->validate();
 
-        $user = User::create([
+        $userDetail = [
+            'name' => ucwords($this->name),
             'email' => $this->email,
-            'password' => Hash::make($this->password)
-        ]);
+            'password' => Hash::make($this->password),
+            'username' => $this->username,
+            'institution_id' => '1'
+        ];
 
         switch ($this->position) {
             case 'dosen':
-                $this->registerDosen($user->id);
-                $user->assignRole('lecturer');
+                $userDetail += [
+                    'identifier' => 'NIP',
+                    'identification_number' => $this->nip,
+                    'profession_id' => '64'
+                ];
+                $role = 'lecturer';
                 break;
             case 'mahasiswa':
-                $this->registerMahasiswa($user->id);
-                $user->assignRole('student');
+                $userDetail += [
+                    'identifier' => 'NIM',
+                    'identification_number' => $this->nim,
+                    'profession_id' => '3',
+                    'study_program_id' => $this->prodi
+                ];
+                $role = 'student';
                 break;
             case 'staff':
-                $this->registerStaff($user->id);
-                $user->assignRole('staff');
+                $userDetail += [
+                    'identifier' => 'NIP',
+                    'identification_number' => $this->nip,
+                    'profession_id' => '5',
+                    'unit_id' => $this->unit
+                ];
+                $role = 'staff';
                 break;
         }
+
+        $user = User::create($userDetail);
+        $user->assignRole($role);
 
         return redirect(route('login'))->with('registerSuccess');
     }
 
-    public function registerDosen($user_id)
-    {
-
-        Lecturer::create([
-            'user_id' => $user_id,
-            'lecturer_name' => ucwords($this->name),
-            'nip' => $this->nip
-        ]);
-    }
-
-    public function registerMahasiswa($user_id)
-    {
-        Student::create([
-            'user_id' => $user_id,
-            'student_name' => ucwords($this->name),
-            'nim' => $this->nim,
-            'study_program_id' => $this->prodi
-        ]);
-    }
-
-    public function registerStaff($user_id)
-    {
-        Staff::create([
-            'user_id' => $user_id,
-            'staff_name' => ucwords($this->name),
-            'unit_id' => $this->unit,
-            'nip' => $this->nip
-        ]);
-    }
 
     public function render()
     {

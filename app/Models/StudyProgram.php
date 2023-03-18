@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Person\Student;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,8 +15,8 @@ class StudyProgram extends Model
         'id'
     ];
 
-    public function student()
+    public function user()
     {
-        return $this->hasMany(Student::class);
+        return $this->hasMany(User::class);
     }
 }

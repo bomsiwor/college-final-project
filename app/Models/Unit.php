@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Models\Person;
+namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lecturer extends Model
+class Unit extends Model
 {
     use HasFactory;
 
@@ -18,6 +17,6 @@ class Lecturer extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
     }
 }

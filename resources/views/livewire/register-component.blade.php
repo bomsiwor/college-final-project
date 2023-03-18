@@ -162,7 +162,10 @@
                     <div class="col-12 my-1 d-none" id="unitContainer" wire:ignore>
                         <label for="example" class="form-label">Unit</label>
                         <div>
-                            <select class="selectpicker" data-live-search="true" name="unit" id="unit">
+                            <select class="selectpicker" data-live-search="true" name="unit" id="unit"
+                                wire:model.defer='unit'>
+                                <option selected>Pilih...
+                                </option>
                                 @foreach ($units as $unit)
                                     <option value="{{ $unit->id }}">{{ $unit->unit_name }}
                                     </option>

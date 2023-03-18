@@ -32,8 +32,8 @@ return [
         'string' => 'The :attribute must be between :min and :max characters.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
-    'current_password' => 'The password is incorrect.',
+    'confirmed' => 'Konfirmas :attribute salah!',
+    'current_password' => 'Kata sandi salah',
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
@@ -130,7 +130,7 @@ return [
     'required_if' => ':attribute harus diisi, jika :other adalah :value',
     'required_if_accepted' => 'The :attribute field is required when :other is accepted.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
-    'required_with' => 'The :attribute field is required when :values is present.',
+    'required_with' => ':attribute wajib diisi jika :values diisi.',
     'required_with_all' => 'The :attribute field is required when :values are present.',
     'required_without' => 'The :attribute field is required when :values is not present.',
     'required_without_all' => 'The :attribute field is required when none of :values are present.',
@@ -179,6 +179,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'Nama',
+        'identifier' => 'Identitas',
+        'identification_number' => 'Nomor Identitas',
+        'email' => 'Surel',
+        'password' => 'Kata Sandi'
+    ],
 
 ];

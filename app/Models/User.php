@@ -4,10 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use App\Models\Person\Extern;
-use App\Models\Person\Lecturer;
-use App\Models\Person\Staff;
-use App\Models\Person\Student;
+use App\Enums\IdentifierEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -26,7 +23,17 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
+        'identifier',
+        'identification_number',
+        'address',
+        'phone',
+        'profile_picture',
+        'institution_id',
+        'profession_id',
+        'unit_id',
+        'study_program_id'
     ];
 
     /**
@@ -44,29 +51,29 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    // protected $casts = [
-    //     'email_verified_at' => 'datetime',
-    // ];
+    protected $casts = [
+        // 'email_verified_at' => 'datetime',
+        'identifier' => IdentifierEnum::class
+    ];
 
-    public function lecturer()
-    {
-        return $this->hasOne(Lecturer::class);
-    }
-    public function student()
-    {
-        return $this->hasOne(Student::class);
-    }
-    public function staff()
-    {
-        return $this->hasOne(Staff::class);
-    }
-    public function extern()
-    {
-        return $this->hasOne(Extern::class);
-    }
 
     public function study_program()
     {
-        return $this->hasOneThrough(StudyProgram::class, Student::class);
+        return $this->belongsTo(StudyProgram::class);
+    }
+
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
+
+    public function profession()
+    {
+        return $this->belongsTo(Profession::class);
+    }
+
+    public function institution()
+    {
+        return $this->belongsTo(Institution::class);
     }
 }

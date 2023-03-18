@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
             <a class="nav-link collapsed" href="index.html">
-                <i class="bi bi-grid"></i>
+                <i class="mdi mdi-view-dashboard"></i>
                 <span>Dashboard</span>
             </a>
         </li>
@@ -40,8 +40,8 @@
         <!-- End Profile Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/logout">
-                <i class="bi bi-box-arrow-in-right"></i>
+            <a class="nav-link collapsed" href="{{ route('logout') }}">
+                <i class="mdi mdi-logout-variant"></i>
                 <span>Logout</span>
             </a>
         </li>

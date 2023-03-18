@@ -29,6 +29,7 @@
 
     <!-- Animate -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    @livewireStyles
 </head>
 
 <body>
@@ -39,8 +40,11 @@
 
     @include('Template.footer')
 
+
+
 </body>
 <!-- Template Main JS File -->
 <script src="{{ asset('dist/js/main.js') }}"></script>
+
 
 </html>
