@@ -63,14 +63,17 @@ class EditProfile extends Component
             'identification_number' => ['required', Rule::unique('users')->ignore($this->idUser)],
             'email' => ['required', 'email:dns', Rule::unique('users', 'email')->ignore($this->idUser)]
         ]);
-        User::where('id', $this->idUser)->update($data);
 
         if ($this->photo != null) :
+            if (auth()->user()->profile_picture != null) :
+                Storage::delete(auth()->user()->profile_picture);
+            endif;
+
             $photo = $this->photo->store('photos');
-            User::where('id', $this->idUser)->update([
-                'profile_picture' => $photo
-            ]);
+            $data['profile_picture'] = $photo;
         endif;
+
+        User::where('id', $this->idUser)->update($data);
 
         $this->changed = true;
 

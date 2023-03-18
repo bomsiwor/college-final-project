@@ -16,4 +16,14 @@ class DashboardController extends Controller
 
         return view('Dashboard.profile', $data);
     }
+
+    public function help()
+    {
+        return view('Dashboard.help');
+    }
+
+    public function contact()
+    {
+        return view('Dashboard.contact');
+    }
 }

@@ -40,7 +40,6 @@
                                 <h3>Staff - {{ auth()->user()->unit->unit_name }}</h3>
                             @endif
 
-                            <img src="{{ asset('storage/logo-insnuk.png') }}" alt="">
                             <div class="social-links mt-2">
                                 <a href="#" class="twitter"><i class="mdi mdi-twitter"></i></a>
                                 <a href="#" class="facebook"><i class="mdi mdi-facebook"></i></a>

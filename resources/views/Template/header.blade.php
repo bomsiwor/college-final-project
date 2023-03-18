@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center justify-content-between">
         <a href="/" class="logo d-flex align-items-center">
             <img src="{{ asset('assets/img/logo-insnuk.png') }}" alt="">
-            <span class="d-none d-lg-block">SILAB</span>
+            <span class="d-none d-lg-block">SiLab</span>
         </a>
         <i class="mdi mdi-menu toggle-sidebar-btn"></i>
     </div>
@@ -46,7 +46,7 @@
                     </li>
 
                     <li class="notification-item">
-                        <i class="bi bi-x-circle text-danger"></i>
+                        <i class="mdi mdi-alpha-x-circle-outline text-danger"></i>
                         <div>
                             <h4>Atque rerum nesciunt</h4>
                             <p>Quae dolorem earum veritatis oditseno</p>
@@ -59,7 +59,7 @@
                     </li>
 
                     <li class="notification-item">
-                        <i class="bi bi-check-circle text-success"></i>
+                        <i class="mdi mdi-check-circle-outline text-success"></i>
                         <div>
                             <h4>Sit rerum fuga</h4>
                             <p>Quae dolorem earum veritatis oditseno</p>
@@ -72,7 +72,7 @@
                     </li>
 
                     <li class="notification-item">
-                        <i class="bi bi-info-circle text-primary"></i>
+                        <i class="mdi mdi-information-outline text-primary"></i>
                         <div>
                             <h4>Dicta reprehenderit</h4>
                             <p>Quae dolorem earum veritatis oditseno</p>

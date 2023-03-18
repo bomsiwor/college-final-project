@@ -1,51 +1,115 @@
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-heading">Menu Utama</li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="index.html">
+            <a class="nav-link collapsed" href="/">
                 <i class="mdi mdi-view-dashboard"></i>
-                <span>Dashboard</span>
+                <span>Pagu</span>
             </a>
         </li>
         <!-- End Dashboard Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i
-                    class="bi bi-chevron-down ms-auto"></i>
+                <i class="mdi mdi-application-settings"></i><span>Menu Admin</span><i
+                    class="mdi mdi-shield-crown ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="tables-general.html">
-                        <i class="bi bi-circle"></i><span>General Tables</span>
+                        <i class="mdi mdi-circle"></i><span>Kelola User</span>
                     </a>
                 </li>
                 <li>
                     <a href="tables-data.html">
-                        <i class="bi bi-circle"></i><span>Data Tables</span>
+                        <i class="mdi mdi-circle"></i><span>Kelola Aset</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tables-data.html">
+                        <i class="mdi mdi-circle"></i><span>Kelola Peminjaman</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tables-data.html">
+                        <i class="mdi mdi-circle"></i><span>Kelola Postingan</span>
                     </a>
                 </li>
             </ul>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
+                <i class="mdi mdi-badge-account-alert"></i>
+                <span>Presensi</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
+                <i class="mdi mdi-tools"></i>
+                <span>Logging Barang</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
+                <i class="mdi mdi-radioactive-circle"></i>
+                <span>Logging Radiasi</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
+                <i class="mdi mdi-database"></i>
+                <span>Aset/Inventori</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#izin-nav" data-bs-toggle="collapse" href="#">
+                <i class="mdi mdi-file-cabinet"></i><span>Perizinan</span><i class="mdi mdi-information ms-auto"></i>
+            </a>
+            <ul id="izin-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="tables-general.html">
+                        <i class="mdi mdi-circle"></i><span>Peminjaman Alat/Bahan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tables-general.html">
+                        <i class="mdi mdi-circle"></i><span>Penggunaan Lab</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <!-- End Tables Nav -->
 
-        <li class="nav-heading">Pages</li>
+        <li class="nav-heading">Menu Lain</li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
+                <i class="mdi mdi-help-rhombus"></i>
+                <span>Bantuan</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('dashboard.contact') }}">
+                <i class="mdi mdi-contactless-payment-circle-outline"></i>
+                <span>Kontak Kami</span>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>Profile</span>
+                <i class="mdi mdi-post"></i>
+                <span>Postingan</span>
             </a>
         </li>
         <!-- End Profile Page Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('logout') }}">
-                <i class="mdi mdi-logout-variant"></i>
-                <span>Logout</span>
-            </a>
-        </li>
-        <!-- End Login Page Nav -->
     </ul>
 </aside>
 <!-- End Sidebar-->

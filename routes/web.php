@@ -29,4 +29,6 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::class)->name('dashboard.')->group(function () {
     Route::get('/profile', 'profile')->name('profile');
+    Route::get('/help', 'help')->name('help');
+    Route::get('/contact-us', 'contact')->name('contact');
 });
