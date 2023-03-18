@@ -45,6 +45,9 @@
 </body>
 <!-- Template Main JS File -->
 <script src="{{ asset('dist/js/main.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@yield('script')
 
 
 </html>

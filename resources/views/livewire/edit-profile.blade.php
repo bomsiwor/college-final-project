@@ -22,14 +22,16 @@
         <div class="row mb-3">
             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
             <div class="col-md-8 col-lg-9">
-                <img src="@if (auth()->user()->profile_picture) {{ auth()->user()->profile_picture }} @else {{ asset('assets/img/profile/default-pic.png') }} @endif"
+                <img src="@if (auth()->user()->profile_picture) {{ asset('storage/' . auth()->user()->profile_picture) }} @else {{ asset('assets/img/profile/default-pic.png') }} @endif"
                     alt="Profile">
                 <div class="pt-2">
                     <button class="btn btn-primary btn-sm" type="button" onclick="openFileUpload()"><i
                             class="mdi mdi-tray-arrow-up"></i></button>
                     <input type="file" name="photo" id="hiddenFile" class="d-none" wire:model='photo'>
-                    <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i
-                            class="mdi mdi-delete"></i></a>
+                    @if (auth()->user()->profile_picture)
+                        <button type="button" class="btn btn-danger btn-sm" title="Remove my profile image"
+                            id="deletePhoto"><i class="mdi mdi-delete"></i></button>
+                    @endif
                 </div>
             </div>
         </div>

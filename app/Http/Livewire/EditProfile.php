@@ -6,6 +6,7 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class EditProfile extends Component
 {
@@ -14,6 +15,11 @@ class EditProfile extends Component
     public $name, $description, $address, $phone, $identification_number, $identifier, $email, $photo;
     public $changed = false;
     public $idUser;
+
+    protected $listeners = [
+        'profileChanged' => '$refresh',
+        'deletePhoto' => 'deletePhoto'
+    ];
 
     public function mount()
     {
@@ -36,6 +42,15 @@ class EditProfile extends Component
         ]);
     }
 
+    public function deletePhoto()
+    {
+        Storage::delete(auth()->user()->profile_picture);
+        $data['profile_picture'] = null;
+
+        User::where('id', auth()->user()->id)->update($data);
+        $this->emitSelf('profileChanged');
+    }
+
     public function submit()
     {
         $this->changed = false;
@@ -48,10 +63,18 @@ class EditProfile extends Component
             'identification_number' => ['required', Rule::unique('users')->ignore($this->idUser)],
             'email' => ['required', 'email:dns', Rule::unique('users', 'email')->ignore($this->idUser)]
         ]);
-
         User::where('id', $this->idUser)->update($data);
 
+        if ($this->photo != null) :
+            $photo = $this->photo->store('photos');
+            User::where('id', $this->idUser)->update([
+                'profile_picture' => $photo
+            ]);
+        endif;
+
         $this->changed = true;
+
+        $this->emitSelf('profileChanged');
     }
     public function render()
     {

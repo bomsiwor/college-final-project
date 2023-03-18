@@ -22,10 +22,16 @@
 
                     <div class="card bg-light-subtle border border-light-subtle">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                            <img
-                                src="@empty(auth()->user()->profile_picture) {{ asset('assets/img/profile/default-pic.png') }} @endif"
-                                alt="Profile" class="rounded-circle">
+
+                            @if (!auth()->user()->profile_picture)
+                                <img src="{{ asset('assets/img/profile/default-pic.png') }}" alt="Profile"
+                                    class="rounded-circle">
+                            @else
+                                <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" alt="Profile"
+                                    class="rounded-circle">
+                            @endif
                             <h2 class="text-center">{{ auth()->user()->name }}</h2>
+
                             @if (auth()->user()->hasRole('student'))
                                 <h3>{{ auth()->user()->study_program->name }}</h3>
                             @elseif (auth()->user()->hasRole('lecturer'))
@@ -33,6 +39,8 @@
                             @elseif (auth()->user()->hasRole('staff'))
                                 <h3>Staff - {{ auth()->user()->unit->unit_name }}</h3>
                             @endif
+
+                            <img src="{{ asset('storage/logo-insnuk.png') }}" alt="">
                             <div class="social-links mt-2">
                                 <a href="#" class="twitter"><i class="mdi mdi-twitter"></i></a>
                                 <a href="#" class="facebook"><i class="mdi mdi-facebook"></i></a>
@@ -74,10 +82,10 @@
                                     <h5 class="card-title">Tentang</h5>
                                     <p class="small fst-italic">
                                         @if (auth()->user()->description)
-                                        {{ auth()->user()->description }}
-                                    @else 
-                                    Kosong.. isi cerita tentang kamu.
-                                    @endif
+                                            {{ auth()->user()->description }}
+                                        @else
+                                            Kosong.. isi cerita tentang kamu.
+                                        @endif
                                     </p>
                                     <h5 class="card-title">Detail Profil</h5>
 
@@ -85,68 +93,70 @@
                                         <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
                                         <div class="col-lg-9 col-md-8">{{ auth()->user()->name }}</div>
                                     </div>
-    
+
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Pekerjaan</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->profession->profession_name }}</div>
+                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->profession->profession_name }}
+                                        </div>
                                     </div>
-    
+
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Asal Institusi</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->institution->institution_name }}</div>
+                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->institution->institution_name }}
+                                        </div>
                                     </div>
-    
+
                                     @if (auth()->user()->hasRole('student'))
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 label">Program Studi</div>
                                             <div class="col-lg-9 col-md-8">{{ auth()->user()->study_program->name }}</div>
                                         </div>
                                     @endif
-    
+
                                     <div class="row">
-                            <div class="col-lg-3 col-md-4 label">Jenis Identitas</div>
-                            <div class="col-lg-9 col-md-8">{{ auth()->user()->identifier }}</div>
-                        </div>
+                                        <div class="col-lg-3 col-md-4 label">Jenis Identitas</div>
+                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->identifier }}</div>
+                                    </div>
 
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 label">Nomor Identitas</div>
-                            <div class="col-lg-9 col-md-8">{{ auth()->user()->identification_number }}</div>
-                        </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Nomor Identitas</div>
+                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->identification_number }}</div>
+                                    </div>
 
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 label">Alamat</div>
-                            <div class="col-lg-9 col-md-8">{{ auth()->user()->address }}
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Alamat</div>
+                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->address }}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">No. Telp</div>
+                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->phone }}</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Email</div>
+                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->email }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                                    @livewire('edit-profile')
+
+                                </div>
+
+                                <div class="tab-pane fade pt-3" id="profile-change-password">
+                                    <!-- Change Password Form -->
+                                    <h4>Petunjuk</h4>
+                                    <p>Kata sandi sekurang-kurangnya mengandung 1 simbol, 1 angka, dan 1 huruf kapital</p>
+                                    @livewire('change-password-component')
+
+                                </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 label">No. Telp</div>
-                            <div class="col-lg-9 col-md-8">{{ auth()->user()->phone }}</div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 label">Email</div>
-                            <div class="col-lg-9 col-md-8">{{ auth()->user()->email }}</div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-
-                        @livewire('edit-profile')
-
-                    </div>
-
-                    <div class="tab-pane fade pt-3" id="profile-change-password">
-                        <!-- Change Password Form -->
-                        <h4>Petunjuk</h4>
-                        <p>Kata sandi sekurang-kurangnya mengandung 1 simbol, 1 angka, dan 1 huruf kapital</p>
-                        @livewire('change-password-component')
-
                     </div>
                 </div>
-            </div>
-            </div>
-            </div>
             </div>
         </section>
 
@@ -159,5 +169,31 @@
             document.getElementById("hiddenFile").click();
 
         }
+    </script>
+@endsection
+
+@section('script')
+    <script>
+        $('#deletePhoto').click(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Kamu yakin?',
+                text: "Hapus foto profil?! Foto dapat diperbarui di kemudian hari",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('deletePhoto');
+                    Swal.fire(
+                        'Sukses!',
+                        'Foto profil telah dihapus',
+                        'success'
+                    )
+                }
+            })
+        });
     </script>
 @endsection
