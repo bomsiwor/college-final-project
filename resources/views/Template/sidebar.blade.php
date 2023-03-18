@@ -40,7 +40,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
+            <a class="nav-link collapsed" href="{{ route('activity.presensi') }}">
                 <i class="mdi mdi-badge-account-alert"></i>
                 <span>Presensi</span>
             </a>

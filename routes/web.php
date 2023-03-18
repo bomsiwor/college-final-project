@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -31,4 +32,8 @@ Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::
     Route::get('/profile', 'profile')->name('profile');
     Route::get('/help', 'help')->name('help');
     Route::get('/contact-us', 'contact')->name('contact');
+});
+
+Route::middleware('auth')->prefix('activity')->controller(ActivityController::class)->name('activity.')->group(function () {
+    Route::get('/presensi', 'presensi')->name('presensi');
 });
