@@ -30,6 +30,16 @@
                                                     aria-label="Close"></button>
                                             </div>
                                         @endif
+
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="pb-2">
                                         <h5 class="card-title text-center pb-0 fs-4">
@@ -38,7 +48,8 @@
                                         <p class="text-center small">Masuk untuk melanjutkan</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" method="POST" action="/auth" novalidate>
+                                    <form class="row g-3 needs-validation" method="POST" action="/auth" novalidate
+                                        autocomplete="off">
                                         @csrf
                                         <div class="col-12">
                                             <label for="email" class="form-label">Username / Email</label>

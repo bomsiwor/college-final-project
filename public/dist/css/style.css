@@ -11,6 +11,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
+
 :root {
     scroll-behavior: smooth;
 }
@@ -68,7 +69,7 @@ h6 {
     font-size: 24px;
     margin-bottom: 0;
     font-weight: 600;
-    color: #012970;
+    color: #312e81;
 }
 
 /*--------------------------------------------------------------
@@ -257,7 +258,7 @@ h6 {
     padding: 20px 0 15px 0;
     font-size: 18px;
     font-weight: 500;
-    color: #012970;
+    color: #3730a3;
     font-family: "Noto Sans", sans-serif;
 }
 

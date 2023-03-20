@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-heading">Menu Utama</li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/">
+            <a class="nav-link collapsed" href="/dashboard">
                 <i class="mdi mdi-view-dashboard"></i>
                 <span>Pagu</span>
             </a>
@@ -104,7 +104,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.html">
+            <a class="nav-link collapsed" href="#">
                 <i class="mdi mdi-post"></i>
                 <span>Postingan</span>
             </a>

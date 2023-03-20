@@ -2,13 +2,13 @@
 
 return [
 
-    'BIASA' => 'Kunjungan Biasa',
-    'KULIAH' => 'Kuliah/Praktikum',
-    'PERAWATAN' => 'Perawatan',
-    'PINJAM' => 'Peminjaman',
-    'KEMBALI' => 'Pengembalian',
-    'TA' => 'Tugas Akhir',
-    'PENELITIAN' => 'Penelitian',
-    'MAGANG' => 'Magang/PKL',
-    'RAPAT' => 'Rapat/Pertemuan'
+    'biasa' => 'Kunjungan Biasa',
+    'kuliah' => 'Kuliah/Praktikum',
+    'maintenance' => 'Perawatan',
+    'pinjam' => 'Peminjaman',
+    'kembali' => 'Pengembalian',
+    'ta' => 'Tugas Akhir',
+    'riset' => 'Penelitian',
+    'magang' => 'Magang/PKL',
+    'rapat' => 'Rapat/Pertemuan'
 ];

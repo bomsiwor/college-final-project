@@ -35,22 +35,7 @@
                                     </ul>
                                 </div>
 
-                                <div class="card-body">
-                                    <h5 class="card-title">Kunjungan Kamu <span>| Total</span></h5>
-
-                                    <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="mdi mdi-counter"></i>
-                                        </div>
-                                        <div class="ps-3">
-                                            <h6>145</h6>
-                                            <span class="text-success small pt-1 fw-bold">12%</span> <span
-                                                class="text-muted small pt-2 ps-1">increase</span>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                @livewire('attendance-count')
 
                             </div>
                         </div>
@@ -97,40 +82,7 @@
                         <h5 class="card-title">Riwayat Kunjungan</h5>
                         <p>Menampilkan riwayat kunjungan kamu ke laboratorium instrumentasi nuklir
                         </p>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Keperluan</th>
-                                        <th scope="col">Hari</th>
-                                        <th scope="col">Tanggal</th>
-                                        <th scope="col">Waktu</th>
-                                        <th scope="col">Keterangan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Brandon Jacob</td>
-                                        <td>2016-05-25</td>
-                                        <td>Jumat</td>
-                                        <td>09.00 WIB</td>
-                                        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora molestias
-                                            nostrum assumenda, dignissimos quod architecto!</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <p class="card-text placeholder-glow">
-                            <span class="placeholder bg-info col-7"></span>
-                            <span class="placeholder bg-info col-4"></span>
-                            <span class="placeholder bg-info col-4"></span>
-                            <span class="placeholder bg-info col-6"></span>
-                            <span class="placeholder bg-info col-8"></span>
-                        </p>
+                        @livewire('attendance-table', ['idUser' => auth()->user()->id])
                     </div>
                 </div>
 
@@ -140,42 +92,7 @@
     </main><!-- End #main -->
 
     <!-- Modal -->
-    <div class="modal fade" id="presensiModal" tabindex="-1" aria-labelledby="presensiModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="presensiModalLabel">Catat Kunjungan</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="" id="presensi">
-                        <div class="row mb-3">
-                            <label for="occupation" class="col-md-4 col-lg-3 col-form-label">Keperluan</label>
-                            <div class="col-md-8 col-lg-9">
-                                <select class="form-select" aria-label="Default select example" name="occupation">
-                                    <option selected value="null">Pilih opsi</option>
-                                    @foreach (App\Enums\PresensiEnum::cases() as $tipe)
-                                        <option value="{{ $tipe }}">{{ __('activity.' . $tipe->name) }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-lg-3 col-form-label">Keterangan</label>
-                            <div class="col-md-8 col-lg-9">
-                                <textarea name="description" class="form-control" id="description" style="height: 100px" maxlength="255"></textarea>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" form="presensi">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    @livewire('attendance-component')
 @endsection
 
 @section('script')
@@ -187,7 +104,7 @@
                 'Menyimpan data kunjungan',
                 'success'
             );
-
+            Livewire.emit('isiPresensi');
             $('#presensiModal').modal('hide');
         });
     </script>

@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterComponent extends Component
 {
-    public $name, $email, $username, $password, $wargaCheck, $position, $nip, $nim, $acceptTerms, $prodi, $unit;
+    public $name, $email, $username, $password, $position, $nip, $nim, $acceptTerms, $prodi, $unit;
     public $institution, $institutionName, $institutionAddress;
+    public $wargaCheck = false;
 
     protected $rules = [
         'name' => 'required|min:4|regex:/^[a-zA-Z_ ]*$/',

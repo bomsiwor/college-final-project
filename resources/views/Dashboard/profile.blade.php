@@ -161,8 +161,6 @@
 
     </main><!-- End #main -->
 
-    @livewireScripts
-
     <script>
         function openFileUpload() {
             document.getElementById("hiddenFile").click();

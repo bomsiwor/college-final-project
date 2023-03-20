@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class SebuahList extends Component
+class ToolLogComponent extends Component
 {
     public function render()
     {
-        return view('livewire.sebuah-list');
+        return view('livewire.tool-log-component');
     }
 }

@@ -111,7 +111,7 @@ return [
     'multiple_of' => 'The :attribute must be a multiple of :value.',
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
-    'numeric' => 'The :attribute must be a number.',
+    'numeric' => ':attribute harus berupa angka',
     'password' => [
         'letters' => 'The :attribute must contain at least one letter.',
         'mixed' => 'The :attribute must contain at least one uppercase and one lowercase letter.',
@@ -184,7 +184,10 @@ return [
         'identifier' => 'Identitas',
         'identification_number' => 'Nomor Identitas',
         'email' => 'Surel',
-        'password' => 'Kata Sandi'
+        'password' => 'Kata Sandi',
+        'dose' => 'Dosis',
+        'start_time' => 'Waktu mulai',
+        'end_time' => 'Waktu akhir'
     ],
 
 ];

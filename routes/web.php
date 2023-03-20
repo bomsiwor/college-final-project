@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Dashboard.index');
-})->middleware('auth');
+    abort(404);
+});
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/auth/login', 'login')->middleware('guest')->name('login');
@@ -29,6 +29,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::class)->name('dashboard.')->group(function () {
+    Route::get('/', 'index')->name('index');
     Route::get('/profile', 'profile')->name('profile');
     Route::get('/help', 'help')->name('help');
     Route::get('/contact-us', 'contact')->name('contact');

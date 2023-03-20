@@ -5,14 +5,14 @@
             Masukkan data-data anda di bawah ini.
         </p>
     </div>
-    <form class="row g-3" wire:submit.prevent="submit" id="formRegister" novalidate method="post">
+    <form class="row g-3" wire:submit.prevent="submit" id="formRegister" novalidate method="post" autocomplete="off">
         <div class="row">
             <div class="card-body col-md-6">
                 <!-- Nama depan -->
                 <div class="col-12 mb-2">
                     <label for="name" class="form-label">Nama <em>(tanpa gelar)</em> </label>
                     <input type="text" class="form-control  @if ($errors->has('name')) is-invalid @endif"
-                        id="name" required wire:model='name' />
+                        id="name" required wire:model.defer='name' />
                     @error('name')
                         <div class="text-danger">
                             {{ $message }}
@@ -24,7 +24,7 @@
                 <div class="col-12 mb-2">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control" id="email" required
-                        wire:model='email' />
+                        wire:model.defer='email' />
                     @error('email')
                         <div class="text-danger">
                             {{ $message }}
@@ -37,8 +37,8 @@
                     <label for="username" class="form-label">Username</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="username" wire:model='username'
-                            required />
+                        <input type="text" name="username" class="form-control" id="username"
+                            wire:model.name='username' required />
                     </div>
                     @error('username')
                         <div class="text-danger">
@@ -50,8 +50,8 @@
                 <!-- Password -->
                 <div class="col-12 mb-2">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" wire:model='password'
-                        required />
+                    <input type="password" name="password" class="form-control" id="password"
+                        wire:model.defer='password' required />
                     @error('password')
                         <div class="text-danger">
                             {{ $message }}
@@ -69,14 +69,14 @@
                         <div class="col-sm-6 d-flex flex-row justify-content-evenly">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="wargaCheck" value="yes"
-                                    onclick="check_warga('yes')" id="wargaYes" />
+                                    onclick="check_warga('yes')" id="wargaYes" wire:model.defer='wargaCheck' />
                                 <label class="form-check-label" for="wargaYes">
                                     Ya
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="wargaCheck" value="no"
-                                    onclick="check_warga('no')" id="wargaNo" />
+                                    onclick="check_warga('no')" id="wargaNo" wire:model.defer='wargaCheck' />
                                 <label class="form-check-label" for="wargaNo">
                                     Tidak
                                 </label>
@@ -85,7 +85,8 @@
                     </div>
                 </div>
 
-                <div id="warga-callback" class="d-none animate__animated">
+                <hr class="d-none d-sm-block d-md-none">
+                <div id="warga-callback" class="d-none animate__animated" wire:ignore.self>
                     <!-- Posisi -->
                     <div class="col-12">
                         <div class="row">
@@ -120,7 +121,7 @@
                     </div>
 
                     {{-- Prodi --}}
-                    <div id="prodiContainer" class="col-12 my-1 d-none">
+                    <div id="prodiContainer" class="col-12 my-1 d-none" wire:ignore.self>
                         <label for="prodi" class="form-label">Program Studi</label>
                         <div wire:ignore>
                             <select class="selectpicker" data-live-search="true" name="prodi" id="prodi"
@@ -133,8 +134,8 @@
                         </div>
                     </div>
 
-                    <!-- NIP/NIM -->
-                    <div class="col-12 d-none animate__animated" id="mahasiswa-input">
+                    <!-- NIM -->
+                    <div class="col-12 d-none animate__animated" id="mahasiswa-input" wire:ignore.self>
                         <!-- NIM -->
                         <label for="nim" class="form-label">NIM</label>
                         <input type="text" name="nim" class="form-control" id="nim"
@@ -147,7 +148,7 @@
                     </div>
 
                     <!-- NIP -->
-                    <div class="col-12 d-block animate__animated" id="dosenStaff-input">
+                    <div class="col-12 d-block animate__animated" id="dosenStaff-input" wire:ignore.self>
                         <label for="nip" class="form-label">NIP</label>
                         <input type="text" name="nip" class="form-control" id="nip"
                             wire:model.defer='nip' />
@@ -175,7 +176,7 @@
                     </div>
                 </div>
 
-                <div id="nonWarga-callback" class="d-none animate__animated">
+                <div id="nonWarga-callback" class="d-none animate__animated" wire:ignore.self>
                     <!-- Pekerjaan -->
                     <div class="col-12 my-1" wire:ignore>
                         <label for="profession" class="form-label">Pekerjaan</label>
@@ -228,6 +229,24 @@
                             <div class="text-danger">
                                 Masukkan alamat!
                             </div>
+                        </div>
+                    </div>
+
+                    {{-- Identifier --}}
+                    <div class="col-12">
+                        <label for="identifier" class="form-label">Jenis Identitas</label>
+                        <input type="text" name="identifier" class="form-control" id="identifier" />
+                        <div class="text-danger">
+                            Masukkan alamat!
+                        </div>
+                    </div>
+
+                    {{-- Identifier Number --}}
+                    <div class="col-12">
+                        <label for="identifierNumber" class="form-label">Nomor Identitas</label>
+                        <input type="text" name="identifierNumber" class="form-control" id="identifierNumber" />
+                        <div class="text-danger">
+                            Masukkan alamat!
                         </div>
                     </div>
                 </div>

@@ -23,12 +23,10 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-
-
         if (Auth::attempt($credentials, $request->remember)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return redirect('/dashboard');
         }
 
         return back()->withErrors([
@@ -49,6 +47,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect(route('login'));
     }
 }

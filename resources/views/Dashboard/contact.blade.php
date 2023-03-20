@@ -25,10 +25,12 @@
                             <div class="info-box card">
                                 <i class="mdi mdi-map-marker"></i>
                                 <h3>Alamat</h3>
-                                <p> <b> Politeknik Teknologi Nuklir Indonesia</b><br><br>Jl. Babarsari Kotak POB 6101/YKKB,
+                                <p> <b> Politeknik Teknologi Nuklir Indonesia (Lantai 4)</b><br><br>Jl. Babarsari Kotak POB
+                                    6101/YKKB,
                                     Ngentak,
                                     Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281, Indonesia
                                 </p>
+                                <a href="https://goo.gl/maps/ApLGkXi3HNGe43A79" class="btn btn-primary">Google Maps</a>
                             </div>
                         </div>
                         <div class="col-lg-6">
