@@ -27,4 +27,9 @@ class Attendance extends Model
     {
         $query->selectRaw('occupation as name, count(*) as value')->groupBy('occupation');
     }
+
+    public function scopeRecent(Builder $query)
+    {
+        $query->orderBy('attendance_time', 'desc')->with('user:id,name');
+    }
 }

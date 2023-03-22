@@ -187,7 +187,14 @@ return [
         'password' => 'Kata Sandi',
         'dose' => 'Dosis',
         'start_time' => 'Waktu mulai',
-        'end_time' => 'Waktu akhir'
+        'end_time' => 'Waktu akhir',
+        'username' => 'Username',
+        'nim' => 'NIM',
+        'nip' => 'NIP',
+        'position' => 'Posisi',
+        'institution' => 'Instansi',
+        'institutionName' => 'Nama instansi',
+        'institutionAddress' => 'Alamat instansi',
     ],
 
 ];

@@ -38,6 +38,8 @@
                                 <h3>Dosen</h3>
                             @elseif (auth()->user()->hasRole('staff'))
                                 <h3>Staff - {{ auth()->user()->unit->unit_name }}</h3>
+                            @elseif (auth()->user()->hasRole('extern'))
+                                <h3>{{ auth()->user()->institution->institution_name }}</h3>
                             @endif
 
                             <div class="social-links mt-2">

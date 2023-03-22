@@ -5,11 +5,10 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Attendance;
 use Illuminate\Database\Query\Builder;
-
+use Livewire\WithPagination;
 
 class AttendanceTable extends Component
 {
-
     public $attendances, $idUser;
 
     protected $listeners = [
@@ -19,10 +18,10 @@ class AttendanceTable extends Component
     public function loadData()
     {
         if (!$this->idUser) :
-            return $this->attendances = Attendance::orderByDesc('attendance_time')->limit(5)->with('user:id,name')->get();
+            return $this->attendances = Attendance::recent()->limit(5)->get();
 
         endif;
-        $this->attendances = Attendance::where('user_id', $this->idUser)->orderBy('attendance_time', 'desc')->with('user:id,name')->get();
+        $this->attendances = Attendance::where('user_id', $this->idUser)->recent()->get();
     }
 
     public function render()

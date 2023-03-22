@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RadioactiveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,4 +38,8 @@ Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::
 
 Route::middleware('auth')->prefix('activity')->controller(ActivityController::class)->name('activity.')->group(function () {
     Route::get('/presensi', 'presensi')->name('presensi');
+});
+
+Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveController::class)->name('radioactive.')->group(function () {
+    Route::get('/detail/{isotopes}', 'index')->name('all');
 });

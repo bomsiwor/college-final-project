@@ -181,7 +181,8 @@
                     <div class="col-12 my-1" wire:ignore>
                         <label for="profession" class="form-label">Pekerjaan</label>
                         <div>
-                            <select class="selectpicker" data-live-search="true" name="profession" id="profession">
+                            <select class="selectpicker" data-live-search="true" name="profession" id="profession"
+                                wire:model.defer='profession_id'>
                                 @foreach ($professions as $pro)
                                     <option value="{{ $pro->id }}">
                                         {{ $pro->profession_name }}</option>
@@ -235,19 +236,30 @@
                     {{-- Identifier --}}
                     <div class="col-12">
                         <label for="identifier" class="form-label">Jenis Identitas</label>
-                        <input type="text" name="identifier" class="form-control" id="identifier" />
+                        <select class="form-select" aria-label="Default select example" name="identifier"
+                            wire:model.defer='identifier'>
+                            <option selected>Open this select menu</option>
+                            <option value="KTP">Kartu Tanda Penduduk</option>
+                            <option value="SIM">Surat Izin Mengemudi</option>
+                            <option value="NIM">Nomor Induk Mahasiswa</option>
+                            <option value="NIP">Nomor Induk Pegawai</option>
+                            <option value="NIS">Nomor Induk Siswa</option>
+                            <option value="PASPOR">Pasport</option>
+                            <option value="KIA">Kartu Identitas Anak</option>
+                        </select>
                         <div class="text-danger">
-                            Masukkan alamat!
+
                         </div>
                     </div>
 
                     {{-- Identifier Number --}}
                     <div class="col-12">
                         <label for="identifierNumber" class="form-label">Nomor Identitas</label>
-                        <input type="text" name="identifierNumber" class="form-control" id="identifierNumber" />
-                        <div class="text-danger">
-                            Masukkan alamat!
-                        </div>
+                        <input type="text" name="identifierNumber" class="form-control" id="identifierNumber"
+                            wire:model.defer='identification_number' />
+                        @error('identifierNumber')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
