@@ -1,6 +1,6 @@
 <div class="table-responsive" wire:init='loadData'>
     @isset($attendances)
-        <table class="table">
+        <table class="table datatable" id="attendanceTable">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -18,13 +18,14 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $att->user->name }}</td>
                         <td>{{ __('activity.' . $att->occupation) }}</td>
-                        <td>{{ $att->attendance_time->isoFormat('dddd') }}</td>
-                        <td>{{ $att->attendance_time->isoFormat('D MMMM Y') }}</td>
+                        {{-- <td>{{ $att->attendance_time->isoFormat('dddd') }}</td> --}}
+                        <td>@hari($att->attendance_time)</td>
+                        {{-- <td>{{ $att->attendance_time->isoFormat('D MMMM Y') }}</td> --}}
+                        <td>@tanggal($att->attendance_time)</td>
                         <td>{{ $att->attendance_time->isoFormat('HH:mm:ss') }} WIB</td>
                         <td>{{ $att->description }}</td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
     @else

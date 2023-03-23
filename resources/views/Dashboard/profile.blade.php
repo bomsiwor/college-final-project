@@ -116,7 +116,8 @@
 
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Jenis Identitas</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->identifier }}</div>
+                                        <div class="col-lg-9 col-md-8">
+                                            {{ __('core.' . auth()->user()->identifier->name) }}</div>
                                     </div>
 
                                     <div class="row">

@@ -40,7 +40,7 @@ class RegisterComponent extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'username' => $this->username,
-            'institution_id' => '1'
+
         ];
 
         switch ($this->wargaCheck) {
@@ -80,7 +80,8 @@ class RegisterComponent extends Component
         return $userData += [
             'identifier' => 'NIP',
             'identification_number' => $this->nip,
-            'profession_id' => '64'
+            'profession_id' => '64',
+            'institution_id' => '1'
         ];
     }
 
@@ -90,7 +91,8 @@ class RegisterComponent extends Component
             'identifier' => 'NIM',
             'identification_number' => $this->nim,
             'profession_id' => '3',
-            'study_program_id' => $this->prodi
+            'study_program_id' => $this->prodi,
+            'institution_id' => '1'
         ];
     }
 
@@ -100,7 +102,8 @@ class RegisterComponent extends Component
             'identifier' => 'NIP',
             'identification_number' => $this->nip,
             'profession_id' => '5',
-            'unit_id' => $this->unit
+            'unit_id' => $this->unit,
+            'institution_id' => '1'
         ];
     }
 

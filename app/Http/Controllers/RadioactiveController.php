@@ -6,8 +6,21 @@ use Illuminate\Support\Facades\Http;
 
 class RadioactiveController extends Controller
 {
-    public function index($isotopes)
+    public function __construct()
     {
+        $this->middleware(['role:lecturer']);
+    }
+
+    public function index()
+    {
+        $title = 'Data ZRA';
+        return view('Radioactive.index', compact('title'));
+    }
+
+    public function detail($isotopes)
+    {
+        $title = 'Detail ZRA';
+
         $response = Http::get("https://www-nds.iaea.org/relnsd/v1/data?fields=levels&nuclides=$isotopes");
         // $response = Http::get('https://www-nds.iaea.org/relnsd/v1/data?fields=levels&nuclides=60co');
 
@@ -28,6 +41,6 @@ class RadioactiveController extends Controller
             return  $data;
         });
 
-        return view('Radioactive.index', compact('response'));
+        return view('Radioactive.index', compact('title', 'response'));
     }
 }

@@ -12,7 +12,6 @@
                         <div class="col-md-8 col-lg-9">
                             <select class="form-select" aria-label="Default select example" name="occupation"
                                 wire:model.defer='occupation'>
-                                <option selected value="null">Pilih opsi</option>
                                 @foreach (App\Enums\PresensiEnum::cases() as $tipe)
                                     <option value="{{ $tipe->value }}">{{ __('activity.' . $tipe->value) }}</option>
                                 @endforeach

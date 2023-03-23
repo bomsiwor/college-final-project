@@ -4,12 +4,15 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Attendance;
-use Illuminate\Database\Query\Builder;
 use Livewire\WithPagination;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Database\Query\Builder;
 
 class AttendanceTable extends Component
 {
-    public $attendances, $idUser;
+    public $attendances;
+    public $idUser;
+    public $pagination = false;
 
     protected $listeners = [
         'addedPresensi' => 'loadData'
@@ -19,7 +22,6 @@ class AttendanceTable extends Component
     {
         if (!$this->idUser) :
             return $this->attendances = Attendance::recent()->limit(5)->get();
-
         endif;
         $this->attendances = Attendance::where('user_id', $this->idUser)->recent()->get();
     }

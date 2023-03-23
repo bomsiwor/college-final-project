@@ -49,8 +49,8 @@
         <div class="row mb-3">
             <label for="name" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap <em>(tanpa gelar)</em></label>
             <div class="col-md-8 col-lg-9">
-                <input name="name" type="text" class="form-control" id="name"
-                    value="{{ auth()->user()->name }}" wire:model.defer='name'>
+                <input name="name" type="text" class="form-control-plaintext" id="name"
+                    value="{{ auth()->user()->name }}" wire:model.defer='name' readonly>
             </div>
         </div>
 

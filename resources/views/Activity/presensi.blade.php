@@ -1,15 +1,19 @@
 @extends('Template.layouts')
 
+
+@push('vendorStyle')
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+@endpush
 @section('main')
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Blank Page</h1>
+            <h1>Data Presensi</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Pages</li>
-                    <li class="breadcrumb-item active">Blank</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Pagu</a></li>
+                    <li class="breadcrumb-item">Presensi</li>
+                    <li class="breadcrumb-item active">Akun ini</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -108,4 +112,15 @@
             $('#presensiModal').modal('hide');
         });
     </script>
+
+    <script>
+        let dataTable = new DataTable("#attendanceTable", {
+            searchable: true,
+        });
+    </script>
 @endsection
+
+@push('vendorScript')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+@endpush

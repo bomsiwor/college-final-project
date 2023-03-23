@@ -96,8 +96,6 @@
                                 <p>Menampilkan maksimum 10 peminjaman terakhir.</p>
                                 <!-- Table with hoverable rows -->
                                 <div class="table-responsive">
-
-
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -176,8 +174,7 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">
-                                                    <a href="#"><img
-                                                            src="https://source.unsplash.com/random/?product"
+                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
                                                             alt="" /></a>
                                                 </th>
                                                 <td>
@@ -191,8 +188,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <a href="#"><img
-                                                            src="https://source.unsplash.com/random/?product"
+                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
                                                             alt="" /></a>
                                                 </th>
                                                 <td>
@@ -206,8 +202,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <a href="#"><img
-                                                            src="https://source.unsplash.com/random/?product"
+                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
                                                             alt="" /></a>
                                                 </th>
                                                 <td>
@@ -220,8 +215,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <a href="#"><img
-                                                            src="https://source.unsplash.com/random/?product"
+                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
                                                             alt="" /></a>
                                                 </th>
                                                 <td>
@@ -235,8 +229,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">
-                                                    <a href="#"><img
-                                                            src="https://source.unsplash.com/random/?product"
+                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
                                                             alt="" /></a>
                                                 </th>
                                                 <td>
@@ -352,7 +345,7 @@
 
                                 <div class="news">
                                     <div class="post-item clearfix">
-                                        <img src="https://source.unsplash.com/random/?news" alt="" />
+                                        <img src="{{ asset('assets/img/no-image.png') }}" alt="" />
                                         <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
                                         <p>
                                             Sit recusandae non aspernatur laboriosam. Quia enim
@@ -361,7 +354,7 @@
                                     </div>
 
                                     <div class="post-item clearfix">
-                                        <img src="https://source.unsplash.com/random/?spongebob" alt="" />
+                                        <img src="{{ asset('assets/img/no-image.png') }}" alt="" />
                                         <h4><a href="#">Quidem autem et impedit</a></h4>
                                         <p>
                                             Illo nemo neque maiores vitae officiis cum eum turos elan
@@ -370,7 +363,7 @@
                                     </div>
 
                                     <div class="post-item clearfix">
-                                        <img src="https://source.unsplash.com/random/?spongebob" alt="" />
+                                        <img src="{{ asset('assets/img/no-image.png') }}" alt="" />
                                         <h4>
                                             <a href="#">Id quia et et ut maxime similique occaecati ut</a>
                                         </h4>
@@ -381,7 +374,7 @@
                                     </div>
 
                                     <div class="post-item clearfix">
-                                        <img src="https://source.unsplash.com/random/?football" alt="" />
+                                        <img src="{{ asset('assets/img/no-image.png') }}" alt="" />
                                         <h4><a href="#">Laborum corporis quo dara net para</a></h4>
                                         <p>
                                             Qui enim quia optio. Eligendi aut asperiores enim
@@ -390,7 +383,7 @@
                                     </div>
 
                                     <div class="post-item clearfix">
-                                        <img src="https://source.unsplash.com/random/?fifa" alt="" />
+                                        <img src="{{ asset('assets/img/no-image.png') }}" alt="" />
                                         <h4>
                                             <a href="#">Et dolores corrupti quae illo quod dolor</a>
                                         </h4>
@@ -444,3 +437,7 @@
         });
     </script>
 @endsection
+
+@push('vendorScript')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@endpush

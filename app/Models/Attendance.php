@@ -25,7 +25,7 @@ class Attendance extends Model
 
     public function scopeStatistic(Builder $query)
     {
-        $query->selectRaw('occupation as name, count(*) as value')->groupBy('occupation');
+        $query->selectRaw('occupation as name, count(*) as value')->groupBy('occupation')->get();
     }
 
     public function scopeRecent(Builder $query)

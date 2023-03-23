@@ -17,7 +17,7 @@
             </a>
             <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="tables-general.html">
+                    <a href="{{ route('admin.manageUser') }}">
                         <i class="mdi mdi-circle"></i><span>Kelola User</span>
                     </a>
                 </li>
@@ -61,10 +61,21 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
-                <i class="mdi mdi-database"></i>
-                <span>Aset/Inventori</span>
+            <a class="nav-link collapsed" data-bs-target="#asset-nav" data-bs-toggle="collapse" href="#">
+                <i class="mdi mdi-file-cabinet"></i><span>Aset/Inventori</span><i class="mdi mdi-tools ms-auto"></i>
             </a>
+            <ul id="asset-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{ route('tool.index') }}">
+                        <i class="mdi mdi-circle"></i><span>Alat</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('radioactive.index') }}">
+                        <i class="mdi mdi-circle"></i><span>Bahan</span>
+                    </a>
+                </li>
+            </ul>
         </li>
 
         <li class="nav-item">

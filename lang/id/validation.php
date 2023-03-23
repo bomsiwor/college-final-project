@@ -99,7 +99,7 @@ return [
     'min' => [
         'array' => 'The :attribute must have at least :min items.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => ':attribute minimal bernilai :min',
         'string' => ':attribute minimal memiliki :min karakter',
     ],
     'min_digits' => 'The :attribute must have at least :min digits.',
@@ -195,6 +195,12 @@ return [
         'institution' => 'Instansi',
         'institutionName' => 'Nama instansi',
         'institutionAddress' => 'Alamat instansi',
+        'inventory_number' => 'Nomor Inventaris',
+        'condition' => 'Kondisi',
+        'merk' => 'Merk',
+        'series' => 'Seri/Tipe',
+        'purchase_date' => 'Tanggal Pembelian',
+        'price' => 'Harga'
     ],
 
 ];

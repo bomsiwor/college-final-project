@@ -12,27 +12,31 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $data['stats'] = Attendance::statistic()->get();
+        $stats = Attendance::statistic();
+        $title = 'Dashboard - Pagu';
+
         // dd($data);
-        return view('Dashboard.index', $data);
+        return view('Dashboard.index', compact('stats', 'title'));
     }
 
     public function profile()
     {
-        $data = [
-            'data' => 'inidata'
-        ];
+        $title = 'Profil';
 
-        return view('Dashboard.profile', $data);
+        return view('Dashboard.profile', compact('title'));
     }
 
     public function help()
     {
-        return view('Dashboard.help');
+        $title = 'Bantuan';
+
+        return view('Dashboard.help', compact('title'));
     }
 
     public function contact()
     {
-        return view('Dashboard.contact');
+        $title = 'Kontak kami';
+
+        return view('Dashboard.contact', compact('title'));
     }
 }

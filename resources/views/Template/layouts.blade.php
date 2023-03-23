@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>SILAB - Insnuk</title>
+    <title>{{ $title }} - Insnuk</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -29,6 +29,12 @@
 
     <!-- Animate -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    {{-- Trikx --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
+    @stack('vendorStyle')
     @livewireStyles
 </head>
 
@@ -43,8 +49,10 @@
 
 </body>
 <!-- Template Main JS File -->
+@stack('vendorScript')
+
+
 <script src="{{ asset('dist/js/main.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @livewireScripts
 
 @yield('script')

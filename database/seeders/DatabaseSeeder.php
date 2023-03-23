@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Radioactive;
+use App\Models\Tool;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
@@ -22,6 +25,8 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Tool::factory(50)->create();
+        Radioactive::factory(10)->create();
 
         $arrayOfRoleNames = ['student', 'lecturer', 'staff', 'extern'];
         $roles = collect($arrayOfRoleNames)->map(function ($role) {

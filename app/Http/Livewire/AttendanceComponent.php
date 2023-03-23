@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class AttendanceComponent extends Component
 {
-    public $occupation, $description;
+    public $occupation = 'biasa', $description;
 
     protected $listeners = [
         'isiPresensi' => 'logging'
