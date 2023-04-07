@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tool;
+use App\Models\Borrow;
 use App\Models\Attendance;
 use App\Models\StudyProgram;
 use Illuminate\Http\Request;
@@ -13,10 +15,13 @@ class DashboardController extends Controller
     public function index()
     {
         $stats = Attendance::statistic();
+        $borrows = Borrow::summaryOfAll();
         $title = 'Dashboard - Pagu';
 
+        $topTool = Tool::topBorrowed();
+
         // dd($data);
-        return view('Dashboard.index', compact('stats', 'title'));
+        return view('Dashboard.index', compact('stats', 'title', 'borrows', 'topTool'));
     }
 
     public function profile()

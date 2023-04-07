@@ -52,6 +52,9 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="password"
                         wire:model.defer='password' required />
+                    <div id="passwordHelp" class="form-text">
+                        minimal terdiri dari 1 kapital, 1 angka, dan 1 simbol.
+                    </div>
                     @error('password')
                         <div class="text-danger">
                             {{ $message }}

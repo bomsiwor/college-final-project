@@ -67,10 +67,9 @@ class RegisterComponent extends Component
                 break;
         }
 
-
-
         $user = User::create($userDetail);
         $user->assignRole($role);
+        $user->assignRole('user');
 
         return redirect(route('login'))->with('registerSuccess');
     }

@@ -39,3 +39,14 @@
 
     </main><!-- End #main -->
 @endsection
+
+@section('script')
+    <script>
+        Livewire.on('toolsAdded', () => {
+            var element =
+                var element = document.querySelector("trix-editor");
+
+            element.editor.loadHTML('');
+        })
+    </script>
+@endsection

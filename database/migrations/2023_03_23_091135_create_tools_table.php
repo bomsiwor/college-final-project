@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('tools', function (Blueprint $table) {
             $table->id();
-            $table->uuid('inventory_number')->unique();
+            $table->uuid('inventory_unique')->unique();
+            $table->string('inventory_number')->nullable();
             $table->string('name');
             $table->string('merk');
             $table->string('series')->nullable();
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->string('tool_image')->nullable();
             $table->string('condition');
             $table->string('status');
+            $table->string('used_status');
             $table->date('purchase_date')->nullable();
             $table->integer('price')->nullable();
             $table->timestamps();

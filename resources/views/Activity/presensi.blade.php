@@ -73,6 +73,15 @@
                         {{-- End Button --}}
                     </div>
                 </div>
+                <div class="col-lg-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Data
+                            </h5>
+                            <a href="{{ route('activity.allAttendance') }}" class="btn btn-primary">Semua data</a>
+                        </div>
+                    </div>
+                </div>
 
 
 

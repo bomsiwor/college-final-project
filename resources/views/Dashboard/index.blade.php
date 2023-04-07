@@ -98,39 +98,28 @@
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th scope="col">#</th>
                                                 <th scope="col">Nama Peminjam</th>
+                                                <th scope="col">Alat</th>
                                                 <th scope="col">Keperluan</th>
                                                 <th scope="col">Tanggal peminjaman</th>
                                                 <th scope="col">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Brandon Jacob</td>
-                                                <td>Praktikum</td>
-                                                <td>Senin, 28 Februari 2023</td>
-                                                <td><span class="badge border-primary border text-primary">Disetujui</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jono Kusman</td>
-                                                <td>Pelatihan</td>
-                                                <td>Senin, 28 Februari 2023</td>
-                                                <td><span class="badge border-warning border text-warning">Pending</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>David</td>
-                                                <td>Main</td>
-                                                <td>Senin, 28 Februari 2023</td>
-                                                <td><span class="badge border-danger border text-danger">Ditolak</span>
-                                                </td>
-                                            </tr>
+                                            @foreach ($borrows as $borrow)
+                                                <tr class="text-center">
+                                                    <th scope="row">{{ $loop->iteration }}</th>
+                                                    <td>{{ $borrow->user->name }}</td>
+                                                    <td>{{ $borrow->inventory->name }}</td>
+                                                    <td>{{ __("activity.$borrow->purpose") }}</td>
+                                                    <td>{{ $borrow->start_borrow_date->isoFormat('DD MMMM Y') }}</td>
+                                                    <td><span
+                                                            class="badge {{ __("core.$borrow->status.class") }}">{{ __("core.$borrow->status.text") }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <!-- End Table with hoverable rows -->
@@ -159,88 +148,38 @@
                                 </div>
 
                                 <div class="card-body pb-0">
-                                    <h5 class="card-title">Top Selling <span>| Today</span></h5>
+                                    <h5 class="card-title">Paling sering digunakan<span>| Today</span></h5>
 
                                     <table class="table table-borderless">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Preview</th>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Sold</th>
-                                                <th scope="col">Revenue</th>
+                                                <th scope="col">Nama Alat</th>
+                                                <th scope="col">Nomor Inventaris</th>
+                                                <th scope="col">Penggunaan</th>
+                                                <th scope="col">Kondisi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
-                                                            alt="" /></a>
-                                                </th>
-                                                <td>
-                                                    <a href="#" class="text-primary fw-bold">Ut inventore ipsa
-                                                        voluptas
-                                                        nulla</a>
-                                                </td>
-                                                <td>$64</td>
-                                                <td class="fw-bold">124</td>
-                                                <td>$5,828</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
-                                                            alt="" /></a>
-                                                </th>
-                                                <td>
-                                                    <a href="#" class="text-primary fw-bold">Exercitationem
-                                                        similique
-                                                        doloremque</a>
-                                                </td>
-                                                <td>$46</td>
-                                                <td class="fw-bold">98</td>
-                                                <td>$4,508</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
-                                                            alt="" /></a>
-                                                </th>
-                                                <td>
-                                                    <a href="#" class="text-primary fw-bold">Doloribus nisi
-                                                        exercitationem</a>
-                                                </td>
-                                                <td>$59</td>
-                                                <td class="fw-bold">74</td>
-                                                <td>$4,366</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
-                                                            alt="" /></a>
-                                                </th>
-                                                <td>
-                                                    <a href="#" class="text-primary fw-bold">Officiis quaerat sint
-                                                        rerum
-                                                        error</a>
-                                                </td>
-                                                <td>$32</td>
-                                                <td class="fw-bold">63</td>
-                                                <td>$2,016</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <a href="#"><img src="{{ asset('assets/img/no-image.png') }}"
-                                                            alt="" /></a>
-                                                </th>
-                                                <td>
-                                                    <a href="#" class="text-primary fw-bold">Sit unde debitis
-                                                        delectus
-                                                        repellendus</a>
-                                                </td>
-                                                <td>$79</td>
-                                                <td class="fw-bold">41</td>
-                                                <td>$3,239</td>
-                                            </tr>
+                                            @foreach ($topTool as $tT)
+                                                <tr>
+                                                    <th scope="row">
+                                                        <a href="#"><img
+                                                                src="{{ asset('assets/img/no-image.png') }}"
+                                                                alt="" /></a>
+                                                    </th>
+                                                    <td>
+                                                        <a href="#"
+                                                            class="text-primary fw-bold">{{ $tT->name }}</a>
+                                                    </td>
+                                                    <td>{{ $tT->inventory_number }}</td>
+                                                    <td class="fw-bold">{{ $tT->borrow_count }} kali</td>
+                                                    <td><span
+                                                            class="badge {{ __("core.$tT->condition.class") }}">{{ __("core.$tT->condition.text") }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>

@@ -66,15 +66,17 @@
                         </div>
                         <form action="/" method="post" class="php-email-form mt-1">
                             <div class="row gy-4">
-                                <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Nama Anda"
-                                        required>
-                                </div>
+                                @guest
+                                    <div class="col-md-6">
+                                        <input type="text" name="name" class="form-control" placeholder="Nama Anda"
+                                            required>
+                                    </div>
 
-                                <div class="col-md-6 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Email anda"
-                                        required>
-                                </div>
+                                    <div class="col-md-6 ">
+                                        <input type="email" class="form-control" name="email" placeholder="Email anda"
+                                            required>
+                                    </div>
+                                @endguest
 
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" name="subject" placeholder="Subjek" required>

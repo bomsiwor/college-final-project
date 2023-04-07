@@ -10,5 +10,9 @@ return [
     'ta' => 'Tugas Akhir',
     'riset' => 'Penelitian',
     'magang' => 'Magang/PKL',
-    'rapat' => 'Rapat/Pertemuan'
+    'rapat' => 'Rapat/Pertemuan',
+    'sosialisasi' => 'Sosialisasi/Kunjungan',
+    'pemas' => 'Pengabdian Masyarakat',
+    'uprak' => 'Ujian Praktikum',
+    'other' => 'Lainnya'
 ];

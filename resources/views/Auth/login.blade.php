@@ -17,9 +17,9 @@
                             <!-- End Logo -->
 
                             <div class="card mb-3 d-flex flex-row animate__animated animate__fadeInDown">
-                                <img src="https://source.unsplash.com/random/?laboratory"
-                                    class="img-fluid rounded-end overflow-hidden d-none d-md-block order-1 z-0 mh-50"
-                                    alt="" />
+                                <img src="{{ asset('assets/img/foto-insnuk.jpg') }}"
+                                    class="img-fluid rounded-end overflow-hidden d-none d-md-block order-1 z-0"
+                                    style="max-width:75%" alt="" />
 
                                 <div class="card-body flex-grow-1 z-1">
                                     <div class="mt-4">

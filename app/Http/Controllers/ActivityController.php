@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tool;
+use App\Models\Borrow;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class ActivityController extends Controller
@@ -30,5 +33,47 @@ class ActivityController extends Controller
         ]);
 
         return view('Activity.allAttendance', compact('title', 'data'));
+    }
+
+    public function indexOfBorrow()
+    {
+        $title = 'Data Peminjaman';
+        $data = Borrow::summaryOfAll();
+
+        return view('Activity.allBorrow', compact('data', 'title'));
+    }
+
+    public function showBorrow(Borrow $borrow)
+    {
+        $title = 'Detail Peminjaman';
+
+        return view('Activity.showBorrow', compact('title', 'borrow'));
+    }
+
+    public function verifyBorrow(Request $request)
+    {
+        $validated = $request->validate([
+            'status' => 'required',
+            'verified_note' => 'nullable'
+        ]);
+
+        $meta = [
+            'verificator_id' => Auth::user()->id,
+            'verified_at' => now()
+        ];
+
+        $validated += $meta;
+
+        try {
+            Borrow::where('id', $request->id)->update($validated);
+
+            if ($request->status == 'accepted') :
+                Tool::where('inventory_unique', $request->unique_id)->update(['status' => 'borrowed']);
+            endif;
+        } catch (\Throwable $e) {
+            return $e->getMessage();
+        }
+
+        return back()->with('success', 'Sukses');
     }
 }

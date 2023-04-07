@@ -84,7 +84,7 @@
             </a>
             <ul id="izin-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="tables-general.html">
+                    <a href="{{ route('activity.borrow.all') }}">
                         <i class="mdi mdi-circle"></i><span>Peminjaman Alat/Bahan</span>
                     </a>
                 </li>

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Excel;
 use App\Models\Tool;
+use App\Imports\ToolImport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -19,16 +22,21 @@ class ToolController extends Controller
         $title = 'Aset - Peralatan';
         $data = Tool::summary();
 
-        $totalGroup = count($data);
-        $perPage = 10;
-        $page = Paginator::resolveCurrentPage('page');
+        $count = DB::table('tools')
+            ->select(DB::raw('count(*) as num'), 'condition')
+            ->groupBy('condition')
+            ->get();
 
-        $data = new LengthAwarePaginator($data->forPage($page, $perPage), $totalGroup, $perPage, $page, [
-            'path' => Paginator::resolveCurrentPath(),
-            'pageName' => 'page',
-        ]);
+        // $totalGroup = count($data);
+        // $perPage = 10;
+        // $page = Paginator::resolveCurrentPage('page');
 
-        return view('Tools.index', compact('data', 'title'));
+        // $data = new LengthAwarePaginator($data->forPage($page, $perPage), $totalGroup, $perPage, $page, [
+        //     'path' => Paginator::resolveCurrentPath(),
+        //     'pageName' => 'page',
+        // ]);
+
+        return view('Tools.index', compact('data', 'title', 'count'));
     }
 
     /**
@@ -48,9 +56,16 @@ class ToolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeExcel(Request $request)
     {
-        //
+        // dd($request->file('toolFile'));
+        try {
+            Excel::import(new ToolImport, $request->file('toolFile'));
+        } catch (\Throwable $e) {
+            return $e->getMessage();
+        }
+
+        return "sukses";
     }
 
     /**
@@ -62,6 +77,15 @@ class ToolController extends Controller
     public function show(Tool $tool)
     {
         $title = 'Detail Alat';
+
+        // $borrows = $tool->load(['borrow' => function ($query) {
+        //     $query->select('borrows.inventory_id', 'borrows.status', 'borrows.id as borrow_id');
+        // }]);
+
+        // dd($borrows);
+
+        // $additional = Tool::where('id', 1)->select(DB::raw('round(datediff(now(), purchase_date)/365,2) as selisih_tahun'))->get();
+        // dd($additional);
 
         return view('Tools.detail', compact('tool', 'title'));
     }
@@ -97,6 +121,12 @@ class ToolController extends Controller
      */
     public function destroy(Tool $tool)
     {
-        //
+        try {
+            $tool->delete();
+        } catch (\Throwable $e) {
+            return response()->json(['error'], 404);
+        }
+
+        return response()->json(['data' => 'sukses']);
     }
 }

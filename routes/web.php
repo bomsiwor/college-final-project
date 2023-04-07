@@ -41,6 +41,9 @@ Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::
 Route::middleware('auth')->prefix('activity')->controller(ActivityController::class)->name('activity.')->group(function () {
     Route::get('/all-attendance', 'allAttendance')->name('allAttendance');
     Route::get('/presensi', 'presensi')->name('presensi');
+    Route::get('/borrow', 'indexOfBorrow')->name('borrow.all');
+    Route::get('/borrow/{borrow}', 'showBorrow')->name('borrow.detail');
+    Route::post('/verify-borrow', 'verifyBorrow')->name('borrow.verify');
 });
 
 Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveController::class)->name('radioactive.')->group(function () {
@@ -50,8 +53,11 @@ Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveControll
 
 Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->name('tool.')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::get('/detail/{tool:inventory_number}', 'show')->name('detail');
+    Route::get('/detail/{tool:inventory_unique}', 'show')->name('detail');
     Route::get('/create', 'create')->name('create');
+    Route::delete('/delete/{tool:inventory_unique}', 'destroy')->name('delete');
+
+    Route::post('/bulk-upload', 'storeExcel')->name('create.bulk');
 });
 
 Route::middleware(['auth'])->prefix('admin')->controller(AdminController::class)->name('admin.')->group(function () {

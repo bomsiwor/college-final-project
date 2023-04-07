@@ -16,8 +16,18 @@ class Tool extends Model
 
     protected $dates = ['updated_at', 'purchase_date'];
 
+    public function borrow()
+    {
+        return $this->hasMany(Borrow::class, 'inventory_id', 'inventory_unique');
+    }
+
     public function scopeSummary(Builder $query)
     {
-        return $query->select('name', 'merk', 'series', 'condition', 'status', 'inventory_number')->orderBy('purchase_date', 'desc')->get();
+        return $query->select('name', 'merk', 'series', 'condition', 'status', 'inventory_unique')->orderBy('purchase_date', 'desc')->get();
+    }
+
+    public function scopeTopBorrowed(Builder $query)
+    {
+        return $query->select('id', 'name', 'inventory_number', 'condition')->withCount('borrow')->orderByDesc('borrow_count')->limit(5)->get();
     }
 }

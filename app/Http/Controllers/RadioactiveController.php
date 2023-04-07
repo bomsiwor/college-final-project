@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Http;
 
 class RadioactiveController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['role:lecturer']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['role:lecturer']);
+    // }
 
     public function index()
     {

@@ -17,7 +17,7 @@ return [
     'accepted_if' => 'The :attribute must be accepted when :other is :value.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
-    'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
+    'after_or_equal' => ':attribute minimal hari ini',
     'alpha' => 'The :attribute must only contain letters.',
     'alpha_dash' => 'The :attribute must only contain letters, numbers, dashes and underscores.',
     'alpha_num' => 'The :attribute must only contain letters and numbers.',
@@ -163,8 +163,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'expected_return_date' => [
+            'after_or_equal' => ':attribute minimal sama dengan :date',
         ],
     ],
 
@@ -200,7 +200,11 @@ return [
         'merk' => 'Merk',
         'series' => 'Seri/Tipe',
         'purchase_date' => 'Tanggal Pembelian',
-        'price' => 'Harga'
+        'price' => 'Harga',
+        'start_borrow_date' => 'Tanggal awal peminjaman',
+        'expected_return_date' => 'Rencana waktu pengembalian',
+        'description' => 'Keterangan',
+        'purpose' => 'Keperluan'
     ],
 
 ];

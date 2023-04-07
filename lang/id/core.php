@@ -6,13 +6,17 @@ return [
         'text' => 'Baik/Layak',
         'class' => 'border-success border text-success'
     ],
-    'not good' => [
-        'text' => 'Kurang Layak',
+    'minor' => [
+        'text' => 'Rusak Ringan',
         'class' => 'border-warning border text-warning'
     ],
-    'broken' => [
-        'text' => 'Rusak',
+    'severe' => [
+        'text' => 'Rusak Berat',
         'class' => 'border-danger border text-danger'
+    ],
+    'unknown' => [
+        'text' => 'Belum Diketahui',
+        'class' => 'border-dark border text-dark'
     ],
 
     // Bagian ketersediaan
@@ -27,6 +31,10 @@ return [
     'maintained' => [
         'text' => 'Dirawat',
         'symbol' => 'mdi-cog text-warning'
+    ],
+    'unavailable' => [
+        'text' => 'Tidak digunakan',
+        'symbol' => 'mdi-cog text-danger'
     ],
 
     // Role
@@ -50,6 +58,24 @@ return [
     // Identitas
     'NIM' => 'Nomor Induk Mahasiswa',
     'NIP' => 'Nomor Induk Pegawai',
-    'KTP' => 'Kartu Identitas Penduduk'
+    'KTP' => 'Kartu Identitas Penduduk',
 
+    // Ini bagian peralatan
+    'accepted' => [
+        'text' => 'Disetujui',
+        'class' => 'border-success border text-success'
+    ],
+    'pending' => [
+        'text' => 'Menunggu',
+        'class' => 'border-warning border text-warning'
+    ],
+    'rejected' => [
+        'text' => 'Ditolak',
+        'class' => 'border-danger border text-danger'
+    ],
+
+    // Bagian kembali
+    'on time' => 'Tepat Waktu',
+    'not returned' => 'Belum Kembali',
+    'overdue' => 'Terlambat'
 ];

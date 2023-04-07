@@ -5,6 +5,16 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="" id="createTool" wire:submit.prevent='submit'>
         {{-- Nama alat --}}
         <div class="row mb-3">
@@ -71,8 +81,9 @@
                     wire:model.defer='condition'>
                     <option value="null">Pilih...</option>
                     <option value="good">Baik/Layak pakai</option>
-                    <option value="not good">Kurang Baik</option>
-                    <option value="broken">Rusak</option>
+                    <option value="minor">Kurang Baik</option>
+                    <option value="severe">Rusak</option>
+                    <option value="unknown">Tidak diketahui</option>
                 </select>
                 @error('condition')
                     <div class="text-danger">
@@ -92,8 +103,27 @@
                     <option value="available">Ada</option>
                     <option value="borrowed">Dipinjam</option>
                     <option value="maintained">Perawatan</option>
+                    <option value="unavailable">Tidak Tersedia</option>
                 </select>
                 @error('status')
+                    <div class="text-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+
+        {{-- used-status --}}
+        <div class="row mb-3">
+            <label for="used_status" class="col-md-4 col-lg-3 col-form-label">Status Operasional</label>
+            <div class="col-md-8 col-lg-5">
+                <select class="form-select @error('used_status') is-invalid @enderror" name="used_status"
+                    wire:model.defer='used_status'>
+                    <option value="null">Pilih</option>
+                    <option value="used">Digunakan</option>
+                    <option value="unused">Tidak Digunakan</option>
+                </select>
+                @error('used_status')
                     <div class="text-danger">
                         {{ $message }}
                     </div>
@@ -134,9 +164,9 @@
         </div>
 
         {{-- Deskripsi --}}
-        <div class="row mb-3" wire:ignore>
+        <div class="row mb-3">
             <label for="description" class="col-md-4 col-lg-3 col-form-label">Deskripsi/Keterangan</label>
-            <div class="col-md-8 col-lg-9">
+            <div class="col-md-8 col-lg-9" wire:ignore>
                 <input id="description" type="hidden">
                 <trix-editor input="description"></trix-editor>
             </div>
