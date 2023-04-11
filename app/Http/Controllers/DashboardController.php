@@ -7,8 +7,6 @@ use App\Models\Borrow;
 use App\Models\Attendance;
 use App\Models\StudyProgram;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {

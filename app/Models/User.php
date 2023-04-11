@@ -86,4 +86,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Borrow::class);
     }
+
+    public function returning()
+    {
+        return $this->hasMany(Returning::class, 'verificator_id', 'id');
+    }
 }

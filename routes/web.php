@@ -41,8 +41,13 @@ Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::
 Route::middleware('auth')->prefix('activity')->controller(ActivityController::class)->name('activity.')->group(function () {
     Route::get('/all-attendance', 'allAttendance')->name('allAttendance');
     Route::get('/presensi', 'presensi')->name('presensi');
+
     Route::get('/borrow', 'indexOfBorrow')->name('borrow.all');
     Route::get('/borrow/{borrow}', 'showBorrow')->name('borrow.detail');
+
+    Route::get('/admin/borrow', 'adminBorrow')->name('admin.borrow')->middleware('role:admin');
+    Route::get('/admin/return/{borrow}', 'returnBorrow')->name('admin.returning.store')->middleware('role:admin');
+
     Route::post('/verify-borrow', 'verifyBorrow')->name('borrow.verify');
 });
 

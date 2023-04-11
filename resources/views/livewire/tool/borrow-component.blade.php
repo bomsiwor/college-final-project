@@ -21,7 +21,13 @@
                             <td class="text-center">{{ $d->user->name }}</td>
                             <td>{{ __("activity.$d->purpose") }}</td>
                             <td class="text-center">{{ $d->start_borrow_date->isoFormat('DD MMMM Y') }}</td>
-                            <td>{{ $d->actual_return_date }}</td>
+                            <td>
+                                @empty($d->actual_return_date)
+                                    -
+                                @else
+                                    {{ $d->actual_return_date->isoFormat('DD MMMM Y') }}
+                                @endempty
+                            </td>
                             <td class="text-center">{{ __("core.$d->status_peminjaman") }}</td>
                         </tr>
                     @endforeach

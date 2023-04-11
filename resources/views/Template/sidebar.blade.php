@@ -10,34 +10,37 @@
         </li>
         <!-- End Dashboard Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                <i class="mdi mdi-application-settings"></i><span>Menu Admin</span><i
-                    class="mdi mdi-shield-crown ms-auto"></i>
-            </a>
-            <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="{{ route('admin.manageUser') }}">
-                        <i class="mdi mdi-circle"></i><span>Kelola User</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="tables-data.html">
-                        <i class="mdi mdi-circle"></i><span>Kelola Aset</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="tables-data.html">
-                        <i class="mdi mdi-circle"></i><span>Kelola Peminjaman</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="tables-data.html">
-                        <i class="mdi mdi-circle"></i><span>Kelola Postingan</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
+        {{-- Admin menu --}}
+        @role('admin')
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                    <i class="mdi mdi-application-settings"></i><span>Menu Admin</span><i
+                        class="mdi mdi-shield-crown ms-auto"></i>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="{{ route('admin.manageUser') }}">
+                            <i class="mdi mdi-circle"></i><span>Kelola User</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tables-data.html">
+                            <i class="mdi mdi-circle"></i><span>Kelola Aset</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('activity.admin.borrow') }}">
+                            <i class="mdi mdi-circle"></i><span>Kelola Peminjaman</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tables-data.html">
+                            <i class="mdi mdi-circle"></i><span>Kelola Postingan</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        @endrole
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('activity.presensi') }}">

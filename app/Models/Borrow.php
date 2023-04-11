@@ -38,7 +38,7 @@ class Borrow extends Model
 
     public function scopeSummaryOfAll(Builder $query)
     {
-        return $query->select('id', 'user_id', 'purpose', 'inventory_id', 'start_borrow_date', 'expected_return_date', 'status', 'verificator_id')->with(['user:id,name', 'inventory:inventory_unique,name', 'verificator:id,name'])->get();
+        return $query->select('id', 'user_id', 'purpose', 'inventory_id', 'start_borrow_date', 'expected_return_date', 'status', 'verificator_id')->with(['user:id,name', 'inventory:inventory_unique,name', 'verificator:id,name'])->orderByDesc('created_at')->get();
     }
 
     public function scopeNotif(Builder $query)

@@ -4,12 +4,14 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Imports\ToolImport;
 use App\Models\Tool;
 use App\Models\User;
 use App\Models\Radioactive;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Excel;
 
 class DatabaseSeeder extends Seeder
 {
@@ -56,5 +58,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user->assignRole('student', 'admin');
+
+        Excel::import(new ToolImport, 'data-alat-insnuk-final.xlsx');
     }
 }

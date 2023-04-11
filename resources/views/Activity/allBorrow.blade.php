@@ -39,7 +39,7 @@
                                     @foreach ($data as $borrow)
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
-                                            <td>{{ $borrow->user->name }}</td>
+                                            <td class="fs-6">{{ $borrow->user->name }}</td>
                                             <td class="text-center">{{ $borrow->inventory->name }}</td>
                                             <td class="text-center">
                                                 {{ $borrow->start_borrow_date->isoFormat('dddd, DD-MM-Y') }}
@@ -58,7 +58,7 @@
                                             </td>
                                             <td class="text-center"><a
                                                     href="{{ route('activity.borrow.detail', ['borrow' => $borrow->id]) }}"
-                                                    class="btn btn-primary">Detail</a></td>
+                                                    class="btn btn-sm btn-primary">Detail</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
