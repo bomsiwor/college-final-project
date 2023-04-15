@@ -36,6 +36,7 @@ Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::
     Route::get('/profile', 'profile')->name('profile');
     Route::get('/help', 'help')->name('help');
     Route::get('/contact-us', 'contact')->name('contact');
+    Route::get('/blank', 'blank')->name('blank');
 });
 
 Route::middleware('auth')->prefix('activity')->controller(ActivityController::class)->name('activity.')->group(function () {
@@ -61,6 +62,8 @@ Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->na
     Route::get('/detail/{tool:inventory_unique}', 'show')->name('detail');
     Route::get('/create', 'create')->name('create');
     Route::delete('/delete/{tool:inventory_unique}', 'destroy')->name('delete');
+
+    Route::post('/logs', 'logs')->name('logs');
 
     Route::post('/bulk-upload', 'storeExcel')->name('create.bulk');
 });

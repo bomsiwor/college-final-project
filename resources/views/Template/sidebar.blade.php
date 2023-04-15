@@ -50,7 +50,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
+            <a class="nav-link collapsed" href="{{ route('dashboard.blank') }}">
                 <i class="mdi mdi-tools"></i>
                 <span>Logging Barang</span>
             </a>
@@ -92,7 +92,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="tables-general.html">
+                    <a href="#">
                         <i class="mdi mdi-circle"></i><span>Penggunaan Lab</span>
                     </a>
                 </li>

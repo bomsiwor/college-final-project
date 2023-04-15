@@ -21,12 +21,12 @@ return new class extends Migration
             $table->string('merk');
             $table->string('series')->nullable();
             $table->text('description')->nullable();
-            $table->string('tool_image')->nullable();
             $table->string('condition');
             $table->string('status');
             $table->string('used_status');
             $table->date('purchase_date')->nullable();
             $table->integer('price')->nullable();
+            $table->json('tool_image')->nullable();
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Imports\RadionuclideImport;
 use App\Imports\ToolImport;
 use App\Models\Tool;
 use App\Models\User;
@@ -30,7 +31,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         // Tool::factory(50)->create();
-        Radioactive::factory(10)->create();
+        // Radioactive::factory(10)->create();
 
         $arrayOfRoleNames = ['student', 'lecturer', 'staff', 'extern', 'admin', 'user'];
         $roles = collect($arrayOfRoleNames)->map(function ($role) {
@@ -60,5 +61,6 @@ class DatabaseSeeder extends Seeder
         $user->assignRole('student', 'admin');
 
         Excel::import(new ToolImport, 'data-alat-insnuk-final.xlsx');
+        Excel::import(new RadionuclideImport, 'data-zra-insnuk.xlsx');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Excel;
 use App\Models\Tool;
 use App\Imports\ToolImport;
+use App\Models\ToolLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
@@ -36,7 +37,14 @@ class ToolController extends Controller
         //     'pageName' => 'page',
         // ]);
 
-        return view('Tools.index', compact('data', 'title', 'count'));
+        return view(
+            'Tools.index',
+            compact(
+                'data',
+                'title',
+                'count'
+            )
+        );
     }
 
     /**
@@ -128,5 +136,14 @@ class ToolController extends Controller
         }
 
         return response()->json(['data' => 'sukses']);
+    }
+
+    public function logs(Request $request)
+    {
+        $data = ToolLog::create($request->all());
+
+        $add = $data->additional;
+
+        dd($add['hv']);
     }
 }

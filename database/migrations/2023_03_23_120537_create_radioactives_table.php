@@ -15,17 +15,22 @@ return new class extends Migration
     {
         Schema::create('radioactives', function (Blueprint $table) {
             $table->id();
-            $table->uuid('inventory_number')->unique();
-            $table->string('name');
-            $table->string('isotope_number');
-            $table->string('slug');
-            $table->date('purchase_date');
-            $table->date('production_date');
-            $table->integer('activity_ci');
-            $table->integer('activity_bq');
-            $table->string('product_number');
-            $table->text('description');
+            $table->uuid('inventory_unique')->unique();
+            $table->integer('entry_number')->nullable();
+            $table->string('inventory_number');
+            $table->string('element_name')->nullable()->default('unknown');
+            $table->string('element_symbol')->nullable()->default('unknown');
+            $table->string('isotope_number')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('initial_activity');
+            $table->integer('quantity');
+            $table->string('packaging_type');
+            $table->date('purchase_date')->nullable();
+            $table->date('manufacturing_date');
             $table->string('status');
+            $table->string('condition');
+            $table->string('properties');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

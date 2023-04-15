@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+
+
     public function index()
     {
         $stats = Attendance::statistic();
@@ -17,7 +19,6 @@ class DashboardController extends Controller
         $title = 'Dashboard - Pagu';
 
         $topTool = Tool::topBorrowed();
-
         // dd($data);
         return view('Dashboard.index', compact('stats', 'title', 'borrows', 'topTool'));
     }
@@ -41,5 +42,11 @@ class DashboardController extends Controller
         $title = 'Kontak kami';
 
         return view('Dashboard.contact', compact('title'));
+    }
+
+    public function blank()
+    {
+        $title = 'Percobaan ';
+        return view('Dashboard.blank', compact('title'));
     }
 }
