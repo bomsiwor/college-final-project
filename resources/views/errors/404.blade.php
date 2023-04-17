@@ -1,5 +1,5 @@
 @extends('errors.layout')
 
-@section('title', __('Not Found'))
+@section('title', __('core.404'))
 @section('code', '404')
-@section('message', __('Not Found'))
+@section('message', __('core.404'))

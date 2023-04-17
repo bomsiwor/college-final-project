@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('merk');
             $table->string('series')->nullable();
+            $table->string('log_flag')->nullable();
             $table->text('description')->nullable();
             $table->string('condition');
             $table->string('status');

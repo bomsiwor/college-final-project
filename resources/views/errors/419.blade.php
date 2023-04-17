@@ -1,5 +1,5 @@
-@extends('errors::minimal')
+@extends('errors.layout')
 
-@section('title', __('Page Expired'))
+@section('title', __('Halaman kedaluwarsa'))
 @section('code', '419')
-@section('message', __('Page Expired'))
+@section('message', __('Silakan kembali dan isi form ulang.'))

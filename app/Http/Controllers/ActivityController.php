@@ -61,7 +61,7 @@ class ActivityController extends Controller
 
         $meta = [
             'verificator_id' => Auth::user()->id,
-            'verified_at' => now()
+            'verified_at' => now(),
         ];
 
         $validated += $meta;
@@ -105,5 +105,12 @@ class ActivityController extends Controller
         });
 
         return redirect()->back();
+    }
+
+    public function radiationLog()
+    {
+        $title = 'Penerimaan Radiasi';
+
+        return view('Activity.radiationLog', compact('title'));
     }
 }

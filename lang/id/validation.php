@@ -94,7 +94,7 @@ return [
         'string' => ':attribute minimal memiliki :min karakter',
     ],
     'max_digits' => 'The :attribute must not have more than :max digits.',
-    'mimes' => 'The :attribute must be a file of type: :values.',
+    'mimes' => ':attribute harus memiliki format: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
         'array' => 'The :attribute must have at least :min items.',
@@ -166,6 +166,13 @@ return [
         'expected_return_date' => [
             'after_or_equal' => ':attribute minimal sama dengan :date',
         ],
+        'hv' => [
+            'required_if' => ':attribute harus diisi untuk detektor yang dipilih'
+        ],
+        'end_time' => [
+            'after_or_equal' => ':attribute minimal sama dengan waktu mulai'
+        ],
+
     ],
 
     /*
@@ -204,7 +211,15 @@ return [
         'start_borrow_date' => 'Tanggal awal peminjaman',
         'expected_return_date' => 'Rencana waktu pengembalian',
         'description' => 'Keterangan',
-        'purpose' => 'Keperluan'
+        'purpose' => 'Keperluan',
+        'toolFile' => 'File Excel alat',
+        'hv' => 'HV',
+        'detector' => 'Detektor',
+        'amp' => 'Arus Kerja',
+        'adc' => 'ADC',
+        'start_doses' => 'Dosis Awal',
+        'end_doses' => 'Dosis Akhir',
+        'laju_paparan' => 'Laju Paparan'
     ],
 
 ];

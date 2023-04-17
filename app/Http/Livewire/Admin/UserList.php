@@ -11,7 +11,7 @@ class UserList extends Component
 
     public function loadData()
     {
-        $this->data = User::with(['institution:id,institution_name', 'profession'])->get();
+        $this->data = User::with(['institution:id,institution_name'])->get();
     }
 
     public function render()

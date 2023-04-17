@@ -1,129 +1,154 @@
-<!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
-    <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-heading">Menu Utama</li>
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        {{-- Pagu --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/dashboard">
-                <i class="mdi mdi-view-dashboard"></i>
-                <span>Pagu</span>
+            <a class="nav-link" href="{{ route('dashboard.index') }}">
+                <i class="mdi mdi-grid-large menu-icon"></i>
+                <span class="menu-title">Pagu</span>
             </a>
         </li>
-        <!-- End Dashboard Nav -->
-
-        {{-- Admin menu --}}
+        {{-- Presensi --}}
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="mdi mdi-door-open menu-icon"></i>
+                <span class="menu-title">Presensi</span>
+            </a>
+        </li>
+        {{-- Admin --}}
         @role('admin')
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                    <i class="mdi mdi-application-settings"></i><span>Menu Admin</span><i
-                        class="mdi mdi-shield-crown ms-auto"></i>
+                <a class="nav-link" data-bs-toggle="collapse" href="#admin-menu" aria-expanded="false"
+                    aria-controls="admin-menu">
+                    <i class="mdi mdi-lock menu-icon"></i>
+                    <span class="menu-title">Menu Admin</span>
+                    <i class="menu-arrow"></i>
                 </a>
-                <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="{{ route('admin.manageUser') }}">
-                            <i class="mdi mdi-circle"></i><span>Kelola User</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tables-data.html">
-                            <i class="mdi mdi-circle"></i><span>Kelola Aset</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('activity.admin.borrow') }}">
-                            <i class="mdi mdi-circle"></i><span>Kelola Peminjaman</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tables-data.html">
-                            <i class="mdi mdi-circle"></i><span>Kelola Postingan</span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="collapse" id="admin-menu">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('admin.manageUser') }}">
+                                Kelola User</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('activity.admin.borrow') }}">Kelola
+                                Peminjaman</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Kelola Postingan</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Kritik & Saran User</a>
+                        </li>
+                    </ul>
+                </div>
             </li>
         @endrole
 
+        {{-- Aset --}}
+        <li class="nav-item nav-category">Aset & Inventaris</li>
+        {{-- Alat --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('activity.presensi') }}">
-                <i class="mdi mdi-badge-account-alert"></i>
-                <span>Presensi</span>
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                aria-controls="ui-basic">
+                <i class="menu-icon mdi mdi-tools"></i>
+                <span class="menu-title">Alat</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('tool.index') }}">Daftar
+                            Alat</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/breadcrumbs.html">Log
+                            Penggunaan</a></li>
+                </ul>
+            </div>
+        </li>
+        {{-- Sumber --}}
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-advanced" aria-expanded="false"
+                aria-controls="ui-advanced">
+                <i class="menu-icon mdi mdi-radioactive-circle-outline"></i>
+                <span class="menu-title">Sumber Radioaktif</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-advanced">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('radioactive.index') }}">Daftar
+                            Sumber</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/clipboard.html">Log
+                            Penggunaan</a></li>
+                </ul>
+            </div>
+        </li>
+        {{-- Peminjaman --}}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('activity.borrow.all') }}">
+                <i class="mdi mdi-book-clock-outline menu-icon"></i>
+                <span class="menu-title">Peminjaman</span>
             </a>
         </li>
 
+        {{-- Perawatan --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dashboard.blank') }}">
-                <i class="mdi mdi-tools"></i>
-                <span>Logging Barang</span>
+            <a class="nav-link" href="{{ route('tool.maintenance.index') }}">
+                <i class="mdi mdi-book-clock-outline menu-icon"></i>
+                <span class="menu-title">Perawatan</span>
             </a>
         </li>
-
+        {{-- Laporkan --}}
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
-                <i class="mdi mdi-radioactive-circle"></i>
-                <span>Logging Radiasi</span>
+            <a class="nav-link" href="{{ route('tool.report') }}">
+                <i class="mdi mdi-alert menu-icon"></i>
+                <span class="menu-title text-danger">Laporkan Kerusakan</span>
             </a>
         </li>
+        <li class="nav-item nav-category">Laboratorium</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#asset-nav" data-bs-toggle="collapse" href="#">
-                <i class="mdi mdi-file-cabinet"></i><span>Aset/Inventori</span><i class="mdi mdi-tools ms-auto"></i>
+            <a class="nav-link" href="#">
+                <i class="mdi mdi-location-enter menu-icon"></i>
+                <span class="menu-title">Izin Penggunaan</span>
             </a>
-            <ul id="asset-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="{{ route('tool.index') }}">
-                        <i class="mdi mdi-circle"></i><span>Alat</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('radioactive.index') }}">
-                        <i class="mdi mdi-circle"></i><span>Bahan</span>
-                    </a>
-                </li>
-            </ul>
         </li>
-
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#izin-nav" data-bs-toggle="collapse" href="#">
-                <i class="mdi mdi-file-cabinet"></i><span>Perizinan</span><i class="mdi mdi-information ms-auto"></i>
+            <a class="nav-link" href="{{ route('activity.radiationLog') }}">
+                <i class="mdi mdi-skull-scan menu-icon"></i>
+                <span class="menu-title">Log Penerimaan Dosis</span>
             </a>
-            <ul id="izin-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="{{ route('activity.borrow.all') }}">
-                        <i class="mdi mdi-circle"></i><span>Peminjaman Alat/Bahan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="mdi mdi-circle"></i><span>Penggunaan Lab</span>
-                    </a>
-                </li>
-            </ul>
         </li>
-
-        <!-- End Tables Nav -->
-
-        <li class="nav-heading">Menu Lain</li>
-
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dashboard.help') }}">
-                <i class="mdi mdi-help-rhombus"></i>
-                <span>Bantuan</span>
+            <a class="nav-link" data-bs-toggle="collapse" href="#documentLab" aria-expanded="false"
+                aria-controls="documentLab">
+                <i class="menu-icon mdi mdi-file-certificate"></i>
+                <span class="menu-title">Dokumen</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="documentLab">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html">
+                            Praktikum</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login-2.html">
+                            Tata-tertib</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.html">
+                            Prosedur Kinerja</a></li>
+                </ul>
+            </div>
         </li>
-
+        <li class="nav-item nav-category">Penting</li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('dashboard.contact') }}">
-                <i class="mdi mdi-contactless-payment-circle-outline"></i>
-                <span>Kontak Kami</span>
+            <a class="nav-link" href="{{ route('dashboard.agenda') }}">
+                <i class="menu-icon mdi mdi-calendar"></i>
+                <span class="menu-title">Jadwal</span>
             </a>
         </li>
-
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="mdi mdi-post"></i>
-                <span>Postingan</span>
+            <a class="nav-link" href="{{ route('dashboard.help') }}">
+                <i class="menu-icon mdi mdi-help"></i>
+                <span class="menu-title">Bantuan</span>
             </a>
         </li>
-        <!-- End Profile Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard.contact') }}">
+                <i class="menu-icon mdi mdi-phone"></i>
+                <span class="menu-title">Kontak Kami</span>
+            </a>
+        </li>
     </ul>
-</aside>
-<!-- End Sidebar-->
+</nav>

@@ -1,104 +1,112 @@
 @extends('Auth.layout')
 
 @section('main')
-    <main>
-        <div class="container">
-            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 col-md-6 d-flex flex-column align-items-center justify-content-center">
-                            <!-- Logo -->
-                            <div class="d-flex justify-content-center py-4">
-                                <a href="#" class="logo d-flex align-items-center w-auto">
-                                    <img src="assets/img/logo.png" alt="" />
-                                    <span class="d-none d-lg-block">Insnuk Merdeka</span>
-                                </a>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+                <div class="row flex-grow">
+                    <!-- Kolom Kiri -->
+                    <div
+                        class="col-lg-6 d-flex align-items-center justify-content-center animate__animated animate__fadeInLeft">
+                        <div class="auth-form-transparent text-left p-3">
+                            <div class="brand-logo">
+                                <img src="{{ asset('assets/img/logo-insnuk.png') }}" alt="logo" />
                             </div>
-                            <!-- End Logo -->
-
-                            <div class="card mb-3 d-flex flex-row animate__animated animate__fadeInDown">
-                                <img src="{{ asset('assets/img/foto-insnuk.jpg') }}"
-                                    class="img-fluid rounded-end overflow-hidden d-none d-md-block order-1 z-0"
-                                    style="max-width:75%" alt="" />
-
-                                <div class="card-body flex-grow-1 z-1">
-                                    <div class="mt-4">
-                                        @if (session()->exists('registerSuccess'))
-                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                <strong>Pendaftaran akun sukses!</strong> Silakan login
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                        @endif
-
-                                        @if ($errors->any())
-                                            <div class="alert alert-danger">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <div class="pb-2">
-                                        <h5 class="card-title text-center pb-0 fs-4">
-                                            Selamat datang! &#129409;
-                                        </h5>
-                                        <p class="text-center small">Masuk untuk melanjutkan</p>
-                                    </div>
-
-                                    <form class="row g-3 needs-validation" method="POST" action="/auth" novalidate
-                                        autocomplete="off">
-                                        @csrf
-                                        <div class="col-12">
-                                            <label for="email" class="form-label">Username / Email</label>
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                                <input type="text" name="email" class="form-control" id="email"
-                                                    required />
-                                                <div class="invalid-feedback">Tidak valid.</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label for="password" class="form-label">Password</label>
-                                            <input type="password" name="password" class="form-control" id="password"
-                                                required />
-                                            <div class="invalid-feedback">Masukkan password</div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="remember"
-                                                    value="true" id="rememberMe" />
-                                                <label class="form-check-label" for="rememberMe">Ingat saya</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100" type="submit">
-                                                Masuk
-                                            </button>
-                                        </div>
-                                        <div class="col-12">
-                                            <p class="small mb-0">
-                                                Belum punya akun?
-                                                <a href="{{ route('register') }}">Daftar!</a>
-                                            </p>
-                                        </div>
-                                    </form>
-
+                            <h4>Selamat Datang!</h4>
+                            <h6 class="fw-light">Senang bertemu dengan anda.</h6>
+                            @if (session()->exists('registerSuccess'))
+                                <div class="alert alert-fill-success mb-0" role="alert">
+                                    <i class="ti-info-alt"></i>
+                                    Sukses mendaftar! Silakan login untuk melanjutkan dan
+                                    menikmati fitur lain.
                                 </div>
-                            </div>
+                            @endif
 
-                            <div class="credits">
-                                Designed by
-                                <a href="#">Bomsiwor</a>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form class="pt-1" method="post" action="/auth">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="exampleInputEmail">Username/Email</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="fa-regular fa-user text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="email" name="email"
+                                            class="form-control form-control-lg border-left-0" id="exampleInputEmail"
+                                            placeholder="Username / Email" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword">Kata Sandi</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="fa-solid fa-lock text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="password" class="form-control form-control-lg border-left-0"
+                                            id="exampleInputPassword" name="password" placeholder="Password" />
+                                    </div>
+                                </div>
+                                <div class="my-2 d-flex justify-content-between align-items-center">
+                                    <div class="form-check">
+                                        <label class="form-check-label text-muted">
+                                            <input type="checkbox" name="remember" class="form-check-input" />
+                                            Ingat saya
+                                            <i class="input-helper"></i></label>
+                                    </div>
+                                    <a href="#" class="auth-link text-black">Lupa kata sandi?</a>
+                                </div>
+                                <div class="my-3">
+                                    <button type="submit"
+                                        class="btn btn-block btn-primary font-weight-medium auth-form-btn">LOGIN</button>
+                                </div>
+                            </form>
+                            <div class="text-center text-muted mb-1">
+                                Atau masuk menggunakan
+                            </div>
+                            <div class="mb-2 d-flex justify-content-center">
+                                <button type="button" class="btn btn-social-icon btn-outline-facebook mx-3">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </button>
+                                <button type="button" class="btn btn-social-icon btn-outline-twitter mx-2">
+                                    <i class="fa-brands fa-github"></i>
+                                </button>
+                                <button type="button" class="btn btn-social-icon btn-outline-linkedin mx-2">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </button>
+                                <button type="button" class="btn btn-social-icon btn-outline-google mx-2">
+                                    <i class="fa-brands fa-google"></i>
+                                </button>
+                            </div>
+                            <div class="text-center mt-4 fw-light">
+                                Belum memiliki akun?
+                                <a href="{{ route('register') }}" class="text-primary">Daftar</a>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Gambar Login -->
+                    <div class="col-lg-6 login-half-bg d-flex flex-row">
+                        <p class="text-white font-weight-medium text-center flex-grow align-self-end">
+                            Copyright © 2021 All rights reserved. <br />
+                            Designed by Bomsiwor © 2023 All rights reserved.
+                        </p>
+                    </div>
                 </div>
-            </section>
+            </div>
+            <!-- content-wrapper ends -->
         </div>
-    </main>
+        <!-- page-body-wrapper ends -->
+    </div>
 @endsection

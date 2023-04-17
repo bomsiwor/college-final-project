@@ -1,5 +1,9 @@
 @extends('Template.layouts')
 
+@push('vendorStyle')
+    @livewireStyles
+@endpush
+
 @push('vendorScript')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endpush
@@ -212,6 +216,7 @@
         </section>
 
     </main><!-- End #main -->
+    @livewireScripts
 
     @livewire('tool.borrow-form', ['tool' => $tool])
 @endsection
