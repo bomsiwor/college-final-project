@@ -38,6 +38,8 @@ Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::
     Route::get('/contact-us', 'contact')->name('contact');
     Route::get('/agenda', 'agenda')->name('agenda');
     Route::get('/blank', 'blank')->name('blank');
+
+    Route::post('/send-message', 'storeMessage')->name('message.store');
 });
 
 Route::middleware('auth')->prefix('activity')->controller(ActivityController::class)->name('activity.')->group(function () {

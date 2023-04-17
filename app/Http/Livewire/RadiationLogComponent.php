@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Actions\StoreRadiationLogAction;
 use App\Models\RadiationLog;
 use Livewire\Component;
 
@@ -24,24 +25,18 @@ class RadiationLogComponent extends Component
         $this->data_added = false;
     }
 
-    public function submit()
+    public function submit(StoreRadiationLogAction $action)
     {
         $data = $this->validate();
 
-        $data += [
-            'user_id' => auth()->id(),
-            'log_date' => now()
-        ];
+        $response = $action->handle($data);
 
-
-        try {
-            RadiationLog::create($data);
-        } catch (\Throwable $e) {
-            return $this->addError('error', $e->getMessage());
-        }
-
-        $this->reset();
-        $this->data_added = true;
+        if ($response->wasRecentlyCreated) :
+            $this->reset();
+            $this->data_added = true;
+        else :
+            $this->addError('error', 'Gagal menambahkan! Coba lagi.');
+        endif;
     }
 
     public function render()

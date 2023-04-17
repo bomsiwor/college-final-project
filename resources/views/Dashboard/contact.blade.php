@@ -65,38 +65,69 @@
             <div class="col-xl-6">
                 <div class="card p-4">
                     <div class="card-body mb-0">
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                Pesan sukses dikirimkan!
+                            </div>
+                        @endif
                         <p>Kirim kan pesan, pertanyaan, kritik, atau saran untuk pelayanan kami. Untuk jawaban yang
                             lebih cepat, langsung ketuk nomor telepon kami.</p>
+
+                        <form action="{{ route('dashboard.message.store') }}" method="post">
+                            @csrf
+                            <div class="row gy-4">
+                                @guest
+                                    <div class="col-md-6">
+                                        <input type="text" name="name" class="form-control" placeholder="Nama Anda"
+                                            required>
+                                    </div>
+
+                                    <div class="col-md-6 ">
+                                        <input type="email" class="form-control" name="email" placeholder="Email anda"
+                                            required>
+                                    </div>
+                                @endguest
+
+                                @auth
+                                    <input type="hidden" name="name" value="{{ auth()->user()->name }}">
+                                    <input type="hidden" name="email" value="{{ auth()->user()->email }}">
+                                @endauth
+
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="subject" placeholder="Subjek" required>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="message_text" style="height: 200px" rows="6" placeholder="Pesan" required></textarea>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-check">
+                                        <label for="anonymous" class="form-check-label">
+                                            <input type="checkbox" name="anonymous" id="anonymous" class="form-check-input">
+                                            Kirim sebagai anonim
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-outline-primary">Kirim Pesan</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <form action="/" method="post" class="php-email-form mt-1">
-                        <div class="row gy-4">
-                            @guest
-                                <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Email anda" required>
-                                </div>
-                            @endguest
-
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" name="subject" placeholder="Subjek" required>
-                            </div>
-
-                            <div class="col-md-12">
-                                <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required></textarea>
-                            </div>
-
-                            <div class="col-md-12 text-center">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Pesan anda sudah terkirim!</div>
-
-                                <button type="submit" class="btn btn-outline-primary">Kirim Pesan</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
 
             </div>

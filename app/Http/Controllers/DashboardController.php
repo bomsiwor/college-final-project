@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\StoreMessageAction;
 use App\Models\Tool;
 use App\Models\Borrow;
 use App\Models\Attendance;
+use App\Models\Message;
 use App\Models\StudyProgram;
 use Illuminate\Http\Request;
 
@@ -55,5 +57,16 @@ class DashboardController extends Controller
     {
         $title = 'Percobaan ';
         return view('Dashboard.blank', compact('title'));
+    }
+
+    public function storeMessage(Request $request, StoreMessageAction $action)
+    {
+        $message = $action->handle($request);
+
+        if ($message->wasRecentlyCreated) :
+            return back()->with('success', 'sukses');
+        else :
+            abort(500);
+        endif;
     }
 }

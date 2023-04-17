@@ -2,14 +2,13 @@
 
 namespace App\Http\Livewire\Activity;
 
-use App\Models\Tool;
-use App\Models\ToolLog as ModelsToolLog;
-use Illuminate\Support\Facades\DB;
+use App\Actions\StoreToolLogAction;
 use Livewire\Component;
 
 class ToolLog extends Component
 {
-    public $detector,
+    public
+        $detector,
         $start_time,
         $end_time,
         $hv,
@@ -19,15 +18,13 @@ class ToolLog extends Component
         $end_doses,
         $laju_paparan,
         $purpose,
-        $inventory_id;
-
-    public $hv_active = false;
-    public $amp_active = false;
-    public $adc_active = false;
-    public $xmet_active = false;
-
-    public $data = [];
-    public $data_added = false;
+        $inventory_id,
+        $hv_active = false,
+        $amp_active = false,
+        $adc_active = false,
+        $xmet_active = false,
+        $data = [],
+        $data_added = false;
 
     public function hydrate()
     {
@@ -42,7 +39,7 @@ class ToolLog extends Component
         $this->adc_active = ($value == 'naitl' || $value == 'gm');
     }
 
-    public function submit()
+    public function submit(StoreToolLogAction $action)
     {
         $validated = $this->validate([
             'start_time' => 'required',
@@ -60,33 +57,14 @@ class ToolLog extends Component
             'adc' => 'exclude_if:adc,null|numeric'
         ]);
 
-        $this->inventory_id = Tool::select('inventory_unique as data')->where('log_flag', $this->detector)->first();
+        $response = $action->handle($validated, $additional);
 
-        $required_data = [
-            'inventory_id' => $this->inventory_id->data,
-            'user_id' => auth()->user()->id,
-            'log_date' => now(),
-            'end_condition' => 'good'
-        ];
-
-        $this->data += $validated;
-        $this->data += $required_data;
-        $this->data['additional'] = $additional;
-
-        try {
-            DB::transaction(function () {
-                ModelsToolLog::create($this->data);
-
-                Tool::updateConditionBy('log_flag', $this->detector, [
-                    'condition' => 'good'
-                ]);
-            });
-        } catch (\Throwable $e) {
-            return $this->addError('error', $e->getMessage());
-        }
-
-        $this->reset();
-        $this->data_added = true;
+        if ($response) :
+            $this->reset();
+            $this->data_added = $response;
+        else :
+            $this->addError('error', 'Gagal menambahkan, coba lagi!');
+        endif;
     }
 
     public function render()
