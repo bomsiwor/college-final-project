@@ -27,7 +27,8 @@ class ToolImport implements ToModel, WithHeadingRow
             'price' => $row['price'],
             'used_status' => $row['used_status'],
             'inventory_number' => $row['inventory_number'],
-            'inventory_unique' => Str::uuid()
+            'inventory_unique' => Str::uuid(),
+            'log_flag' => $row['log_flag']
         ]);
     }
 }

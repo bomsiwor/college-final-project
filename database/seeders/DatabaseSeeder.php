@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(12)->create();
 
         \App\Models\Institution::factory(5)->create();
+
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
@@ -59,6 +60,22 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user->assignRole('student', 'admin');
+
+        $user = User::create([
+            'email' => 'zahrawibow@gmail.com',
+            'username' => 'jarajara',
+            'name' => 'Zahra Zahira Wibowo',
+            'identifier' => 'NIM',
+            'identification_number' => '021900032',
+            'institution_id' => 1,
+            'profession_id' => 3,
+            'study_program_id' => 2,
+            'password' => Hash::make('brek3le5758!')
+        ]);
+
+        $user->assignRole('student', 'user');
+
+        \App\Models\Post::factory(10)->create();
 
         Excel::import(new ToolImport, 'data-alat-insnuk-final.xlsx');
         Excel::import(new RadionuclideImport, 'data-zra-insnuk.xlsx');

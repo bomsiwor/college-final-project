@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('element_symbol')->nullable()->default('unknown');
             $table->string('isotope_number')->nullable();
             $table->string('slug')->nullable();
-            $table->integer('initial_activity');
+            $table->float('initial_activity');
             $table->integer('quantity');
             $table->string('packaging_type');
             $table->date('purchase_date')->nullable();

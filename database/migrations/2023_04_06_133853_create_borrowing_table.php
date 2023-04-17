@@ -22,6 +22,8 @@ return new class extends Migration
             $table->date('start_borrow_date');
             $table->date('expected_return_date')->nullable();
             $table->date('actual_return_date')->nullable();
+            $table->string('before_condition');
+            $table->string('after_condition')->nullable();
             $table->string('status')->default('pending');
             $table->string('description')->nullable();
             $table->foreignId('verificator_id')->nullable()->constrained('users')->cascadeOnDelete();

@@ -91,4 +91,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Returning::class, 'verificator_id', 'id');
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

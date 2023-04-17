@@ -8,7 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class BorrowForm extends Component
 {
-    public $toolName, $invNumber, $start_borrow_date, $purpose, $description, $expected_return_date, $invUniq;
+    public $toolName,
+        $invNumber,
+        $start_borrow_date,
+        $purpose,
+        $description,
+        $expected_return_date,
+        $invUniq,
+        $before_condition;
 
     protected $listeners = [
         'refreshForm' => '$refresh'
@@ -18,7 +25,7 @@ class BorrowForm extends Component
         'start_borrow_date' => 'required|date|after_or_equal:today',
         'expected_return_date' => 'required|date|after_or_equal:start_borrow_date',
         'purpose' => 'required',
-        'description' => 'required_if:purpose,other'
+        'description' => 'required_if:purpose,other',
     ];
 
     public function mount($tool)
@@ -26,6 +33,7 @@ class BorrowForm extends Component
         $this->toolName = $tool->name;
         $this->invNumber = $tool->inventory_number;
         $this->invUniq = $tool->inventory_unique;
+        $this->before_condition = $tool->condition;
     }
 
     public function submit()
@@ -34,7 +42,8 @@ class BorrowForm extends Component
 
         $additional = [
             'user_id' => Auth::user()->id,
-            'inventory_id' => $this->invUniq
+            'inventory_id' => $this->invUniq,
+            'before_condition' => $this->before_condition
         ];
 
         $data += $additional;

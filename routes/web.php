@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    abort(404);
+    abort(503);
 });
 
 Route::controller(AuthController::class)->group(function () {
@@ -36,12 +36,17 @@ Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::
     Route::get('/profile', 'profile')->name('profile');
     Route::get('/help', 'help')->name('help');
     Route::get('/contact-us', 'contact')->name('contact');
+    Route::get('/agenda', 'agenda')->name('agenda');
     Route::get('/blank', 'blank')->name('blank');
+
+    Route::post('/send-message', 'storeMessage')->name('message.store');
 });
 
 Route::middleware('auth')->prefix('activity')->controller(ActivityController::class)->name('activity.')->group(function () {
     Route::get('/all-attendance', 'allAttendance')->name('allAttendance');
     Route::get('/presensi', 'presensi')->name('presensi');
+
+    Route::get('/radiation-log', 'radiationLog')->name('radiationLog');
 
     Route::get('/borrow', 'indexOfBorrow')->name('borrow.all');
     Route::get('/borrow/{borrow}', 'showBorrow')->name('borrow.detail');
@@ -64,6 +69,9 @@ Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->na
     Route::delete('/delete/{tool:inventory_unique}', 'destroy')->name('delete');
 
     Route::post('/logs', 'logs')->name('logs');
+
+    Route::get('/maintenance', 'maintenance')->name('maintenance.index');
+    Route::get('/report-problem', 'report')->name('report');
 
     Route::post('/bulk-upload', 'storeExcel')->name('create.bulk');
 });

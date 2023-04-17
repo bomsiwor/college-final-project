@@ -13,32 +13,48 @@
     <link href="{{ asset('assets/icons/favicon-16x16.png') }}" rel="icon" />
     <link href="{{ asset('assets/icons/apple-touch-icon.png') }}" rel="apple-touch-icon" />
 
-    <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="{{ asset('dist/css/bootstrap/bootstrap.css') }}">
+    {{-- Vendor base --}}
+    <link rel="stylesheet" href="{{ asset('dist/vendor/css/vendor.bundle.base.css') }}" />
 
-    <!-- Template Main CSS File -->
-    <link href="{{ asset('dist/css/style.css') }}" rel="stylesheet" />
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('dist/css/style/style.css') }}" />
+    <!-- endinject -->
 </head>
 
 <body>
-    <main>
-        <div class="container">
-
-            <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
-                <h1>@yield('code')</h1>
-                <h2>@yield('message')</h2>
-                <a class="btn" href="{{ route('dashboard.index') }}">Kembali ke halaman depan</a>
-                <img src="{{ asset('assets/img/not-found.svg') }}" class="img-fluid py-5" alt="Page Not Found">
-                <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                    Designed by <a href="https://bootstrapmade.com/">Bomsiwor</a>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center text-center error-page bg-primary">
+                <div class="row flex-grow">
+                    <div class="col-lg-7 mx-auto text-white">
+                        <div class="row align-items-center d-flex flex-row">
+                            <div class="col-lg-6 text-lg-right pr-lg-4">
+                                <h1 class="display-1 mb-0">@yield('code')</h1>
+                            </div>
+                            <div class="col-lg-6 error-page-divider text-lg-left pl-lg-4">
+                                <h2>MAAF!</h2>
+                                <h3 class="fw-light">@yield('message')</h3>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-12 text-center mt-xl-2">
+                                <a class="text-white font-weight-medium" href="{{ route('dashboard.index') }}">Kembali
+                                    ke Dashbboard</a>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-12 mt-xl-2">
+                                <p class="text-white font-weight-medium text-center">Copyright &copy; 2023 All rights
+                                    reserved.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
+            </div>
+            <!-- content-wrapper ends -->
         </div>
+        <!-- page-body-wrapper ends -->
+    </div>
 </body>
 
 @yield('script')

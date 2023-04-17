@@ -1,6 +1,9 @@
 <?php
 
 return [
+    // Halaman response
+    '404' => 'Tidak ditemukan!',
+
     // Ini bagian peralatan
     'good' => [
         'text' => 'Baik/Layak',

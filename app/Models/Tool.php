@@ -32,4 +32,9 @@ class Tool extends Model
     {
         return $query->select('id', 'name', 'inventory_number', 'condition')->withCount('borrow')->orderByDesc('borrow_count')->limit(5)->get();
     }
+
+    public function scopeUpdateConditionBy(Builder $query, string $column, $value, array $data)
+    {
+        return $query->where($column, '=', $value)->update($data);
+    }
 }

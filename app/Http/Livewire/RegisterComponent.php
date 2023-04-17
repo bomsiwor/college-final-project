@@ -40,7 +40,6 @@ class RegisterComponent extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'username' => $this->username,
-
         ];
 
         switch ($this->wargaCheck) {

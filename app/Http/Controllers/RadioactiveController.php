@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Radioactive;
 use Illuminate\Support\Facades\Http;
 
 class RadioactiveController extends Controller
@@ -14,7 +15,8 @@ class RadioactiveController extends Controller
     public function index()
     {
         $title = 'Data ZRA';
-        return view('Radioactive.index', compact('title'));
+        $data  = Radioactive::summary();
+        return view('Radioactive.index', compact('title', 'data'));
     }
 
     public function detail($isotopes)

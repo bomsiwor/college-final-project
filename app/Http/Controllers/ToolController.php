@@ -66,14 +66,17 @@ class ToolController extends Controller
      */
     public function storeExcel(Request $request)
     {
-        // dd($request->file('toolFile'));
+        $this->validate($request, [
+            'toolFile' => 'required|file|mimes:xlsx,xls,csv'
+        ]);
+
         try {
             Excel::import(new ToolImport, $request->file('toolFile'));
         } catch (\Throwable $e) {
-            return $e->getMessage();
+            return back();
         }
 
-        return "sukses";
+        return back()->with('success', 'Sukses menguggah data ke database');
     }
 
     /**
@@ -145,5 +148,19 @@ class ToolController extends Controller
         $add = $data->additional;
 
         dd($add['hv']);
+    }
+
+    public function maintenance()
+    {
+        $title = "Perawatan Alat";
+
+        return view('Tools.maintenance-index', compact('title'));
+    }
+
+    public function report()
+    {
+        $title = 'Laporkan Kerusakan';
+
+        return view('Tools.report', compact('title'));
     }
 }
