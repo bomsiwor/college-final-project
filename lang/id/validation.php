@@ -172,6 +172,9 @@ return [
         'end_time' => [
             'after_or_equal' => ':attribute minimal sama dengan waktu mulai'
         ],
+        'purchase_date' => [
+            'before_or_equal' => ':attribute maksimal adalah hari ini.'
+        ]
 
     ],
 

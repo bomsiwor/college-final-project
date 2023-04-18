@@ -17,6 +17,14 @@ class Tool extends Model
 
     protected $dates = ['updated_at', 'purchase_date'];
 
+    protected $casts = [
+        'tool_image' => 'array',
+    ];
+
+    protected $fillable = [
+        'tool_image->image_0',
+        'tool_image->image_1',
+    ];
 
     public function borrow()
     {

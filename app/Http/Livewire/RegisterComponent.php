@@ -7,17 +7,34 @@ use Livewire\Component;
 use App\Models\Profession;
 use App\Models\Institution;
 use App\Models\StudyProgram;
+use App\Services\RegisterService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterComponent extends Component
 {
-    public $name, $email, $username, $password, $position, $nip, $nim, $acceptTerms, $prodi, $unit;
+    // Personal information
+    public $name;
+    public $email;
+    public $username;
+    public $password;
+    public $position;
+    public $prodi;
+    public $nip;
+    public $nim;
+    public $unit;
+
+    // Institution information
     public $institution = 1;
-    public $institutionName, $institutionAddress;
+    public $institutionName;
+    public $institutionAddress;
+
+    // Additional information
+    public $acceptTerms;
     public $wargaCheck = false;
     public $profession_id = 1;
-    public $identifier, $identification_number;
+    public $identifier;
+    public $identification_number;
 
     protected $rules = [
         'name' => 'required|min:4|regex:/^[a-zA-Z_ ]*$/',
@@ -28,93 +45,26 @@ class RegisterComponent extends Component
         'nip' => 'required_if:position,staff,dosen|unique:users,identification_number',
         'institutionName' => 'required_if:institution,other',
         'institutionAddress' => 'required_if:institution,other',
-        'acceptTerms' => 'accepted'
+        'acceptTerms' => 'accepted',
+        'prodi' => 'nullable',
+        'unit' => 'nullable',
+        'identifier' => 'nullable',
+        'identification_number' => 'nullable',
+        'institution_id' => 'nullable',
+        'profession_id' => 'nullable'
     ];
 
-    public function submit()
+    public function submit(RegisterService $service): void
     {
-        $this->validate();
+        $data = $this->validate();
 
-        $userDetail = [
-            'name' => ucwords($this->name),
-            'email' => $this->email,
-            'password' => Hash::make($this->password),
-            'username' => $this->username,
+        $identifier = [
+            'intern_check' => $this->wargaCheck,
+            'position' => $this->position
         ];
 
-        switch ($this->wargaCheck) {
-            case 'yes':
-                switch ($this->position) {
-                    case 'dosen':
-                        $userDetail = $this->createLecturerAccount($userDetail);
-                        $role = 'lecturer';
-                        break;
-                    case 'mahasiswa':
-                        $userDetail = $this->createStudentAccount($userDetail);
-                        $role = 'student';
-                        break;
-                    case 'staff':
-                        $userDetail = $this->createStaffAccount($userDetail);
-                        $role = 'staff';
-                        break;
-                }
-                break;
-
-            case 'no':
-                $userDetail = $this->createExternAccount($userDetail);
-                $role = 'extern';
-                break;
-        }
-
-        $user = User::create($userDetail);
-        $user->assignRole($role);
-        $user->assignRole('user');
-
-        return redirect(route('login'))->with('registerSuccess');
+        $service->register($data, $identifier);
     }
-
-    public function createLecturerAccount($userData)
-    {
-        return $userData += [
-            'identifier' => 'NIP',
-            'identification_number' => $this->nip,
-            'profession_id' => '64',
-            'institution_id' => '1'
-        ];
-    }
-
-    public function createStudentAccount($userData)
-    {
-        return $userData += [
-            'identifier' => 'NIM',
-            'identification_number' => $this->nim,
-            'profession_id' => '3',
-            'study_program_id' => $this->prodi,
-            'institution_id' => '1'
-        ];
-    }
-
-    public function createStaffAccount($userData)
-    {
-        return $userData += [
-            'identifier' => 'NIP',
-            'identification_number' => $this->nip,
-            'profession_id' => '5',
-            'unit_id' => $this->unit,
-            'institution_id' => '1'
-        ];
-    }
-
-    public function createExternAccount($userData)
-    {
-        return $userData += [
-            'identifier' => $this->identifier,
-            'identification_number' => $this->identification_number,
-            'profession_id' => $this->profession_id,
-            'institution_id' => $this->institution
-        ];
-    }
-
 
     public function render()
     {

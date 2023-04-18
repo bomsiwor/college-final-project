@@ -19,6 +19,12 @@ class RadioactiveController extends Controller
         return view('Radioactive.index', compact('title', 'data'));
     }
 
+    public function show(Radioactive $radioactive)
+    {
+        $title = 'Detail Sumber';
+        return view('Radioactive.detail', compact('radioactive', 'title'));
+    }
+
     public function detail($isotopes)
     {
         $title = 'Detail ZRA';

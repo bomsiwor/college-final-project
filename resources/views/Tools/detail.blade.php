@@ -2,220 +2,389 @@
 
 @push('vendorStyle')
     @livewireStyles
+    <link rel="stylesheet" href="{{ asset('dist/vendor/lightgallery/css/lightgallery.css') }}">
 @endpush
 
 @push('vendorScript')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('dist/vendor/lightgallery/js/lightgallery-all.min.js') }}"></script>
 @endpush
 
 @section('main')
-    <main id="main" class="main">
+    <h2 class="fw-bold">Detail Alat <small class="text-muted">- {{ $tool->name }}</small></h2>
+    <nav>
+        <ol class="breadcrumb bg-primary">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Pagu</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('tool.index') }}">Alat</a></li>
+            <li class="breadcrumb-item active">Detail</li>
+        </ol>
+    </nav>
+    <a href="{{ route('tool.index') }}" class="btn btn-primary"><span class="mdi mdi-arrow-left"></span> Kembali</a>
 
-        <div class="pagetitle">
-            <h1>Detail Alat</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('tool.index') }}">Alat</a></li>
-                    <li class="breadcrumb-item active">Detail</li>
-                </ol>
-            </nav>
-            <a href="{{ route('tool.index') }}" class="btn btn-primary"><span class="mdi mdi-arrow-left"></span> Kembali</a>
-        </div><!-- End Page Title -->
+    <div class="row my-2">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
 
-        <section class="section profile">
-            <div class="row">
-
-                {{-- Kiri - Profil --}}
-                <div class="col-xl-4">
-
-                    <div class="card bg-light-subtle border border-light-subtle">
-                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
-                            @if (!$tool->tool_image)
-                                <img src="{{ asset('assets/img/no-image.png') }}" alt="photo" class="rounded-circle">
-                            @else
-                                ada..
-                            @endif
-                            <h2 class="text-center">{{ $tool->name }}</h2>
-
-                            <h3><span class="mdi {{ __("core.$tool->status.symbol") }}"></span>
-                                {{ __("core.$tool->status.text") }}</h3>
-                            <div>
-                                <span
-                                    class="badge {{ __("core.$tool->condition.class") }}">{{ __("core.$tool->condition.text") }}</span>
-
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                Data alat berhasil diperbarui.
                             </div>
+                        @endif
 
-                            @role('admin')
-                                <div class="my-2">
-                                    <button class="btn btn-outline-danger" onclick="deleteButton()">HAPUS</button>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        {{-- Kolom kiri --}}
+                        <div class="col-lg-4">
+                            <div class="border-bottom text-center pb-4">
+
+                                <div class="mb-2">
+                                    <h3>{{ $tool->name }}</h3>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <h5 class="mb-0 me-2 text-muted">{{ $tool->merk . '-' . $tool->series }}</h5>
+                                    </div>
                                 </div>
-                            @endrole
-                        </div>
-                    </div>
 
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Menu untuk alat</h5>
-                            @if ($tool->status == 'available')
-                                <button class="btn btn-warning" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#borrowModal">Pinjam</button>
-                            @else
-                                <button class="btn btn-outline-danger" disabled>{{ __("core.$tool->status.text") }}</button>
-                            @endif
-                            <button class="btn btn-info">Catat Penggunaan</button>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Kanan - Tab detail dan edit --}}
-                <div class="col-xl-8">
-
-                    <div class="card">
-                        <div class="card-body pt-3">
-                            <!-- Bordered Tabs -->
-                            <ul class="nav nav-tabs nav-tabs-bordered">
-
-                                <li class="nav-item">
-                                    <button class="nav-link active" data-bs-toggle="tab"
-                                        data-bs-target="#detail-tool">Detail</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#edit-tool">Edit
-                                        Data</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#borrow-tab">Peminjaman</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#maintenance-tab">Perawatan</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#usage-tab">Penggunaan</button>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content pt-2">
-
-                                <div class="tab-pane fade show active detail-tool" id="detail-tool">
-                                    <h5 class="card-title">Deskripsi</h5>
+                                <div class="mx-auto">
+                                    <span class="mdi {{ __("core.$tool->status.symbol") }}"></span>
+                                    {{ __("core.$tool->status.text") }}
+                                </div>
+                                <div class="mx-auto">
+                                    <span
+                                        class="badge {{ __("core.$tool->condition.class") }}">{{ __("core.$tool->condition.text") }}</span>
+                                </div>
+                            </div>
+                            <div class="border-bottom py-4">
+                                <p>Deskripsi</p>
+                                <div>
                                     @if ($tool->description)
-                                        {!! $tool->description !!}
+                                        {{ $tool->description }}
                                     @else
-                                        <p class="small fst-italic">
-                                            Belum ditambahkan!
-                                        </p>
+                                        <span class="text-muted">Belum ada deskripsi</span>
                                     @endif
-                                    <div class="row mt-2">
-                                        <div class="col-lg-3 col-md-4 label my-2">Spesifikasi</div>
-                                        <div class="col-lg-9 col-md-8"><a href="#" class="btn btn-primary">Cek
-                                                disini</a></div>
-                                    </div>
+                                </div>
+                                <div class="py-2">
+                                    <p class="clearfix">
+                                        <span class="float-left"> Diupload pada </span>
+                                        <span
+                                            class="float-right text-muted">{{ $tool->created_at->isoFormat('DD-MMMM-Y') }}</span>
+                                    </p>
+                                    <p class="clearfix">
+                                        <span class="float-left"> Diperbarui pada </span>
+                                        <span class="float-right text-muted">
+                                            {{ $tool->updated_at->isoFormat('DD-MMMM-Y') }}
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="my-3 d-flex justify-content-around">
+                                <button class="btn btn-primary btn-sm mb-2">
+                                    Pinjam
+                                </button>
+                                <button class="btn btn-danger btn-sm mb-2">
+                                    Hapus Data
+                                </button>
+                            </div>
+                        </div>
 
-                                    <h5 class="card-title">Informasi lengkap</h5>
-
-                                    <div class="row mb-2">
-                                        <div class="col-lg-3 col-md-4 label text-muted">Nama Alat</div>
-                                        <div class="col-lg-9 col-md-8">{{ $tool->name }}</div>
-                                    </div>
-
-                                    <div class="row mb-2">
-                                        <div class="col-lg-3 col-md-4 label text-muted"><b>Merk</b></div>
-                                        <div class="col-lg-9 col-md-8">{{ $tool->merk }}
+                        <div class="col-lg-8">
+                            <div class="home-tab">
+                                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active ps-0" id="detail-tab" data-bs-toggle="tab"
+                                                href="#detail" role="tab" aria-controls="detail"
+                                                aria-selected="true">Detail</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="edit-tab" data-bs-toggle="tab" href="#edit"
+                                                role="tab" aria-selected="false">Edit Detail</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="maintenance-tab" data-bs-toggle="tab"
+                                                href="#maintenance" role="tab" aria-selected="false">Perawatan</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="borrowing-tab" data-bs-toggle="tab" href="#borrowing"
+                                                role="tab" aria-selected="false">Peminjaman</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content tab-content-basic">
+                                    <div class="tab-pane fade show active" id="detail" role="tabpanel"
+                                        aria-labelledby="detail-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <address>
+                                                    <p class="fw-bold">Nama alat</p>
+                                                    <p>{{ $tool->name }}</p>
+                                                </address>
+                                                <address>
+                                                    <p class="fw-bold">Nomor Inventaris</p>
+                                                    <p>{{ $tool->inventory_number }}</p>
+                                                </address>
+                                                <address>
+                                                    <p class="fw-bold">Merk - Seri</p>
+                                                    <p>{{ $tool->merk . ' - ' . $tool->series }}</p>
+                                                </address>
+                                                <address>
+                                                    <p class="fw-bold">Status Penggunaan</p>
+                                                    <p>{{ $tool->used_status }}</p>
+                                                </address>
+                                                <address>
+                                                    <p class="fw-bold">Tanggal pengadaan</p>
+                                                    <p>@tanggal($tool->purchase_date)</p>
+                                                </address>
+                                                <address>
+                                                    <p class="fw-bold">Harga pengadaan</p>
+                                                    <p>
+                                                        @if ($tool->price)
+                                                            @uang($tool->price)
+                                                        @else
+                                                            Tidak ada data
+                                                        @endif
+                                                    </p>
+                                                </address>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <address>
+                                                    <p class="fw-bold">Manual & Spesifikasi</p>
+                                                    <form action="#" method="post">
+                                                        <input type="hidden" name="inventory_unique"
+                                                            value="{{ $tool->inventory_unique }}">
+                                                        <button type="submit" class="btn btn-sm btn-outline-info">Unduh
+                                                            dokumen</button>
+                                                    </form>
+                                                </address>
+                                                <address>
+                                                    <p class="fw-bold">Foto Alat</p>
+                                                    <div id="lightgallery-without-thumb" class="row lightGallery">
+                                                        @if ($tool->tool_image)
+                                                            @foreach ($tool->tool_image as $key => $value)
+                                                                <a href="{{ asset('storage/images/' . $value['name']) }}"
+                                                                    class="image-tile"><img
+                                                                        src="{{ asset('storage/images/' . $value['name']) }}"
+                                                                        alt="{{ $value['description'] }}"></a>
+                                                            @endforeach
+                                                        @else
+                                                            <p>Tidak ada gambar</p>
+                                                        @endif
+                                                    </div>
+                                                </address>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane fade" id="edit" role="tabpanel"
+                                        aria-labelledby="edit-tab">
+                                        <h4>Form ubah data</h4>
+                                        <form action="{{ route('tool.update') }}" method="post"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            @method('put')
+                                            <input type="hidden" name="unique" value="{{ $tool->inventory_unique }}">
+                                            {{-- Nama alat --}}
+                                            <div class="form-group row align-content-center mb-1">
+                                                <label for="name" class="col-sm-3 col-form-label-sm">Nama alat</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="name" id="name"
+                                                        class="form-control form-control-sm"
+                                                        value="{{ $tool->name }}" />
+                                                </div>
+                                            </div>
 
-                                    <div class="row mb-2">
-                                        <div class="col-lg-3 col-md-4 label text-muted">Seri</div>
-                                        <div class="col-lg-9 col-md-8">{{ $tool->series }}
-                                        </div>
+                                            {{-- No inv --}}
+                                            <div class="form-group row align-content-center mb-1">
+                                                <label for="inventory_number" class="col-sm-3 col-form-label-sm">Nomor
+                                                    Inventaris</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="inventory_number" id="inventory_number"
+                                                        class="form-control form-control-sm"
+                                                        value="{{ $tool->inventory_number }}" />
+                                                </div>
+                                            </div>
+
+                                            {{-- Merk --}}
+                                            <div class="form-group row align-content-center mb-1">
+                                                <label for="merk" class="col-sm-3 col-form-label-sm">Merk</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="merk" id="merk"
+                                                        class="form-control form-control-sm"
+                                                        value="{{ $tool->merk }}" />
+                                                </div>
+                                            </div>
+
+                                            {{-- Seri --}}
+                                            <div class="form-group row align-content-center mb-1">
+                                                <label for="series" class="col-sm-3 col-form-label-sm">Seri</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="series" id="series"
+                                                        class="form-control form-control-sm"
+                                                        value="{{ $tool->series }}" />
+                                                </div>
+                                            </div>
+
+                                            {{-- Tanggal pengadaan --}}
+                                            <div class="form-group row align-content-center mb-1">
+                                                <label for="purchase_date" class="col-sm-3 col-form-label-sm">Tanggal
+                                                    pengadaan</label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" name="purchase_date" id="purchase_date"
+                                                        class="form-control form-control-sm"
+                                                        value="{{ $tool->purchase_date->isoFormat('Y-MM-DD') }}" />
+                                                </div>
+                                            </div>
+
+                                            {{-- Harga --}}
+                                            <div class="form-group row align-content-center mb-1">
+                                                <label for="price" class="col-sm-3 col-form-label-sm">Harga</label>
+                                                <div class="col-sm-9">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-primary text-white">Rp</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="price"
+                                                            id="price" value="{{ $tool->price }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {{-- Status dan kondisi --}}
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row align-content-center mb-1">
+                                                        <label for="condition" class="col-sm-3 col-form-label-sm">Kondisi
+                                                            alat</label>
+                                                        <div class="col-sm-9">
+                                                            <div class="form-group">
+                                                                <div class="form-check form-check-success">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" class="form-check-input"
+                                                                            name="condition" id="condition1"
+                                                                            value="good" @checked($tool->condition == 'good' ? true : false)>
+                                                                        Baik
+                                                                        <i class="input-helper"></i></label>
+                                                                </div>
+                                                                <div class="form-check form-check-warning">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" class="form-check-input"
+                                                                            name="condition" id="condition2"
+                                                                            value="minor" @checked($tool->condition == 'minor' ? true : false)>
+                                                                        Rusak Ringan
+                                                                        <i class="input-helper"></i></label>
+                                                                </div>
+                                                                <div class="form-check form-check-danger">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" class="form-check-input"
+                                                                            name="condition" id="condition3"
+                                                                            value="severe" @checked($tool->condition == 'severe' ? true : false)>
+                                                                        Rusak berat
+                                                                        <i class="input-helper"></i></label>
+                                                                </div>
+                                                                <div class="form-check form-check-dark">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" class="form-check-input"
+                                                                            name="condition" id="condition4"
+                                                                            value="unknown" @checked($tool->condition == 'unknown' ? true : false)>
+                                                                        Tidak diketahui
+                                                                        <i class="input-helper"></i></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group row align-content-center mb-1">
+                                                        <label for="used_status"
+                                                            class="col-sm-3 col-form-label-sm">Status</label>
+                                                        <div class="col-sm-9">
+                                                            <div class="form-group">
+                                                                <div class="form-check form-check-success">
+                                                                    <label class="form-check-label">
+                                                                        <input type="radio" class="form-check-input"
+                                                                            name="used_status" id="condition1"
+                                                                            value="used" @checked($tool->used_status == 'used' ? true : false)>
+                                                                        Dapat digunakan
+                                                                        <i class="input-helper"></i></label>
+                                                                </div>
+                                                                <div class="form-check form-check-warning">
+                                                                    <label class="form-check-label ">
+                                                                        <input type="radio" class="form-check-input"
+                                                                            name="used_status" id="condition2"
+                                                                            value="unused" @checked($tool->used_status == 'unused' ? true : false)>
+                                                                        Tidak dapat digunakan
+                                                                        <i class="input-helper"></i></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- Gambar --}}
+                                            <div class="form-group row align-content-center mb-1">
+                                                <label for="image" class="col-sm-3 col-form-label-sm">Foto Alat</label>
+                                                <div class="col-sm-9">
+                                                    <input type="file" name="images[]" multiple id="image">
+                                                </div>
+                                            </div>
+
+                                            {{-- Manual --}}
+                                            <div class="form-group row align-content-center mb-1">
+                                                <label for="manual"
+                                                    class="col-sm-3 col-form-label-sm">Spesifikasi/Manual</label>
+                                                <div class="col-sm-9">
+                                                    <input type="file" name="manual" multiple id="manual">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary text-white">Simpan</button>
+                                        </form>
                                     </div>
-
-                                    <div class="row mb-2">
-                                        <div class="col-lg-3 col-md-4 label text-muted">Tanggal Pembelian</div>
-                                        <div class="col-lg-9 col-md-8">@tanggal($tool->purchase_date)</div>
+                                    <div class="tab-pane fade" id="maintenance" role="tabpanel"
+                                        aria-labelledby="maintenance-tab">
+                                        <h4>Contact us </h4>
+                                        <p>
+                                            Feel free to contact us if you have any questions!
+                                        </p>
+                                        <p>
+                                            <i class="ti-headphone-alt text-info"></i>
+                                            +123456789
+                                        </p>
+                                        <p>
+                                            <i class="ti-email text-success"></i>
+                                            contactus@example.com
+                                        </p>
                                     </div>
-
-                                    <div class="row mb-2">
-                                        <div class="col-lg-3 col-md-4 label text-muted">Harga Beli</div>
-                                        <div class="col-lg-9 col-md-8">@uang($tool->price)
-                                        </div>
+                                    <div class="tab-pane fade" id="borrowing" role="tabpanel"
+                                        aria-labelledby="borrowing-tab">
+                                        <h4>Contact us </h4>
+                                        <p>
+                                            Feel free to contact us if you have any questions!
+                                        </p>
+                                        <p>
+                                            <i class="ti-headphone-alt text-info"></i>
+                                            +123456789
+                                        </p>
+                                        <p>
+                                            <i class="ti-email text-success"></i>
+                                            contactus@example.com
+                                        </p>
                                     </div>
-
-                                    <div class="row mb-2">
-                                        <div class="col-lg-3 col-md-4 label text-muted">No. Inventaris</div>
-                                        <div class="col-lg-9 col-md-8">{{ $tool->inventory_number }}</div>
-                                    </div>
-
-                                    <div class="row mb-2">
-                                        <div class="col-lg-3 col-md-4 label text-muted">Terakhir data diperbarui</div>
-                                        <div class="col-lg-9 col-md-8">@tanggal($tool->updated_at)</div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade edit-tool" id="edit-tool">
-                                    <h5 class="card-title">Edit Detail Alat</h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aperiam magni
-                                        molestiae laboriosam repellendus ipsum repellat itaque dolor ipsam unde dolore eum
-                                        tempora fugit beatae placeat, temporibus, odit, quibusdam harum libero facilis
-                                        explicabo quasi? Corrupti eos eius minus. Id similique magni error quia?
-                                        Exercitationem, nobis voluptas dolore, impedit quibusdam harum rerum maiores
-                                        voluptate necessitatibus libero optio veniam atque iste. Laborum, numquam ad sunt,
-                                        consequuntur accusamus doloribus nisi iure fugiat omnis voluptas totam, cupiditate
-                                        aperiam repellendus enim ducimus necessitatibus. Quod deserunt harum aliquam
-                                        possimus quas cumque minus cum at soluta pariatur quae molestias dolore, earum nihil
-                                        expedita fuga distinctio, ea libero?</p>
-                                </div>
-
-                                <div class="tab-pane fade borrow-tab" id="borrow-tab">
-                                    <h5 class="card-title">Riwayat Peminjaman</h5>
-                                    @livewire('tool.borrow-component', ['toolId' => $tool->inventory_unique])
-                                </div>
-
-                                <div class="tab-pane fade maintenance-tab" id="maintenance-tab">
-                                    <h5 class="card-title">Riwayat Perawatan</h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aperiam magni
-                                        molestiae laboriosam repellendus ipsum repellat itaque dolor ipsam unde dolore eum
-                                        tempora fugit beatae placeat, temporibus, odit, quibusdam harum libero facilis
-                                        explicabo quasi? Corrupti eos eius minus. Id similique magni error quia?
-                                        Exercitationem, nobis voluptas dolore, impedit quibusdam harum rerum maiores
-                                        voluptate necessitatibus libero optio veniam atque iste. Laborum, numquam ad sunt,
-                                        consequuntur accusamus doloribus nisi iure fugiat omnis voluptas totam, cupiditate
-                                        aperiam repellendus enim ducimus necessitatibus. Quod deserunt harum aliquam
-                                        possimus quas cumque minus cum at soluta pariatur quae molestias dolore, earum nihil
-                                        expedita fuga distinctio, ea libero?</p>
-                                </div>
-
-                                <div class="tab-pane fade usage-tab" id="usage-tab">
-                                    <h5 class="card-title">Pencatatan Operasional Alat</h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aperiam magni
-                                        molestiae laboriosam repellendus ipsum repellat itaque dolor ipsam unde dolore eum
-                                        tempora fugit beatae placeat, temporibus, odit, quibusdam harum libero facilis
-                                        explicabo quasi? Corrupti eos eius minus. Id similique magni error quia?
-                                        Exercitationem, nobis voluptas dolore, impedit quibusdam harum rerum maiores
-                                        voluptate necessitatibus libero optio veniam atque iste. Laborum, numquam ad sunt,
-                                        consequuntur accusamus doloribus nisi iure fugiat omnis voluptas totam, cupiditate
-                                        aperiam repellendus enim ducimus necessitatibus. Quod deserunt harum aliquam
-                                        possimus quas cumque minus cum at soluta pariatur quae molestias dolore, earum nihil
-                                        expedita fuga distinctio, ea libero?</p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-        </section>
-
-    </main><!-- End #main -->
+        </div>
+    </div>
     @livewireScripts
 
     @livewire('tool.borrow-form', ['tool' => $tool])
@@ -287,5 +456,17 @@
                 }
             })
         }
+
+        (function($) {
+            'use strict';
+
+            if ($("#lightgallery-without-thumb").length) {
+                $("#lightgallery-without-thumb").lightGallery({
+                    thumbnail: true,
+                    animateThumb: false,
+                    showThumbByDefault: false
+                });
+            }
+        })(jQuery);
     </script>
 @endsection

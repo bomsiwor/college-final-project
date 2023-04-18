@@ -80,5 +80,8 @@ return [
     // Bagian kembali
     'on time' => 'Tepat Waktu',
     'not returned' => 'Belum Kembali',
-    'overdue' => 'Terlambat'
+    'overdue' => 'Terlambat',
+
+    // Radioaktif
+    'sealed' => 'Terbungkus'
 ];

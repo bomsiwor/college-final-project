@@ -4,6 +4,12 @@
     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#toolLogModal">log alat</button>
     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#radiationLogModal">log rad</button>
 
+    <form action="{{ route('dashboard.blank') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="file" id="file" class="form-control-sm">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
     {{-- Modal tool log --}}
     @livewire('activity.tool-log')
     @livewire('radiation-log-component')

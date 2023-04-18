@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\UpdateToolAction;
+use App\Http\Requests\UpdateToolRequest;
 use Excel;
 use App\Models\Tool;
 use App\Imports\ToolImport;
 use App\Models\ToolLog;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
@@ -27,15 +30,6 @@ class ToolController extends Controller
             ->select(DB::raw('count(*) as num'), 'condition')
             ->groupBy('condition')
             ->get();
-
-        // $totalGroup = count($data);
-        // $perPage = 10;
-        // $page = Paginator::resolveCurrentPage('page');
-
-        // $data = new LengthAwarePaginator($data->forPage($page, $perPage), $totalGroup, $perPage, $page, [
-        //     'path' => Paginator::resolveCurrentPath(),
-        //     'pageName' => 'page',
-        // ]);
 
         return view(
             'Tools.index',
@@ -87,29 +81,7 @@ class ToolController extends Controller
      */
     public function show(Tool $tool)
     {
-        $title = 'Detail Alat';
-
-        // $borrows = $tool->load(['borrow' => function ($query) {
-        //     $query->select('borrows.inventory_id', 'borrows.status', 'borrows.id as borrow_id');
-        // }]);
-
-        // dd($borrows);
-
-        // $additional = Tool::where('id', 1)->select(DB::raw('round(datediff(now(), purchase_date)/365,2) as selisih_tahun'))->get();
-        // dd($additional);
-
         return view('Tools.detail', compact('tool', 'title'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Tool  $tool
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Tool $tool)
-    {
-        //
     }
 
     /**
@@ -119,9 +91,13 @@ class ToolController extends Controller
      * @param  \App\Models\Tool  $tool
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tool $tool)
+    public function update(UpdateToolRequest $request, UpdateToolAction $action): RedirectResponse
     {
-        //
+        if ($action->handle($request)) :
+            return back()->with('success', 'sukses');
+        else :
+            abort(500);
+        endif;
     }
 
     /**

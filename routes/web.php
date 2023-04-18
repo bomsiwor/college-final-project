@@ -37,7 +37,7 @@ Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::
     Route::get('/help', 'help')->name('help');
     Route::get('/contact-us', 'contact')->name('contact');
     Route::get('/agenda', 'agenda')->name('agenda');
-    Route::get('/blank', 'blank')->name('blank');
+    Route::post('/blank', 'blank')->name('blank');
 
     Route::post('/send-message', 'storeMessage')->name('message.store');
 });
@@ -59,13 +59,15 @@ Route::middleware('auth')->prefix('activity')->controller(ActivityController::cl
 
 Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveController::class)->name('radioactive.')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::get('/detail/{isotopes}', 'detail')->name('detail');
+    Route::get('/detail/{radioactive:inventory_unique}', 'show')->name('detail');
+    // Route::get('/detail/{isotopes}', 'detail')->name('detail');
 });
 
 Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->name('tool.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/detail/{tool:inventory_unique}', 'show')->name('detail');
     Route::get('/create', 'create')->name('create');
+    Route::put('/edit-data', 'update')->name('update');
     Route::delete('/delete/{tool:inventory_unique}', 'destroy')->name('delete');
 
     Route::post('/logs', 'logs')->name('logs');

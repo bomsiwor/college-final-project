@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\StoreMessageAction;
 use App\Models\Tool;
 use App\Models\Borrow;
-use App\Models\Attendance;
 use App\Models\Message;
+use App\Models\Attendance;
 use App\Models\StudyProgram;
 use Illuminate\Http\Request;
+use App\Actions\StoreMessageAction;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
 class DashboardController extends Controller
 {
@@ -53,10 +56,13 @@ class DashboardController extends Controller
         return view('Dashboard.agenda', compact('title'));
     }
 
-    public function blank()
+    public function blank(Request $request)
     {
-        $title = 'Percobaan ';
-        return view('Dashboard.blank', compact('title'));
+        $file = $request->file('file');
+        $fileName = $file->getClientOriginalName();
+
+        Gdrive::put("folder1/$fileName", $file);
+        return 'sukses';
     }
 
     public function storeMessage(Request $request, StoreMessageAction $action)

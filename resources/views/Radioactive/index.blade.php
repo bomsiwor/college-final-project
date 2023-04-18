@@ -86,7 +86,7 @@
                                                 <td><span class="mdi {{ __("core.$d->status.symbol") }}"></span>
                                                     {{ __("core.$d->status.text") }}</td>
                                                 <td class="text-right">
-                                                    <a href="{{ route('tool.detail', ['tool' => $d->inventory_unique]) }}"
+                                                    <a href="{{ route('radioactive.detail', ['radioactive' => $d->inventory_unique]) }}"
                                                         class="btn btn-light">
                                                         <i class="ti-eye text-primary"></i>View
                                                     </a>
