@@ -39,32 +39,6 @@ class ActivityController extends Controller
         return view('Activity.allAttendance', compact('title', 'data'));
     }
 
-    public function indexOfBorrow()
-    {
-        $title = 'Data Peminjaman';
-        $data = Borrow::summaryOfAll();
-
-        return view('Activity.allBorrow', compact('data', 'title'));
-    }
-
-    public function showBorrow(Borrow $borrow)
-    {
-        $title = 'Detail Peminjaman';
-
-        return view('Activity.showBorrow', compact('title', 'borrow'));
-    }
-
-    public function verifyBorrow(Request $request, BorrowService $service): RedirectResponse
-    {
-        $response = $service->verify($request);
-
-        if ($response) :
-            return back()->with('success', 'Sukses');
-        else :
-            abort(500);
-        endif;
-    }
-
     public function adminBorrow()
     {
         $title = 'Admin - Peminjaman';
@@ -74,17 +48,6 @@ class ActivityController extends Controller
             ->orderBy('created_at')->get();
 
         return view('Admin.showBorrow', compact('data', 'title', 'returnings'));
-    }
-
-    public function returnBorrow(Borrow $borrow, BorrowService $service): RedirectResponse
-    {
-        $response = $service->returning($borrow);
-
-        if ($response) :
-            return redirect()->back();
-        else :
-            abort(500);
-        endif;
     }
 
     public function radiationLog()

@@ -86,12 +86,15 @@
                                 </div>
                             </div>
                             <div class="my-3 d-flex justify-content-around">
-                                <button class="btn btn-primary btn-sm mb-2">
+                                <button class="btn btn-primary btn-sm mb-2" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#borrowModal">
                                     Pinjam
                                 </button>
-                                <button class="btn btn-danger btn-sm mb-2">
-                                    Hapus Data
-                                </button>
+                                @role('admin')
+                                    <button class="btn btn-danger btn-sm mb-2" onclick="deleteButton()">
+                                        Hapus Data
+                                    </button>
+                                @endrole
                             </div>
                         </div>
 
@@ -104,10 +107,12 @@
                                                 href="#detail" role="tab" aria-controls="detail"
                                                 aria-selected="true">Detail</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="edit-tab" data-bs-toggle="tab" href="#edit"
-                                                role="tab" aria-selected="false">Edit Detail</a>
-                                        </li>
+                                        @role('admin')
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="edit-tab" data-bs-toggle="tab" href="#edit"
+                                                    role="tab" aria-selected="false">Edit Detail</a>
+                                            </li>
+                                        @endrole
                                         <li class="nav-item">
                                             <a class="nav-link" id="maintenance-tab" data-bs-toggle="tab"
                                                 href="#maintenance" role="tab" aria-selected="false">Perawatan</a>
@@ -157,195 +162,202 @@
                                             <div class="col-md-6">
                                                 <address>
                                                     <p class="fw-bold">Manual & Spesifikasi</p>
-                                                    <form action="#" method="post">
-                                                        <input type="hidden" name="inventory_unique"
-                                                            value="{{ $tool->inventory_unique }}">
-                                                        <button type="submit" class="btn btn-sm btn-outline-info">Unduh
-                                                            dokumen</button>
-                                                    </form>
+                                                    @if ($tool->manual)
+                                                        <form action="#" method="post">
+                                                            <input type="hidden" name="inventory_unique"
+                                                                value="{{ $tool->inventory_unique }}">
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-outline-info">Unduh
+                                                                dokumen</button>
+                                                        </form>
+                                                    @else
+                                                        <p>Tidak ada</p>
+                                                    @endif
                                                 </address>
-                                                <address>
-                                                    <p class="fw-bold">Foto Alat</p>
-                                                    <div id="lightgallery-without-thumb" class="row lightGallery">
-                                                        @if ($tool->tool_image)
-                                                            @foreach ($tool->tool_image as $key => $value)
-                                                                <a href="{{ asset('storage/images/' . $value['name']) }}"
-                                                                    class="image-tile"><img
-                                                                        src="{{ asset('storage/images/' . $value['name']) }}"
-                                                                        alt="{{ $value['description'] }}"></a>
-                                                            @endforeach
-                                                        @else
-                                                            <p>Tidak ada gambar</p>
-                                                        @endif
-                                                    </div>
-                                                </address>
+
+                                                <p class="fw-bold">Foto Alat</p>
+                                                <div id="lightgallery-without-thumb" class="row lightGallery">
+                                                    @if ($tool->tool_image)
+                                                        @foreach ($tool->tool_image as $key => $value)
+                                                            <a href="{{ asset('storage/inventory-images/' . $value['name']) }}"
+                                                                class="image-tile"><img
+                                                                    src="{{ asset('storage/inventory-images/' . $value['name']) }}"
+                                                                    alt="{{ $value['description'] }}"></a>
+                                                        @endforeach
+                                                    @else
+                                                        <p>Tidak ada gambar</p>
+                                                    @endif
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="edit" role="tabpanel"
-                                        aria-labelledby="edit-tab">
-                                        <h4>Form ubah data</h4>
-                                        <form action="{{ route('tool.update') }}" method="post"
-                                            enctype="multipart/form-data">
-                                            @csrf
-                                            @method('put')
-                                            <input type="hidden" name="unique" value="{{ $tool->inventory_unique }}">
-                                            {{-- Nama alat --}}
-                                            <div class="form-group row align-content-center mb-1">
-                                                <label for="name" class="col-sm-3 col-form-label-sm">Nama alat</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" name="name" id="name"
-                                                        class="form-control form-control-sm"
-                                                        value="{{ $tool->name }}" />
-                                                </div>
-                                            </div>
-
-                                            {{-- No inv --}}
-                                            <div class="form-group row align-content-center mb-1">
-                                                <label for="inventory_number" class="col-sm-3 col-form-label-sm">Nomor
-                                                    Inventaris</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" name="inventory_number" id="inventory_number"
-                                                        class="form-control form-control-sm"
-                                                        value="{{ $tool->inventory_number }}" />
-                                                </div>
-                                            </div>
-
-                                            {{-- Merk --}}
-                                            <div class="form-group row align-content-center mb-1">
-                                                <label for="merk" class="col-sm-3 col-form-label-sm">Merk</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" name="merk" id="merk"
-                                                        class="form-control form-control-sm"
-                                                        value="{{ $tool->merk }}" />
-                                                </div>
-                                            </div>
-
-                                            {{-- Seri --}}
-                                            <div class="form-group row align-content-center mb-1">
-                                                <label for="series" class="col-sm-3 col-form-label-sm">Seri</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" name="series" id="series"
-                                                        class="form-control form-control-sm"
-                                                        value="{{ $tool->series }}" />
-                                                </div>
-                                            </div>
-
-                                            {{-- Tanggal pengadaan --}}
-                                            <div class="form-group row align-content-center mb-1">
-                                                <label for="purchase_date" class="col-sm-3 col-form-label-sm">Tanggal
-                                                    pengadaan</label>
-                                                <div class="col-sm-9">
-                                                    <input type="date" name="purchase_date" id="purchase_date"
-                                                        class="form-control form-control-sm"
-                                                        value="{{ $tool->purchase_date->isoFormat('Y-MM-DD') }}" />
-                                                </div>
-                                            </div>
-
-                                            {{-- Harga --}}
-                                            <div class="form-group row align-content-center mb-1">
-                                                <label for="price" class="col-sm-3 col-form-label-sm">Harga</label>
-                                                <div class="col-sm-9">
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text bg-primary text-white">Rp</span>
-                                                        </div>
-                                                        <input type="text" class="form-control" name="price"
-                                                            id="price" value="{{ $tool->price }}">
+                                    @role('admin')
+                                        <div class="tab-pane fade" id="edit" role="tabpanel"
+                                            aria-labelledby="edit-tab">
+                                            <h4>Form ubah data</h4>
+                                            <form action="{{ route('tool.update') }}" method="post"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('put')
+                                                <input type="hidden" name="unique" value="{{ $tool->inventory_unique }}">
+                                                {{-- Nama alat --}}
+                                                <div class="form-group row align-content-center mb-1">
+                                                    <label for="name" class="col-sm-3 col-form-label-sm">Nama alat</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="name" id="name"
+                                                            class="form-control form-control-sm"
+                                                            value="{{ $tool->name }}" />
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            {{-- Status dan kondisi --}}
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group row align-content-center mb-1">
-                                                        <label for="condition" class="col-sm-3 col-form-label-sm">Kondisi
-                                                            alat</label>
-                                                        <div class="col-sm-9">
-                                                            <div class="form-group">
-                                                                <div class="form-check form-check-success">
-                                                                    <label class="form-check-label">
-                                                                        <input type="radio" class="form-check-input"
-                                                                            name="condition" id="condition1"
-                                                                            value="good" @checked($tool->condition == 'good' ? true : false)>
-                                                                        Baik
-                                                                        <i class="input-helper"></i></label>
+                                                {{-- No inv --}}
+                                                <div class="form-group row align-content-center mb-1">
+                                                    <label for="inventory_number" class="col-sm-3 col-form-label-sm">Nomor
+                                                        Inventaris</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="inventory_number" id="inventory_number"
+                                                            class="form-control form-control-sm"
+                                                            value="{{ $tool->inventory_number }}" />
+                                                    </div>
+                                                </div>
+
+                                                {{-- Merk --}}
+                                                <div class="form-group row align-content-center mb-1">
+                                                    <label for="merk" class="col-sm-3 col-form-label-sm">Merk</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="merk" id="merk"
+                                                            class="form-control form-control-sm"
+                                                            value="{{ $tool->merk }}" />
+                                                    </div>
+                                                </div>
+
+                                                {{-- Seri --}}
+                                                <div class="form-group row align-content-center mb-1">
+                                                    <label for="series" class="col-sm-3 col-form-label-sm">Seri</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="series" id="series"
+                                                            class="form-control form-control-sm"
+                                                            value="{{ $tool->series }}" />
+                                                    </div>
+                                                </div>
+
+                                                {{-- Tanggal pengadaan --}}
+                                                <div class="form-group row align-content-center mb-1">
+                                                    <label for="purchase_date" class="col-sm-3 col-form-label-sm">Tanggal
+                                                        pengadaan</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="date" name="purchase_date" id="purchase_date"
+                                                            class="form-control form-control-sm"
+                                                            value="{{ $tool->purchase_date->isoFormat('Y-MM-DD') }}" />
+                                                    </div>
+                                                </div>
+
+                                                {{-- Harga --}}
+                                                <div class="form-group row align-content-center mb-1">
+                                                    <label for="price" class="col-sm-3 col-form-label-sm">Harga</label>
+                                                    <div class="col-sm-9">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text bg-primary text-white">Rp</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" name="price"
+                                                                id="price" value="{{ $tool->price }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {{-- Status dan kondisi --}}
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="condition" class="col-sm-3 col-form-label-sm">Kondisi
+                                                                alat</label>
+                                                            <div class="col-sm-9">
+                                                                <div class="form-group">
+                                                                    <div class="form-check form-check-success">
+                                                                        <label class="form-check-label">
+                                                                            <input type="radio" class="form-check-input"
+                                                                                name="condition" id="condition1"
+                                                                                value="good" @checked($tool->condition == 'good' ? true : false)>
+                                                                            Baik
+                                                                            <i class="input-helper"></i></label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-warning">
+                                                                        <label class="form-check-label">
+                                                                            <input type="radio" class="form-check-input"
+                                                                                name="condition" id="condition2"
+                                                                                value="minor" @checked($tool->condition == 'minor' ? true : false)>
+                                                                            Rusak Ringan
+                                                                            <i class="input-helper"></i></label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-danger">
+                                                                        <label class="form-check-label">
+                                                                            <input type="radio" class="form-check-input"
+                                                                                name="condition" id="condition3"
+                                                                                value="severe" @checked($tool->condition == 'severe' ? true : false)>
+                                                                            Rusak berat
+                                                                            <i class="input-helper"></i></label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-dark">
+                                                                        <label class="form-check-label">
+                                                                            <input type="radio" class="form-check-input"
+                                                                                name="condition" id="condition4"
+                                                                                value="unknown" @checked($tool->condition == 'unknown' ? true : false)>
+                                                                            Tidak diketahui
+                                                                            <i class="input-helper"></i></label>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="form-check form-check-warning">
-                                                                    <label class="form-check-label">
-                                                                        <input type="radio" class="form-check-input"
-                                                                            name="condition" id="condition2"
-                                                                            value="minor" @checked($tool->condition == 'minor' ? true : false)>
-                                                                        Rusak Ringan
-                                                                        <i class="input-helper"></i></label>
-                                                                </div>
-                                                                <div class="form-check form-check-danger">
-                                                                    <label class="form-check-label">
-                                                                        <input type="radio" class="form-check-input"
-                                                                            name="condition" id="condition3"
-                                                                            value="severe" @checked($tool->condition == 'severe' ? true : false)>
-                                                                        Rusak berat
-                                                                        <i class="input-helper"></i></label>
-                                                                </div>
-                                                                <div class="form-check form-check-dark">
-                                                                    <label class="form-check-label">
-                                                                        <input type="radio" class="form-check-input"
-                                                                            name="condition" id="condition4"
-                                                                            value="unknown" @checked($tool->condition == 'unknown' ? true : false)>
-                                                                        Tidak diketahui
-                                                                        <i class="input-helper"></i></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="used_status"
+                                                                class="col-sm-3 col-form-label-sm">Status</label>
+                                                            <div class="col-sm-9">
+                                                                <div class="form-group">
+                                                                    <div class="form-check form-check-success">
+                                                                        <label class="form-check-label">
+                                                                            <input type="radio" class="form-check-input"
+                                                                                name="used_status" id="condition1"
+                                                                                value="used" @checked($tool->used_status == 'used' ? true : false)>
+                                                                            Dapat digunakan
+                                                                            <i class="input-helper"></i></label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-warning">
+                                                                        <label class="form-check-label ">
+                                                                            <input type="radio" class="form-check-input"
+                                                                                name="used_status" id="condition2"
+                                                                                value="unused" @checked($tool->used_status == 'unused' ? true : false)>
+                                                                            Tidak dapat digunakan
+                                                                            <i class="input-helper"></i></label>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group row align-content-center mb-1">
-                                                        <label for="used_status"
-                                                            class="col-sm-3 col-form-label-sm">Status</label>
-                                                        <div class="col-sm-9">
-                                                            <div class="form-group">
-                                                                <div class="form-check form-check-success">
-                                                                    <label class="form-check-label">
-                                                                        <input type="radio" class="form-check-input"
-                                                                            name="used_status" id="condition1"
-                                                                            value="used" @checked($tool->used_status == 'used' ? true : false)>
-                                                                        Dapat digunakan
-                                                                        <i class="input-helper"></i></label>
-                                                                </div>
-                                                                <div class="form-check form-check-warning">
-                                                                    <label class="form-check-label ">
-                                                                        <input type="radio" class="form-check-input"
-                                                                            name="used_status" id="condition2"
-                                                                            value="unused" @checked($tool->used_status == 'unused' ? true : false)>
-                                                                        Tidak dapat digunakan
-                                                                        <i class="input-helper"></i></label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                {{-- Gambar --}}
+                                                <div class="form-group row align-content-center mb-1">
+                                                    <label for="image" class="col-sm-3 col-form-label-sm">Foto Alat</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="file" name="images[]" multiple id="image">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            {{-- Gambar --}}
-                                            <div class="form-group row align-content-center mb-1">
-                                                <label for="image" class="col-sm-3 col-form-label-sm">Foto Alat</label>
-                                                <div class="col-sm-9">
-                                                    <input type="file" name="images[]" multiple id="image">
-                                                </div>
-                                            </div>
 
-                                            {{-- Manual --}}
-                                            <div class="form-group row align-content-center mb-1">
-                                                <label for="manual"
-                                                    class="col-sm-3 col-form-label-sm">Spesifikasi/Manual</label>
-                                                <div class="col-sm-9">
-                                                    <input type="file" name="manual" multiple id="manual">
+                                                {{-- Manual --}}
+                                                <div class="form-group row align-content-center mb-1">
+                                                    <label for="manual"
+                                                        class="col-sm-3 col-form-label-sm">Spesifikasi/Manual</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="file" name="manual" id="manual">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary text-white">Simpan</button>
-                                        </form>
-                                    </div>
+                                                <button type="submit" class="btn btn-primary text-white">Simpan</button>
+                                            </form>
+                                        </div>
+                                    @endrole
                                     <div class="tab-pane fade" id="maintenance" role="tabpanel"
                                         aria-labelledby="maintenance-tab">
                                         <h4>Contact us </h4>
@@ -398,7 +410,7 @@
                 title: '<strong>Sukses!</strong>',
                 icon: 'success',
                 html: 'Catatan peminjaman anda dapat dilihat pada , ' +
-                    '<a href="{{ route('activity.borrow.all') }}">halaman ini</a> ',
+                    '<a href="{{ route('borrow.index') }}">halaman ini</a> ',
                 showCloseButton: true,
                 showCancelButton: false,
                 focusConfirm: true,
@@ -415,6 +427,10 @@
                 confirmButtonText: 'Yakin!',
                 cancelButtonText: 'Batal',
                 allowOutsideClick: false,
+                customClass: {
+                    confirmButton: 'btn btn-sm btn-primary',
+                    cancelButton: 'btn btn-sm btn-danger'
+                },
             }).then((result) => {
                 if (result.isConfirmed) {
                     var dataToSend = {
@@ -425,6 +441,17 @@
                         url: '{{ route('tool.delete', ['tool' => $tool->inventory_unique]) }}',
                         data: dataToSend,
                         type: 'DELETE',
+                        beforeSend: function(response) {
+                            Swal.fire({
+                                title: 'Tunggu...',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false,
+                                showConfirmButton: false,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                }
+                            })
+                        },
                         success: function(result) {
                             console.log(result.data);
                             let timerInterval
@@ -446,11 +473,15 @@
                                     clearInterval(timerInterval)
                                 }
                             }).then((result) => {
-                                $(location).attr('href', '{{ route('tool.index') }}');
+                                $(location).attr('href', "{{ route('tool.index') }}");
                             })
                         },
                         error: function(xhr, textStatus, errorThrown) {
-                            console.log('Data gagal dihapus');
+                            Swal.fire(
+                                'Gagal',
+                                'Operasi gagal dilakukan',
+                                'error'
+                            )
                         }
                     });
                 }

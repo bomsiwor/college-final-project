@@ -3,7 +3,9 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\RadioactiveController;
 use App\Http\Controllers\ToolController;
 use Illuminate\Support\Facades\Route;
@@ -48,13 +50,27 @@ Route::middleware('auth')->prefix('activity')->controller(ActivityController::cl
 
     Route::get('/radiation-log', 'radiationLog')->name('radiationLog');
 
-    Route::get('/borrow', 'indexOfBorrow')->name('borrow.all');
-    Route::get('/borrow/{borrow}', 'showBorrow')->name('borrow.detail');
+    // Route::get('/borrow', 'indexOfBorrow')->name('borrow.all');
+    // Route::get('/borrow/{borrow}', 'showBorrow')->name('borrow.detail');
 
     Route::get('/admin/borrow', 'adminBorrow')->name('admin.borrow')->middleware('role:admin');
     Route::get('/admin/return/{borrow}', 'returnBorrow')->name('admin.returning.store')->middleware('role:admin');
 
-    Route::post('/verify-borrow', 'verifyBorrow')->name('borrow.verify');
+    // Route::post('/verify-borrow', 'verifyBorrow')->name('borrow.verify');
+});
+
+Route::middleware('auth')->prefix('borrow')->controller(BorrowController::class)->name('borrow.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/{borrow}', 'show')->name('show');
+
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+
+    Route::delete('/delete', 'delete')->name('delete');
+
+    Route::post('/return', 'return')->name('return')->middleware('role:admin');
+
+    Route::post('verify', 'verify')->name('verify');
 });
 
 Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveController::class)->name('radioactive.')->group(function () {
@@ -65,19 +81,31 @@ Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveControll
 
 Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->name('tool.')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::get('/detail/{tool:inventory_unique}', 'show')->name('detail');
+    Route::get('/{tool:inventory_unique}', 'show')->name('detail');
     Route::get('/create', 'create')->name('create');
     Route::put('/edit-data', 'update')->name('update');
     Route::delete('/delete/{tool:inventory_unique}', 'destroy')->name('delete');
 
     Route::post('/logs', 'logs')->name('logs');
-
-    Route::get('/maintenance', 'maintenance')->name('maintenance.index');
     Route::get('/report-problem', 'report')->name('report');
 
     Route::post('/bulk-upload', 'storeExcel')->name('create.bulk');
 });
 
-Route::middleware(['auth'])->prefix('admin')->controller(AdminController::class)->name('admin.')->group(function () {
+Route::middleware('auth')->prefix('maintenance')->controller(MaintenanceController::class)->name('maintenance.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/{maintenance}', 'detail')->name('detail');
+    Route::get('/download/{maintenance}', 'download')->name('download');
+    Route::post('/verify', 'verify')->name('verify');
+    Route::post('/unverify', 'unverify')->name('unverify');
+    Route::post('/delete', 'delete')->name('delete');
+});
+
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->controller(AdminController::class)->name('admin.')->group(function () {
     Route::get('/manage-user', 'manageUser')->name('manageUser');
+    Route::get('/user-messages', 'manageMessage')->name('manageMessage');
+    Route::get('/manage-borrow', 'manageBorrow')->name('manageBorrow');
+});
+
+Route::middleware('auth')->controller(DashboardController::class)->group(function () {
 });

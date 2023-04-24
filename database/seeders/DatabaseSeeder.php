@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Imports\MaintenanceImport;
 use App\Imports\RadionuclideImport;
 use App\Imports\ToolImport;
 use App\Models\Tool;
@@ -79,5 +80,6 @@ class DatabaseSeeder extends Seeder
 
         Excel::import(new ToolImport, 'data-alat-insnuk-final.xlsx');
         Excel::import(new RadionuclideImport, 'data-zra-insnuk.xlsx');
+        Excel::import(new MaintenanceImport, 'daftar maintenance lab insnuk.xlsx');
     }
 }

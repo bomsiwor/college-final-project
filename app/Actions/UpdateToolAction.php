@@ -3,8 +3,10 @@
 namespace App\Actions;
 
 use App\Models\Tool;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\UpdateToolRequest;
+use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
 class UpdateToolAction
 {
@@ -13,19 +15,58 @@ class UpdateToolAction
     {
         $data = $request->validated();
 
-        $images = [];
-        if ($request->file('images')) {
-            foreach ($request->file('images') as $key => $file) {
-                $fileName = time() . rand(1, 99) . '.' . $file->extension();
-                $file->storeAs('images', $fileName);
-                $images["image_$key"]['name'] = $fileName;
-                $images["image_$key"]['description'] = "$request->name - $key";
-            }
-            unset($data['images']);
-            $data['tool_image'] = $images;
+        $data['tool_image'] = $this->processImage($request->file('images'), $request->name);
+
+        unset($data['images']);
+
+        $data['manual'] = $this->processManual($request->file('manual'), $request->name);
+
+        $this->deleteOldFile($request->unique);
+
+        try {
+            Tool::where('inventory_unique', $request->unique)->update($data);
+        } catch (\Throwable $e) {
+            return false;
         }
 
-        $tool = Tool::where('inventory_unique', $request->unique)->select('tool_image', 'inventory_unique')->first();
+        return true;
+    }
+
+    public function processImage($images, $name): array | null
+    {
+        $data = [];
+
+        if ($images !== null) {
+            foreach ($images as $key => $file) {
+                $fileName = time() . rand(1, 99) . '.' . $file->extension();
+                $file->storeAs('inventory-images', $fileName);
+                $data["image_$key"]['name'] = $fileName;
+                $data["image_$key"]['description'] = "$name - $key";
+            }
+        } else {
+            $data = null;
+        }
+
+        return $data;
+    }
+
+    public function processManual($manual, string $name): string | null
+    {
+        if ($manual !== null) :
+            $manualFile = $manual;
+            $manualName  = time() . rand(1, 99) . Str::slug($name) . '.' . $manualFile->extension();
+            $manualPath = "/manuals/$manualName";
+            Gdrive::put($manualPath, $manualFile);
+        else :
+            $manualPath = null;
+        endif;
+
+        return $manualPath;
+    }
+
+    public function deleteOldFile(string $unique_number): void
+    {
+        $tool = Tool::where('inventory_unique', $unique_number)->select('tool_image', 'inventory_unique')->first();
 
         if ($tool->tool_image) :
             foreach ($tool->tool_image as $key => $value) :
@@ -37,12 +78,9 @@ class UpdateToolAction
             endforeach;
         endif;
 
-        try {
-            Tool::where('inventory_unique', $request->unique)->update($data);
-        } catch (\Throwable $e) {
-            return false;
-        }
-
-        return true;
+        if ($tool->manual) :
+            $oldManual = $tool->manual;
+            Gdrive::delete("/manual/$oldManual");
+        endif;
     }
 }

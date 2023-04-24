@@ -71,13 +71,13 @@
                                                         class="badge {{ __("core.$borrow->status.class") }}">{{ __("core.$borrow->status.text") }}</span>
                                                 </td>
                                                 <td class="text-center text-wrap lh-sm">
-                                                    <a href="{{ route('activity.borrow.detail', ['borrow' => $borrow->id]) }}"
+                                                    <a href="{{ route('borrow.show', ['borrow' => $borrow->id]) }}"
                                                         class="btn btn-sm btn-light">
                                                         <i class="mdi mdi-eye text-primary me-0"></i>
                                                     </a>
                                                     @role('admin')
                                                         @empty($borrow->verified_at)
-                                                            <form action="{{ route('activity.borrow.verify') }}" method="post">
+                                                            <form action="{{ route('borrow.verify') }}" method="post">
                                                                 @csrf
                                                                 <input type="hidden" name="id" value="{{ $borrow->id }}">
                                                                 <input type="hidden" name="unique_id"

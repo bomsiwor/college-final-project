@@ -10,7 +10,7 @@
             <li class="breadcrumb-item active">Detail</li>
         </ol>
     </nav>
-    <a href="{{ route('activity.borrow.all') }}" class="btn btn-primary"><span class="mdi mdi-arrow-left"></span>
+    <a href="{{ route('borrow.index') }}" class="btn btn-primary"><span class="mdi mdi-arrow-left"></span>
         Kembali</a>
 
     <div class="row my-2 animate__animated animate__fadeIn">
@@ -135,7 +135,7 @@
                     @role('admin')
                         @empty($borrow->verified_at)
                             <div class="container-fluid w-100">
-                                <form id="verification" action="{{ route('activity.borrow.verify') }}" method="POST">
+                                <form id="verification" action="{{ route('borrow.verify') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $borrow->id }}">
                                     <input type="hidden" name="unique_id" value="{{ $borrow->inventory_id }}">

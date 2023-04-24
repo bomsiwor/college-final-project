@@ -28,12 +28,17 @@
                         <li class="nav-item"> <a class="nav-link" href="{{ route('admin.manageUser') }}">
                                 Kelola User</a>
                         </li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('activity.admin.borrow') }}">Kelola
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('admin.manageBorrow') }}">Kelola
                                 Peminjaman</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Kelola Dokumen</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Kelola Agenda</a>
                         </li>
                         <li class="nav-item"> <a class="nav-link" href="#">Kelola Postingan</a>
                         </li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Kritik & Saran User</a>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('admin.manageMessage') }}">Kritik & Saran
+                                User</a>
                         </li>
                     </ul>
                 </div>
@@ -79,7 +84,7 @@
         </li>
         {{-- Peminjaman --}}
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('activity.borrow.all') }}">
+            <a class="nav-link" href="{{ route('borrow.index') }}">
                 <i class="mdi mdi-book-clock-outline menu-icon"></i>
                 <span class="menu-title">Peminjaman</span>
             </a>
@@ -87,7 +92,7 @@
 
         {{-- Perawatan --}}
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('tool.maintenance.index') }}">
+            <a class="nav-link" href="{{ route('maintenance.index') }}">
                 <i class="mdi mdi-book-clock-outline menu-icon"></i>
                 <span class="menu-title">Perawatan</span>
             </a>

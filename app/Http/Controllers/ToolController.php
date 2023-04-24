@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\UpdateToolAction;
-use App\Http\Requests\UpdateToolRequest;
 use Excel;
 use App\Models\Tool;
-use App\Imports\ToolImport;
 use App\Models\ToolLog;
-use Illuminate\Http\RedirectResponse;
+use App\Imports\ToolImport;
 use Illuminate\Http\Request;
+use App\Actions\UpdateToolAction;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\UpdateToolRequest;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class ToolController extends Controller
@@ -81,6 +82,7 @@ class ToolController extends Controller
      */
     public function show(Tool $tool)
     {
+        $title = 'Detail Alat';
         return view('Tools.detail', compact('tool', 'title'));
     }
 
@@ -91,7 +93,7 @@ class ToolController extends Controller
      * @param  \App\Models\Tool  $tool
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateToolRequest $request, UpdateToolAction $action): RedirectResponse
+    public function update(UpdateToolRequest $request, UpdateToolAction $action)
     {
         if ($action->handle($request)) :
             return back()->with('success', 'sukses');
@@ -109,6 +111,15 @@ class ToolController extends Controller
     public function destroy(Tool $tool)
     {
         try {
+            if ($tool->tool_image) :
+                foreach ($tool->tool_image as $key => $value) :
+                    if (File::exists(public_path("storage/inventory-images/" . $value['name']))) :
+                        File::delete(public_path("storage/inventory-images/" . $value['name']));
+                    else :
+                        continue;
+                    endif;
+                endforeach;
+            endif;
             $tool->delete();
         } catch (\Throwable $e) {
             return response()->json(['error'], 404);
@@ -124,13 +135,6 @@ class ToolController extends Controller
         $add = $data->additional;
 
         dd($add['hv']);
-    }
-
-    public function maintenance()
-    {
-        $title = "Perawatan Alat";
-
-        return view('Tools.maintenance-index', compact('title'));
     }
 
     public function report()

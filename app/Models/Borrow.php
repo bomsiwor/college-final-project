@@ -64,4 +64,19 @@ class Borrow extends Model
         )
             ->where('inventory_id', $toolId)->where('status', 'accepted')->with('user:id,name');
     }
+
+    public function scopeForAdmin(Builder $query)
+    {
+        return $query->select(
+            'id',
+            'user_id',
+            'inventory_id',
+            'start_borrow_date',
+            'expected_return_date',
+            DB::raw("CASE 
+        WHEN expected_return_date <= NOW() THEN 'not late'
+        WHEN expected_return_date > NOW() THEN 'overdue'
+        END AS status_peminjaman")
+        )->where('status', 'accepted')->whereNull('actual_return_date')->get();
+    }
 }

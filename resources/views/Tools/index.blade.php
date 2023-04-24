@@ -1,5 +1,9 @@
 @extends('Template.layouts')
 
+@push('vendorScript')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@endpush
+
 @section('main')
     <div class="pagetitle">
         <h2 class="fw-bold">Aset Alat</h2>
@@ -94,11 +98,6 @@
                                                         class="btn btn-sm btn-light">
                                                         <i class="ti-eye text-primary"></i>View
                                                     </a>
-                                                    @role('admin')
-                                                        <button class="btn btn-sm btn-light my-1">
-                                                            <i class="mdi mdi-close-circle-outline text-danger"></i>Remove
-                                                        </button>
-                                                    @endrole
                                                 </td>
                                             </tr>
                                         @endforeach

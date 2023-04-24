@@ -11021,12 +11021,12 @@ textarea.form-control-lg {
 }
 .btn-check[disabled] + .btn,
 .wizard > .actions .btn-check[disabled] + a,
-.swal2-modal .swal2-buttonswrapper .btn-check[disabled] + .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-check[disabled] + .swals2-styled,
 .ajax-upload-dragdrop .btn-check[disabled] + .ajax-file-upload,
 .fc .btn-check[disabled] + button,
 .btn-check:disabled + .btn,
 .wizard > .actions .btn-check:disabled + a,
-.swal2-modal .swal2-buttonswrapper .btn-check:disabled + .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-check:disabled + .swals2-styled,
 .ajax-upload-dragdrop .btn-check:disabled + .ajax-file-upload,
 .fc .btn-check:disabled + button {
     pointer-events: none;
@@ -11491,8 +11491,8 @@ textarea.form-control-lg {
 .input-group .btn,
 .input-group .wizard > .actions a,
 .wizard > .actions .input-group a,
-.input-group .swal2-modal .swal2-buttonswrapper .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .input-group .swal2-styled,
+.input-group .swals2-modal .swals2-buttonswrapper .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .input-group .swals2-styled,
 .input-group .ajax-upload-dragdrop .ajax-file-upload,
 .ajax-upload-dragdrop .input-group .ajax-file-upload,
 .input-group .fc button,
@@ -11500,8 +11500,8 @@ textarea.form-control-lg {
 .asColorPicker-wrap .btn,
 .asColorPicker-wrap .wizard > .actions a,
 .wizard > .actions .asColorPicker-wrap a,
-.asColorPicker-wrap .swal2-modal .swal2-buttonswrapper .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .asColorPicker-wrap .swal2-styled,
+.asColorPicker-wrap .swals2-modal .swals2-buttonswrapper .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .asColorPicker-wrap .swals2-styled,
 .asColorPicker-wrap .ajax-upload-dragdrop .ajax-file-upload,
 .ajax-upload-dragdrop .asColorPicker-wrap .ajax-file-upload,
 .asColorPicker-wrap .fc button,
@@ -11512,8 +11512,8 @@ textarea.form-control-lg {
 .input-group .btn:focus,
 .input-group .wizard > .actions a:focus,
 .wizard > .actions .input-group a:focus,
-.input-group .swal2-modal .swal2-buttonswrapper .swal2-styled:focus,
-.swal2-modal .swal2-buttonswrapper .input-group .swal2-styled:focus,
+.input-group .swals2-modal .swals2-buttonswrapper .swals2-styled:focus,
+.swals2-modal .swals2-buttonswrapper .input-group .swals2-styled:focus,
 .input-group .ajax-upload-dragdrop .ajax-file-upload:focus,
 .ajax-upload-dragdrop .input-group .ajax-file-upload:focus,
 .input-group .fc button:focus,
@@ -11521,8 +11521,8 @@ textarea.form-control-lg {
 .asColorPicker-wrap .btn:focus,
 .asColorPicker-wrap .wizard > .actions a:focus,
 .wizard > .actions .asColorPicker-wrap a:focus,
-.asColorPicker-wrap .swal2-modal .swal2-buttonswrapper .swal2-styled:focus,
-.swal2-modal .swal2-buttonswrapper .asColorPicker-wrap .swal2-styled:focus,
+.asColorPicker-wrap .swals2-modal .swals2-buttonswrapper .swals2-styled:focus,
+.swals2-modal .swals2-buttonswrapper .asColorPicker-wrap .swals2-styled:focus,
 .asColorPicker-wrap .ajax-upload-dragdrop .ajax-file-upload:focus,
 .ajax-upload-dragdrop .asColorPicker-wrap .ajax-file-upload:focus,
 .asColorPicker-wrap .fc button:focus,
@@ -11563,7 +11563,7 @@ textarea.form-control-lg {
 .input-group-lg > .input-group-text,
 .input-group-lg > .btn,
 .wizard > .actions .input-group-lg > a,
-.swal2-modal .swal2-buttonswrapper .input-group-lg > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .input-group-lg > .swals2-styled,
 .ajax-upload-dragdrop .input-group-lg > .ajax-file-upload,
 .fc .input-group-lg > button {
     padding: 0.94rem 1.94rem;
@@ -11589,7 +11589,7 @@ textarea.form-control-lg {
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn,
 .wizard > .actions .input-group-sm > a,
-.swal2-modal .swal2-buttonswrapper .input-group-sm > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .input-group-sm > .swals2-styled,
 .ajax-upload-dragdrop .input-group-sm > .ajax-file-upload,
 .fc .input-group-sm > button {
     padding: 0.5rem 0.81rem;
@@ -12946,9 +12946,9 @@ textarea.is-invalid.asColorPicker-input {
 
 .btn,
 .wizard > .actions a,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm,
-.swal2-modal .swal2-buttonswrapper .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-cancel,
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-confirm,
+.swals2-modal .swals2-buttonswrapper .swals2-styled,
 .ajax-upload-dragdrop .ajax-file-upload,
 .fc button {
     display: inline-block;
@@ -12971,9 +12971,9 @@ textarea.is-invalid.asColorPicker-input {
 @media (prefers-reduced-motion: reduce) {
     .btn,
     .wizard > .actions a,
-    .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel,
-    .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm,
-    .swal2-modal .swal2-buttonswrapper .swal2-styled,
+    .swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-cancel,
+    .swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-confirm,
+    .swals2-modal .swals2-buttonswrapper .swals2-styled,
     .ajax-upload-dragdrop .ajax-file-upload,
     .fc button {
         transition: none;
@@ -12981,19 +12981,19 @@ textarea.is-invalid.asColorPicker-input {
 }
 .btn:hover,
 .wizard > .actions a:hover,
-.swal2-modal .swal2-buttonswrapper .swal2-styled:hover,
+.swals2-modal .swals2-buttonswrapper .swals2-styled:hover,
 .ajax-upload-dragdrop .ajax-file-upload:hover,
 .fc button:hover {
     color: #1f1f1f;
 }
 .btn-check:focus + .btn,
 .wizard > .actions .btn-check:focus + a,
-.swal2-modal .swal2-buttonswrapper .btn-check:focus + .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-check:focus + .swals2-styled,
 .ajax-upload-dragdrop .btn-check:focus + .ajax-file-upload,
 .fc .btn-check:focus + button,
 .btn:focus,
 .wizard > .actions a:focus,
-.swal2-modal .swal2-buttonswrapper .swal2-styled:focus,
+.swals2-modal .swals2-buttonswrapper .swals2-styled:focus,
 .ajax-upload-dragdrop .ajax-file-upload:focus,
 .fc button:focus {
     outline: 0;
@@ -13001,19 +13001,19 @@ textarea.is-invalid.asColorPicker-input {
 }
 .btn:disabled,
 .wizard > .actions a:disabled,
-.swal2-modal .swal2-buttonswrapper .swal2-styled:disabled,
+.swals2-modal .swals2-buttonswrapper .swals2-styled:disabled,
 .ajax-upload-dragdrop .ajax-file-upload:disabled,
 .fc button:disabled,
 .btn.disabled,
 .wizard > .actions a.disabled,
-.swal2-modal .swal2-buttonswrapper .disabled.swal2-styled,
+.swals2-modal .swals2-buttonswrapper .disabled.swals2-styled,
 .ajax-upload-dragdrop .disabled.ajax-file-upload,
 .fc button.disabled,
 fieldset:disabled .btn,
 fieldset:disabled .wizard > .actions a,
 .wizard > .actions fieldset:disabled a,
-fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
-.swal2-modal .swal2-buttonswrapper fieldset:disabled .swal2-styled,
+fieldset:disabled .swals2-modal .swals2-buttonswrapper .swals2-styled,
+.swals2-modal .swals2-buttonswrapper fieldset:disabled .swals2-styled,
 fieldset:disabled .ajax-upload-dragdrop .ajax-file-upload,
 .ajax-upload-dragdrop fieldset:disabled .ajax-file-upload,
 fieldset:disabled .fc button,
@@ -13915,7 +13915,7 @@ fieldset:disabled .fc button,
 .btn-lg,
 .btn-group-lg > .btn,
 .wizard > .actions .btn-group-lg > a,
-.swal2-modal .swal2-buttonswrapper .btn-group-lg > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group-lg > .swals2-styled,
 .ajax-upload-dragdrop .btn-group-lg > .ajax-file-upload,
 .fc .btn-group-lg > button {
     padding: 1rem 3rem;
@@ -13927,7 +13927,7 @@ fieldset:disabled .fc button,
 .fc button,
 .btn-group-sm > .btn,
 .wizard > .actions .btn-group-sm > a,
-.swal2-modal .swal2-buttonswrapper .btn-group-sm > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group-sm > .swals2-styled,
 .ajax-upload-dragdrop .btn-group-sm > .ajax-file-upload,
 .fc .btn-group-sm > button {
     padding: 0.5rem 0.81rem;
@@ -14288,20 +14288,20 @@ fieldset:disabled .fc button,
 }
 .btn-group > .btn,
 .wizard > .actions .btn-group > a,
-.swal2-modal .swal2-buttonswrapper .btn-group > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group > .swals2-styled,
 .ajax-upload-dragdrop .btn-group > .ajax-file-upload,
 .fc .fc-button-group > .btn,
 .fc .wizard > .actions .fc-button-group > a,
 .wizard > .actions .fc .fc-button-group > a,
-.fc .swal2-modal .swal2-buttonswrapper .fc-button-group > .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .fc .fc-button-group > .swal2-styled,
+.fc .swals2-modal .swals2-buttonswrapper .fc-button-group > .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .fc .fc-button-group > .swals2-styled,
 .fc .ajax-upload-dragdrop .fc-button-group > .ajax-file-upload,
 .ajax-upload-dragdrop .fc .fc-button-group > .ajax-file-upload,
 .fc .btn-group > button,
 .fc .fc-button-group > button,
 .btn-group-vertical > .btn,
 .wizard > .actions .btn-group-vertical > a,
-.swal2-modal .swal2-buttonswrapper .btn-group-vertical > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group-vertical > .swals2-styled,
 .ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload,
 .fc .btn-group-vertical > button {
     position: relative;
@@ -14309,61 +14309,61 @@ fieldset:disabled .fc button,
 }
 .btn-group > .btn-check:checked + .btn,
 .wizard > .actions .btn-group > .btn-check:checked + a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .btn-check:checked
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .btn-check:checked
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .btn-check:checked
-    + .swal2-styled,
+    + .swals2-styled,
 .ajax-upload-dragdrop .btn-group > .btn-check:checked + .ajax-file-upload,
 .fc .fc-button-group > .btn-check:checked + .btn,
 .fc .wizard > .actions .fc-button-group > .btn-check:checked + a,
 .wizard > .actions .fc .fc-button-group > .btn-check:checked + a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .btn-check:checked
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .btn-check:checked
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .btn-check:checked
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .btn-check:checked
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .btn-check:checked
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .btn-check:checked
-    + .swal2-styled,
+    + .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .fc-button-group
@@ -14378,61 +14378,61 @@ fieldset:disabled .fc button,
 .fc .fc-button-group > .btn-check:checked + button,
 .btn-group > .btn-check:focus + .btn,
 .wizard > .actions .btn-group > .btn-check:focus + a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .btn-check:focus
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .btn-check:focus
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .btn-check:focus
-    + .swal2-styled,
+    + .swals2-styled,
 .ajax-upload-dragdrop .btn-group > .btn-check:focus + .ajax-file-upload,
 .fc .fc-button-group > .btn-check:focus + .btn,
 .fc .wizard > .actions .fc-button-group > .btn-check:focus + a,
 .wizard > .actions .fc .fc-button-group > .btn-check:focus + a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .btn-check:focus
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .btn-check:focus
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .btn-check:focus
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .btn-check:focus
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .btn-check:focus
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .btn-check:focus
-    + .swal2-styled,
+    + .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .fc-button-group
@@ -14447,185 +14447,217 @@ fieldset:disabled .fc button,
 .fc .fc-button-group > .btn-check:focus + button,
 .btn-group > .btn:hover,
 .wizard > .actions .btn-group > a:hover,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    > .swal2-styled.swal2-cancel:hover,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-cancel:hover,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    > .swal2-styled.swal2-confirm:hover,
-.swal2-modal .swal2-buttonswrapper .btn-group > .swal2-styled:hover,
+    > .swals2-styled.swals2-confirm:hover,
+.swals2-modal .swals2-buttonswrapper .btn-group > .swals2-styled:hover,
 .ajax-upload-dragdrop .btn-group > .ajax-file-upload:hover,
 .fc .fc-button-group > .btn:hover,
 .fc .wizard > .actions .fc-button-group > a:hover,
 .wizard > .actions .fc .fc-button-group > a:hover,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .swal2-styled.swal2-cancel:hover,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-cancel:hover,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .swal2-styled.swal2-cancel:hover,
+    > .swals2-styled.swals2-cancel:hover,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .swal2-styled.swal2-confirm:hover,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-confirm:hover,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .swal2-styled.swal2-confirm:hover,
-.fc .swal2-modal .swal2-buttonswrapper .fc-button-group > .swal2-styled:hover,
-.swal2-modal .swal2-buttonswrapper .fc .fc-button-group > .swal2-styled:hover,
+    > .swals2-styled.swals2-confirm:hover,
+.fc
+    .swals2-modal
+    .swals2-buttonswrapper
+    .fc-button-group
+    > .swals2-styled:hover,
+.swals2-modal
+    .swals2-buttonswrapper
+    .fc
+    .fc-button-group
+    > .swals2-styled:hover,
 .fc .ajax-upload-dragdrop .fc-button-group > .ajax-file-upload:hover,
 .ajax-upload-dragdrop .fc .fc-button-group > .ajax-file-upload:hover,
 .fc .btn-group > button:hover,
 .fc .fc-button-group > button:hover,
 .btn-group > .btn:focus,
 .wizard > .actions .btn-group > a:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    > .swal2-styled.swal2-cancel:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-cancel:focus,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    > .swal2-styled.swal2-confirm:focus,
-.swal2-modal .swal2-buttonswrapper .btn-group > .swal2-styled:focus,
+    > .swals2-styled.swals2-confirm:focus,
+.swals2-modal .swals2-buttonswrapper .btn-group > .swals2-styled:focus,
 .ajax-upload-dragdrop .btn-group > .ajax-file-upload:focus,
 .fc .fc-button-group > .btn:focus,
 .fc .wizard > .actions .fc-button-group > a:focus,
 .wizard > .actions .fc .fc-button-group > a:focus,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .swal2-styled.swal2-cancel:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-cancel:focus,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .swal2-styled.swal2-cancel:focus,
+    > .swals2-styled.swals2-cancel:focus,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .swal2-styled.swal2-confirm:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-confirm:focus,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .swal2-styled.swal2-confirm:focus,
-.fc .swal2-modal .swal2-buttonswrapper .fc-button-group > .swal2-styled:focus,
-.swal2-modal .swal2-buttonswrapper .fc .fc-button-group > .swal2-styled:focus,
+    > .swals2-styled.swals2-confirm:focus,
+.fc
+    .swals2-modal
+    .swals2-buttonswrapper
+    .fc-button-group
+    > .swals2-styled:focus,
+.swals2-modal
+    .swals2-buttonswrapper
+    .fc
+    .fc-button-group
+    > .swals2-styled:focus,
 .fc .ajax-upload-dragdrop .fc-button-group > .ajax-file-upload:focus,
 .ajax-upload-dragdrop .fc .fc-button-group > .ajax-file-upload:focus,
 .fc .btn-group > button:focus,
 .fc .fc-button-group > button:focus,
 .btn-group > .btn:active,
 .wizard > .actions .btn-group > a:active,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    > .swal2-styled.swal2-cancel:active,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-cancel:active,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    > .swal2-styled.swal2-confirm:active,
-.swal2-modal .swal2-buttonswrapper .btn-group > .swal2-styled:active,
+    > .swals2-styled.swals2-confirm:active,
+.swals2-modal .swals2-buttonswrapper .btn-group > .swals2-styled:active,
 .ajax-upload-dragdrop .btn-group > .ajax-file-upload:active,
 .fc .fc-button-group > .btn:active,
 .fc .wizard > .actions .fc-button-group > a:active,
 .wizard > .actions .fc .fc-button-group > a:active,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .swal2-styled.swal2-cancel:active,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-cancel:active,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .swal2-styled.swal2-cancel:active,
+    > .swals2-styled.swals2-cancel:active,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .swal2-styled.swal2-confirm:active,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-confirm:active,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .swal2-styled.swal2-confirm:active,
-.fc .swal2-modal .swal2-buttonswrapper .fc-button-group > .swal2-styled:active,
-.swal2-modal .swal2-buttonswrapper .fc .fc-button-group > .swal2-styled:active,
+    > .swals2-styled.swals2-confirm:active,
+.fc
+    .swals2-modal
+    .swals2-buttonswrapper
+    .fc-button-group
+    > .swals2-styled:active,
+.swals2-modal
+    .swals2-buttonswrapper
+    .fc
+    .fc-button-group
+    > .swals2-styled:active,
 .fc .ajax-upload-dragdrop .fc-button-group > .ajax-file-upload:active,
 .ajax-upload-dragdrop .fc .fc-button-group > .ajax-file-upload:active,
 .fc .btn-group > button:active,
 .fc .fc-button-group > button:active,
 .btn-group > .btn.active,
 .wizard > .actions .btn-group > a.active,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    > .active.swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .active.swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    > .active.swal2-styled.swal2-confirm,
-.swal2-modal .swal2-buttonswrapper .btn-group > .active.swal2-styled,
+    > .active.swals2-styled.swals2-confirm,
+.swals2-modal .swals2-buttonswrapper .btn-group > .active.swals2-styled,
 .ajax-upload-dragdrop .btn-group > .active.ajax-file-upload,
 .fc .fc-button-group > .btn.active,
 .fc .wizard > .actions .fc-button-group > a.active,
 .wizard > .actions .fc .fc-button-group > a.active,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .active.swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .active.swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .active.swal2-styled.swal2-cancel,
+    > .active.swals2-styled.swals2-cancel,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .active.swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .active.swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .active.swal2-styled.swal2-confirm,
-.fc .swal2-modal .swal2-buttonswrapper .fc-button-group > .active.swal2-styled,
-.swal2-modal .swal2-buttonswrapper .fc .fc-button-group > .active.swal2-styled,
+    > .active.swals2-styled.swals2-confirm,
+.fc
+    .swals2-modal
+    .swals2-buttonswrapper
+    .fc-button-group
+    > .active.swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
+    .fc
+    .fc-button-group
+    > .active.swals2-styled,
 .fc .ajax-upload-dragdrop .fc-button-group > .active.ajax-file-upload,
 .ajax-upload-dragdrop .fc .fc-button-group > .active.ajax-file-upload,
 .fc .btn-group > button.active,
 .fc .fc-button-group > button.active,
 .btn-group-vertical > .btn-check:checked + .btn,
 .wizard > .actions .btn-group-vertical > .btn-check:checked + a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .btn-check:checked
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .btn-check:checked
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .btn-check:checked
-    + .swal2-styled,
+    + .swals2-styled,
 .ajax-upload-dragdrop
     .btn-group-vertical
     > .btn-check:checked
@@ -14633,21 +14665,21 @@ fieldset:disabled .fc button,
 .fc .btn-group-vertical > .btn-check:checked + button,
 .btn-group-vertical > .btn-check:focus + .btn,
 .wizard > .actions .btn-group-vertical > .btn-check:focus + a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .btn-check:focus
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .btn-check:focus
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .btn-check:focus
-    + .swal2-styled,
+    + .swals2-styled,
 .ajax-upload-dragdrop
     .btn-group-vertical
     > .btn-check:focus
@@ -14655,54 +14687,60 @@ fieldset:disabled .fc button,
 .fc .btn-group-vertical > .btn-check:focus + button,
 .btn-group-vertical > .btn:hover,
 .wizard > .actions .btn-group-vertical > a:hover,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled.swal2-cancel:hover,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-cancel:hover,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled.swal2-confirm:hover,
-.swal2-modal .swal2-buttonswrapper .btn-group-vertical > .swal2-styled:hover,
+    > .swals2-styled.swals2-confirm:hover,
+.swals2-modal .swals2-buttonswrapper .btn-group-vertical > .swals2-styled:hover,
 .ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload:hover,
 .fc .btn-group-vertical > button:hover,
 .btn-group-vertical > .btn:focus,
 .wizard > .actions .btn-group-vertical > a:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled.swal2-cancel:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-cancel:focus,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled.swal2-confirm:focus,
-.swal2-modal .swal2-buttonswrapper .btn-group-vertical > .swal2-styled:focus,
+    > .swals2-styled.swals2-confirm:focus,
+.swals2-modal .swals2-buttonswrapper .btn-group-vertical > .swals2-styled:focus,
 .ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload:focus,
 .fc .btn-group-vertical > button:focus,
 .btn-group-vertical > .btn:active,
 .wizard > .actions .btn-group-vertical > a:active,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled.swal2-cancel:active,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled.swals2-cancel:active,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled.swal2-confirm:active,
-.swal2-modal .swal2-buttonswrapper .btn-group-vertical > .swal2-styled:active,
+    > .swals2-styled.swals2-confirm:active,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group-vertical
+    > .swals2-styled:active,
 .ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload:active,
 .fc .btn-group-vertical > button:active,
 .btn-group-vertical > .btn.active,
 .wizard > .actions .btn-group-vertical > a.active,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .active.swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .active.swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .active.swal2-styled.swal2-confirm,
-.swal2-modal .swal2-buttonswrapper .btn-group-vertical > .active.swal2-styled,
+    > .active.swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group-vertical
+    > .active.swals2-styled,
 .ajax-upload-dragdrop .btn-group-vertical > .active.ajax-file-upload,
 .fc .btn-group-vertical > button.active {
     z-index: 1;
@@ -14720,21 +14758,24 @@ fieldset:disabled .fc button,
 
 .btn-group > .btn:not(:first-child),
 .wizard > .actions .btn-group > a:not(:first-child),
-.swal2-modal .swal2-buttonswrapper .btn-group > .swal2-styled:not(:first-child),
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    > .swals2-styled:not(:first-child),
 .ajax-upload-dragdrop .btn-group > .ajax-file-upload:not(:first-child),
 .fc .fc-button-group > .btn:not(:first-child),
 .fc .wizard > .actions .fc-button-group > a:not(:first-child),
 .wizard > .actions .fc .fc-button-group > a:not(:first-child),
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .swal2-styled:not(:first-child),
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled:not(:first-child),
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .swal2-styled:not(:first-child),
+    > .swals2-styled:not(:first-child),
 .fc
     .ajax-upload-dragdrop
     .fc-button-group
@@ -14753,10 +14794,10 @@ fieldset:disabled .fc button,
 }
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
 .wizard > .actions .btn-group > a:not(:last-child):not(.dropdown-toggle),
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    > .swal2-styled:not(:last-child):not(.dropdown-toggle),
+    > .swals2-styled:not(:last-child):not(.dropdown-toggle),
 .ajax-upload-dragdrop
     .btn-group
     > .ajax-file-upload:not(:last-child):not(.dropdown-toggle),
@@ -14772,15 +14813,15 @@ fieldset:disabled .fc button,
     .fc-button-group
     > a:not(:last-child):not(.dropdown-toggle),
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .swal2-styled:not(:last-child):not(.dropdown-toggle),
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled:not(:last-child):not(.dropdown-toggle),
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .swal2-styled:not(:last-child):not(.dropdown-toggle),
+    > .swals2-styled:not(:last-child):not(.dropdown-toggle),
 .fc
     .ajax-upload-dragdrop
     .fc-button-group
@@ -14793,11 +14834,11 @@ fieldset:disabled .fc button,
 .fc .fc-button-group > button:not(:last-child):not(.dropdown-toggle),
 .btn-group > .btn-group:not(:last-child) > .btn,
 .wizard > .actions .btn-group > .btn-group:not(:last-child) > a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .btn-group:not(:last-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .ajax-upload-dragdrop
     .btn-group
     > .btn-group:not(:last-child)
@@ -14806,17 +14847,17 @@ fieldset:disabled .fc button,
 .fc .wizard > .actions .fc-button-group > .btn-group:not(:last-child) > a,
 .wizard > .actions .fc .fc-button-group > .btn-group:not(:last-child) > a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .btn-group:not(:last-child)
-    > .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .btn-group:not(:last-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .fc-button-group
@@ -14831,17 +14872,17 @@ fieldset:disabled .fc button,
 .fc .wizard > .actions .btn-group > .fc-button-group:not(:last-child) > a,
 .wizard > .actions .fc .btn-group > .fc-button-group:not(:last-child) > a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .fc-button-group:not(:last-child)
-    > .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group
     > .fc-button-group:not(:last-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .btn-group
@@ -14856,17 +14897,17 @@ fieldset:disabled .fc button,
 .fc .wizard > .actions .fc-button-group > .fc-button-group:not(:last-child) > a,
 .wizard > .actions .fc .fc-button-group > .fc-button-group:not(:last-child) > a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .fc-button-group:not(:last-child)
-    > .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .fc-button-group:not(:last-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .fc-button-group
@@ -14886,48 +14927,51 @@ fieldset:disabled .fc button,
 }
 .btn-group > .btn:nth-child(n + 3),
 .wizard > .actions .btn-group > a:nth-child(n + 3),
-.swal2-modal .swal2-buttonswrapper .btn-group > .swal2-styled:nth-child(n + 3),
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    > .swals2-styled:nth-child(n + 3),
 .ajax-upload-dragdrop .btn-group > .ajax-file-upload:nth-child(n + 3),
 .fc .fc-button-group > .btn:nth-child(n + 3),
 .fc .wizard > .actions .fc-button-group > a:nth-child(n + 3),
 .wizard > .actions .fc .fc-button-group > a:nth-child(n + 3),
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
-    > .swal2-styled:nth-child(n + 3),
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled:nth-child(n + 3),
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    > .swal2-styled:nth-child(n + 3),
+    > .swals2-styled:nth-child(n + 3),
 .fc .ajax-upload-dragdrop .fc-button-group > .ajax-file-upload:nth-child(n + 3),
 .ajax-upload-dragdrop .fc .fc-button-group > .ajax-file-upload:nth-child(n + 3),
 .fc .btn-group > button:nth-child(n + 3),
 .fc .fc-button-group > button:nth-child(n + 3),
 .btn-group > :not(.btn-check) + .btn,
 .wizard > .actions .btn-group > :not(.btn-check) + a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > :not(.btn-check)
-    + .swal2-styled,
+    + .swals2-styled,
 .ajax-upload-dragdrop .btn-group > :not(.btn-check) + .ajax-file-upload,
 .fc .fc-button-group > :not(.btn-check) + .btn,
 .fc .wizard > .actions .fc-button-group > :not(.btn-check) + a,
 .wizard > .actions .fc .fc-button-group > :not(.btn-check) + a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > :not(.btn-check)
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > :not(.btn-check)
-    + .swal2-styled,
+    + .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .fc-button-group
@@ -14942,11 +14986,11 @@ fieldset:disabled .fc button,
 .fc .fc-button-group > :not(.btn-check) + button,
 .btn-group > .btn-group:not(:first-child) > .btn,
 .wizard > .actions .btn-group > .btn-group:not(:first-child) > a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .btn-group:not(:first-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .ajax-upload-dragdrop
     .btn-group
     > .btn-group:not(:first-child)
@@ -14955,17 +14999,17 @@ fieldset:disabled .fc button,
 .fc .wizard > .actions .fc-button-group > .btn-group:not(:first-child) > a,
 .wizard > .actions .fc .fc-button-group > .btn-group:not(:first-child) > a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .btn-group:not(:first-child)
-    > .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .btn-group:not(:first-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .fc-button-group
@@ -14980,17 +15024,17 @@ fieldset:disabled .fc button,
 .fc .wizard > .actions .btn-group > .fc-button-group:not(:first-child) > a,
 .wizard > .actions .fc .btn-group > .fc-button-group:not(:first-child) > a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     > .fc-button-group:not(:first-child)
-    > .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group
     > .fc-button-group:not(:first-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .btn-group
@@ -15015,17 +15059,17 @@ fieldset:disabled .fc button,
     > .fc-button-group:not(:first-child)
     > a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc-button-group
     > .fc-button-group:not(:first-child)
-    > .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     > .fc-button-group:not(:first-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .fc-button-group
@@ -15061,10 +15105,10 @@ fieldset:disabled .fc button,
 .fc button + .dropdown-toggle-split,
 .btn-group-sm > .btn + .dropdown-toggle-split,
 .wizard > .actions .btn-group-sm > a + .dropdown-toggle-split,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-sm
-    > .swal2-styled
+    > .swals2-styled
     + .dropdown-toggle-split,
 .ajax-upload-dragdrop
     .btn-group-sm
@@ -15078,10 +15122,10 @@ fieldset:disabled .fc button,
 .btn-lg + .dropdown-toggle-split,
 .btn-group-lg > .btn + .dropdown-toggle-split,
 .wizard > .actions .btn-group-lg > a + .dropdown-toggle-split,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-lg
-    > .swal2-styled
+    > .swals2-styled
     + .dropdown-toggle-split,
 .ajax-upload-dragdrop
     .btn-group-lg
@@ -15099,7 +15143,7 @@ fieldset:disabled .fc button,
 }
 .btn-group-vertical > .btn,
 .wizard > .actions .btn-group-vertical > a,
-.swal2-modal .swal2-buttonswrapper .btn-group-vertical > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group-vertical > .swals2-styled,
 .ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload,
 .fc .btn-group-vertical > button,
 .btn-group-vertical > .btn-group,
@@ -15108,10 +15152,10 @@ fieldset:disabled .fc button,
 }
 .btn-group-vertical > .btn:not(:first-child),
 .wizard > .actions .btn-group-vertical > a:not(:first-child),
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled:not(:first-child),
+    > .swals2-styled:not(:first-child),
 .ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload:not(:first-child),
 .fc .btn-group-vertical > button:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child),
@@ -15123,21 +15167,21 @@ fieldset:disabled .fc button,
     > .actions
     .btn-group-vertical
     > a:not(:last-child):not(.dropdown-toggle),
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled:not(:last-child):not(.dropdown-toggle),
+    > .swals2-styled:not(:last-child):not(.dropdown-toggle),
 .ajax-upload-dragdrop
     .btn-group-vertical
     > .ajax-file-upload:not(:last-child):not(.dropdown-toggle),
 .fc .btn-group-vertical > button:not(:last-child):not(.dropdown-toggle),
 .btn-group-vertical > .btn-group:not(:last-child) > .btn,
 .wizard > .actions .btn-group-vertical > .btn-group:not(:last-child) > a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .btn-group:not(:last-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .ajax-upload-dragdrop
     .btn-group-vertical
     > .btn-group:not(:last-child)
@@ -15156,17 +15200,17 @@ fieldset:disabled .fc button,
     > .fc-button-group:not(:last-child)
     > a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .fc-button-group:not(:last-child)
-    > .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group-vertical
     > .fc-button-group:not(:last-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .btn-group-vertical
@@ -15186,41 +15230,49 @@ fieldset:disabled .fc button,
 .wizard > .actions .btn-group-vertical > a ~ .btn,
 .wizard > .actions .btn-group-vertical > .btn ~ a,
 .wizard > .actions .btn-group-vertical > a ~ a,
-.swal2-modal .swal2-buttonswrapper .btn-group-vertical > .swal2-styled ~ .btn,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group-vertical
+    > .swals2-styled
+    ~ .btn,
+.swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
     .btn-group-vertical
-    > .swal2-styled
+    > .swals2-styled
     ~ a,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled
+    > .swals2-styled
     ~ a,
-.swal2-modal .swal2-buttonswrapper .btn-group-vertical > .btn ~ .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group-vertical
+    > .btn
+    ~ .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
     .btn-group-vertical
     > a
-    ~ .swal2-styled,
+    ~ .swals2-styled,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > a
-    ~ .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    ~ .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled
-    ~ .swal2-styled,
+    > .swals2-styled
+    ~ .swals2-styled,
 .ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload ~ .btn,
 .ajax-upload-dragdrop
     .wizard
@@ -15235,17 +15287,17 @@ fieldset:disabled .fc button,
     > .ajax-file-upload
     ~ a,
 .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .ajax-file-upload
-    ~ .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    ~ .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .btn-group-vertical
     > .ajax-file-upload
-    ~ .swal2-styled,
+    ~ .swals2-styled,
 .ajax-upload-dragdrop .btn-group-vertical > .btn ~ .ajax-file-upload,
 .ajax-upload-dragdrop
     .wizard
@@ -15260,16 +15312,16 @@ fieldset:disabled .fc button,
     > a
     ~ .ajax-file-upload,
 .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled
+    > .swals2-styled
     ~ .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .btn-group-vertical
-    > .swal2-styled
+    > .swals2-styled
     ~ .ajax-file-upload,
 .ajax-upload-dragdrop
     .btn-group-vertical
@@ -15279,44 +15331,44 @@ fieldset:disabled .fc button,
 .fc .wizard > .actions .btn-group-vertical > button ~ a,
 .wizard > .actions .fc .btn-group-vertical > button ~ a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > button
-    ~ .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    ~ .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group-vertical
     > button
-    ~ .swal2-styled,
+    ~ .swals2-styled,
 .fc .ajax-upload-dragdrop .btn-group-vertical > button ~ .ajax-file-upload,
 .ajax-upload-dragdrop .fc .btn-group-vertical > button ~ .ajax-file-upload,
 .fc .btn-group-vertical > .btn ~ button,
 .fc .wizard > .actions .btn-group-vertical > a ~ button,
 .wizard > .actions .fc .btn-group-vertical > a ~ button,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
-    > .swal2-styled
+    > .swals2-styled
     ~ button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group-vertical
-    > .swal2-styled
+    > .swals2-styled
     ~ button,
 .fc .ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload ~ button,
 .ajax-upload-dragdrop .fc .btn-group-vertical > .ajax-file-upload ~ button,
 .fc .btn-group-vertical > button ~ button,
 .btn-group-vertical > .btn-group:not(:first-child) > .btn,
 .wizard > .actions .btn-group-vertical > .btn-group:not(:first-child) > a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .btn-group:not(:first-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .ajax-upload-dragdrop
     .btn-group-vertical
     > .btn-group:not(:first-child)
@@ -15335,17 +15387,17 @@ fieldset:disabled .fc button,
     > .fc-button-group:not(:first-child)
     > a,
 .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group-vertical
     > .fc-button-group:not(:first-child)
-    > .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    > .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group-vertical
     > .fc-button-group:not(:first-child)
-    > .swal2-styled,
+    > .swals2-styled,
 .fc
     .ajax-upload-dragdrop
     .btn-group-vertical
@@ -16544,7 +16596,7 @@ fieldset:disabled .fc button,
 
 .btn .badge,
 .wizard > .actions a .badge,
-.swal2-modal .swal2-buttonswrapper .swal2-styled .badge,
+.swals2-modal .swals2-buttonswrapper .swals2-styled .badge,
 .ajax-upload-dragdrop .ajax-file-upload .badge,
 .fc button .badge {
     position: relative;
@@ -18057,7 +18109,7 @@ fieldset:disabled .fc button,
 }
 .placeholder.btn::before,
 .wizard > .actions a.placeholder::before,
-.swal2-modal .swal2-buttonswrapper .placeholder.swal2-styled::before,
+.swals2-modal .swals2-buttonswrapper .placeholder.swals2-styled::before,
 .ajax-upload-dragdrop .placeholder.ajax-file-upload::before,
 .fc button.placeholder::before {
     display: inline-block;
@@ -18431,7 +18483,7 @@ fieldset:disabled .fc button,
     .dropdown-item,
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile,
 .navbar .navbar-menu-wrapper .navbar-nav,
-.swal2-modal,
+.swals2-modal,
 .lightGallery .image-tile .demo-gallery-poster,
 .email-wrapper .message-body .attachments-sections ul li .details .buttons,
 .email-wrapper .message-body .attachments-sections ul li .thumb,
@@ -18612,7 +18664,7 @@ fieldset:disabled .fc button,
 }
 
 .border-success,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm {
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-confirm {
     border-color: #34b1aa !important;
 }
 
@@ -19090,7 +19142,7 @@ fieldset:disabled .fc button,
 .template-demo > .btn-toolbar,
 .template-demo > .btn,
 .wizard > .actions .template-demo > a,
-.swal2-modal .swal2-buttonswrapper .template-demo > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .template-demo > .swals2-styled,
 .ajax-upload-dragdrop .template-demo > .ajax-file-upload,
 .fc .template-demo > button {
     margin-top: 1rem !important;
@@ -19135,7 +19187,7 @@ fieldset:disabled .fc button,
 .template-demo > .btn-group-vertical,
 .template-demo > .btn,
 .wizard > .actions .template-demo > a,
-.swal2-modal .swal2-buttonswrapper .template-demo > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .template-demo > .swals2-styled,
 .ajax-upload-dragdrop .template-demo > .ajax-file-upload,
 .fc .template-demo > button {
     margin-right: 0.5rem !important;
@@ -19651,7 +19703,7 @@ fieldset:disabled .fc button,
 
 .bg-success,
 .settings-panel .color-tiles .tiles.success,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm {
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-confirm {
     --bs-bg-opacity: 1;
     background-color: rgba(
         var(--bs-success-rgb),
@@ -22560,9 +22612,9 @@ textarea {
 
 .btn,
 .wizard > .actions a,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm,
-.swal2-modal .swal2-buttonswrapper .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-cancel,
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-confirm,
+.swals2-modal .swals2-buttonswrapper .swals2-styled,
 .ajax-upload-dragdrop .ajax-file-upload,
 .fc button,
 .btn-group.open .dropdown-toggle,
@@ -22606,14 +22658,14 @@ textarea:visited {
 .btn.active:focus,
 .btn.focus,
 .wizard > .actions a.focus,
-.swal2-modal .swal2-buttonswrapper .focus.swal2-styled,
+.swals2-modal .swals2-buttonswrapper .focus.swals2-styled,
 .ajax-upload-dragdrop .focus.ajax-file-upload,
 .fc button.focus,
 .btn:active.focus,
 .btn:active:focus,
 .btn:focus,
 .wizard > .actions a:focus,
-.swal2-modal .swal2-buttonswrapper .swal2-styled:focus,
+.swals2-modal .swals2-buttonswrapper .swals2-styled:focus,
 .ajax-upload-dragdrop .ajax-file-upload:focus,
 button,
 button:active,
@@ -23376,7 +23428,7 @@ code {
 
 .bg-success,
 .settings-panel .color-tiles .tiles.success,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm {
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-confirm {
     background-color: #4da761 !important;
 }
 
@@ -24006,8 +24058,8 @@ code {
 #proBanner .btn.buy-now-btn,
 #proBanner .wizard > .actions a.buy-now-btn,
 .wizard > .actions #proBanner a.buy-now-btn,
-#proBanner .swal2-modal .swal2-buttonswrapper .buy-now-btn.swal2-styled,
-.swal2-modal .swal2-buttonswrapper #proBanner .buy-now-btn.swal2-styled,
+#proBanner .swals2-modal .swals2-buttonswrapper .buy-now-btn.swals2-styled,
+.swals2-modal .swals2-buttonswrapper #proBanner .buy-now-btn.swals2-styled,
 #proBanner .ajax-upload-dragdrop .buy-now-btn.ajax-file-upload,
 .ajax-upload-dragdrop #proBanner .buy-now-btn.ajax-file-upload,
 #proBanner .fc button.buy-now-btn,
@@ -24023,8 +24075,8 @@ code {
     #proBanner .btn.buy-now-btn,
     #proBanner .wizard > .actions a.buy-now-btn,
     .wizard > .actions #proBanner a.buy-now-btn,
-    #proBanner .swal2-modal .swal2-buttonswrapper .buy-now-btn.swal2-styled,
-    .swal2-modal .swal2-buttonswrapper #proBanner .buy-now-btn.swal2-styled,
+    #proBanner .swals2-modal .swals2-buttonswrapper .buy-now-btn.swals2-styled,
+    .swals2-modal .swals2-buttonswrapper #proBanner .buy-now-btn.swals2-styled,
     #proBanner .ajax-upload-dragdrop .buy-now-btn.ajax-file-upload,
     .ajax-upload-dragdrop #proBanner .buy-now-btn.ajax-file-upload,
     #proBanner .fc button.buy-now-btn,
@@ -24037,8 +24089,8 @@ code {
 #proBanner .btn#bannerClose i,
 #proBanner .wizard > .actions a#bannerClose i,
 .wizard > .actions #proBanner a#bannerClose i,
-#proBanner .swal2-modal .swal2-buttonswrapper #bannerClose.swal2-styled i,
-.swal2-modal .swal2-buttonswrapper #proBanner #bannerClose.swal2-styled i,
+#proBanner .swals2-modal .swals2-buttonswrapper #bannerClose.swals2-styled i,
+.swals2-modal .swals2-buttonswrapper #proBanner #bannerClose.swals2-styled i,
 #proBanner .ajax-upload-dragdrop #bannerClose.ajax-file-upload i,
 .ajax-upload-dragdrop #proBanner #bannerClose.ajax-file-upload i,
 #proBanner .fc button#bannerClose i,
@@ -24049,8 +24101,16 @@ code {
     #proBanner .btn#bannerClose i,
     #proBanner .wizard > .actions a#bannerClose i,
     .wizard > .actions #proBanner a#bannerClose i,
-    #proBanner .swal2-modal .swal2-buttonswrapper #bannerClose.swal2-styled i,
-    .swal2-modal .swal2-buttonswrapper #proBanner #bannerClose.swal2-styled i,
+    #proBanner
+        .swals2-modal
+        .swals2-buttonswrapper
+        #bannerClose.swals2-styled
+        i,
+    .swals2-modal
+        .swals2-buttonswrapper
+        #proBanner
+        #bannerClose.swals2-styled
+        i,
     #proBanner .ajax-upload-dragdrop #bannerClose.ajax-file-upload i,
     .ajax-upload-dragdrop #proBanner #bannerClose.ajax-file-upload i,
     #proBanner .fc button#bannerClose i,
@@ -24088,8 +24148,8 @@ code {
 .home-tab .btn,
 .home-tab .wizard > .actions a,
 .wizard > .actions .home-tab a,
-.home-tab .swal2-modal .swal2-buttonswrapper .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .home-tab .swal2-styled,
+.home-tab .swals2-modal .swals2-buttonswrapper .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .home-tab .swals2-styled,
 .home-tab .ajax-upload-dragdrop .ajax-file-upload,
 .ajax-upload-dragdrop .home-tab .ajax-file-upload,
 .home-tab .fc button,
@@ -24110,8 +24170,8 @@ code {
     .home-tab .btn,
     .home-tab .wizard > .actions a,
     .wizard > .actions .home-tab a,
-    .home-tab .swal2-modal .swal2-buttonswrapper .swal2-styled,
-    .swal2-modal .swal2-buttonswrapper .home-tab .swal2-styled,
+    .home-tab .swals2-modal .swals2-buttonswrapper .swals2-styled,
+    .swals2-modal .swals2-buttonswrapper .home-tab .swals2-styled,
     .home-tab .ajax-upload-dragdrop .ajax-file-upload,
     .ajax-upload-dragdrop .home-tab .ajax-file-upload,
     .home-tab .fc button,
@@ -24122,8 +24182,8 @@ code {
 .home-tab .btn i,
 .home-tab .wizard > .actions a i,
 .wizard > .actions .home-tab a i,
-.home-tab .swal2-modal .swal2-buttonswrapper .swal2-styled i,
-.swal2-modal .swal2-buttonswrapper .home-tab .swal2-styled i,
+.home-tab .swals2-modal .swals2-buttonswrapper .swals2-styled i,
+.swals2-modal .swals2-buttonswrapper .home-tab .swals2-styled i,
 .home-tab .ajax-upload-dragdrop .ajax-file-upload i,
 .ajax-upload-dragdrop .home-tab .ajax-file-upload i,
 .home-tab .fc button i,
@@ -24136,8 +24196,8 @@ code {
 .rtl .home-tab .btn i,
 .rtl .home-tab .wizard > .actions a i,
 .wizard > .actions .rtl .home-tab a i,
-.rtl .home-tab .swal2-modal .swal2-buttonswrapper .swal2-styled i,
-.swal2-modal .swal2-buttonswrapper .rtl .home-tab .swal2-styled i,
+.rtl .home-tab .swals2-modal .swals2-buttonswrapper .swals2-styled i,
+.swals2-modal .swals2-buttonswrapper .rtl .home-tab .swals2-styled i,
 .rtl .home-tab .ajax-upload-dragdrop .ajax-file-upload i,
 .ajax-upload-dragdrop .rtl .home-tab .ajax-file-upload i,
 .rtl .home-tab .fc button i,
@@ -24148,8 +24208,8 @@ code {
 .home-tab .btn.btn-lg,
 .home-tab .wizard > .actions a.btn-lg,
 .wizard > .actions .home-tab a.btn-lg,
-.home-tab .swal2-modal .swal2-buttonswrapper .btn-lg.swal2-styled,
-.swal2-modal .swal2-buttonswrapper .home-tab .btn-lg.swal2-styled,
+.home-tab .swals2-modal .swals2-buttonswrapper .btn-lg.swals2-styled,
+.swals2-modal .swals2-buttonswrapper .home-tab .btn-lg.swals2-styled,
 .home-tab .ajax-upload-dragdrop .btn-lg.ajax-file-upload,
 .ajax-upload-dragdrop .home-tab .btn-lg.ajax-file-upload,
 .home-tab .fc button.btn-lg,
@@ -24157,8 +24217,8 @@ code {
 .home-tab .btn-group-lg > .btn,
 .home-tab .wizard > .actions .btn-group-lg > a,
 .wizard > .actions .home-tab .btn-group-lg > a,
-.home-tab .swal2-modal .swal2-buttonswrapper .btn-group-lg > .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .home-tab .btn-group-lg > .swal2-styled,
+.home-tab .swals2-modal .swals2-buttonswrapper .btn-group-lg > .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .home-tab .btn-group-lg > .swals2-styled,
 .home-tab .ajax-upload-dragdrop .btn-group-lg > .ajax-file-upload,
 .ajax-upload-dragdrop .home-tab .btn-group-lg > .ajax-file-upload,
 .home-tab .fc .btn-group-lg > button,
@@ -24170,8 +24230,8 @@ code {
 .home-tab .btn.upgrade-btn,
 .home-tab .wizard > .actions a.upgrade-btn,
 .wizard > .actions .home-tab a.upgrade-btn,
-.home-tab .swal2-modal .swal2-buttonswrapper .upgrade-btn.swal2-styled,
-.swal2-modal .swal2-buttonswrapper .home-tab .upgrade-btn.swal2-styled,
+.home-tab .swals2-modal .swals2-buttonswrapper .upgrade-btn.swals2-styled,
+.swals2-modal .swals2-buttonswrapper .home-tab .upgrade-btn.swals2-styled,
 .home-tab .ajax-upload-dragdrop .upgrade-btn.ajax-file-upload,
 .ajax-upload-dragdrop .home-tab .upgrade-btn.ajax-file-upload,
 .home-tab .fc button.upgrade-btn,
@@ -24188,8 +24248,8 @@ code {
 .home-tab .btn.btn-icons,
 .home-tab .wizard > .actions a.btn-icons,
 .wizard > .actions .home-tab a.btn-icons,
-.home-tab .swal2-modal .swal2-buttonswrapper .btn-icons.swal2-styled,
-.swal2-modal .swal2-buttonswrapper .home-tab .btn-icons.swal2-styled,
+.home-tab .swals2-modal .swals2-buttonswrapper .btn-icons.swals2-styled,
+.swals2-modal .swals2-buttonswrapper .home-tab .btn-icons.swals2-styled,
 .home-tab .ajax-upload-dragdrop .btn-icons.ajax-file-upload,
 .ajax-upload-dragdrop .home-tab .btn-icons.ajax-file-upload,
 .home-tab .fc button.btn-icons,
@@ -24202,8 +24262,8 @@ code {
 .home-tab .btn.btn-icons i,
 .home-tab .wizard > .actions a.btn-icons i,
 .wizard > .actions .home-tab a.btn-icons i,
-.home-tab .swal2-modal .swal2-buttonswrapper .btn-icons.swal2-styled i,
-.swal2-modal .swal2-buttonswrapper .home-tab .btn-icons.swal2-styled i,
+.home-tab .swals2-modal .swals2-buttonswrapper .btn-icons.swals2-styled i,
+.swals2-modal .swals2-buttonswrapper .home-tab .btn-icons.swals2-styled i,
 .home-tab .ajax-upload-dragdrop .btn-icons.ajax-file-upload i,
 .ajax-upload-dragdrop .home-tab .btn-icons.ajax-file-upload i,
 .home-tab .fc button.btn-icons i,
@@ -24213,8 +24273,8 @@ code {
 .home-tab .btn-wrapper .btn i,
 .home-tab .btn-wrapper .wizard > .actions a i,
 .wizard > .actions .home-tab .btn-wrapper a i,
-.home-tab .btn-wrapper .swal2-modal .swal2-buttonswrapper .swal2-styled i,
-.swal2-modal .swal2-buttonswrapper .home-tab .btn-wrapper .swal2-styled i,
+.home-tab .btn-wrapper .swals2-modal .swals2-buttonswrapper .swals2-styled i,
+.swals2-modal .swals2-buttonswrapper .home-tab .btn-wrapper .swals2-styled i,
 .home-tab .btn-wrapper .ajax-upload-dragdrop .ajax-file-upload i,
 .ajax-upload-dragdrop .home-tab .btn-wrapper .ajax-file-upload i,
 .home-tab .btn-wrapper .fc button i,
@@ -24224,8 +24284,8 @@ code {
 .home-tab .dropdown .btn,
 .home-tab .dropdown .wizard > .actions a,
 .wizard > .actions .home-tab .dropdown a,
-.home-tab .dropdown .swal2-modal .swal2-buttonswrapper .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .home-tab .dropdown .swal2-styled,
+.home-tab .dropdown .swals2-modal .swals2-buttonswrapper .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .home-tab .dropdown .swals2-styled,
 .home-tab .dropdown .ajax-upload-dragdrop .ajax-file-upload,
 .ajax-upload-dragdrop .home-tab .dropdown .ajax-file-upload,
 .home-tab .dropdown .fc button,
@@ -24810,8 +24870,8 @@ code {
 .home-tab .virtual-card .btn,
 .home-tab .virtual-card .wizard > .actions a,
 .wizard > .actions .home-tab .virtual-card a,
-.home-tab .virtual-card .swal2-modal .swal2-buttonswrapper .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .home-tab .virtual-card .swal2-styled,
+.home-tab .virtual-card .swals2-modal .swals2-buttonswrapper .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .home-tab .virtual-card .swals2-styled,
 .home-tab .virtual-card .ajax-upload-dragdrop .ajax-file-upload,
 .ajax-upload-dragdrop .home-tab .virtual-card .ajax-file-upload,
 .home-tab .virtual-card .fc button,
@@ -24825,8 +24885,8 @@ code {
 .home-tab .virtual-card .btn i,
 .home-tab .virtual-card .wizard > .actions a i,
 .wizard > .actions .home-tab .virtual-card a i,
-.home-tab .virtual-card .swal2-modal .swal2-buttonswrapper .swal2-styled i,
-.swal2-modal .swal2-buttonswrapper .home-tab .virtual-card .swal2-styled i,
+.home-tab .virtual-card .swals2-modal .swals2-buttonswrapper .swals2-styled i,
+.swals2-modal .swals2-buttonswrapper .home-tab .virtual-card .swals2-styled i,
 .home-tab .virtual-card .ajax-upload-dragdrop .ajax-file-upload i,
 .ajax-upload-dragdrop .home-tab .virtual-card .ajax-file-upload i,
 .home-tab .virtual-card .fc button i,
@@ -25910,9 +25970,9 @@ code {
 /* Buttons */
 .btn,
 .wizard > .actions a,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm,
-.swal2-modal .swal2-buttonswrapper .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-cancel,
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-confirm,
+.swals2-modal .swals2-buttonswrapper .swals2-styled,
 .ajax-upload-dragdrop .ajax-file-upload,
 .fc button {
     font-size: 0.875rem;
@@ -25924,28 +25984,28 @@ code {
 }
 .btn i,
 .wizard > .actions a i,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel i,
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm i,
-.swal2-modal .swal2-buttonswrapper .swal2-styled i,
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-cancel i,
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-confirm i,
+.swals2-modal .swals2-buttonswrapper .swals2-styled i,
 .ajax-upload-dragdrop .ajax-file-upload i,
 .fc button i {
     font-size: 1rem;
 }
 .btn.btn-rounded,
 .wizard > .actions a.btn-rounded,
-.swal2-modal .swal2-buttonswrapper .btn-rounded.swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-rounded.swals2-styled,
 .ajax-upload-dragdrop .btn-rounded.ajax-file-upload,
 .fc button.btn-rounded {
     border-radius: 50px;
 }
 .btn.btn-sm,
 .wizard > .actions a.btn-sm,
-.swal2-modal .swal2-buttonswrapper .btn-sm.swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-sm.swals2-styled,
 .ajax-upload-dragdrop .btn-sm.ajax-file-upload,
 .fc button,
 .btn-group-sm > .btn,
 .wizard > .actions .btn-group-sm > a,
-.swal2-modal .swal2-buttonswrapper .btn-group-sm > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group-sm > .swals2-styled,
 .ajax-upload-dragdrop .btn-group-sm > .ajax-file-upload,
 .fc .btn-group-sm > button {
     font-size: 0.812rem;
@@ -25953,12 +26013,12 @@ code {
 }
 .btn.btn-lg,
 .wizard > .actions a.btn-lg,
-.swal2-modal .swal2-buttonswrapper .btn-lg.swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-lg.swals2-styled,
 .ajax-upload-dragdrop .btn-lg.ajax-file-upload,
 .fc button.btn-lg,
 .btn-group-lg > .btn,
 .wizard > .actions .btn-group-lg > a,
-.swal2-modal .swal2-buttonswrapper .btn-group-lg > .swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group-lg > .swals2-styled,
 .ajax-upload-dragdrop .btn-group-lg > .ajax-file-upload,
 .fc .btn-group-lg > button {
     font-size: 0.875rem;
@@ -26004,35 +26064,35 @@ code {
     .control-group
     .editable-buttons
     a.editable-submit,
-.swal2-modal .swal2-buttonswrapper .btn-xs.swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal .swals2-buttonswrapper .btn-xs.swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .editable-container.editable-inline
     .editableform
     .control-group
     .editable-buttons
-    .swal2-styled.editable-cancel,
+    .swals2-styled.editable-cancel,
 .editable-container.editable-inline
     .editableform
     .control-group
     .editable-buttons
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.editable-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.editable-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .editable-container.editable-inline
     .editableform
     .control-group
     .editable-buttons
-    .swal2-styled.editable-submit,
+    .swals2-styled.editable-submit,
 .editable-container.editable-inline
     .editableform
     .control-group
     .editable-buttons
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.editable-submit,
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.editable-submit,
 .ajax-upload-dragdrop .btn-xs.ajax-file-upload,
 .ajax-upload-dragdrop
     .editable-container.editable-inline
@@ -26088,7 +26148,7 @@ code {
 }
 .btn.btn-icons,
 .wizard > .actions a.btn-icons,
-.swal2-modal .swal2-buttonswrapper .btn-icons.swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-icons.swals2-styled,
 .ajax-upload-dragdrop .btn-icons.ajax-file-upload,
 .fc button.btn-icons {
     width: 40px;
@@ -26099,21 +26159,24 @@ code {
 }
 .btn.btn-icons.todo-list-add-btn,
 .wizard > .actions a.btn-icons.todo-list-add-btn,
-.swal2-modal .swal2-buttonswrapper .btn-icons.todo-list-add-btn.swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-icons.todo-list-add-btn.swals2-styled,
 .ajax-upload-dragdrop .btn-icons.todo-list-add-btn.ajax-file-upload,
 .fc button.btn-icons.todo-list-add-btn {
     border-radius: 100%;
 }
 .btn.btn-icons.todo-list-add-btn i,
 .wizard > .actions a.btn-icons.todo-list-add-btn i,
-.swal2-modal .swal2-buttonswrapper .btn-icons.todo-list-add-btn.swal2-styled i,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-icons.todo-list-add-btn.swals2-styled
+    i,
 .ajax-upload-dragdrop .btn-icons.todo-list-add-btn.ajax-file-upload i,
 .fc button.btn-icons.todo-list-add-btn i {
     line-height: 1;
 }
 .btn.btn-icons i,
 .wizard > .actions a.btn-icons i,
-.swal2-modal .swal2-buttonswrapper .btn-icons.swal2-styled i,
+.swals2-modal .swals2-buttonswrapper .btn-icons.swals2-styled i,
 .ajax-upload-dragdrop .btn-icons.ajax-file-upload i,
 .fc button.btn-icons i {
     margin: auto;
@@ -26121,9 +26184,9 @@ code {
 }
 .btn.btn-icon-text .btn-icon-prepend,
 .wizard > .actions a.btn-icon-text .btn-icon-prepend,
-.swal2-modal
-    .swal2-buttonswrapper
-    .btn-icon-text.swal2-styled
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-icon-text.swals2-styled
     .btn-icon-prepend,
 .ajax-upload-dragdrop .btn-icon-text.ajax-file-upload .btn-icon-prepend,
 .fc button.btn-icon-text .btn-icon-prepend {
@@ -26131,14 +26194,17 @@ code {
 }
 .btn.btn-icon-text .btn-icon-append,
 .wizard > .actions a.btn-icon-text .btn-icon-append,
-.swal2-modal .swal2-buttonswrapper .btn-icon-text.swal2-styled .btn-icon-append,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-icon-text.swals2-styled
+    .btn-icon-append,
 .ajax-upload-dragdrop .btn-icon-text.ajax-file-upload .btn-icon-append,
 .fc button.btn-icon-text .btn-icon-append {
     margin-left: 0.5rem;
 }
 .btn.btn-social-icon,
 .wizard > .actions a.btn-social-icon,
-.swal2-modal .swal2-buttonswrapper .btn-social-icon.swal2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-social-icon.swals2-styled,
 .ajax-upload-dragdrop .btn-social-icon.ajax-file-upload,
 .fc button.btn-social-icon {
     width: 50px;
@@ -26147,12 +26213,12 @@ code {
 }
 .btn:focus,
 .wizard > .actions a:focus,
-.swal2-modal .swal2-buttonswrapper .swal2-styled:focus,
+.swals2-modal .swals2-buttonswrapper .swals2-styled:focus,
 .ajax-upload-dragdrop .ajax-file-upload:focus,
 .fc button:focus,
 .btn:active,
 .wizard > .actions a:active,
-.swal2-modal .swal2-buttonswrapper .swal2-styled:active,
+.swals2-modal .swals2-buttonswrapper .swals2-styled:active,
 .ajax-upload-dragdrop .ajax-file-upload:active,
 .fc button:active {
     outline: 0;
@@ -26166,439 +26232,455 @@ code {
 .wizard > .actions .btn-group .btn + a,
 .btn-group .wizard > .actions a + a,
 .wizard > .actions .btn-group a + a,
-.btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel + .btn,
 .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .wizard
-    > .actions
-    .swal2-styled.swal2-cancel
-    + a,
-.wizard
-    > .actions
-    .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
-    + a,
-.swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled.swal2-cancel + .btn,
-.swal2-modal
-    .swal2-buttonswrapper
-    .btn-group
-    .wizard
-    > .actions
-    .swal2-styled.swal2-cancel
-    + a,
-.wizard
-    > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
-    .btn-group
-    .swal2-styled.swal2-cancel
-    + a,
-.btn-group .swal2-modal .swal2-buttonswrapper .btn + .swal2-styled.swal2-cancel,
-.btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .wizard
-    > .actions
-    a
-    + .swal2-styled.swal2-cancel,
-.wizard
-    > .actions
-    .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    a
-    + .swal2-styled.swal2-cancel,
-.swal2-modal .swal2-buttonswrapper .btn-group .btn + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
-    .btn-group
-    .wizard
-    > .actions
-    a
-    + .swal2-styled.swal2-cancel,
-.wizard
-    > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
-    .btn-group
-    a
-    + .swal2-styled.swal2-cancel,
-.btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
-    .btn-group
-    .swal2-styled.swal2-cancel
-    + .swal2-styled.swal2-cancel,
-.btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + .btn,
 .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-cancel
     + a,
 .wizard
     > .actions
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + a,
-.btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-cancel
     + .btn,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .wizard
     > .actions
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-cancel
     + a,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-cancel
     + a,
-.swal2-modal
-    .swal2-buttonswrapper
-    .btn-group
-    .swal2-styled.swal2-confirm
-    + .swal2-styled.swal2-cancel,
 .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-cancel,
 .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
     a
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-cancel,
 .wizard
     > .actions
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     a
-    + .swal2-styled.swal2-confirm,
-.btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .btn
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .wizard
     > .actions
     a
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-cancel,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     a
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
-    .btn-group
-    .swal2-styled.swal2-cancel
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-cancel,
 .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    .swal2-styled.swal2-confirm
-    + .swal2-styled.swal2-confirm,
-.btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .btn,
+    .swals2-styled.swals2-cancel
+    + .swals2-styled.swals2-cancel,
 .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
+    + .btn,
+.btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
-    .swal2-styled
+    .swals2-styled.swals2-confirm
     + a,
 .wizard
     > .actions
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + a,
 .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
-    + .swal2-styled.swal2-cancel,
-.btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
-    + .swal2-styled.swal2-confirm,
-.swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled + .btn,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    .swals2-styled.swals2-confirm
+    + .btn,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .wizard
     > .actions
-    .swal2-styled
+    .swals2-styled.swals2-confirm
     + a,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    .swal2-styled
+    .swals2-styled.swals2-confirm
     + a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    .swal2-styled
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
-    .btn-group
-    .swal2-styled
-    + .swal2-styled.swal2-confirm,
-.btn-group .swal2-modal .swal2-buttonswrapper .btn + .swal2-styled,
+    .swals2-styled.swals2-confirm
+    + .swals2-styled.swals2-cancel,
 .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .btn
+    + .swals2-styled.swals2-confirm,
+.btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
     a
-    + .swal2-styled,
+    + .swals2-styled.swals2-confirm,
 .wizard
     > .actions
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     a
-    + .swal2-styled,
+    + .swals2-styled.swals2-confirm,
 .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
-    + .swal2-styled,
-.btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
-    + .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .btn-group .btn + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    .btn
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .wizard
     > .actions
     a
-    + .swal2-styled,
+    + .swals2-styled.swals2-confirm,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     a
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    .swal2-styled.swal2-cancel
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-styled.swals2-cancel
+    + .swals2-styled.swals2-confirm,
+.btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
-    .swal2-styled.swal2-confirm
-    + .swal2-styled,
-.btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .btn-group .swal2-styled + .swal2-styled,
+    .swals2-styled.swals2-confirm
+    + .swals2-styled.swals2-confirm,
+.btn-group .swals2-modal .swals2-buttonswrapper .swals2-styled + .btn,
+.btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    .wizard
+    > .actions
+    .swals2-styled
+    + a,
+.wizard
+    > .actions
+    .btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
+    + a,
+.btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
+    + .swals2-styled.swals2-cancel,
+.btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
+    + .swals2-styled.swals2-confirm,
+.swals2-modal .swals2-buttonswrapper .btn-group .swals2-styled + .btn,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    .wizard
+    > .actions
+    .swals2-styled
+    + a,
+.wizard
+    > .actions
+    .swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    .swals2-styled
+    + a,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    .swals2-styled
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    .swals2-styled
+    + .swals2-styled.swals2-confirm,
+.btn-group .swals2-modal .swals2-buttonswrapper .btn + .swals2-styled,
+.btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    .wizard
+    > .actions
+    a
+    + .swals2-styled,
+.wizard
+    > .actions
+    .btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    a
+    + .swals2-styled,
+.btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
+    + .swals2-styled,
+.btn-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
+    + .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group .btn + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    .wizard
+    > .actions
+    a
+    + .swals2-styled,
+.wizard
+    > .actions
+    .swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    a
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    .swals2-styled.swals2-cancel
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
+    .btn-group
+    .swals2-styled.swals2-confirm
+    + .swals2-styled,
+.btn-group .swals2-modal .swals2-buttonswrapper .swals2-styled + .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group .swals2-styled + .swals2-styled,
 .btn-group .ajax-upload-dragdrop .ajax-file-upload + .btn,
 .btn-group .ajax-upload-dragdrop .wizard > .actions .ajax-file-upload + a,
 .wizard > .actions .btn-group .ajax-upload-dragdrop .ajax-file-upload + a,
 .btn-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .ajax-upload-dragdrop
     .ajax-file-upload
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .btn-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .ajax-upload-dragdrop
     .ajax-file-upload
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .btn-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .ajax-upload-dragdrop
     .ajax-file-upload
-    + .swal2-styled,
+    + .swals2-styled,
 .ajax-upload-dragdrop .btn-group .ajax-file-upload + .btn,
 .ajax-upload-dragdrop .btn-group .wizard > .actions .ajax-file-upload + a,
 .wizard > .actions .ajax-upload-dragdrop .btn-group .ajax-file-upload + a,
 .ajax-upload-dragdrop
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .btn-group
     .ajax-file-upload
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .ajax-upload-dragdrop
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .btn-group
     .ajax-file-upload
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .ajax-upload-dragdrop
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .btn-group
     .ajax-file-upload
-    + .swal2-styled,
+    + .swals2-styled,
 .btn-group .ajax-upload-dragdrop .btn + .ajax-file-upload,
 .btn-group .ajax-upload-dragdrop .wizard > .actions a + .ajax-file-upload,
 .wizard > .actions .btn-group .ajax-upload-dragdrop a + .ajax-file-upload,
 .btn-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .ajax-upload-dragdrop
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + .ajax-file-upload,
 .btn-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .ajax-upload-dragdrop
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + .ajax-file-upload,
 .btn-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .ajax-upload-dragdrop
-    .swal2-styled
+    .swals2-styled
     + .ajax-file-upload,
 .ajax-upload-dragdrop .btn-group .btn + .ajax-file-upload,
 .ajax-upload-dragdrop .btn-group .wizard > .actions a + .ajax-file-upload,
 .wizard > .actions .ajax-upload-dragdrop .btn-group a + .ajax-file-upload,
 .ajax-upload-dragdrop
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .btn-group
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + .ajax-file-upload,
 .ajax-upload-dragdrop
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .btn-group
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + .ajax-file-upload,
 .ajax-upload-dragdrop
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .btn-group
-    .swal2-styled
+    .swals2-styled
     + .ajax-file-upload,
 .btn-group .ajax-upload-dragdrop .ajax-file-upload + .ajax-file-upload,
 .ajax-upload-dragdrop .btn-group .ajax-file-upload + .ajax-file-upload,
@@ -26611,356 +26693,356 @@ code {
 .wizard > .actions .fc .fc-button-group a + a,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + .btn,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + a,
 .wizard
     > .actions
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + .btn,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .wizard
     > .actions
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + a,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + a,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
     a
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .wizard
     > .actions
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     a
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .btn
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .wizard
     > .actions
     a
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     a
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-cancel
-    + .swal2-styled.swal2-cancel,
+    .swals2-styled.swals2-cancel
+    + .swals2-styled.swals2-cancel,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + .btn,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + a,
 .wizard
     > .actions
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + a,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + .btn,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .wizard
     > .actions
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + a,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-confirm
-    + .swal2-styled.swal2-cancel,
+    .swals2-styled.swals2-confirm
+    + .swals2-styled.swals2-cancel,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .btn
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
     a
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .wizard
     > .actions
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     a
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .btn
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .wizard
     > .actions
     a
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     a
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-cancel
-    + .swal2-styled.swal2-confirm,
+    .swals2-styled.swals2-cancel
+    + .swals2-styled.swals2-confirm,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-confirm
-    + .swal2-styled.swal2-confirm,
-.fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled + .btn,
+    .swals2-styled.swals2-confirm
+    + .swals2-styled.swals2-confirm,
+.fc .fc-button-group .swals2-modal .swals2-buttonswrapper .swals2-styled + .btn,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
-    .swal2-styled
+    .swals2-styled
     + a,
 .wizard
     > .actions
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
     + a,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
-    + .swal2-styled.swal2-cancel,
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
+    + .swals2-styled.swals2-cancel,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
-    + .swal2-styled.swal2-confirm,
-.swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled + .btn,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
+    + .swals2-styled.swals2-confirm,
+.swals2-modal .swals2-buttonswrapper .fc .fc-button-group .swals2-styled + .btn,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .wizard
     > .actions
-    .swal2-styled
+    .swals2-styled
     + a,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled
+    .swals2-styled
     + a,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-styled
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled
-    + .swal2-styled.swal2-confirm,
-.fc .fc-button-group .swal2-modal .swal2-buttonswrapper .btn + .swal2-styled,
+    .swals2-styled
+    + .swals2-styled.swals2-confirm,
+.fc .fc-button-group .swals2-modal .swals2-buttonswrapper .btn + .swals2-styled,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .wizard
     > .actions
     a
-    + .swal2-styled,
+    + .swals2-styled,
 .wizard
     > .actions
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     a
-    + .swal2-styled,
+    + .swals2-styled,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
-    + .swal2-styled,
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
+    + .swals2-styled,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
-    + .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .fc .fc-button-group .btn + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
+    + .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .fc .fc-button-group .btn + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .wizard
     > .actions
     a
-    + .swal2-styled,
+    + .swals2-styled,
 .wizard
     > .actions
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     a
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-cancel
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-styled.swals2-cancel
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-confirm
-    + .swal2-styled,
+    .swals2-styled.swals2-confirm
+    + .swals2-styled,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled
-    + .swal2-styled,
+    .swals2-styled
+    + .swals2-styled,
 .fc .fc-button-group .ajax-upload-dragdrop .ajax-file-upload + .btn,
 .fc
     .fc-button-group
@@ -26979,45 +27061,45 @@ code {
 .fc
     .fc-button-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .ajax-upload-dragdrop
     .ajax-file-upload
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .fc
     .fc-button-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .ajax-upload-dragdrop
     .ajax-file-upload
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .fc
     .fc-button-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .ajax-upload-dragdrop
     .ajax-file-upload
-    + .swal2-styled,
+    + .swals2-styled,
 .ajax-upload-dragdrop .fc .fc-button-group .ajax-file-upload + .btn,
 .ajax-upload-dragdrop
     .fc
@@ -27036,45 +27118,45 @@ code {
 .ajax-upload-dragdrop
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .fc
     .fc-button-group
     .ajax-file-upload
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .ajax-upload-dragdrop
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .fc
     .fc-button-group
     .ajax-file-upload
-    + .swal2-styled.swal2-confirm,
+    + .swals2-styled.swals2-confirm,
 .ajax-upload-dragdrop
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     .ajax-file-upload
-    + .swal2-styled,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .fc
     .fc-button-group
     .ajax-file-upload
-    + .swal2-styled,
+    + .swals2-styled,
 .fc .fc-button-group .ajax-upload-dragdrop .btn + .ajax-file-upload,
 .fc
     .fc-button-group
@@ -27093,44 +27175,44 @@ code {
 .fc
     .fc-button-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .ajax-upload-dragdrop
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + .ajax-file-upload,
 .fc
     .fc-button-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .ajax-upload-dragdrop
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + .ajax-file-upload,
 .fc
     .fc-button-group
     .ajax-upload-dragdrop
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .ajax-upload-dragdrop
-    .swal2-styled
+    .swals2-styled
     + .ajax-file-upload,
 .ajax-upload-dragdrop .fc .fc-button-group .btn + .ajax-file-upload,
 .ajax-upload-dragdrop
@@ -27150,44 +27232,44 @@ code {
 .ajax-upload-dragdrop
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .fc
     .fc-button-group
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + .ajax-file-upload,
 .ajax-upload-dragdrop
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .fc
     .fc-button-group
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + .ajax-file-upload,
 .ajax-upload-dragdrop
     .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
     + .ajax-file-upload,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .ajax-upload-dragdrop
     .fc
     .fc-button-group
-    .swal2-styled
+    .swals2-styled
     + .ajax-file-upload,
 .fc
     .fc-button-group
@@ -27204,30 +27286,30 @@ code {
 .wizard > .actions .btn-group .fc button + a,
 .btn-group
     .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     button
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .fc
     button
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .btn-group
     .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     button
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .fc
     button
-    + .swal2-styled.swal2-confirm,
-.btn-group .fc .swal2-modal .swal2-buttonswrapper button + .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .btn-group .fc button + .swal2-styled,
+    + .swals2-styled.swals2-confirm,
+.btn-group .fc .swals2-modal .swals2-buttonswrapper button + .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .btn-group .fc button + .swals2-styled,
 .btn-group .fc .ajax-upload-dragdrop button + .ajax-file-upload,
 .ajax-upload-dragdrop .btn-group .fc button + .ajax-file-upload,
 .fc .fc-button-group .fc button + .btn,
@@ -27236,68 +27318,68 @@ code {
 .fc
     .fc-button-group
     .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     button
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .fc
     button
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .fc
     .fc-button-group
     .fc
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     button
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .fc
     button
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .fc
     button
-    + .swal2-styled,
+    + .swals2-styled,
 .ajax-upload-dragdrop .fc .fc-button-group .fc button + .ajax-file-upload,
 .fc .btn-group button + .btn,
 .fc .btn-group .wizard > .actions button + a,
 .wizard > .actions .fc .btn-group button + a,
 .fc
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     button
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group
     button
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .fc
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     button
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group
     button
-    + .swal2-styled.swal2-confirm,
-.fc .btn-group .swal2-modal .swal2-buttonswrapper button + .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .fc .btn-group button + .swal2-styled,
+    + .swals2-styled.swals2-confirm,
+.fc .btn-group .swals2-modal .swals2-buttonswrapper button + .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .fc .btn-group button + .swals2-styled,
 .fc .btn-group .ajax-upload-dragdrop button + .ajax-file-upload,
 .ajax-upload-dragdrop .fc .btn-group button + .ajax-file-upload,
 .fc .fc-button-group button + .btn,
@@ -27305,30 +27387,40 @@ code {
 .wizard > .actions .fc .fc-button-group button + a,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     button
-    + .swal2-styled.swal2-cancel,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-cancel,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     button
-    + .swal2-styled.swal2-cancel,
+    + .swals2-styled.swals2-cancel,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
     button
-    + .swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    + .swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     button
-    + .swal2-styled.swal2-confirm,
-.fc .fc-button-group .swal2-modal .swal2-buttonswrapper button + .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .fc .fc-button-group button + .swal2-styled,
+    + .swals2-styled.swals2-confirm,
+.fc
+    .fc-button-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    button
+    + .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
+    .fc
+    .fc-button-group
+    button
+    + .swals2-styled,
 .fc .fc-button-group .ajax-upload-dragdrop button + .ajax-file-upload,
 .ajax-upload-dragdrop .fc .fc-button-group button + .ajax-file-upload,
 .btn-group .fc .btn + button,
@@ -27336,30 +27428,30 @@ code {
 .wizard > .actions .btn-group .fc a + button,
 .btn-group
     .fc
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .fc
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + button,
 .btn-group
     .fc
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .btn-group
     .fc
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + button,
-.btn-group .fc .swal2-modal .swal2-buttonswrapper .swal2-styled + button,
-.swal2-modal .swal2-buttonswrapper .btn-group .fc .swal2-styled + button,
+.btn-group .fc .swals2-modal .swals2-buttonswrapper .swals2-styled + button,
+.swals2-modal .swals2-buttonswrapper .btn-group .fc .swals2-styled + button,
 .btn-group .fc .ajax-upload-dragdrop .ajax-file-upload + button,
 .ajax-upload-dragdrop .btn-group .fc .ajax-file-upload + button,
 .fc .fc-button-group .fc .btn + button,
@@ -27368,37 +27460,37 @@ code {
 .fc
     .fc-button-group
     .fc
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .fc
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + button,
 .fc
     .fc-button-group
     .fc
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .fc
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
     .fc
-    .swal2-styled
+    .swals2-styled
     + button,
 .ajax-upload-dragdrop .fc .fc-button-group .fc .ajax-file-upload + button,
 .fc .btn-group .btn + button,
@@ -27406,30 +27498,30 @@ code {
 .wizard > .actions .fc .btn-group a + button,
 .fc
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + button,
 .fc
     .btn-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .btn-group
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + button,
-.fc .btn-group .swal2-modal .swal2-buttonswrapper .swal2-styled + button,
-.swal2-modal .swal2-buttonswrapper .fc .btn-group .swal2-styled + button,
+.fc .btn-group .swals2-modal .swals2-buttonswrapper .swals2-styled + button,
+.swals2-modal .swals2-buttonswrapper .fc .btn-group .swals2-styled + button,
 .fc .btn-group .ajax-upload-dragdrop .ajax-file-upload + button,
 .ajax-upload-dragdrop .fc .btn-group .ajax-file-upload + button,
 .fc .fc-button-group .btn + button,
@@ -27437,30 +27529,40 @@ code {
 .wizard > .actions .fc .fc-button-group a + button,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-cancel
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-cancel
     + button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-cancel
+    .swals2-styled.swals2-cancel
     + button,
 .fc
     .fc-button-group
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled.swal2-confirm
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled.swals2-confirm
     + button,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .fc
     .fc-button-group
-    .swal2-styled.swal2-confirm
+    .swals2-styled.swals2-confirm
     + button,
-.fc .fc-button-group .swal2-modal .swal2-buttonswrapper .swal2-styled + button,
-.swal2-modal .swal2-buttonswrapper .fc .fc-button-group .swal2-styled + button,
+.fc
+    .fc-button-group
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
+    + button,
+.swals2-modal
+    .swals2-buttonswrapper
+    .fc
+    .fc-button-group
+    .swals2-styled
+    + button,
 .fc .fc-button-group .ajax-upload-dragdrop .ajax-file-upload + button,
 .ajax-upload-dragdrop .fc .fc-button-group .ajax-file-upload + button,
 .btn-group .fc button + button,
@@ -28408,7 +28510,7 @@ code {
 }
 .breadcrumb.bg-success,
 .settings-panel .color-tiles .breadcrumb.tiles.success,
-.swal2-modal .swal2-buttonswrapper .breadcrumb.swal2-styled.swal2-confirm,
+.swals2-modal .swals2-buttonswrapper .breadcrumb.swals2-styled.swals2-confirm,
 .breadcrumb.bg-dark,
 .settings-panel .color-tiles .breadcrumb.tiles.dark,
 .breadcrumb.bg-danger,
@@ -28423,9 +28525,9 @@ code {
 }
 .breadcrumb.bg-success .breadcrumb-item,
 .settings-panel .color-tiles .breadcrumb.tiles.success .breadcrumb-item,
-.swal2-modal
-    .swal2-buttonswrapper
-    .breadcrumb.swal2-styled.swal2-confirm
+.swals2-modal
+    .swals2-buttonswrapper
+    .breadcrumb.swals2-styled.swals2-confirm
     .breadcrumb-item,
 .breadcrumb.bg-dark .breadcrumb-item,
 .settings-panel .color-tiles .breadcrumb.tiles.dark .breadcrumb-item,
@@ -28441,9 +28543,9 @@ code {
 }
 .breadcrumb.bg-success .breadcrumb-item:before,
 .settings-panel .color-tiles .breadcrumb.tiles.success .breadcrumb-item:before,
-.swal2-modal
-    .swal2-buttonswrapper
-    .breadcrumb.swal2-styled.swal2-confirm
+.swals2-modal
+    .swals2-buttonswrapper
+    .breadcrumb.swals2-styled.swals2-confirm
     .breadcrumb-item:before,
 .breadcrumb.bg-dark .breadcrumb-item:before,
 .settings-panel .color-tiles .breadcrumb.tiles.dark .breadcrumb-item:before,
@@ -28459,16 +28561,16 @@ code {
 }
 .breadcrumb.bg-success .breadcrumb-item a,
 .settings-panel .color-tiles .breadcrumb.tiles.success .breadcrumb-item a,
-.swal2-modal
-    .swal2-buttonswrapper
-    .breadcrumb.swal2-styled.swal2-confirm
+.swals2-modal
+    .swals2-buttonswrapper
+    .breadcrumb.swals2-styled.swals2-confirm
     .breadcrumb-item
     a,
 .breadcrumb.bg-success .breadcrumb-item span,
 .settings-panel .color-tiles .breadcrumb.tiles.success .breadcrumb-item span,
-.swal2-modal
-    .swal2-buttonswrapper
-    .breadcrumb.swal2-styled.swal2-confirm
+.swals2-modal
+    .swals2-buttonswrapper
+    .breadcrumb.swals2-styled.swals2-confirm
     .breadcrumb-item
     span,
 .breadcrumb.bg-dark .breadcrumb-item a,
@@ -30162,127 +30264,133 @@ select.form-control.border-success,
 select.border-success.typeahead,
 select.border-success.tt-query,
 select.border-success.tt-hint,
-.swal2-modal
-    .swal2-buttonswrapper
-    select.form-control.swal2-styled.swal2-confirm,
-.swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm.typeahead,
-.swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm.tt-query,
-.swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm.tt-hint,
+.swals2-modal
+    .swals2-buttonswrapper
+    select.form-control.swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm.typeahead,
+.swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm.tt-query,
+.swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm.tt-hint,
 .select2-container--default
     .select2-selection--single
     select.border-success.select2-search__field,
 .select2-container--default
     .select2-selection--single
-    .swal2-modal
-    .swal2-buttonswrapper
-    select.select2-search__field.swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    select.select2-search__field.swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .select2-container--default
     .select2-selection--single
-    select.select2-search__field.swal2-styled.swal2-confirm,
+    select.select2-search__field.swals2-styled.swals2-confirm,
 .select2-container--default select.border-success.select2-selection--single,
 .select2-container--default
-    .swal2-modal
-    .swal2-buttonswrapper
-    select.select2-selection--single.swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    select.select2-selection--single.swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .select2-container--default
-    select.select2-selection--single.swal2-styled.swal2-confirm,
+    select.select2-selection--single.swals2-styled.swals2-confirm,
 .jsgrid .jsgrid-table .jsgrid-filter-row select.border-success,
 .jsgrid
     .jsgrid-table
     .jsgrid-filter-row
-    .swal2-modal
-    .swal2-buttonswrapper
-    select.swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .jsgrid
     .jsgrid-table
     .jsgrid-filter-row
-    select.swal2-styled.swal2-confirm,
+    select.swals2-styled.swals2-confirm,
 .dataTables_wrapper select.border-success,
 .dataTables_wrapper
-    .swal2-modal
-    .swal2-buttonswrapper
-    select.swal2-styled.swal2-confirm,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm,
+.swals2-modal
+    .swals2-buttonswrapper
     .dataTables_wrapper
-    select.swal2-styled.swal2-confirm,
+    select.swals2-styled.swals2-confirm,
 select.border-success.asColorPicker-input,
-.swal2-modal
-    .swal2-buttonswrapper
-    select.asColorPicker-input.swal2-styled.swal2-confirm {
+.swals2-modal
+    .swals2-buttonswrapper
+    select.asColorPicker-input.swals2-styled.swals2-confirm {
     outline: 1px solid #34b1aa;
 }
 select.form-control.border-success:focus,
 select.border-success.typeahead:focus,
 select.border-success.tt-query:focus,
 select.border-success.tt-hint:focus,
-.swal2-modal
-    .swal2-buttonswrapper
-    select.form-control.swal2-styled.swal2-confirm:focus,
-.swal2-modal
-    .swal2-buttonswrapper
-    select.swal2-styled.swal2-confirm.typeahead:focus,
-.swal2-modal
-    .swal2-buttonswrapper
-    select.swal2-styled.swal2-confirm.tt-query:focus,
-.swal2-modal
-    .swal2-buttonswrapper
-    select.swal2-styled.swal2-confirm.tt-hint:focus,
+.swals2-modal
+    .swals2-buttonswrapper
+    select.form-control.swals2-styled.swals2-confirm:focus,
+.swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm.typeahead:focus,
+.swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm.tt-query:focus,
+.swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm.tt-hint:focus,
 .select2-container--default
     .select2-selection--single
     select.border-success.select2-search__field:focus,
 .select2-container--default
     .select2-selection--single
-    .swal2-modal
-    .swal2-buttonswrapper
-    select.select2-search__field.swal2-styled.swal2-confirm:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    select.select2-search__field.swals2-styled.swals2-confirm:focus,
+.swals2-modal
+    .swals2-buttonswrapper
     .select2-container--default
     .select2-selection--single
-    select.select2-search__field.swal2-styled.swal2-confirm:focus,
+    select.select2-search__field.swals2-styled.swals2-confirm:focus,
 .select2-container--default
     select.border-success.select2-selection--single:focus,
 .select2-container--default
-    .swal2-modal
-    .swal2-buttonswrapper
-    select.select2-selection--single.swal2-styled.swal2-confirm:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    select.select2-selection--single.swals2-styled.swals2-confirm:focus,
+.swals2-modal
+    .swals2-buttonswrapper
     .select2-container--default
-    select.select2-selection--single.swal2-styled.swal2-confirm:focus,
+    select.select2-selection--single.swals2-styled.swals2-confirm:focus,
 .jsgrid .jsgrid-table .jsgrid-filter-row select.border-success:focus,
 .jsgrid
     .jsgrid-table
     .jsgrid-filter-row
-    .swal2-modal
-    .swal2-buttonswrapper
-    select.swal2-styled.swal2-confirm:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm:focus,
+.swals2-modal
+    .swals2-buttonswrapper
     .jsgrid
     .jsgrid-table
     .jsgrid-filter-row
-    select.swal2-styled.swal2-confirm:focus,
+    select.swals2-styled.swals2-confirm:focus,
 .dataTables_wrapper select.border-success:focus,
 .dataTables_wrapper
-    .swal2-modal
-    .swal2-buttonswrapper
-    select.swal2-styled.swal2-confirm:focus,
-.swal2-modal
-    .swal2-buttonswrapper
+    .swals2-modal
+    .swals2-buttonswrapper
+    select.swals2-styled.swals2-confirm:focus,
+.swals2-modal
+    .swals2-buttonswrapper
     .dataTables_wrapper
-    select.swal2-styled.swal2-confirm:focus,
+    select.swals2-styled.swals2-confirm:focus,
 select.border-success.asColorPicker-input:focus,
-.swal2-modal
-    .swal2-buttonswrapper
-    select.asColorPicker-input.swal2-styled.swal2-confirm:focus {
+.swals2-modal
+    .swals2-buttonswrapper
+    select.asColorPicker-input.swals2-styled.swals2-confirm:focus {
     outline: 1px solid #34b1aa;
 }
 select.form-control.border-info,
@@ -31459,8 +31567,16 @@ dl li {
 .material-form .form-inline > .btn,
 .material-form .wizard > .actions .form-inline > a,
 .wizard > .actions .material-form .form-inline > a,
-.material-form .swal2-modal .swal2-buttonswrapper .form-inline > .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .material-form .form-inline > .swal2-styled,
+.material-form
+    .swals2-modal
+    .swals2-buttonswrapper
+    .form-inline
+    > .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
+    .material-form
+    .form-inline
+    > .swals2-styled,
 .material-form .ajax-upload-dragdrop .form-inline > .ajax-file-upload,
 .ajax-upload-dragdrop .material-form .form-inline > .ajax-file-upload,
 .material-form .fc .form-inline > button,
@@ -34632,8 +34748,8 @@ dl li {
 .add-items .btn,
 .add-items .wizard > .actions a,
 .wizard > .actions .add-items a,
-.add-items .swal2-modal .swal2-buttonswrapper .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .add-items .swal2-styled,
+.add-items .swals2-modal .swals2-buttonswrapper .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .add-items .swals2-styled,
 .add-items .ajax-upload-dragdrop .ajax-file-upload,
 .ajax-upload-dragdrop .add-items .ajax-file-upload,
 .add-items .fc button,
@@ -34643,8 +34759,8 @@ dl li {
 .add-items .btn i,
 .add-items .wizard > .actions a i,
 .wizard > .actions .add-items a i,
-.add-items .swal2-modal .swal2-buttonswrapper .swal2-styled i,
-.swal2-modal .swal2-buttonswrapper .add-items .swal2-styled i,
+.add-items .swals2-modal .swals2-buttonswrapper .swals2-styled i,
+.swals2-modal .swals2-buttonswrapper .add-items .swals2-styled i,
 .add-items .ajax-upload-dragdrop .ajax-file-upload i,
 .ajax-upload-dragdrop .add-items .ajax-file-upload i,
 .add-items .fc button i,
@@ -34654,8 +34770,8 @@ dl li {
 .rtl .add-items .btn,
 .rtl .add-items .wizard > .actions a,
 .wizard > .actions .rtl .add-items a,
-.rtl .add-items .swal2-modal .swal2-buttonswrapper .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .rtl .add-items .swal2-styled,
+.rtl .add-items .swals2-modal .swals2-buttonswrapper .swals2-styled,
+.swals2-modal .swals2-buttonswrapper .rtl .add-items .swals2-styled,
 .rtl .add-items .ajax-upload-dragdrop .ajax-file-upload,
 .ajax-upload-dragdrop .rtl .add-items .ajax-file-upload,
 .rtl .add-items .fc button,
@@ -35714,8 +35830,16 @@ body.avgrund-active {
 .dataTables_wrapper .dataTable .btn,
 .dataTables_wrapper .dataTable .wizard > .actions a,
 .wizard > .actions .dataTables_wrapper .dataTable a,
-.dataTables_wrapper .dataTable .swal2-modal .swal2-buttonswrapper .swal2-styled,
-.swal2-modal .swal2-buttonswrapper .dataTables_wrapper .dataTable .swal2-styled,
+.dataTables_wrapper
+    .dataTable
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled,
+.swals2-modal
+    .swals2-buttonswrapper
+    .dataTables_wrapper
+    .dataTable
+    .swals2-styled,
 .dataTables_wrapper .dataTable .ajax-upload-dragdrop .ajax-file-upload,
 .ajax-upload-dragdrop .dataTables_wrapper .dataTable .ajax-file-upload,
 .dataTables_wrapper .dataTable .fc button,
@@ -35728,15 +35852,15 @@ body.avgrund-active {
 .wizard > .actions .dataTables_wrapper .dataTable a i,
 .dataTables_wrapper
     .dataTable
-    .swal2-modal
-    .swal2-buttonswrapper
-    .swal2-styled
+    .swals2-modal
+    .swals2-buttonswrapper
+    .swals2-styled
     i,
-.swal2-modal
-    .swal2-buttonswrapper
+.swals2-modal
+    .swals2-buttonswrapper
     .dataTables_wrapper
     .dataTable
-    .swal2-styled
+    .swals2-styled
     i,
 .dataTables_wrapper .dataTable .ajax-upload-dragdrop .ajax-file-upload i,
 .ajax-upload-dragdrop .dataTables_wrapper .dataTable .ajax-file-upload i,
@@ -37300,11 +37424,11 @@ table.dataTable tbody td.select-checkbox:after {
 }
 
 /* SweetAlert */
-.swal2-container {
+.swals2-container {
     z-index: 1500;
 }
 
-.swal2-modal {
+.swals2-modal {
     min-height: 315px;
     -webkit-align-items: center;
     align-items: center;
@@ -37314,7 +37438,7 @@ table.dataTable tbody td.select-checkbox:after {
     flex-direction: column;
     border-radius: 10px;
 }
-.swal2-modal .swal2-title {
+.swals2-modal .swals2-title {
     font-size: 25px;
     line-height: 1;
     font-weight: 600;
@@ -37322,40 +37446,40 @@ table.dataTable tbody td.select-checkbox:after {
     font-weight: initial;
     margin-bottom: 0;
 }
-.swal2-modal .swal2-icon,
-.swal2-modal .swal2-success-ring {
+.swals2-modal .swals2-icon,
+.swals2-modal .swals2-success-ring {
     margin-top: 0;
     margin-bottom: 42px;
 }
-.swal2-modal .swal2-buttonswrapper {
+.swals2-modal .swals2-buttonswrapper {
     margin-top: 0;
     padding: 0;
 }
-.swal2-modal .swal2-buttonswrapper .swal2-styled {
+.swals2-modal .swals2-buttonswrapper .swals2-styled {
     margin-top: 0;
     font-weight: initial;
 }
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm {
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-confirm {
     font-weight: initial;
     margin-top: 32px;
 }
-.swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel {
+.swals2-modal .swals2-buttonswrapper .swals2-styled.swals2-cancel {
     margin-top: 32px;
     border: 1px solid #dee2e6;
     color: #ffffff;
     font-weight: initial;
 }
-.swal2-modal .swal2-content {
+.swals2-modal .swals2-content {
     font-size: 0.812rem;
     font-weight: 600;
     color: #1f1f1f;
     font-weight: initial;
     margin-top: 11px;
 }
-.swal2-modal .swal2-close {
+.swals2-modal .swals2-close {
     font-size: 20px;
 }
-.swal2-modal .swal2-success-ring {
+.swals2-modal .swals2-success-ring {
     left: -30px;
 }
 

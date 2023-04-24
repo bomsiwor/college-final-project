@@ -28,6 +28,7 @@ return new class extends Migration
             $table->date('purchase_date')->nullable();
             $table->integer('price')->nullable();
             $table->json('tool_image')->nullable();
+            $table->string('manual')->nullable();
             $table->timestamps();
         });
     }
