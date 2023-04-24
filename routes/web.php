@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\RadioactiveController;
 use App\Http\Controllers\ToolController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -108,4 +109,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->controller(AdminCont
 });
 
 Route::middleware('auth')->controller(DashboardController::class)->group(function () {
+});
+
+Route::middleware('auth')->controller(UserController::class)->group(function () {
+    Route::post('update-profile', 'updateProfile')->name('updateProfile');
+    Route::delete('photo', 'deletePhoto')->name('deletePhoto');
 });

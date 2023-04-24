@@ -123,7 +123,7 @@
                     <p class="mb-1 mt-3 font-weight-semibold">{{ auth()->user()->name }}</p>
                     <p class="fw-light text-muted mb-0">{{ auth()->user()->institution->institution_name }}</p>
 
-                    <a class="dropdown-item"><i
+                    <a class="dropdown-item" href="{{ route('dashboard.profile') }}"><i
                             class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Atur Profil
                         <span class="badge badge-pill badge-danger">1</span></a>
                     <a class="dropdown-item"><i

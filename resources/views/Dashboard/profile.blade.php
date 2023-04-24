@@ -1,199 +1,287 @@
 @extends('Template.layouts')
 
+@push('vendorStyle')
+    @livewireStyles
+@endpush
+
+@push('vendorScript')
+    @livewireScripts
+@endpush
+
 @section('main')
-    <main id="main" class="main">
+    <h2 class="fw-bold">Profil Kamu</h2>
+    <nav>
+        <ol class="breadcrumb bg-primary">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Pagu</a></li>
+            <li class="breadcrumb-item active">Profil</li>
+        </ol>
+    </nav>
 
-        <div class="pagetitle">
-            <h1>Profil Kamu</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Users</li>
-                    <li class="breadcrumb-item active">Profile</li>
-                </ol>
-            </nav>
-        </div><!-- End Page Title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="border-bottom text-center pb-4">
+                                <img src="{{ auth()->user()->profile_picture ? asset('storage/' . auth()->user()->profile_picture) : asset('assets/img/profile/default-pic.png') }}"
+                                    alt="profile" class="img-lg rounded-circle mb-3" />
+                                <div class="mb-3">
+                                    <h3>{{ auth()->user()->name }}</h3>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <h5 class="mb-0 me-2 text-muted">{{ auth()->user()->institution->institution_name }}
+                                        </h5>
+                                    </div>
+                                </div>
+                                <p class="w-75 mx-auto mb-3">
+                                    {{ auth()->user()->description }}
+                                </p>
+                                @if (auth()->user()->profile_picture)
+                                    <button class="btn btn-warning" id="deletePhotoButton">Hapus foto profil</button>
+                                @endif
+                            </div>
+                            <div class="py-4">
+                                <p class="clearfix">
+                                    <span class="float-left"> Status </span>
+                                    <span class="float-right text-success">Aktif</span>
+                                </p>
+                                <p class="clearfix">
+                                    <span class="float-left"> Phone </span>
+                                    <span class="float-right text-muted">
+                                        {{ auth()->user()->phone }}
+                                    </span>
+                                </p>
+                                <p class="clearfix">
+                                    <span class="float-left"> Surel </span>
+                                    <span class="float-right text-muted">
+                                        {{ auth()->user()->email }}
+                                    </span>
+                                </p>
+                                <p class="clearfix">
+                                    <span class="float-left"> Alamat </span>
+                                    <span class="float-right text-muted">
+                                        {{ auth()->user()->address }}
+                                    </span>
+                                </p>
 
-        <section class="section profile">
-            <div class="row">
-
-                {{-- Kiri - Profil --}}
-                <div class="col-xl-4">
-
-                    <div class="card bg-light-subtle border border-light-subtle">
-                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
-                            @if (!auth()->user()->profile_picture)
-                                <img src="{{ asset('assets/img/profile/default-pic.png') }}" alt="Profile"
-                                    class="rounded-circle">
-                            @else
-                                <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" alt="Profile"
-                                    class="rounded-circle">
-                            @endif
-                            <h2 class="text-center">{{ auth()->user()->name }}</h2>
-
-                            @if (auth()->user()->hasRole('student'))
-                                <h3>{{ auth()->user()->study_program->name }}</h3>
-                            @elseif (auth()->user()->hasRole('lecturer'))
-                                <h3>Dosen</h3>
-                            @elseif (auth()->user()->hasRole('staff'))
-                                <h3>Staff - {{ auth()->user()->unit->unit_name }}</h3>
-                            @elseif (auth()->user()->hasRole('extern'))
-                                <h3>{{ auth()->user()->institution->institution_name }}</h3>
-                            @endif
-
-                            <div class="social-links mt-2">
-                                <a href="#" class="twitter"><i class="mdi mdi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="mdi mdi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="mdi mdi-github"></i></a>
-                                <a href="#" class="linkedin"><i class="mdi mdi-linkedin"></i></a>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                {{-- Kanan - Tab detail dan edit --}}
-                <div class="col-xl-8">
+                        <div class="col-lg-8">
+                            <div class="mt-4 py-2 border-top border-bottom">
+                                <!-- Navtab -->
+                                <ul class="nav nav-tabs profile-navbar" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#overview"
+                                            role="tab" aria-controls="overview" aria-selected="true">
+                                            <i class="ti-user"></i>
+                                            Detail
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#change-password"
+                                            role="tab" aria-selected="false">
+                                            <i class="ti-calendar"></i>
+                                            Ubah Password
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
 
-                    <div class="card">
-                        <div class="card-body pt-3">
-                            <!-- Bordered Tabs -->
-                            <ul class="nav nav-tabs nav-tabs-bordered">
-
-                                <li class="nav-item">
-                                    <button class="nav-link active" data-bs-toggle="tab"
-                                        data-bs-target="#profile-overview">Detail</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit
-                                        Profil</button>
-                                </li>
-
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#profile-change-password">Ubah Password</button>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content pt-2">
-
-                                <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                    <h5 class="card-title">Tentang</h5>
-                                    <p class="small fst-italic">
-                                        @if (auth()->user()->description)
-                                            {{ auth()->user()->description }}
-                                        @else
-                                            Kosong.. isi cerita tentang kamu.
-                                        @endif
-                                    </p>
-                                    <h5 class="card-title">Detail Profil</h5>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">Nama Lengkap</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->name }}</div>
+                            <div class="tab-content tab-content-basic">
+                                <div class="tab-pane fade show active" id="overview" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="d-flex justify-content-between">
+                                        <h4>Detail akun</h4>
+                                        <button type="submit" class="btn btn-sm btn-primary"
+                                            form="update-profile-form">Simpan</button>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Pekerjaan</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->profession->profession_name }}
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Asal Institusi</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->institution->institution_name }}
-                                        </div>
-                                    </div>
-
-                                    @if (auth()->user()->hasRole('student'))
-                                        <div class="row">
-                                            <div class="col-lg-3 col-md-4 label">Program Studi</div>
-                                            <div class="col-lg-9 col-md-8">{{ auth()->user()->study_program->name }}</div>
+                                    @if (session('success'))
+                                        <div class="alert alert-success">
+                                            Profil berhasil diupdate!
                                         </div>
                                     @endif
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Jenis Identitas</div>
-                                        <div class="col-lg-9 col-md-8">
-                                            {{ __('core.' . auth()->user()->identifier->name) }}</div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Nomor Identitas</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->identification_number }}</div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Alamat</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->address }}
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul class="mb-0">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>
+                                                        {{ $error }}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
                                         </div>
-                                    </div>
+                                    @endif
+                                    <form action="{{ route('updateProfile') }}" method="post" id="update-profile-form"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        {{-- Gambar --}}
+                                        <div class="form-group row align-content-center mb-1">
+                                            <label for="image" class="col-sm-3 col-form-label-sm">Upload Foto
+                                                Profil</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" name="profile_picture" id="image">
+                                            </div>
+                                        </div>
+                                        <!-- Nama -->
+                                        <div class="form-group mb-1">
+                                            <label for="fullname">Nama Lengkap
+                                                <span class="fst-italic"> (tanpa gelar)</span>
+                                            </label>
+                                            <input type="text" class="form-control form-control" id="fullName"
+                                                value="{{ auth()->user()->name }}" name="name" />
+                                        </div>
+                                        <!-- Username -->
+                                        <div class="form-group mb-1">
+                                            <label for="username">Username </label>
+                                            <input type="text" class="form-control form-control"
+                                                value="{{ auth()->user()->username }}" name="username" />
+                                        </div>
+                                        <!-- Email -->
+                                        <div class="form-group mb-1">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control form-control" id="email"
+                                                value="{{ auth()->user()->email }}" name="email" />
+                                        </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">No. Telp</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->phone }}</div>
-                                    </div>
+                                        @if (auth()->user()->hasRole('student'))
+                                            <!-- Prodi -->
+                                            <div class="form-group mb-1">
+                                                <label for="study_program">Program Studi</label>
+                                                <input type="study_program" class="form-control form-control"
+                                                    id="study_program" value="{{ auth()->user()->study_program->name }}"
+                                                    disabled />
+                                            </div>
+                                        @endif
+                                        <!-- Indentifier -->
+                                        <div class="form-group mb-1">
+                                            <label for="identifier">Jenis Identitas</label>
+                                            <input type="identifier" class="form-control form-control" id="identifier"
+                                                value="{{ auth()->user()->identifier }}" disabled />
+                                        </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Email</div>
-                                        <div class="col-lg-9 col-md-8">{{ auth()->user()->email }}</div>
-                                    </div>
+                                        <!-- Prodi -->
+                                        <div class="form-group mb-1">
+                                            <label for="identification_number">Nomor Identitas</label>
+                                            <input type="identification_number" class="form-control form-control"
+                                                id="identification_number" name="identification_number"
+                                                value="{{ auth()->user()->identification_number }}" />
+                                        </div>
+                                        <!-- Prodi -->
+                                        <div class="form-group mb-1">
+                                            <label for="address">Alamat</label>
+                                            <input type="address" class="form-control form-control" id="address"
+                                                value="{{ auth()->user()->address }}" name="address" />
+                                        </div>
+                                        <!-- Prodi -->
+                                        <div class="form-group mb-1">
+                                            <label for="phone">Nomor Telepon</label>
+                                            <input type="phone" class="form-control form-control" id="phone"
+                                                value="{{ auth()->user()->phone }}" name="phone" />
+                                        </div>
+
+                                        <!-- Deskpripsi -->
+                                        <div class="form-group mb-1">
+                                            <label for="description">Deskripsi</label>
+                                            <textarea name="description" id="description" rows="3" class="form-control form-control-sm"
+                                                style="height: 100px"></textarea>
+                                        </div>
+                                    </form>
                                 </div>
-
-                                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-
-                                    @livewire('edit-profile')
-
-                                </div>
-
-                                <div class="tab-pane fade pt-3" id="profile-change-password">
-                                    <!-- Change Password Form -->
-                                    <h4>Petunjuk</h4>
-                                    <p>Kata sandi sekurang-kurangnya mengandung 1 simbol, 1 angka, dan 1 huruf kapital</p>
+                                <div class="tab-pane fade" id="change-password" role="tabpanel"
+                                    aria-labelledby="contact-tab">
+                                    <h4>Ubah Kata Sandi</h4>
+                                    <div class="alert alert-warning">
+                                        Kamu login menggunakan sosial media. Tambahkan
+                                        sandi agar dapat login menggunakan email &
+                                        password
+                                    </div>
+                                    <p>
+                                        Kata sandi minimal memuat 8 karakter dengan 1
+                                        huruf kapital & 1 simbol.
+                                    </p>
                                     @livewire('change-password-component')
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-    </main><!-- End #main -->
-
-    <script>
-        function openFileUpload() {
-            document.getElementById("hiddenFile").click();
-
-        }
-    </script>
+        </div>
+    </div>
 @endsection
+
+@push('vendorScript')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@endpush
 
 @section('script')
     <script>
-        $('#deletePhoto').click(function(e) {
+        $("#deletePhotoButton").click(function(e) {
             e.preventDefault();
             Swal.fire({
-                title: 'Kamu yakin?',
-                text: "Hapus foto profil?! Foto dapat diperbarui di kemudian hari",
+                title: 'Apa anda yakin?',
+                text: "Foto yang sudah dihapus tidak dapat dikembalikan",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!'
+                confirmButtonText: 'Yakin!',
+                cancelButtonText: 'Batal',
+                allowOutsideClick: false
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deletePhoto');
-                    Swal.fire(
-                        'Sukses!',
-                        'Foto profil telah dihapus',
-                        'success'
-                    )
+                    $.ajax({
+                        type: "delete",
+                        url: "{{ route('deletePhoto') }}",
+                        data: {
+                            _token: "{{ csrf_token() }}"
+                        },
+                        dataType: "json",
+                        beforeSend: (response) => {
+                            Swal.fire({
+                                title: 'Tunggu...',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false,
+                                showConfirmButton: false,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                }
+                            })
+                        },
+                        success: function(response) {
+                            let timerInterval
+                            Swal.fire({
+                                title: 'Terhapus!',
+                                icon: 'success',
+                                text: 'Data sudah dihapus.',
+                                html: 'Halaman akan disegarkan dalam <b></b> milliseconds.',
+                                timer: 2500,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                    const b = Swal.getHtmlContainer().querySelector(
+                                        'b')
+                                    timerInterval = setInterval(() => {
+                                        b.textContent = Swal.getTimerLeft()
+                                    }, 100)
+                                },
+                                willClose: () => {
+                                    clearInterval(timerInterval)
+                                }
+                            }).then((result) => {
+                                location.reload();
+                            })
+                        },
+                        error: function(xhr, textStatus, errorThrown) {
+                            Swal.fire(
+                                'Gagal',
+                                'Operasi gagal dilakukan',
+                                'error'
+                            )
+                        }
+                    });
+
                 }
-            })
+            });
         });
     </script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class ChangePasswordComponent extends Component
@@ -26,7 +27,7 @@ class ChangePasswordComponent extends Component
         $this->validate();
 
         User::where('id', auth()->user()->id)->update([
-            'password' => $this->newpwd
+            'password' => Hash::make($this->newpwd)
         ]);
 
         $this->reset();

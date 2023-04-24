@@ -7,40 +7,29 @@
         </div>
     @endif
     <form wire:submit.prevent="submit" method="post">
-        <div class="row mb-3">
-            <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Kata Sandi
-                sekarang</label>
-            <div class="col-md-8 col-lg-9">
-                <input name="password" type="password" class="form-control" id="currentPassword"
-                    wire:model='currentpwd'>
-            </div>
+        <div class="form-group mb-1">
+            <label for="currentPassword">Kata sandi sekarang</label>
+            <input type="password" class="form-control form-control @error('currentpwd') is-invalid @enderror"
+                id="currentPassword" placeholder="Kata sandi sekarang" wire:model='currentpwd' />
             @error('currentpwd')
-                <div class="text-danger">
-                    {{ $message }}
-                </div>
+                <label for="currentPassword" class="error text-danger mb-0">Masukkan password
+                    dengan benar</label>
             @enderror
         </div>
 
-        <div class="row mb-3">
-            <label for="newpassword" class="col-md-4 col-lg-3 col-form-label">Kata sandi baru</label>
-            <div class="col-md-8 col-lg-9">
-                <input name="newpassword" type="password" class="form-control" id="newPassword"
-                    wire:model.defer='newpwd'>
-            </div>
+        <div class="form-group mb-1">
+            <label for="newPassword">Kata sandi baru</label>
+            <input type="password" class="form-control form-control @error('newpwd') is-invalid @enderror"
+                id="newPassword" placeholder="Kata sandi baru" wire:model.defer='newpwd' />
             @error('newpwd')
-                <div class="text-danger">
-                    {{ $message }}
-                </div>
+                <label for="newPassword" class="error text-danger mb-0">Masukkan dengan
+                    benar</label>
             @enderror
         </div>
-
-        <div class="row mb-3">
-            <label for="newpassword_confirmation" class="col-md-4 col-lg-3 col-form-label">Masukkan kembali kata
-                sandi baru</label>
-            <div class="col-md-8 col-lg-9">
-                <input name="newpassword_confirmation" type="password" class="form-control"
-                    id="newpassword_confirmation" wire:model.defer='newpwd_confirmation'>
-            </div>
+        <div class="form-group mb-2">
+            <label for="confirmPassword">Konfirmasi kata sandi baru</label>
+            <input type="password" class="form-control form-control" id="confirmPassword"
+                placeholder="Konfirmasi Password" wire:model.defer='newpwd_confirmation' />
             @error('newpwd_confirmation')
                 <div class="text-danger">
                     {{ $message }}

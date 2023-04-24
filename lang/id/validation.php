@@ -65,7 +65,7 @@ return [
         'numeric' => 'The :attribute must be greater than or equal to :value.',
         'string' => 'The :attribute must be greater than or equal to :value characters.',
     ],
-    'image' => 'The :attribute must be an image.',
+    'image' => ':attribute harus berupa gambar',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
@@ -89,7 +89,7 @@ return [
     'mac_address' => 'The :attribute must be a valid MAC address.',
     'max' => [
         'array' => 'The :attribute must not have more than :max items.',
-        'file' => 'The :attribute must not be greater than :max kilobytes.',
+        'file' => ':attribute tidak boleh melebihi  :max kilobytes.',
         'numeric' => 'The :attribute must not be greater than :max.',
         'string' => ':attribute minimal memiliki :min karakter',
     ],
@@ -137,7 +137,7 @@ return [
     'same' => 'The :attribute and :other must match.',
     'size' => [
         'array' => 'The :attribute must contain :size items.',
-        'file' => 'The :attribute must be :size kilobytes.',
+        'file' => ':attribute tidak boleh melebihi :size kilobytes.',
         'numeric' => 'The :attribute must be :size.',
         'string' => 'The :attribute must be :size characters.',
     ],
@@ -222,7 +222,8 @@ return [
         'adc' => 'ADC',
         'start_doses' => 'Dosis Awal',
         'end_doses' => 'Dosis Akhir',
-        'laju_paparan' => 'Laju Paparan'
+        'laju_paparan' => 'Laju Paparan',
+        'profile_picture' => 'Foto Profil'
     ],
 
 ];
