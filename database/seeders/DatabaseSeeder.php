@@ -63,6 +63,20 @@ class DatabaseSeeder extends Seeder
         $user->assignRole('student', 'admin');
 
         $user = User::create([
+            'email' => 'admin@gmail.com',
+            'username' => 'admin',
+            'name' => 'Admin Lab',
+            'identifier' => 'NIP',
+            'identification_number' => '123781238432',
+            'institution_id' => 1,
+            'profession_id' => 3,
+            'study_program_id' => 2,
+            'password' => Hash::make('password')
+        ]);
+
+        $user->assignRole('student', 'admin');
+
+        $user = User::create([
             'email' => 'zahrawibow@gmail.com',
             'username' => 'jarajara',
             'name' => 'Zahra Zahira Wibowo',

@@ -223,7 +223,8 @@ return [
         'start_doses' => 'Dosis Awal',
         'end_doses' => 'Dosis Akhir',
         'laju_paparan' => 'Laju Paparan',
-        'profile_picture' => 'Foto Profil'
+        'profile_picture' => 'Foto Profil',
+        'occupation' => 'Keperluan'
     ],
 
 ];

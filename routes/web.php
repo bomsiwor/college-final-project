@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\DashboardController;
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    abort(503);
+    return redirect()->to('/dashboard');
 });
 
 Route::controller(AuthController::class)->group(function () {
@@ -46,7 +47,6 @@ Route::middleware('auth')->prefix('dashboard')->controller(DashboardController::
 });
 
 Route::middleware('auth')->prefix('activity')->controller(ActivityController::class)->name('activity.')->group(function () {
-    Route::get('/all-attendance', 'allAttendance')->name('allAttendance');
     Route::get('/presensi', 'presensi')->name('presensi');
 
     Route::get('/radiation-log', 'radiationLog')->name('radiationLog');
@@ -58,6 +58,12 @@ Route::middleware('auth')->prefix('activity')->controller(ActivityController::cl
     Route::get('/admin/return/{borrow}', 'returnBorrow')->name('admin.returning.store')->middleware('role:admin');
 
     // Route::post('/verify-borrow', 'verifyBorrow')->name('borrow.verify');
+});
+
+Route::middleware('auth')->prefix('attendance')->controller(AttendanceController::class)->name('attendance.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('show-all', 'total')->name('total');
+    Route::get('show-me', 'me')->name('me');
 });
 
 Route::middleware('auth')->prefix('borrow')->controller(BorrowController::class)->name('borrow.')->group(function () {

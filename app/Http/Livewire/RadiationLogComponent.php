@@ -34,6 +34,7 @@ class RadiationLogComponent extends Component
         if ($response->wasRecentlyCreated) :
             $this->reset();
             $this->data_added = true;
+            $this->dispatchBrowserEvent('attendance-stored');
         else :
             $this->addError('error', 'Gagal menambahkan! Coba lagi.');
         endif;

@@ -27,16 +27,7 @@ class ActivityController extends Controller
         $title = 'Semua Kunjungan';
         $data = Attendance::with('user:id,name')->get();
 
-        $totalGroup = count($data);
-        $perPage = 10;
-        $page = Paginator::resolveCurrentPage('page');
-
-        $data = new LengthAwarePaginator($data->forPage($page, $perPage), $totalGroup, $perPage, $page, [
-            'path' => Paginator::resolveCurrentPath(),
-            'pageName' => 'page',
-        ]);
-
-        return view('Activity.allAttendance', compact('title', 'data'));
+        return view('Activity.Attendance.index', compact('title', 'data'));
     }
 
     public function adminBorrow()

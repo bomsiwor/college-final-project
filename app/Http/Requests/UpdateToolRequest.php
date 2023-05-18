@@ -25,7 +25,7 @@ class UpdateToolRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'inventory_number' => 'required',
+            'inventory_number' => 'nullable',
             'merk' => 'required',
             'series' => 'required',
             'condition' => 'required',
@@ -37,6 +37,11 @@ class UpdateToolRequest extends FormRequest
         ];
     }
 
+    /**
+     * Menggantti nama atrribute
+     *
+     * @return array<string, mixed>
+     */
     public function attributes()
     {
         return [

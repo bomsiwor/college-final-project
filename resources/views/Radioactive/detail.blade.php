@@ -129,8 +129,9 @@
                                                         {{ $radioactive->isotope_number }}</p>
                                                 </address>
                                                 <address>
-                                                    <p class="fw-bold">Nomor Inventaris</p>
-                                                    <p>{{ $radioactive->inventory_number }}</p>
+                                                    <p class="fw-bold">Nomor Inventaris / No Urut Sumber</p>
+                                                    <p>{{ $radioactive->inventory_number . ' / ' . $radioactive->entry_number }}
+                                                    </p>
                                                 </address>
                                                 <address>
                                                     <p class="fw-bold">Aktivitas Awal</p>

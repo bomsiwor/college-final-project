@@ -3,6 +3,7 @@
 @section('main')
     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#toolLogModal">log alat</button>
     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#radiationLogModal">log rad</button>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#attendanceModal">presensi</button>
 
     <form action="{{ route('dashboard.blank') }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -15,6 +16,7 @@
     {{-- Modal tool log --}}
     @livewire('activity.tool-log')
     @livewire('radiation-log-component')
+    @livewire('activity.attendance-form')
 @endsection
 
 @push('vendorStyle')
@@ -56,5 +58,32 @@
                 }
             })
         }
+    </script>
+
+    <script>
+        window.addEventListener('attendance-stored', event => {
+            let timerInterval
+            Swal.fire({
+                title: 'Sukses!',
+                icon: 'success',
+                html: 'Data anda sudah tercatat<br>Pesan ini akan tertutup dalam <b></b> milliseconds.',
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                $(function() {
+                    $('#attendanceModal').modal('hide');
+                });
+            })
+        })
     </script>
 @endsection

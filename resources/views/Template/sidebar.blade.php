@@ -9,7 +9,7 @@
         </li>
         {{-- Presensi --}}
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('attendance.index') }}">
                 <i class="mdi mdi-door-open menu-icon"></i>
                 <span class="menu-title">Presensi</span>
             </a>
