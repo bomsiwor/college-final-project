@@ -21,7 +21,8 @@ class StoreToolLogAction
             'inventory_id' => $this->inventory_id->data,
             'user_id' => auth()->user()->id,
             'log_date' => now(),
-            'end_condition' => 'good'
+            'end_condition' => 'good',
+            'log_flag' => $data['detector']
         ];
 
         $data = array_merge($data, $required_data);

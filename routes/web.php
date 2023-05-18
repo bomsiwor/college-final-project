@@ -88,12 +88,15 @@ Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveControll
 
 Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->name('tool.')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::get('/{tool:inventory_unique}', 'show')->name('detail');
+    Route::get('/detail/{tool:inventory_unique}', 'show')->name('detail');
     Route::get('/create', 'create')->name('create');
     Route::put('/edit-data', 'update')->name('update');
     Route::delete('/delete/{tool:inventory_unique}', 'destroy')->name('delete');
 
-    Route::post('/logs', 'logs')->name('logs');
+    // Logging
+    Route::get('logs', 'indexLog')->name('logs.index');
+    Route::get('logs/{flag}', 'showLog')->name('logs.show');
+
     Route::get('/report-problem', 'report')->name('report');
 
     Route::post('/bulk-upload', 'storeExcel')->name('create.bulk');

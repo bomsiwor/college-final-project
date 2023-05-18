@@ -24,20 +24,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(12)->create();
-
         \App\Models\Institution::factory(5)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        // Tool::factory(50)->create();
-        // Radioactive::factory(10)->create();
-
-        $arrayOfRoleNames = ['student', 'lecturer', 'staff', 'extern', 'admin', 'user'];
+        $arrayOfRoleNames = ['admin', 'user'];
         $roles = collect($arrayOfRoleNames)->map(function ($role) {
-            return ['name' => $role, 'guard_name' => 'web'];
+            return [
+                'name' => $role,
+                'guard_name' => 'web'
+            ];
         });
 
         Role::insert($roles->toArray());
@@ -60,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('brek3le5758!')
         ]);
 
-        $user->assignRole('student', 'admin');
+        $user->assignRole('admin');
 
         $user = User::create([
             'email' => 'admin@gmail.com',
@@ -74,7 +68,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password')
         ]);
 
-        $user->assignRole('student', 'admin');
+        $user->assignRole('admin');
 
         $user = User::create([
             'email' => 'zahrawibow@gmail.com',
@@ -88,7 +82,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('brek3le5758!')
         ]);
 
-        $user->assignRole('student', 'user');
+        $user->assignRole('user');
 
         \App\Models\Post::factory(10)->create();
 

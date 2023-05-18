@@ -26,10 +26,7 @@ class Tool extends Model
         'tool_image->image_1',
     ];
 
-    public function borrow()
-    {
-        return $this->hasMany(Borrow::class, 'inventory_id', 'inventory_unique');
-    }
+
 
     public function scopeSummary(Builder $query)
     {
@@ -44,5 +41,15 @@ class Tool extends Model
     public function scopeUpdateConditionBy(Builder $query, string $column, $value, array $data)
     {
         return $query->where($column, '=', $value)->update($data);
+    }
+
+    public function borrow()
+    {
+        return $this->hasMany(Borrow::class, 'inventory_id', 'inventory_unique');
+    }
+
+    public function logs()
+    {
+        return $this->hasMany(ToolLog::class, 'inventory_id', 'inventory_unique');
     }
 }

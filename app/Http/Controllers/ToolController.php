@@ -9,11 +9,9 @@ use App\Imports\ToolImport;
 use Illuminate\Http\Request;
 use App\Actions\UpdateToolAction;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\File;
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\UpdateToolRequest;
-use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class ToolController extends Controller
 {
@@ -128,13 +126,19 @@ class ToolController extends Controller
         return response()->json(['data' => 'sukses']);
     }
 
-    public function logs(Request $request)
+    public function indexLog()
     {
-        $data = ToolLog::create($request->all());
+        $title = 'Catatan Penggunaan Alat';
 
-        $add = $data->additional;
+        return view('Tools.Log.index', compact('title'));
+    }
 
-        dd($add['hv']);
+    public function showLog($flag, ToolLog $toolLog)
+    {
+        $title = 'Catatan penggunaan alat';
+        $data = $toolLog->where('log_flag', $flag)->get();
+
+        return view('Tools.Log.show', compact('title', 'data', 'flag'));
     }
 
     public function report()

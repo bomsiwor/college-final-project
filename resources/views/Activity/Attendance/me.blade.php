@@ -14,6 +14,7 @@
                 <li class="breadcrumb-item active">Presensi</li>
             </ol>
         </nav>
+        <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">Kembali</a>
     </div><!-- End Page Title -->
 
     <div class="row">

@@ -14,6 +14,19 @@ class ToolLog extends Model
     ];
 
     protected $casts = [
-        'additional' => 'array'
+        'additional' => 'array',
+        'log_date' => 'datetime',
+        'start_time' => 'datetime',
+        'end_time' => 'datetime',
     ];
+
+    public function inventory()
+    {
+        return $this->belongsTo(Tool::class, 'inventory_id', 'inventory_unique');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

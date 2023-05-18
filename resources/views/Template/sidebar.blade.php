@@ -29,7 +29,7 @@
                                 Kelola User</a>
                         </li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('admin.manageBorrow') }}">Kelola
-                                Peminjaman</a>
+                                Pengembalian</a>
                         </li>
                         <li class="nav-item"> <a class="nav-link" href="#">Kelola Dokumen</a>
                         </li>
@@ -59,7 +59,7 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ route('tool.index') }}">Daftar
                             Alat</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/breadcrumbs.html">Log
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('tool.logs.index') }}">Log
                             Penggunaan</a></li>
                 </ul>
             </div>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->restrictOnDelete();
             $table->uuid('inventory_id');
+            $table->string('log_flag');
             $table->string('purpose');
             $table->date('log_date');
             $table->time('start_time');

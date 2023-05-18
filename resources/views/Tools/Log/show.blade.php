@@ -6,7 +6,7 @@
 
 @section('main')
     <div class="pagetitle">
-        <h2 class="fw-bold">Semua Catatan Kunjungan</h2>
+        <h2 class="fw-bold">Catatan Penggunaan Alat</h2>
         <nav>
             <ol class="breadcrumb bg-primary">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Pagu</a></li>
@@ -22,24 +22,10 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-content-center mb-2">
-                        <h4 class="card-title mb-0">Data Kunjungan Total</h4>
+                        <h4 class="card-title mb-0">Catatan Penggunaan nama alat</h4>
                     </div>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            <p>{{ session('success') }}</p>
-                        </div>
-                    @endif
                     <p>
-                        Menampilkan semua data kunjungan di laboratorium Insnuk.
+                        Data penggunaan untuk nama alat
                     </p>
                     <div class="row">
                         <div class="col-12">
@@ -48,12 +34,18 @@
                                     <thead>
                                         <tr class="bg-primary text-white text-center">
                                             <th>No.</th>
-                                            <th>Nama Pengunjung</th>
+                                            <th>Nama Pengguna</th>
                                             <th>Keperluan</th>
-                                            <th>Hari</th>
                                             <th>Tanggal</th>
-                                            <th>Waktu</th>
-                                            <th>Deskripsi</th>
+                                            <th>Mulai</th>
+                                            <th>Selesai</th>
+                                            <th>HV</th>
+                                            <th>Amp</th>
+                                            <th>ADC</th>
+                                            @if ($flag == 'xrf')
+                                                <th>Dosis/Paparan</th>
+                                            @endif
+                                            <th>Kondisi akhir</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -61,14 +53,29 @@
                                             <tr class="text-center">
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $da->user->name }}</td>
-                                                <td>{{ __('activity.' . $da->occupation) }}</td>
-                                                <td>@hari($da->attendance_time)</td>
-                                                <td>@tanggal($da->attendance_time)
+                                                <td>{{ __('activity.' . $da->purpose) }}</td>
+                                                <td>@tanggal($da->log_date)
                                                 </td>
-                                                <td>{{ $da->attendance_time->isoFormat('HH:mm:ss') }} WIB
+                                                <td>{{ $da->start_time->isoFormat('HH:mm:ss') }} WIB
                                                 </td>
-                                                <td>{{ $da->description }}
+                                                <td>{{ $da->end_time->isoFormat('HH:mm:ss') }} WIB
                                                 </td>
+                                                <td>{{ $da->additional['hv'] }}</td>
+                                                <td>{{ $da->additional['amp'] }}</td>
+                                                <td>{{ $da->additional['adc'] ?? '-' }}</td>
+                                                @if ($flag == 'xrf')
+                                                    <td class="text-start">
+                                                        <strong>Dosis Awal</strong>: {{ $da->additional['start_doses'] }}
+                                                        &micro;SV
+                                                        <br>
+                                                        <strong>Dosis Akhir</strong>: {{ $da->additional['end_doses'] }}
+                                                        &micro;SV
+                                                        <br>
+                                                        <strong>Laju Paparan</strong>:
+                                                        {{ $da->additional['laju_paparan'] }}
+                                                    </td>
+                                                @endif
+                                                <td>{{ $da->end_condition }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
