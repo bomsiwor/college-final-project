@@ -5,14 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Borrow;
 use App\Models\Attendance;
+use App\Models\RadiationLog;
 use App\Models\Returning;
-use App\Services\BorrowService;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-
-use Illuminate\Pagination\Paginator;
-
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class ActivityController extends Controller
 {
@@ -41,10 +35,11 @@ class ActivityController extends Controller
         return view('Admin.showBorrow', compact('data', 'title', 'returnings'));
     }
 
-    public function radiationLog()
+    public function radiationLog(RadiationLog $logs)
     {
         $title = 'Penerimaan Radiasi';
+        $data = $logs->all();
 
-        return view('Activity.radiationLog', compact('title'));
+        return view('Activity.radiationLog', compact('title', 'data'));
     }
 }

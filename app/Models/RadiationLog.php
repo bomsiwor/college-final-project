@@ -12,4 +12,15 @@ class RadiationLog extends Model
     protected $guarded = [
         'id'
     ];
+
+    protected $casts = [
+        'log_date' => 'datetime',
+        'start_time' => 'datetime',
+        'end_time' => 'datetime'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

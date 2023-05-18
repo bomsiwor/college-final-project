@@ -97,8 +97,13 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    // public function toolLog()
-    // {
-    //     $this->hasMany(ToolLog::class);
-    // }
+    public function toolLog()
+    {
+        return $this->hasMany(ToolLog::class);
+    }
+
+    public function radiation()
+    {
+        return $this->hasMany(RadiationLog::class);
+    }
 }

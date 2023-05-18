@@ -8,13 +8,13 @@ use Livewire\Component;
 
 class RadiationLogComponent extends Component
 {
-    public $dose, $start_time, $end_time, $description, $purpose;
+    public $doses, $start_time, $end_time, $description, $purpose;
 
     public $data_added = false;
 
 
     protected $rules = [
-        'dose' => 'required|numeric|min:0',
+        'doses' => 'required|numeric|min:0',
         'start_time' => 'required',
         'end_time' => 'required|after_or_equal:start_time',
         'purpose' => 'required'
@@ -34,6 +34,7 @@ class RadiationLogComponent extends Component
         if ($response->wasRecentlyCreated) :
             $this->reset();
             $this->data_added = true;
+
             $this->dispatchBrowserEvent('attendance-stored');
         else :
             $this->addError('error', 'Gagal menambahkan! Coba lagi.');

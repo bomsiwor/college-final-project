@@ -67,7 +67,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon3">Dosis</span>
                         <input type="text" class="form-control @error('dose') is-invalid @enderror" id="basic-url"
-                            aria-describedby="basic-addon3" wire:model.defer='dose'
+                            aria-describedby="basic-addon3" wire:model.defer='doses'
                             placeholder="(Koma menggunakan titik)">
                         <span class="input-group-text">&micro;Sv</span>
                     </div>
