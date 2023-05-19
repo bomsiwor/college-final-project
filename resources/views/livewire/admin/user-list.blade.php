@@ -22,7 +22,7 @@
                             </td>
                             <td>{{ $da->profession->profession_name }}</td>
                             <td>{{ $da->institution->institution_name }}</td>
-                            <td><button class="btn btn-primary">Detail</button></td>
+                            <td><button class="btn btn-sm btn-primary">Detail</button></td>
                         </tr>
                     @endforeach
                 </tbody>

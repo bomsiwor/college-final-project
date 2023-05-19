@@ -57,6 +57,14 @@ return [
         'text' => 'Eksternal',
         'class' => 'border-danger border text-danger'
     ],
+    'admin' => [
+        'text' => 'Administrator',
+        'class' => 'text-primary'
+    ],
+    'user' => [
+        'text' => 'Pengguna biasa',
+        'class' => 'text-secondary'
+    ],
 
     // Identitas
     'NIM' => 'Nomor Induk Mahasiswa',
