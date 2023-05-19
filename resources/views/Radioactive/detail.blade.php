@@ -2,12 +2,10 @@
 
 @push('vendorStyle')
     @livewireStyles
-    <link rel="stylesheet" href="{{ asset('dist/vendor/lightgallery/css/lightgallery.css') }}">
 @endpush
 
 @push('vendorScript')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{ asset('dist/vendor/lightgallery/js/lightgallery-all.min.js') }}"></script>
 @endpush
 
 @section('main')
@@ -88,11 +86,12 @@
                                 </div>
                             </div>
                             <div class="my-3 d-flex justify-content-around">
-                                <button class="btn btn-primary btn-sm mb-2">
+                                <button class="btn btn-primary btn-sm mb-2" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#borrowModal">
                                     Pinjam
                                 </button>
                                 @role('admin')
-                                    <button class="btn btn-danger btn-sm mb-2">
+                                    <button class="btn btn-danger btn-sm mb-2" onclick="deleteItem()">
                                         Hapus Data
                                     </button>
                                 @endrole
@@ -190,48 +189,142 @@
         </div>
     </div>
 
-    <div class="row my-2 col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Data IAEA</h5>
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>z</th>
-                                <th>n</th>
-                                <th>Energi</th>
-                                <th>jp</th>
-                                <th>Waktu paruh</th>
-                                <th>satuan</th>
-                                <th>Waktu paruh (s)</th>
-                                <th>Decay</th>
-                                <th>Magnetic Dipole</th>
-                                <th>Electric Quadrupole</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($iaea as $api)
+    <div class="row my-2">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Data IAEA</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $api['z'] }}</td>
-                                    <td>{{ $api['n'] }}</td>
-                                    <td>{{ $api['energy'] }}</td>
-                                    <td>{{ $api['jp'] }}</td>
-                                    <td>{{ $api['half_life'] }}</td>
-                                    <td>{{ $api['unit_hl'] }}</td>
-                                    <td>{{ $api['half_life_sec'] }}</td>
-                                    <td>{{ $api['decay_1'] }}</td>
-                                    <td>{{ $api['magnetic_dipole'] }}</td>
-                                    <td>{{ $api['electric_quadrupole'] }}</td>
+                                    <th>#</th>
+                                    <th>z</th>
+                                    <th>n</th>
+                                    <th>Energi</th>
+                                    <th>jp</th>
+                                    <th>Waktu paruh</th>
+                                    <th>satuan</th>
+                                    <th>Waktu paruh (s)</th>
+                                    <th>Decay</th>
+                                    <th>Magnetic Dipole</th>
+                                    <th>Electric Quadrupole</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($iaea as $api)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $api['z'] }}</td>
+                                        <td>{{ $api['n'] }}</td>
+                                        <td>{{ $api['energy'] }}</td>
+                                        <td>{{ $api['jp'] }}</td>
+                                        <td>{{ $api['half_life'] }}</td>
+                                        <td>{{ $api['unit_hl'] }}</td>
+                                        <td>{{ $api['half_life_sec'] }}</td>
+                                        <td>{{ $api['decay_1'] }}</td>
+                                        <td>{{ $api['magnetic_dipole'] }}</td>
+                                        <td>{{ $api['electric_quadrupole'] }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    @livewire('radioactive.borrow-form', ['radioactive' => $radioactive])
     @livewireScripts
+@endsection
+
+
+
+@section('script')
+    <script>
+        window.addEventListener('added-borrow', event => {
+            $('#borrowModal').modal('hide');
+            Swal.fire({
+                title: '<strong>Sukses!</strong>',
+                icon: 'success',
+                html: 'Catatan peminjaman anda dapat dilihat pada , ' +
+                    '<a href="{{ route('borrow.index') }}">halaman ini</a> ',
+                showCloseButton: true,
+                showCancelButton: false,
+                focusConfirm: true,
+                confirmButtonText: 'Oke!',
+            })
+        })
+
+        function deleteItem() {
+            Swal.fire({
+                title: 'Apa anda yakin?',
+                text: "Data yang sudah dihapus tidak dapat dikembalikan",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yakin!',
+                cancelButtonText: 'Batal',
+                allowOutsideClick: false,
+                customClass: {
+                    confirmButton: 'btn btn-sm btn-primary',
+                    cancelButton: 'btn btn-sm btn-danger'
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var dataToSend = {
+                        _token: "{{ csrf_token() }}"
+                    };
+
+                    $.ajax({
+                        url: '{{ route('radioactive.delete', ['radioactive' => $radioactive->inventory_unique]) }}',
+                        data: dataToSend,
+                        type: 'DELETE',
+                        beforeSend: function(response) {
+                            Swal.fire({
+                                title: 'Tunggu...',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false,
+                                showConfirmButton: false,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                }
+                            })
+                        },
+                        success: function(result) {
+                            console.log(result.data);
+                            let timerInterval
+                            Swal.fire({
+                                title: 'Terhapus!',
+                                icon: 'success',
+                                text: 'Data sudah dihapus.',
+                                html: 'Anda akan diarahkan ke halaman data sumber dalam <b></b> milliseconds.',
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                    const b = Swal.getHtmlContainer().querySelector('b')
+                                    timerInterval = setInterval(() => {
+                                        b.textContent = Swal.getTimerLeft()
+                                    }, 100)
+                                },
+                                willClose: () => {
+                                    clearInterval(timerInterval)
+                                }
+                            }).then((result) => {
+                                $(location).attr('href', "{{ route('radioactive.index') }}");
+                            })
+                        },
+                        error: function(xhr, textStatus, errorThrown) {
+                            Swal.fire(
+                                'Gagal',
+                                'Operasi gagal dilakukan',
+                                'error'
+                            )
+                        }
+                    });
+                }
+            })
+        }
+    </script>
 @endsection

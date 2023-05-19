@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\GetNuclideAction;
 use App\Models\Radioactive;
+use App\Actions\GetNuclideAction;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Request;
 
 class RadioactiveController extends Controller
 {
@@ -32,5 +33,16 @@ class RadioactiveController extends Controller
     public function detail($isotopes)
     {
         $title = 'Detail ZRA';
+    }
+
+    public function destroy(Radioactive $radioactive)
+    {
+        try {
+            $radioactive->delete();
+        } catch (\Throwable $e) {
+            return response()->json(['error'], 404);
+        }
+
+        return response()->json(['data' => 'sukses']);
     }
 }

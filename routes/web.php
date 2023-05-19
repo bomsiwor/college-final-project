@@ -69,21 +69,17 @@ Route::middleware('auth')->prefix('attendance')->controller(AttendanceController
 Route::middleware('auth')->prefix('borrow')->controller(BorrowController::class)->name('borrow.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/{borrow}', 'show')->name('show');
-
     Route::get('/create', 'create')->name('create');
     Route::post('/store', 'store')->name('store');
-
     Route::delete('/delete', 'delete')->name('delete');
-
     Route::post('/return', 'return')->name('return')->middleware('role:admin');
-
     Route::post('verify', 'verify')->name('verify');
 });
 
 Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveController::class)->name('radioactive.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/detail/{radioactive:inventory_unique}', 'show')->name('detail');
-    // Route::get('/detail/{isotopes}', 'detail')->name('detail');
+    Route::delete('delete/{radioactive:inventory_unique}', 'destroy')->name('delete');
 });
 
 Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->name('tool.')->group(function () {
