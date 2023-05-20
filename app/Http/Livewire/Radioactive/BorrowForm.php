@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Radioactive;
 
 use App\Models\Borrow;
+use App\Models\RadioactiveBorrow;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,8 +16,7 @@ class BorrowForm extends Component
         $purpose,
         $description,
         $expected_return_date,
-        $invUniq,
-        $before_condition;
+        $invUniq;
 
     protected $rules = [
         'start_borrow_date' => 'required|date|after_or_equal:today',
@@ -35,7 +35,6 @@ class BorrowForm extends Component
         $this->entryNumber = $radioactive->entry_number;
         $this->invNumber = $radioactive->inventory_number;
         $this->invUniq = $radioactive->inventory_unique;
-        $this->before_condition = $radioactive->condition;
     }
 
     public function submit()
@@ -45,13 +44,12 @@ class BorrowForm extends Component
         $additional = [
             'user_id' => Auth::user()->id,
             'inventory_id' => $this->invUniq,
-            'before_condition' => $this->before_condition
         ];
 
         $data += $additional;
 
         try {
-            Borrow::create($data);
+            RadioactiveBorrow::create($data);
         } catch (\Throwable $e) {
             return $this->addError('failed', $e->getMessage());
         }

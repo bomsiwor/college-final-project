@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Borrow;
+use App\Models\RadioactiveBorrow;
 use App\Services\BorrowService;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,11 @@ class BorrowController extends Controller
     public function index()
     {
         $title = 'Data Peminjaman';
-        $data = Borrow::summaryOfAll();
+        $toolBorrows = Borrow::summaryOfAll();
 
-        return view('Activity.allBorrow', compact('data', 'title'));
+        $radioactiveBorrows = RadioactiveBorrow::summaryOfAll();
+
+        return view('Activity.allBorrow', compact('toolBorrows', 'radioactiveBorrows', 'title'));
     }
 
     public function show(Borrow $borrow)

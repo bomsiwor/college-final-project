@@ -38,4 +38,12 @@ class Radioactive extends Model
             get: fn ($value) => ucfirst($value)
         );
     }
+
+    protected function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn (mixed $value, array $attributes) =>
+            ucwords($attributes['element_name']) . ' - ' . $attributes['isotope_number']
+        );
+    }
 }

@@ -13,10 +13,11 @@
     </div><!-- End Page Title -->
 
     <div class="row">
+        {{-- Alat --}}
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Peminjaman - Semua</h4>
+                    <h4 class="card-title">Peminjaman - Alat</h4>
                     <div class="row grid-margin mb-1">
                         <div class="col-12">
                             <div class="alert alert-warning" role="alert">
@@ -55,7 +56,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($data as $borrow)
+                                        @foreach ($toolBorrows as $borrow)
                                             <tr>
                                                 <th scope="row">{{ $loop->iteration }}</th>
                                                 <td class="text-wrap lh-sm" style="width: 40%">{{ $borrow->user->name }}
@@ -88,6 +89,99 @@
                                                                 </button>
                                                                 <button type="submit" class="btn btn-sm btn-danger" name="status"
                                                                     value="rejected">
+                                                                    <i class="mdi mdi-close-circle-outline me-0"></i>
+                                                                </button>
+                                                            </form>
+                                                        @endempty
+                                                    @endrole
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Sumber --}}
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Peminjaman - Sumber</h4>
+                    <div class="row grid-margin mb-1">
+                        <div class="col-12">
+                            <div class="alert alert-warning" role="alert">
+                                Menampilkan <strong>SEMUA</strong> data peminjaman.
+                                Data peminjaman akun ini dapat dilihat di
+                                <strong>Halaman ini</strong>.
+                            </div>
+                            <h6>PETUNJUK</h6>
+                            <p>Gunakan tombol <span class="btn-sm btn-light d-inline-block"><i
+                                        class="mdi mdi-eye text-primary"></i></span>
+                                untuk
+                                melihat
+                                detail peminjaman, <br> @role('admin')
+                                    tombol <span class="btn-sm btn-success d-inline-block"><i class="mdi mdi-check"></i></span>
+                                    / <span class="btn-sm btn-danger d-inline-block"><i
+                                            class="mdi mdi-close-circle-outline"></i></span>
+                                    untuk
+                                    menyetujui/menolak dengan cepat
+                                @endrole
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table id="order-listing" class="table">
+                                    <thead>
+                                        <tr class="bg-primary text-white">
+                                            <th>#</th>
+                                            <th>Nama Peminjam</th>
+                                            <th>Keperluan</th>
+                                            <th>Nama Sumber</th>
+                                            <th>Tanggal Peminjaman</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($radioactiveBorrows as $borrow)
+                                            <tr>
+                                                <th scope="row">{{ $loop->iteration }}</th>
+                                                <td class="text-wrap lh-sm" style="width: 40%">{{ $borrow->user->name }}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{ __("activity.$borrow->purpose") }}
+                                                </td>
+                                                <td class="text-center">{{ $borrow->radioactive->full_name }}</td>
+                                                <td class="text-center text-wrap lh-lg">
+                                                    {{ $borrow->start_borrow_date->isoFormat('dddd, DD-MM-Y') }} s/d
+                                                    {{ $borrow->expected_return_date->isoFormat('dddd, DD-MM-Y') }}</td>
+                                                <td><span
+                                                        class="badge {{ __("core.$borrow->status.class") }}">{{ __("core.$borrow->status.text") }}</span>
+                                                </td>
+                                                <td class="text-center text-wrap lh-sm">
+                                                    <a href="{{ route('borrow.show', ['borrow' => $borrow->id]) }}"
+                                                        class="btn btn-sm btn-light">
+                                                        <i class="mdi mdi-eye text-primary me-0"></i>
+                                                    </a>
+                                                    @role('admin')
+                                                        @empty($borrow->verified_at)
+                                                            <form action="{{ route('borrow.verify') }}" method="post">
+                                                                @csrf
+                                                                <input type="hidden" name="id" value="{{ $borrow->id }}">
+                                                                <input type="hidden" name="unique_id"
+                                                                    value="{{ $borrow->inventory_id }}">
+                                                                <button type="submit" class="btn btn-sm btn-success" name="status"
+                                                                    value="accepted">
+                                                                    <i class="mdi mdi-check me-0"></i>
+                                                                </button>
+                                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                                    name="status" value="rejected">
                                                                     <i class="mdi mdi-close-circle-outline me-0"></i>
                                                                 </button>
                                                             </form>
