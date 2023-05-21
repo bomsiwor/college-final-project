@@ -99,7 +99,7 @@
         </li>
         {{-- Laporkan --}}
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('tool.report') }}">
+            <a class="nav-link" href="{{ route('dashboard.report') }}">
                 <i class="mdi mdi-alert menu-icon"></i>
                 <span class="menu-title text-danger">Laporkan Kerusakan</span>
             </a>

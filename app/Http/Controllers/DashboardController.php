@@ -16,7 +16,6 @@ use Yaza\LaravelGoogleDriveStorage\Gdrive;
 class DashboardController extends Controller
 {
 
-
     public function index()
     {
         $stats = Attendance::statistic();
@@ -74,5 +73,12 @@ class DashboardController extends Controller
         else :
             abort(500);
         endif;
+    }
+
+    public function report()
+    {
+        $title = 'Laporkan Kerusakan';
+
+        return view('Tools.report', compact('title'));
     }
 }

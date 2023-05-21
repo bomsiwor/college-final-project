@@ -140,11 +140,4 @@ class ToolController extends Controller
 
         return view('Tools.Log.show', compact('title', 'data', 'flag'));
     }
-
-    public function report()
-    {
-        $title = 'Laporkan Kerusakan';
-
-        return view('Tools.report', compact('title'));
-    }
 }
