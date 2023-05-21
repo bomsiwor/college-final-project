@@ -12,11 +12,9 @@ class BorrowController extends Controller
     public function index()
     {
         $title = 'Data Peminjaman';
-        $toolBorrows = Borrow::summaryOfAll();
+        $data = Borrow::summaryOfAll();
 
-        $radioactiveBorrows = RadioactiveBorrow::summaryOfAll();
-
-        return view('Activity.allBorrow', compact('toolBorrows', 'radioactiveBorrows', 'title'));
+        return view('Borrow.Tool.index', compact('data', 'title'));
     }
 
     public function show(Borrow $borrow)

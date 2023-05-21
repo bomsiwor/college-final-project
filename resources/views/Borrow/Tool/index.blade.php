@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="pagetitle">
-        <h2 class="fw-bold">Data Peminjaman Sumber</h2>
+        <h2 class="fw-bold">Semua Data Peminjaman</h2>
         <nav>
             <ol class="breadcrumb bg-primary">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Pagu</a></li>
@@ -13,11 +13,11 @@
     </div><!-- End Page Title -->
 
     <div class="row">
-        {{-- Sumber --}}
+        {{-- Alat --}}
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Peminjaman - Sumber</h4>
+                    <h4 class="card-title">Peminjaman - Alat</h4>
                     <div class="row grid-margin mb-1">
                         <div class="col-12">
                             <div class="alert alert-warning" role="alert">
@@ -26,7 +26,7 @@
                                 <strong>Halaman ini</strong>.
                             </div>
                             <h6>PETUNJUK</h6>
-                            <p>Gunakan tombol <span class="btn-sm btn-light d-inline-block"><i
+                            <p>Gunakan tombol <span class="btn btn-sm btn-light d-inline-block"><i
                                         class="mdi mdi-eye text-primary"></i></span>
                                 untuk
                                 melihat
@@ -49,14 +49,14 @@
                                             <th>#</th>
                                             <th>Nama Peminjam</th>
                                             <th>Keperluan</th>
-                                            <th>Nama Sumber</th>
+                                            <th>Nama Barang</th>
                                             <th>Tanggal Peminjaman</th>
                                             <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($borrows as $borrow)
+                                        @foreach ($data as $borrow)
                                             <tr>
                                                 <th scope="row">{{ $loop->iteration }}</th>
                                                 <td class="text-wrap lh-sm" style="width: 40%">{{ $borrow->user->name }}
@@ -64,7 +64,7 @@
                                                 <td class="text-center">
                                                     {{ __("activity.$borrow->purpose") }}
                                                 </td>
-                                                <td class="text-center">{{ $borrow->radioactive->full_name }}</td>
+                                                <td class="text-center">{{ $borrow->inventory->name }}</td>
                                                 <td class="text-center text-wrap lh-lg">
                                                     {{ $borrow->start_borrow_date->isoFormat('dddd, DD-MM-Y') }} s/d
                                                     {{ $borrow->expected_return_date->isoFormat('dddd, DD-MM-Y') }}</td>
@@ -72,13 +72,13 @@
                                                         class="badge {{ __("core.$borrow->status.class") }}">{{ __("core.$borrow->status.text") }}</span>
                                                 </td>
                                                 <td class="text-center text-wrap lh-sm">
-                                                    <a href="{{ route('borrow.radioactive.show', ['borrow' => $borrow->id]) }}"
+                                                    <a href="{{ route('borrow.tool.show', ['borrow' => $borrow->id]) }}"
                                                         class="btn btn-sm btn-light">
                                                         <i class="mdi mdi-eye text-primary me-0"></i>
                                                     </a>
                                                     @role('admin')
                                                         @empty($borrow->verified_at)
-                                                            <form action="{{ route('borrow.verify') }}" method="post">
+                                                            <form action="{{ route('borrow.tool.verify') }}" method="post">
                                                                 @csrf
                                                                 <input type="hidden" name="id" value="{{ $borrow->id }}">
                                                                 <input type="hidden" name="unique_id"

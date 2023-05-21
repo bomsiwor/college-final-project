@@ -57,7 +57,7 @@ Route::middleware('auth')->controller(DashboardController::class)->name('dashboa
 
 // Activity
 // Perizinan penggunaan laboratorium
-Route::middleware('auth')->prefix('activity')->controller(ActivityController::class)->name('activity.')->group(function () {
+Route::middleware('auth')->controller(ActivityController::class)->name('activity.')->group(function () {
     Route::get('/radiation-log', 'radiationLog')->name('radiationLog');
 });
 
@@ -97,31 +97,36 @@ Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->na
     });
 });
 
-// Tool Borrowing
-Route::middleware('auth')->prefix('borrow')->controller(BorrowController::class)->name('borrow.')->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/{borrow}', 'show')->name('show');
+// Borrowing
+Route::middleware('auth')->prefix('borrow')->name('borrow.')->group(function () {
+    Route::view('/', 'Borrow.index', ['title' => 'Peminjaman'])->name('index');
 
-    // Admin previleges
-    Route::middleware('role:admin')->group(function () {
-        Route::get('/create', 'create')->name('create');
-        Route::post('/store', 'store')->name('store');
-        Route::delete('/delete', 'delete')->name('delete');
-        Route::post('/return', 'return')->name('return');
-        Route::post('verify', 'verify')->name('verify');
+    // Tool Borrowing
+    Route::controller(BorrowController::class)->name('tool.')->prefix('tool')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{borrow}', 'show')->name('show');
+
+        // Admin previleges
+        Route::middleware('role:admin')->group(function () {
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::delete('/delete', 'delete')->name('delete');
+            Route::post('/return', 'return')->name('return');
+            Route::post('verify', 'verify')->name('verify');
+        });
     });
-});
 
-// Radioactive Borrow Controller
-Route::middleware('auth')->prefix('borrow-radioactive')->controller(RadioactiveBorrowController::class)->name('radioactiveBorrow.')->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/{borrow}', 'show')->name('show');
-    Route::delete('/delete', 'delete')->name('delete');
+    // Radioactive Borrowing
+    Route::controller(RadioactiveBorrowController::class)->name('radioactive.')->prefix('radioactive')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{borrow}', 'show')->name('show');
+        Route::delete('/delete', 'delete')->name('delete');
 
-    // Admin previlege
-    Route::middleware('role:admin')->group(function () {
-        Route::post('/return', 'return')->name('return');
-        Route::post('verify', 'verify')->name('verify');
+        // Admin previlege
+        Route::middleware('role:admin')->group(function () {
+            Route::post('/return', 'return')->name('return');
+            Route::post('verify', 'verify')->name('verify');
+        });
     });
 });
 
