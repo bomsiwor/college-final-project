@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Radioactive;
 use App\Models\RadioactiveBorrow;
-use App\Services\BorrowService;
+use App\Services\RadioactiveBorrowService;
 use Illuminate\Http\Request;
 
 class RadioactiveBorrowController extends Controller
@@ -12,42 +13,42 @@ class RadioactiveBorrowController extends Controller
     {
         $title = 'Data Peminjaman sumber';
 
-        $radioactiveBorrows = RadioactiveBorrow::summaryOfAll();
+        $borrows = RadioactiveBorrow::summaryOfAll();
 
-        return view('Activity.allBorrow', compact('radioactiveBorrows', 'title'));
+        return view('Borrow.Radioactive.index', compact('borrows', 'title'));
     }
 
     public function show(RadioactiveBorrow $borrow)
     {
         $title = 'Detail Peminjaman';
 
-        return view('Activity.showBorrow', compact('title', 'borrow'));
+        return view('Borrow.Radioactive.detail', compact('title', 'borrow'));
     }
 
     public function delete()
     {
     }
 
-    // public function verify(Request $request, BorrowService $service)
-    // {
-    //     $response = $service->verify($request);
+    public function verify(Request $request, RadioactiveBorrowService $service)
+    {
+        $response = $service->verify($request);
 
-    //     if ($response) :
-    //         return back()->with('success', 'Sukses');
-    //     else :
-    //         abort(500);
-    //     endif;
-    // }
+        if ($response) :
+            return back()->with('success', 'Sukses');
+        else :
+            abort(500);
+        endif;
+    }
 
-    // public function return(Request $request, BorrowService $service)
-    // {
-    //     $data = Borrow::find($request->id);
-    //     $response = $service->returning($data, $request);
+    public function return(Request $request, RadioactiveBorrowService $service)
+    {
+        $data = Radioactive::find($request->id);
+        $response = $service->returning($data, $request);
 
-    //     if ($response) :
-    //         return back()->with('success', 'sukses');
-    //     else :
-    //         abort(500);
-    //     endif;
-    // }
+        if ($response) :
+            return back()->with('success', 'sukses');
+        else :
+            abort(500);
+        endif;
+    }
 }

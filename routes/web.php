@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\ActivityController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AttendanceController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BorrowController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MaintenanceController;
-use App\Http\Controllers\RadioactiveController;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BorrowController;
+use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\RadioactiveController;
+use App\Http\Controllers\RadioactiveBorrowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,15 +67,7 @@ Route::middleware('auth')->prefix('attendance')->controller(AttendanceController
     Route::get('show-me', 'me')->name('me');
 });
 
-Route::middleware('auth')->prefix('borrow')->controller(BorrowController::class)->name('borrow.')->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/{borrow}', 'show')->name('show');
-    Route::get('/create', 'create')->name('create');
-    Route::post('/store', 'store')->name('store');
-    Route::delete('/delete', 'delete')->name('delete');
-    Route::post('/return', 'return')->name('return')->middleware('role:admin');
-    Route::post('verify', 'verify')->name('verify');
-});
+
 
 Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveController::class)->name('radioactive.')->group(function () {
     Route::get('/', 'index')->name('index');
@@ -96,6 +89,28 @@ Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->na
     Route::get('/report-problem', 'report')->name('report');
 
     Route::post('/bulk-upload', 'storeExcel')->name('create.bulk');
+});
+
+Route::middleware('auth')->prefix('borrow')->controller(BorrowController::class)->name('borrow.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/{borrow}', 'show')->name('show');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+    Route::delete('/delete', 'delete')->name('delete');
+    Route::post('/return', 'return')->name('return')->middleware('role:admin');
+    Route::post('verify', 'verify')->name('verify');
+});
+
+Route::middleware('auth')->prefix('borrow-radioactive')->controller(RadioactiveBorrowController::class)->name('radioactiveBorrow.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/{borrow}', 'show')->name('show');
+    Route::delete('/delete', 'delete')->name('delete');
+
+    // Admin previlege
+    Route::middleware('role:admin')->group(function () {
+        Route::post('/return', 'return')->name('return');
+        Route::post('verify', 'verify')->name('verify');
+    });
 });
 
 Route::middleware('auth')->prefix('maintenance')->controller(MaintenanceController::class)->name('maintenance.')->group(function () {

@@ -26,22 +26,6 @@ class BorrowController extends Controller
         return view('Activity.showBorrow', compact('title', 'borrow'));
     }
 
-    public function create()
-    {
-    }
-
-    public function store()
-    {
-    }
-
-    public function edit()
-    {
-    }
-
-    public function update()
-    {
-    }
-
     public function delete()
     {
     }
