@@ -30,9 +30,11 @@ class RadioactiveController extends Controller
         return view('Radioactive.detail', compact('radioactive', 'title', 'iaea'));
     }
 
-    public function detail($isotopes)
+    public function create()
     {
-        $title = 'Detail ZRA';
+        $title = 'Tambah data';
+
+        return view('Radioactive.create', compact('title'));
     }
 
     public function destroy(Radioactive $radioactive)

@@ -78,7 +78,7 @@
                                                     </a>
                                                     @role('admin')
                                                         @empty($borrow->verified_at)
-                                                            <form action="{{ route('borrow.verify') }}" method="post">
+                                                            <form action="{{ route('borrow.radioactive.verify') }}" method="post">
                                                                 @csrf
                                                                 <input type="hidden" name="id" value="{{ $borrow->id }}">
                                                                 <input type="hidden" name="unique_id"

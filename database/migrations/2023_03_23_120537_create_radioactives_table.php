@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('inventory_unique')->unique();
             $table->integer('entry_number')->nullable();
-            $table->string('inventory_number');
+            $table->string('inventory_number')->nullable();
             $table->string('element_name')->nullable()->default('unknown');
             $table->string('element_symbol')->nullable()->default('unknown');
             $table->string('isotope_number')->nullable();

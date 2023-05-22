@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-content-center mb-2">
-                        <h4 class="card-title mb-0">Data SumberRadioAktif - Laboratorium</h4>
+                        <h4 class="card-title mb-0">Data Sumber RadioAktif </h4>
                         <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="mdi mdi-plus-circle"></i> Tambah data
                         </button>
@@ -127,9 +127,9 @@
                         </li>
                     </ul>
                     <div>
-                        <button class="btn btn-primary">
+                        <a href="{{ route('radioactive.create') }}" class="btn btn-primary">
                             <i class="mdi mdi-hand-cycle"></i> Tambah Manual
-                        </button>
+                        </a>
                         <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#uploadModal">
                             <i class="mdi mdi-upload"></i> Upload File
                         </button>
