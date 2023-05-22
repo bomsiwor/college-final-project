@@ -42,7 +42,7 @@ class RadioactiveBorrowController extends Controller
 
     public function return(Request $request, RadioactiveBorrowService $service)
     {
-        $data = Radioactive::find($request->id);
+        $data = RadioactiveBorrow::find($request->id);
         $response = $service->returning($data, $request);
 
         if ($response) :

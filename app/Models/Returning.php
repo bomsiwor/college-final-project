@@ -21,4 +21,9 @@ class Returning extends Model
     {
         return $this->belongsTo(User::class, 'verificator_id', 'id');
     }
+
+    public function borrow()
+    {
+        return $this->belongsTo(Borrow::class);
+    }
 }

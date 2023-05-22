@@ -49,7 +49,6 @@ class RadioactiveBorrowService
     {
         $request->validate([
             'returning_date' => 'required|after_or_equal:today',
-            'condition' => 'required'
         ]);
 
         try {

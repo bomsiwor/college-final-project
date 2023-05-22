@@ -28,11 +28,7 @@ class AdminController extends Controller
     public function manageBorrow()
     {
         $title = 'Admin - Peminjaman';
-        $data = Borrow::forAdmin();
-        $returnings = Returning::select('id', 'borrow_id', 'verificator_id', 'returning_date', 'condition', 'created_at')
-            ->with('verificator:id,name')
-            ->orderBy('created_at')->get();
 
-        return view('Admin.showBorrow', compact('data', 'title', 'returnings'));
+        return view('Admin.returning', compact('title'));
     }
 }

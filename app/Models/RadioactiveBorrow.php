@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class RadioactiveBorrow extends Model
 {
@@ -39,6 +40,11 @@ class RadioactiveBorrow extends Model
         return $this->belongsTo(User::class, 'verificator_id', 'id');
     }
 
+    public function returning()
+    {
+        return $this->hasOne(RadioactiveReturning::class);
+    }
+
     // Part of scoped
     public function scopeSummaryOfAll(Builder $query)
     {
@@ -54,5 +60,24 @@ class RadioactiveBorrow extends Model
         )
             ->with(['user:id,name', 'radioactive:inventory_unique,entry_number,element_name,isotope_number'])
             ->orderByDesc('created_at')->get();
+    }
+
+    public function scopeForAdmin(Builder $query)
+    {
+        return $query->select(
+            'id',
+            'user_id',
+            'inventory_id',
+            'start_borrow_date',
+            'expected_return_date',
+            DB::raw("CASE 
+        WHEN expected_return_date > NOW() THEN 'not late'
+        WHEN expected_return_date <= NOW() THEN 'overdue'
+        END AS status_peminjaman")
+        )
+            ->where('status', 'accepted')
+            ->whereNull('actual_return_date')
+            ->with('user:id,name', 'radioactive:inventory_unique,element_name,isotope_number,entry_number')
+            ->get();
     }
 }

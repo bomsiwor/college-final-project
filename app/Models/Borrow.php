@@ -37,6 +37,11 @@ class Borrow extends Model
         return $this->belongsTo(User::class, 'verificator_id', 'id');
     }
 
+    public function returning()
+    {
+        return $this->hasOne(Returning::class);
+    }
+
     public function scopeSummaryOfAll(Builder $query)
     {
         return $query->select('id', 'user_id', 'purpose', 'inventory_id', 'start_borrow_date', 'expected_return_date', 'status', 'verified_at')->with(['user:id,name', 'inventory:inventory_unique,name'])->orderByDesc('created_at')->get();
@@ -77,6 +82,10 @@ class Borrow extends Model
         WHEN expected_return_date > NOW() THEN 'not late'
         WHEN expected_return_date <= NOW() THEN 'overdue'
         END AS status_peminjaman")
-        )->where('status', 'accepted')->whereNull('actual_return_date')->get();
+        )
+            ->where('status', 'accepted')
+            ->whereNull('actual_return_date')
+            ->with('user:id,name')
+            ->get();
     }
 }

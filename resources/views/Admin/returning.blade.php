@@ -21,7 +21,7 @@
 
 
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-12">
             @if (session('success'))
                 <div class="alert alert-success">
                     Data pengembalian diperbarui dan dicatat dalam data pengembalian.
@@ -53,28 +53,6 @@
             </ul>
             <div class="card my-1">
                 <div class="card-body">
-                    <h5 class="card-title">Semua peminjaman</h5>
-
-                    <div class="alert alert-warning">
-                        <h6 class="fw-bold">
-                            <i class="mdi mdi-information"></i> PETUNJUK!
-                        </h6>
-                        <ul class="mb-0">
-                            <li>
-                                Data yang ditampilkan adalah peminjaman yang <STRONG>sudah disetujui</STRONG> melalui
-                                halaman <a href="{{ route('borrow.index') }}">PEMINJAMAN</a>
-                            </li>
-                            <li>
-                                Gunakan tombol <strong>Kembalikan</strong> untuk mencatat pengembalian alat
-                            </li>
-                            <li>
-                                Geser tabel ke kanan untuk kolom yang lebih lengkap
-                            </li>
-                        </ul>
-                    </div>
-
-
-
                     {{-- Tab --}}
                     <div class="tab-content border-0" id="pills-tabContent">
                         {{-- Tab alat --}}
@@ -92,48 +70,40 @@
                 </div>
             </div>
 
-            {{-- Card pengembalian --}}
-            <div class="card my-1">
-                <div class="card-body">
-                    <h5 class="card-title">Pengembalian</h5>
-                    <!-- Table with hoverable rows -->
-                    @if (!$returnings->isEmpty())
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th scope="col">#</th>
-                                        <th scope="col">ID Pinjaman</th>
-                                        <th scope="col">Verifikator</th>
-                                        <th scope="col">Tanggal Kembali</th>
-                                        <th scope="col">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($returnings as $returning)
-                                        <tr>
-                                            <th scope="row">{{ $loop->iteration }}</th>
-                                            <td class="text-center">{{ $returning->id }} - <a
-                                                    href="{{ route('borrow.tool.show', ['borrow' => $returning->id]) }}"
-                                                    class="border border-primary px-1 py-1"
-                                                    style="text-decoration: none">Detail</a>
-                                            <td class="text-center">{{ $returning->verificator->name }}</td>
-                                            <td class="text-center">
-                                                {{ $returning->returning_date->isoFormat('dddd, DD-MM-Y') }}
-                                            </td>
-                                            <td class="text-center">{{ __("core.$returning->condition.text") }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                        <p>Tidak ada ditampikan</p>
-                    @endif
 
-                    <!-- End Table with hoverable rows -->
+            {{-- Tombol Tab --}}
+            <ul class="nav nav-pills border-0 mt-2" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-returning-borrow-tab" data-bs-toggle="pill"
+                        href="#pills-returning-borrow" role="tab" aria-controls="pills-returning-borrow"
+                        aria-selected="true">Barang/Alat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-radioactive-returning-tab" data-bs-toggle="pill"
+                        href="#pills-radioactive-returning" role="tab" aria-controls="pills-radioactive-returning"
+                        aria-selected="false">Sumber</a>
+                </li>
+            </ul>
+            {{-- Card pengembalian --}}
+            <div class="card my-2">
+                <div class="card-body">
+                    {{-- Tab --}}
+                    <div class="tab-content border-0" id="pills-tabContent">
+                        {{-- Tab alat --}}
+                        <div class="tab-pane fade active show" id="pills-returning-borrow" role="tabpanel"
+                            aria-labelledby="pills-returning-borrow-tab">
+                            @livewire('admin.tool-returning-component')
+                        </div>
+
+                        {{-- Tab sumber --}}
+                        <div class="tab-pane fade" id="pills-radioactive-returning" role="tabpanel"
+                            aria-labelledby="pills-radioactive-returning-tab">
+                            @livewire('admin.radioactive-returning-component')
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 

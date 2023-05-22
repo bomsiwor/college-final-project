@@ -89,6 +89,7 @@ return [
     'on time' => 'Tepat Waktu',
     'not returned' => 'Belum Kembali',
     'overdue' => 'Terlambat',
+    'not late' => 'Sesuai Permohonan',
 
     // Radioaktif
     'sealed' => 'Terbungkus'
