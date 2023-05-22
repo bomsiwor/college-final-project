@@ -14,19 +14,16 @@ class CreateForm extends Component
 
     protected $rules = [
         'name' => 'required',
-        'inventory_number' => 'required',
+        'inventory_number' => 'nullable',
         'merk' => 'required',
         'series' => 'required',
         'condition' => 'required',
         'status' => 'required',
-        'purchase_date' => 'required',
-        'price' => 'nullable|integer|min:1000'
+        'used_status' => 'required',
+        'purchase_date' => 'required|before_or_equal:today',
+        'price' => 'nullable|integer|min:1000',
+        'description' => 'nullable'
     ];
-
-    public function updatedValue($value)
-    {
-        $this->description = $value;
-    }
 
     public function submit()
     {
@@ -34,9 +31,7 @@ class CreateForm extends Component
         $validated = $this->validate();
 
         $validated = array_merge($validated, [
-            'description' => $this->description,
-            'inventory_unique' => Str::uuid(),
-            'used_status' => $this->used_status
+            'inventory_unique' => Str::uuid()->toString(),
         ]);
 
         try {
@@ -47,7 +42,8 @@ class CreateForm extends Component
 
         $this->reset();
         $this->changed = true;
-        $this->emit('toolsAdded');
+
+        return to_route('tool.index')->with('success', 'Sukses menambahkan data!');
     }
 
     public function render()

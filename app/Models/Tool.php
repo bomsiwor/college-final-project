@@ -22,6 +22,18 @@ class Tool extends Model
     ];
 
     protected $fillable = [
+        'inventory_unique',
+        'inventory_number',
+        'name',
+        'merk',
+        'series',
+        'description',
+        'condition',
+        'status',
+        'used_status',
+        'purchase_date',
+        'price',
+        'manual',
         'tool_image->image_0',
         'tool_image->image_1',
     ];

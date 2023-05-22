@@ -74,8 +74,8 @@ class Borrow extends Model
             'start_borrow_date',
             'expected_return_date',
             DB::raw("CASE 
-        WHEN expected_return_date <= NOW() THEN 'not late'
-        WHEN expected_return_date > NOW() THEN 'overdue'
+        WHEN expected_return_date > NOW() THEN 'not late'
+        WHEN expected_return_date <= NOW() THEN 'overdue'
         END AS status_peminjaman")
         )->where('status', 'accepted')->whereNull('actual_return_date')->get();
     }

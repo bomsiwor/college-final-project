@@ -90,8 +90,8 @@ Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->na
 
     // Admin previleges
     Route::middleware('role:admin')->group(function () {
-        Route::post('/bulk-upload', 'storeExcel')->name('create.bulk');
         Route::get('/create', 'create')->name('create');
+        Route::post('/bulk-upload', 'storeExcel')->name('create.bulk');
         Route::put('/edit-data', 'update')->name('update');
         Route::delete('/delete/{tool:inventory_unique}', 'destroy')->name('delete');
     });

@@ -1,52 +1,34 @@
 @extends('Template.layouts')
 
 @push('vendorStyle')
-    <style>
-        trix-toolbar [data-trix-button-group='file-tools'] {
-            display: none;
-        }
-    </style>
+    @livewireStyles
 @endpush
 
 @section('main')
-    <main id="main" class="main">
+    <div class="pagetitle">
+        <h2 class="fw-bold">Tambah Data</h2>
+        <nav>
+            <ol class="breadcrumb bg-primary">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Pagu</a></li>
+                <li class="breadcrumb-item">Aset</li>
+                <li class="breadcrumb-item active">Tambah data</li>
+            </ol>
+        </nav>
+        <a href="{{ route('tool.index') }}" class="btn btn-primary mb-2"><span class="mdi mdi-arrow-left"></span> Kembali</a>
+    </div><!-- End Page Title -->
 
-        <div class="pagetitle">
-            <h1>Tambah Data alat</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Pagu</a></li>
-                    <li class="breadcrumb-item">Alat</li>
-                    <li class="breadcrumb-item active">Tambah</li>
-                </ol>
-            </nav>
-            <a href="{{ route('tool.index') }}" class="btn btn-primary"><span class="mdi mdi-arrow-left"></span> Kembali</a>
-        </div><!-- End Page Title -->
-
-        <section>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Form Tambah Alat</h5>
-                            @livewire('tool.create-form')
-                        </div>
-                    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Form Tambah Alat</h5>
+                    @livewire('tool.create-form')
                 </div>
-
             </div>
-        </section>
-
-    </main><!-- End #main -->
+        </div>
+    </div>
 @endsection
 
-@section('script')
-    <script>
-        Livewire.on('toolsAdded', () => {
-            var element =
-                var element = document.querySelector("trix-editor");
-
-            element.editor.loadHTML('');
-        })
-    </script>
-@endsection
+@push('vendorScript')
+    @livewireScripts
+@endpush

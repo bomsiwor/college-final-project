@@ -132,9 +132,9 @@
                         </li>
                     </ul>
                     <div>
-                        <button class="btn btn-primary">
+                        <a href="{{ route('tool.create') }}" class="btn btn-primary">
                             <i class="mdi mdi-hand-cycle"></i> Tambah Manual
-                        </button>
+                        </a>
                         <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#uploadModal">
                             <i class="mdi mdi-upload"></i> Upload File
                         </button>
