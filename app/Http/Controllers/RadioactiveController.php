@@ -21,13 +21,11 @@ class RadioactiveController extends Controller
         return view('Radioactive.index', compact('title', 'data'));
     }
 
-    public function show(Radioactive $radioactive, GetNuclideAction $action)
+    public function show(Radioactive $radioactive)
     {
         $title = 'Detail Sumber';
 
-        $iaea = $action->handle($radioactive->slug, 'levels');
-
-        return view('Radioactive.detail', compact('radioactive', 'title', 'iaea'));
+        return view('Radioactive.detail', compact('radioactive', 'title'));
     }
 
     public function create()
