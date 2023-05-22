@@ -23,10 +23,6 @@ class CreateForm extends Component
         $quantity,
         $description;
 
-    protected $validationAttributes = [
-        'element_name' => 'Nama unsur'
-    ];
-
     public function submit()
     {
         $validated = $this->validate();

@@ -76,6 +76,7 @@ Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveControll
     // Admin Previleges
     Route::middleware('role:admin')->group(function () {
         Route::get('create', 'create')->name('create');
+        Route::put('edit-data', 'update')->name('update');
         Route::delete('delete/{radioactive:inventory_unique}', 'destroy')->name('delete');
     });
 });

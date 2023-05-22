@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateRadioactiveRequest;
 use App\Models\Radioactive;
-use App\Actions\GetNuclideAction;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class RadioactiveController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['role:lecturer']);
-    // }
 
     public function index()
     {
@@ -33,6 +28,11 @@ class RadioactiveController extends Controller
         $title = 'Tambah data';
 
         return view('Radioactive.create', compact('title'));
+    }
+
+    public function update(UpdateRadioactiveRequest $request)
+    {
+        dd($request->all());
     }
 
     public function destroy(Radioactive $radioactive)

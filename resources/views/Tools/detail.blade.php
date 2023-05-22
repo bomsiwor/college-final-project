@@ -124,6 +124,8 @@
                                     </ul>
                                 </div>
                                 <div class="tab-content tab-content-basic">
+
+                                    {{-- Detail --}}
                                     <div class="tab-pane fade show active" id="detail" role="tabpanel"
                                         aria-labelledby="detail-tab">
                                         <div class="row">
@@ -192,6 +194,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    {{-- Edit --}}
                                     @role('admin')
                                         <div class="tab-pane fade" id="edit" role="tabpanel"
                                             aria-labelledby="edit-tab">

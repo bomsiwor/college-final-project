@@ -32,15 +32,6 @@
                             </div>
                         @endif
 
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul class="mb-0">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                         {{-- Kolom kiri --}}
                         <div class="col-lg-4">
                             <div class="border-bottom text-center pb-4">
@@ -100,6 +91,7 @@
 
                         <div class="col-lg-8">
                             <div class="home-tab">
+                                {{-- Tab --}}
                                 <div class="d-sm-flex align-items-center justify-content-between border-bottom">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item">
@@ -117,7 +109,20 @@
                                         </li>
                                     </ul>
                                 </div>
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger mb-0">
+                                        <ul class="mb-0">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
+                                {{-- Konten tab --}}
                                 <div class="tab-content tab-content-basic">
+                                    {{-- Detail --}}
                                     <div class="tab-pane fade show active" id="detail" role="tabpanel"
                                         aria-labelledby="detail-tab">
                                         <div class="row">
@@ -161,9 +166,199 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">
-                                        <h4>Form ubah data</h4>
-                                    </div>
+
+                                    {{-- Edit --}}
+                                    @role('admin')
+                                        <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">
+                                            <h4>Form ubah data</h4>
+                                            <form action="{{ route('radioactive.update') }}" method="post"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('put')
+                                                <input type="hidden" name="unique"
+                                                    value="{{ $radioactive->inventory_unique }}">
+
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        {{-- Nama Element --}}
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="name" class="col-sm-3 col-form-label-sm">Nama
+                                                                Unsur</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="element_name" id="element_name"
+                                                                    class="form-control form-control-sm"
+                                                                    value="{{ $radioactive->element_name }}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        {{-- No isotop --}}
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="inventory_number"
+                                                                class="col-sm-3 col-form-label-sm">Nomor
+                                                                Isotope</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="isotope_number"
+                                                                    id="isotope_number" class="form-control form-control-sm"
+                                                                    value="{{ $radioactive->isotope_number }}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    {{-- Simbol --}}
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="element_symbol"
+                                                                class="col-sm-3 col-form-label-sm">Simbol</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="element_symbol"
+                                                                    id="element_symbol" class="form-control form-control-sm"
+                                                                    value="{{ $radioactive->element_symbol }}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- Aktivitas Awal --}}
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="initial_activity"
+                                                                class="col-sm-3 col-form-label-sm">Aktivitas
+                                                                awal</label>
+                                                            <div class="col-sm-9">
+                                                                <div class="input-group">
+
+                                                                    <input type="text" class="form-control"
+                                                                        name="initial_activity" id="initial_activity"
+                                                                        value="{{ $radioactive->initial_activity }}">
+                                                                    <div class="input-group-append">
+                                                                        <span
+                                                                            class="input-group-text bg-primary text-white">Ci</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    {{-- No Urut --}}
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="entry_number" class="col-sm-3 col-form-label-sm">NO
+                                                                Urut</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="entry_number" id="entry_number"
+                                                                    class="form-control form-control-sm"
+                                                                    value="{{ $radioactive->entry_number }}" />
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        {{-- No Inventaris --}}
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="inventory_number"
+                                                                class="col-sm-3 col-form-label-sm">No
+                                                                Inventaris</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="inventory_number"
+                                                                    id="inventory_number" class="form-control form-control-sm"
+                                                                    value="{{ $radioactive->inventory_number }}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        {{-- Tanggal pengadaan --}}
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="purchase_date"
+                                                                class="col-sm-3 col-form-label-sm">Tanggal
+                                                                pengadaan</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="date" name="purchase_date" id="purchase_date"
+                                                                    class="form-control form-control-sm"
+                                                                    value="{{ $radioactive->purchase_date ? $radioactive->purchase_date->isoFormat('Y-MM-DD') : '-' }}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        {{-- Tanggal Pembuatan --}}
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="manufacturing_date"
+                                                                class="col-sm-3 col-form-label-sm">Tanggal
+                                                                Pembuatan</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="date" name="manufacturing_date"
+                                                                    id="manufacturing_date"
+                                                                    class="form-control form-control-sm"
+                                                                    value="{{ $radioactive->manufacturing_date->isoFormat('Y-MM-DD') }}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        {{-- Sifat --}}
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="properties"
+                                                                class="col-sm-3 col-form-label-sm">Sifat</label>
+                                                            <div class="col-sm-9">
+                                                                <select class="form-select" name="properties">
+                                                                    <option value="null">Pilih...</option>
+                                                                    <option value="solid" @selected($radioactive->properties == 'solid')>Padatan
+                                                                    </option>
+                                                                    <option value="powdery" @selected($radioactive->properties == 'powdery')>Bubuk
+                                                                    </option>
+                                                                    <option value="liquid" @selected($radioactive->properties == 'liquid')>Cair
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        {{-- Kondisi --}}
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="condition"
+                                                                class="col-sm-3 col-form-label-sm">Kondisi</label>
+                                                            <div class="col-sm-9">
+                                                                <select name="condition" id="condition" class="form-select">
+                                                                    <option value="null">Pilih...</option>
+                                                                    <option value="sealed" @selected($radioactive->condition == 'sealed')>
+                                                                        Terbungkus</option>
+                                                                    <option value="unsealed" @selected($radioactive->condition == 'unsealed')>
+                                                                        Terbuka</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        {{-- Pembungkus --}}
+                                                        <div class="form-group row align-content-center mb-1">
+                                                            <label for="packaging_type"
+                                                                class="col-sm-3 col-form-label-sm">Pembungkus</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" name="packaging_type"
+                                                                    id="packaging_type" class="form-control"
+                                                                    value="{{ $radioactive->packaging_type }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-primary text-white">Simpan</button>
+                                            </form>
+                                        </div>
+                                    @endrole
+
+                                    {{-- Peminjaman --}}
                                     <div class="tab-pane fade" id="borrowing" role="tabpanel"
                                         aria-labelledby="borrowing-tab">
                                         <h4>Contact us </h4>
