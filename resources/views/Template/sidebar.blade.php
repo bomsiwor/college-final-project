@@ -28,7 +28,7 @@
                         <li class="nav-item"> <a class="nav-link" href="{{ route('admin.manageUser') }}">
                                 Kelola User</a>
                         </li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('admin.manageBorrow') }}">Kelola
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('admin.returning') }}">Kelola
                                 Pengembalian</a>
                         </li>
                         <li class="nav-item"> <a class="nav-link" href="#">Kelola Dokumen</a>

@@ -35,9 +35,10 @@
             }
         }
 
+        // var current = location.pathname;
         var current = location.pathname
             .split("/")
-            .slice(-1)[0]
+            .slice(1, 2)[0]
             .replace(/^\/|\/$/g, "");
         $(".nav li a", sidebar).each(function () {
             var $this = $(this);

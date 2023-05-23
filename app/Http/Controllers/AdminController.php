@@ -25,7 +25,7 @@ class AdminController extends Controller
         return view('Admin.manageMessage', compact('title', 'data'));
     }
 
-    public function manageBorrow()
+    public function returning()
     {
         $title = 'Admin - Peminjaman';
 

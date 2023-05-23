@@ -72,6 +72,8 @@
 </body>
 {{-- JS BS, Jquery ,Scrollbar --}}
 
+
+<script src="{{ asset('dist/js/hoverable-collapse.js') }}"></script>
 <script src="{{ asset('dist/js/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ asset('dist/js/off-canvas.js') }}"></script>
 <script src="{{ asset('dist/js/template.js') }}"></script>

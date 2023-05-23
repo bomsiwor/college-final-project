@@ -148,9 +148,9 @@ Route::middleware('auth')->prefix('maintenance')->controller(MaintenanceControll
 
 // Admin menu
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->controller(AdminController::class)->name('admin.')->group(function () {
-    Route::get('/manage-user', 'manageUser')->name('manageUser');
-    Route::get('/user-messages', 'manageMessage')->name('manageMessage');
-    Route::get('/manage-borrow', 'manageBorrow')->name('manageBorrow');
+    Route::get('/users', 'manageUser')->name('manageUser');
+    Route::get('/messsage', 'manageMessage')->name('manageMessage');
+    Route::get('/returns', 'returning')->name('returning');
 });
 
 // User Controller
