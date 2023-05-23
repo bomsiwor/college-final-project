@@ -6,7 +6,10 @@ use App\Models\Maintenance;
 use Illuminate\Http\Request;
 use App\Actions\deleteMaintenanceAction;
 use App\Actions\VerifyMaintenanceAction;
+use App\Http\Requests\StoreMaintenanceRequest;
+use App\Http\Requests\UpdateMaintenanceRequest;
 use App\Http\Requests\VerifyMaintenance;
+use App\Services\MaintenanceAgendaService;
 use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
 class MaintenanceController extends Controller
@@ -17,14 +20,39 @@ class MaintenanceController extends Controller
 
         $data = Maintenance::summary();
 
-        return view('Tools.maintenance-index', compact('title', 'data'));
+        return view('Maintenance.index', compact('title', 'data'));
     }
 
     public function detail(Maintenance $maintenance)
     {
         $title = 'Detail operasi';
 
-        return view('Tools.maintenance-show', compact('maintenance', 'title'));
+        return view('Maintenance.detail', compact('maintenance', 'title'));
+    }
+
+    public function create()
+    {
+        $title = 'Tambah data';
+
+        return view('Maintenance.create', compact('title'));
+    }
+
+    public function store(StoreMaintenanceRequest $request, MaintenanceAgendaService $service)
+    {
+        $validated = $request->validated();
+
+        if (!$service->handle($validated)) :
+            return back()->withErrors(['failed' => 'Gagal menambahkan!']);
+        endif;
+
+        return to_route('maintenance.index')->with('created', 'Sukses menambahkan data!');
+    }
+
+    public function update(UpdateMaintenanceRequest $request)
+    {
+        Maintenance::where('id', $request->id)->update($request->validated());
+
+        return back()->with('success', 'success');
     }
 
     public function verify(VerifyMaintenance $request, VerifyMaintenanceAction $action)

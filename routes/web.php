@@ -135,11 +135,14 @@ Route::middleware('auth')->prefix('borrow')->name('borrow.')->group(function () 
 // Maintenance
 Route::middleware('auth')->prefix('maintenance')->controller(MaintenanceController::class)->name('maintenance.')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::get('/{maintenance}', 'detail')->name('detail');
+    Route::get('/{maintenance}/detail', 'detail')->name('detail');
     Route::get('/download/{maintenance}', 'download')->name('download');
 
     // Admin previleges
     Route::middleware('role:admin')->group(function () {
+        Route::get('/create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::post('/update', 'update')->name('update');
         Route::post('/verify', 'verify')->name('verify');
         Route::post('/unverify', 'unverify')->name('unverify');
         Route::post('/delete', 'delete')->name('delete');

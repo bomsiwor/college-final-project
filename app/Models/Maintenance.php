@@ -14,6 +14,13 @@ class Maintenance extends Model
         'id'
     ];
 
+    protected $fillable = [
+        'activity_name',
+        'agenda',
+        'in_charge',
+        'month'
+    ];
+
     protected $dates = [
         'month',
         'actual_date'

@@ -10,7 +10,7 @@
             <li class="breadcrumb-item"><a href="{{ route('maintenance.index') }}">Perawatan</a></li>
             <li class="breadcrumb-item active"># {{ $maintenance->id }}</li>
         </ol>
-        <a href="{{ url()->previous() }}" class="btn btn-primary"><span class="mdi mdi-arrow-left"></span> Kembali</a>
+        <a href="{{ route('maintenance.index') }}" class="btn btn-primary"><span class="mdi mdi-arrow-left"></span> Kembali</a>
     </nav>
 
     <div class="row">
@@ -19,10 +19,21 @@
                 <div class="card-body">
 
                     <div class="row">
+                        {{-- Kolom kiri --}}
                         <div class="col-md-4">
                             <h4 class="card-title">Data lengkap</h4>
                             @if (session('success'))
                                 <div class="alert alert-success">Data diperbarui!</div>
+                            @endif
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             @endif
                             <address>
                                 <p class="fw-bold">Nama Kegiatan</p>
@@ -46,9 +57,12 @@
                             </address>
                             <hr class="d-md-none">
                         </div>
+
+                        {{-- Kolom kanan --}}
                         <div class="col-md-4">
                             <div>
-                                <a href="#" class="btn btn-sm btn-warning mb-2">Edit data</a>
+                                <button data-bs-toggle="modal" data-bs-target="#editModal" href="#"
+                                    class="btn btn-sm btn-warning mb-2">Edit data</button>
                                 <button class="btn btn-danger btn-sm mb-2"
                                     onclick="deleteData({{ $maintenance->id }})">Hapus data</button>
                                 @if ($maintenance->is_done)
@@ -152,6 +166,65 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header py-3">
+                    <h5 class="modal-title">Penerimaan Dosis Radiasi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-2">
+
+                    <form action="{{ route('maintenance.update') }}" method="post" id="editMaintenanceForm">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $maintenance->id }}">
+                        {{-- Nama kegiatan --}}
+                        <div class="form-group">
+                            <label for="activity_name">
+                                Nama Kegiatan
+                            </label>
+                            <input type="text" name="activity_name" id="activity_name" class="form-control"
+                                value="{{ $maintenance->activity_name }}">
+                        </div>
+
+                        {{-- Rincian --}}
+                        <div class="form-group">
+                            <label for="agenda">
+                                Rincian
+                            </label>
+                            <input type="text" name="agenda" id="agenda" class="form-control"
+                                value="{{ $maintenance->agenda }}">
+                        </div>
+
+                        {{-- PenanggungJawab --}}
+                        <div class="form-group">
+                            <label for="in_charge">
+                                Penanggungjawab
+                            </label>
+                            <input type="text" name="in_charge" id="in_charge" class="form-control"
+                                value="{{ $maintenance->in_charge }}">
+                        </div>
+
+                        {{-- Rencana Pelaksanaan --}}
+                        <div class="form-group">
+                            <label for="month">
+                                Rencana Pelaksanaan
+                            </label>
+                            <input type="date" name="month" id="month" class="form-control"
+                                value="{{ $maintenance->month->isoFormat('Y-MM-DD') }}">
+                        </div>
+                    </form>
+                </div>
+                {{-- End Modal Body --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary" form="editMaintenanceForm">Simpan data</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- End Basic Modal-->
+
 @endsection
 
 @push('vendorScript')
