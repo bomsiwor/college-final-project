@@ -113,10 +113,7 @@
                                                     role="tab" aria-selected="false">Edit Detail</a>
                                             </li>
                                         @endrole
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="maintenance-tab" data-bs-toggle="tab"
-                                                href="#maintenance" role="tab" aria-selected="false">Perawatan</a>
-                                        </li>
+
                                         <li class="nav-item">
                                             <a class="nav-link" id="borrowing-tab" data-bs-toggle="tab" href="#borrowing"
                                                 role="tab" aria-selected="false">Peminjaman</a>
@@ -168,8 +165,7 @@
                                                         <form action="#" method="post">
                                                             <input type="hidden" name="inventory_unique"
                                                                 value="{{ $tool->inventory_unique }}">
-                                                            <button type="submit"
-                                                                class="btn btn-sm btn-outline-info">Unduh
+                                                            <button type="submit" class="btn btn-sm btn-outline-info">Unduh
                                                                 dokumen</button>
                                                         </form>
                                                     @else
@@ -362,21 +358,8 @@
                                             </form>
                                         </div>
                                     @endrole
-                                    <div class="tab-pane fade" id="maintenance" role="tabpanel"
-                                        aria-labelledby="maintenance-tab">
-                                        <h4>Contact us </h4>
-                                        <p>
-                                            Feel free to contact us if you have any questions!
-                                        </p>
-                                        <p>
-                                            <i class="ti-headphone-alt text-info"></i>
-                                            +123456789
-                                        </p>
-                                        <p>
-                                            <i class="ti-email text-success"></i>
-                                            contactus@example.com
-                                        </p>
-                                    </div>
+
+                                    {{-- Peminjaman --}}
                                     <div class="tab-pane fade" id="borrowing" role="tabpanel"
                                         aria-labelledby="borrowing-tab">
                                         <h4>Contact us </h4>

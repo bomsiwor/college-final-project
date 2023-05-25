@@ -28917,8 +28917,8 @@ code {
     border: none;
 }
 .card.table-darkBGImg {
-    background: #1e283d url("../../images/dashboard/darkBG.png") repeat-y right
-        top;
+    background: #1e283d url("../../../assets/img/dashboard/darkBG.png") repeat-y
+        right top;
 }
 .card.tale-bg {
     background: #dae7ff;
