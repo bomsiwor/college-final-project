@@ -18,7 +18,7 @@
                     wire:model.defer='inventory_id'>
                     <option value="null">Pilih...</option>
                     @foreach ($data as $tool)
-                        <option value="{{ $tool->inventory_unique }}">{{ $tool->name . '-' . $tool->inventory_number }}
+                        <option value="{{ $tool->id }}">{{ $tool->name . '-' . $tool->inventory_number }}
                         </option>
                     @endforeach
                 </select>

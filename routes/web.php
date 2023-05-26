@@ -152,6 +152,7 @@ Route::middleware('auth')->prefix('maintenance')->controller(MaintenanceControll
 // Report Problem
 Route::middleware('auth')->prefix('report-problem')->controller(ReportProblemController::class)->name('report.')->group(function () {
     Route::get('/', 'index')->name('index');
+    Route::get('/{report}/detail', 'show')->name('show');
 
     Route::get('request', 'create')->name('create');
     Route::post('store-request', 'store')->name('store');

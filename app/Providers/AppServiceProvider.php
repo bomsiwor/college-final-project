@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::directive('tanggal', function ($data) {
-            return "<?php echo ($data)->isoFormat('D MMMM Y'); ?>";
+            return "<?php echo ($data)->isoFormat('dddd, D MMMM Y'); ?>";
         });
 
         Blade::directive('uang', function ($data) {

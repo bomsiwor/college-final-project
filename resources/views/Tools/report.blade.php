@@ -38,19 +38,26 @@
                                         <tr class="bg-primary text-white text-center">
                                             <th>No.</th>
                                             <th>Nama Pelapor</th>
-                                            <th>Tipe</th>
+                                            <th>Alat</th>
                                             <th>Tanggal</th>
                                             <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <td>1</td>
-                                        <td>{{ auth()->user()->name }}</td>
-                                        <td>pelapor</td>
-                                        <td>Senin 20 Februari 2023</td>
-                                        <td>Diajukan</td>
-                                        <td><button class="btn btn-sm btn-primary">Detail</button></td>
+                                        @foreach ($reports as $report)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $report->user->name }}</td>
+                                                <td>{{ $report->tool->name }} <br> {{ $report->tool->inventory_number }}
+                                                </td>
+                                                <td>{{ $report->created_at->isoFormat('dddd, DD-MM-Y') }}</td>
+                                                <td>{{ $report->status }}</td>
+                                                <td><a href="{{ route('report.show', ['report' => $report->id]) }}"
+                                                        class="btn btn-sm btn-primary">Detail</a></td>
+                                            </tr>
+                                        @endforeach
+
 
                                     </tbody>
                                 </table>
