@@ -31,6 +31,9 @@
     <!-- Favicons -->
     <link href="{{ asset('assets/icons/favicon-16x16.png') }}" rel="icon" />
     <link href="{{ asset('assets/icons/apple-touch-icon.png') }}" rel="apple-touch-icon" />
+    @livewireStyles
+
+    @stack('vendorStyle')
 
 </head>
 
@@ -40,6 +43,12 @@
     <script src="{{ asset('dist/js/vendor.bundle.base.js') }}"></script>
 
     <!-- endinject -->
+    @livewireScripts
 </body>
+
+@stack('vendorScript')
+
+@section('script')
+@endsection
 
 </html>
