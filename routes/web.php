@@ -12,6 +12,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\RadioactiveController;
 use App\Http\Controllers\RadioactiveBorrowController;
+use App\Http\Controllers\ReportProblemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +49,6 @@ Route::middleware('auth')->controller(DashboardController::class)->name('dashboa
     Route::get('/help', 'help')->name('help');
     Route::get('/contact-us', 'contact')->name('contact');
     Route::get('/agenda', 'agenda')->name('agenda');
-    Route::get('/report-problem', 'report')->name('report');
 
     // Form request method
     Route::post('/blank', 'blank')->name('blank');
@@ -147,6 +147,16 @@ Route::middleware('auth')->prefix('maintenance')->controller(MaintenanceControll
         Route::post('/unverify', 'unverify')->name('unverify');
         Route::post('/delete', 'delete')->name('delete');
     });
+});
+
+// Report Problem
+Route::middleware('auth')->prefix('report-problem')->controller(ReportProblemController::class)->name('report.')->group(function () {
+    Route::get('/', 'index')->name('index');
+
+    Route::get('request', 'create')->name('create');
+    Route::post('store-request', 'store')->name('store');
+
+    Route::post('verify', 'verify')->name('verify');
 });
 
 // Admin menu

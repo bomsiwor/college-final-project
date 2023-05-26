@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateProfileRequest;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {

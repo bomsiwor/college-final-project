@@ -77,8 +77,6 @@
                     <li class="nav-item"> <a class="nav-link" href="{{ route('radioactive.index') }}">Daftar
                             Sumber</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/clipboard.html">Log
-                            Penggunaan</a></li>
                 </ul>
             </div>
         </li>
@@ -99,7 +97,7 @@
         </li>
         {{-- Laporkan --}}
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard.report') }}">
+            <a class="nav-link" href="{{ route('report.index') }}">
                 <i class="mdi mdi-alert menu-icon"></i>
                 <span class="menu-title text-danger">Laporkan Kerusakan</span>
             </a>

@@ -67,7 +67,7 @@
                                     <h3 class="text-white upgrade-info mb-0">
                                         Data radioisotop terintegrasi dengan <span class="fw-bold">IAEA</span> !
                                     </h3>
-                                    <a href="#" class="btn btn-info upgrade-btn">Upgrade Account!</a>
+                                    <a href="#" class="btn btn-info upgrade-btn">Let's Go!</a>
                                 </div>
                             </div>
                         </div>

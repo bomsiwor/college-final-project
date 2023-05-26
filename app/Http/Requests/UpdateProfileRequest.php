@@ -29,8 +29,8 @@ class UpdateProfileRequest extends FormRequest
             'description' => 'nullable|max:255',
             'address' => 'nullable|max:255',
             'phone' => 'nullable',
-            'identification_number' => ['required', Rule::unique('users')->ignore(auth()->user()->id)],
-            'email' => ['required', 'email:dns', Rule::unique('users', 'email')->ignore(auth()->user()->id)],
+            'identification_number' => ['required', Rule::unique('users', 'identification_number')->ignore(auth()->user()->id)],
+            'email' => ['required', 'email', Rule::unique('users', 'email')->ignore(auth()->user()->id)],
             'profile_picture' => 'image|max:1024'
         ];
     }

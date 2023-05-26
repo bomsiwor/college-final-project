@@ -74,11 +74,4 @@ class DashboardController extends Controller
             abort(500);
         endif;
     }
-
-    public function report()
-    {
-        $title = 'Laporkan Kerusakan';
-
-        return view('Tools.report', compact('title'));
-    }
 }

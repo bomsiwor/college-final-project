@@ -48,7 +48,7 @@
                                 <p class="clearfix">
                                     <span class="float-left"> Phone </span>
                                     <span class="float-right text-muted">
-                                        {{ auth()->user()->phone }}
+                                        {{ auth()->user()->phone ?? '-' }}
                                     </span>
                                 </p>
                                 <p class="clearfix">
@@ -60,7 +60,7 @@
                                 <p class="clearfix">
                                     <span class="float-left"> Alamat </span>
                                     <span class="float-right text-muted">
-                                        {{ auth()->user()->address }}
+                                        {{ auth()->user()->address ?? '-' }}
                                     </span>
                                 </p>
 
@@ -131,12 +131,14 @@
                                             <input type="text" class="form-control form-control" id="fullName"
                                                 value="{{ auth()->user()->name }}" name="name" />
                                         </div>
+
                                         <!-- Username -->
                                         <div class="form-group mb-1">
                                             <label for="username">Username </label>
                                             <input type="text" class="form-control form-control"
                                                 value="{{ auth()->user()->username }}" name="username" />
                                         </div>
+
                                         <!-- Email -->
                                         <div class="form-group mb-1">
                                             <label for="email">Email</label>
@@ -144,7 +146,7 @@
                                                 value="{{ auth()->user()->email }}" name="email" />
                                         </div>
 
-                                        @if (auth()->user()->hasRole('student'))
+                                        @if (auth()->user()->study_program_id)
                                             <!-- Prodi -->
                                             <div class="form-group mb-1">
                                                 <label for="study_program">Program Studi</label>
@@ -153,6 +155,7 @@
                                                     disabled />
                                             </div>
                                         @endif
+
                                         <!-- Indentifier -->
                                         <div class="form-group mb-1">
                                             <label for="identifier">Jenis Identitas</label>
@@ -167,12 +170,14 @@
                                                 id="identification_number" name="identification_number"
                                                 value="{{ auth()->user()->identification_number }}" />
                                         </div>
+
                                         <!-- Prodi -->
                                         <div class="form-group mb-1">
                                             <label for="address">Alamat</label>
                                             <input type="address" class="form-control form-control" id="address"
                                                 value="{{ auth()->user()->address }}" name="address" />
                                         </div>
+
                                         <!-- Prodi -->
                                         <div class="form-group mb-1">
                                             <label for="phone">Nomor Telepon</label>
