@@ -17,9 +17,11 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-content-center mb-2">
                         <h4 class="card-title mb-0">Data operasi dan perawatan laboratorium</h4>
-                        <a href="{{ route('maintenance.create') }}" class="btn btn-sm btn-primary">
-                            <i class="mdi mdi-plus-circle"></i> Tambah data
-                        </a>
+                        @role('admin')
+                            <a href="{{ route('maintenance.create') }}" class="btn btn-sm btn-primary">
+                                <i class="mdi mdi-plus-circle"></i> Tambah data
+                            </a>
+                        @endrole
                     </div>
                     @if (session('success'))
                         <div class="alert alert-danger">

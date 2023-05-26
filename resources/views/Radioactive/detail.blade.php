@@ -99,10 +99,12 @@
                                                 href="#detail" role="tab" aria-controls="detail"
                                                 aria-selected="true">Detail</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="edit-tab" data-bs-toggle="tab" href="#edit"
-                                                role="tab" aria-selected="false">Edit Detail</a>
-                                        </li>
+                                        @role('admin')
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="edit-tab" data-bs-toggle="tab" href="#edit"
+                                                    role="tab" aria-selected="false">Edit Detail</a>
+                                            </li>
+                                        @endrole
                                         <li class="nav-item">
                                             <a class="nav-link" id="borrowing-tab" data-bs-toggle="tab" href="#borrowing"
                                                 role="tab" aria-selected="false">Peminjaman</a>

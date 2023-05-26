@@ -36,10 +36,10 @@ class RegisterComponent extends Component
 
     // Additional information
     public $acceptTerms;
-    public $wargaCheck;
     public $profession_id = 1;
     public $identifier;
     public $identification_number;
+    public $data;
 
     // protected $rules = [
     //     'name' => 'required|min:4|regex:/^[a-zA-Z_ ]*$/',
@@ -155,6 +155,24 @@ class RegisterComponent extends Component
         }
     }
 
+    public function createData()
+    {
+        $this->data =
+            [
+                'name' => Str::title($this->name),
+                'email' => $this->email,
+                'password' => Hash::make($this->password),
+                'username' => Str::lower($this->name . now()->timestamp),
+                'identifier' => $this->identifier,
+                'identification_number' => $this->identification_number,
+                'phone' => $this->phone,
+                'profession_id' => $this->profession_id,
+                'institution_id' => $this->institution,
+                'study_program_id' => ($this->prodi ?? null),
+                'unit_id' => ($this->unit ?? null)
+            ];
+    }
+
     public function register()
     {
         $this->validate([
@@ -176,29 +194,14 @@ class RegisterComponent extends Component
             'acceptTerms' => 'accepted'
         ]);
 
-        // dd($this->profession_id);
 
-        $data =
-            [
-                'name' => Str::title($this->name),
-                'email' => $this->email,
-                'password' => Hash::make($this->password),
-                'username' => Str::lower($this->name . now()->timestamp),
-                'identifier' => $this->identifier,
-                'identification_number' => $this->identification_number,
-                'phone' => $this->phone,
-                'profession_id' => $this->profession_id,
-                'institution_id' => $this->institution,
-                'study_program_id' => ($this->prodi ?? null),
-                'unit_id' => ($this->unit ?? null)
-            ];
         try {
-            User::create($data);
+            User::create($this->createData());
         } catch (\Throwable $e) {
             return $this->addError('failed', $e->getMessage());
         }
 
-        return redirect()->to('/login');
+        return to_route('login')->with('registerSuccess', 'sukses');
     }
 
     public function render()

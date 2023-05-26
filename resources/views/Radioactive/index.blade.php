@@ -18,9 +18,11 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-content-center mb-2">
                         <h4 class="card-title mb-0">Data Sumber RadioAktif </h4>
-                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <i class="mdi mdi-plus-circle"></i> Tambah data
-                        </button>
+                        @role('admin')
+                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="mdi mdi-plus-circle"></i> Tambah data
+                            </button>
+                        @endrole
                     </div>
                     @if ($errors->any())
                         <div class="alert alert-danger">

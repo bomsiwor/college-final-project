@@ -60,16 +60,18 @@
 
                         {{-- Kolom kanan --}}
                         <div class="col-md-4">
-                            <div>
-                                <button data-bs-toggle="modal" data-bs-target="#editModal" href="#"
-                                    class="btn btn-sm btn-warning mb-2">Edit data</button>
-                                <button class="btn btn-danger btn-sm mb-2"
-                                    onclick="deleteData({{ $maintenance->id }})">Hapus data</button>
-                                @if ($maintenance->is_done)
-                                    <button class="btn btn-sm btn-danger mb-2"
-                                        onclick="cancelVerify({{ $maintenance->id }})">Batalkan verifikasi</button>
-                                @endif
-                            </div>
+                            @role('admin')
+                                <div>
+                                    <button data-bs-toggle="modal" data-bs-target="#editModal" href="#"
+                                        class="btn btn-sm btn-warning mb-2">Edit data</button>
+                                    <button class="btn btn-danger btn-sm mb-2"
+                                        onclick="deleteData({{ $maintenance->id }})">Hapus data</button>
+                                    @if ($maintenance->is_done)
+                                        <button class="btn btn-sm btn-danger mb-2"
+                                            onclick="cancelVerify({{ $maintenance->id }})">Batalkan verifikasi</button>
+                                    @endif
+                                </div>
+                            @endrole
                             <address>
                                 <p class="fw-bold">Status</p>
                                 <p>
@@ -109,58 +111,60 @@
                             </address>
                             <hr class="d-md-none">
                         </div>
-                        @if (!$maintenance->is_done)
-                            <div class="col-md-4">
-                                <h4 class="card-title">Verifikasi</h4>
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul class="mb-0">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                <form action="{{ route('maintenance.verify') }}" method="post"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $maintenance->id }}">
-                                    <div class="row mb-3 align-items-center align-item-center">
-                                        <label for="actualDate" class="col-sm-4 col-form-label-sm">Tanggal
-                                            Pelaksanaan</label>
-                                        <div class="col-sm-8">
-                                            <input type="date" id="actualDate" class="form-control" name="actual_date">
+                        @role('admin')
+                            @if (!$maintenance->is_done)
+                                <div class="col-md-4">
+                                    <h4 class="card-title">Verifikasi</h4>
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul class="mb-0">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
                                         </div>
-                                    </div>
-
-                                    <div class="row mb-3 align-items-start">
-                                        <label for="operation_note" class="col-sm-4 col-form-label-sm">Catatan</label>
-                                        <div class="col-sm-8">
-                                            <textarea class="form-control" style="height: 200px" name="operation_note"></textarea>
+                                    @endif
+                                    <form action="{{ route('maintenance.verify') }}" method="post"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $maintenance->id }}">
+                                        <div class="row mb-3 align-items-center align-item-center">
+                                            <label for="actualDate" class="col-sm-4 col-form-label-sm">Tanggal
+                                                Pelaksanaan</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" id="actualDate" class="form-control" name="actual_date">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="row align-content-center mb-1">
-                                        <label for="document" class="col-sm-4 col-form-label-sm">Dokumen</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="document" multiple id="document">
+                                        <div class="row mb-3 align-items-start">
+                                            <label for="operation_note" class="col-sm-4 col-form-label-sm">Catatan</label>
+                                            <div class="col-sm-8">
+                                                <textarea class="form-control" style="height: 200px" name="operation_note"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="form-check form-check-success">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" name="is_done"
-                                                    value="1">
-                                                Tandai telah dilaksanakan
-                                                <i class="input-helper"></i></label>
+                                        <div class="row align-content-center mb-1">
+                                            <label for="document" class="col-sm-4 col-form-label-sm">Dokumen</label>
+                                            <div class="col-sm-8">
+                                                <input type="file" name="document" multiple id="document">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                                </form>
-                            </div>
-                        @endif
+                                        <div class="row">
+                                            <div class="form-check form-check-success">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" name="is_done"
+                                                        value="1">
+                                                    Tandai telah dilaksanakan
+                                                    <i class="input-helper"></i></label>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                                    </form>
+                                </div>
+                            @endif
+                        @endrole
                     </div>
                 </div>
             </div>
