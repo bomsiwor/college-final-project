@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\RegisterService;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -29,6 +30,11 @@ class AuthController extends Controller
                 'token_type' => 'Bearer'
             ]
         ]);
+    }
+
+    public function register(Request $request, RegisterService $service)
+    {
+        return $service->handle($request);
     }
 
     public function logout(Request $request)

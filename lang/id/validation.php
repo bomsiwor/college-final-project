@@ -66,7 +66,7 @@ return [
         'string' => 'The :attribute must be greater than or equal to :value characters.',
     ],
     'image' => ':attribute harus berupa gambar',
-    'in' => 'The selected :attribute is invalid.',
+    'in' => ':attribute tidak valid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
     'ip' => 'The :attribute must be a valid IP address.',

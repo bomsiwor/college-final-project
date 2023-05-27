@@ -3,107 +3,299 @@
 namespace App\Services;
 
 use App\Models\User;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Profession;
+use App\Models\Institution;
+use App\Models\Unit;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class RegisterService
 {
     private $data;
 
-    public function register(array $validatedData, array $identifier): RedirectResponse
+    public function handle(Request $request)
     {
-        $credentials = [
-            'name' => ucwords($validatedData['name']),
-            'email' => $validatedData['email'],
-            'password' => Hash::make(['password']),
-            'username' => $validatedData['username'],
+        $this->data = $request->all();
+
+        $credentials = $this->validateCredentials($this->data);
+
+        $occupations = $this->checkOccupation($this->data);
+
+        $jobs = $this->addJobsAndInstitution($occupations);
+
+        $identifier = $this->checkIdentifier($this->data);
+
+        $finalData = array_merge($credentials, $occupations, $jobs, $identifier);
+
+        $user = $this->register($finalData);
+
+        return response()->json([
+            'code' => 200,
+            'message' => 'Pendaftaran sukses',
+            'data' => $user
+        ]);
+    }
+
+    private function register($data)
+    {
+        try {
+            $user = User::create($data);
+        } catch (\Throwable $e) {
+            return throw new HttpResponseException(response()->json([
+                'code' => 403,
+                'message' => $e->getMessage(),
+                'data' => 'error'
+            ]));
+        }
+
+        return $user;
+    }
+
+    private function validateCredentials(array $data)
+    {
+        $validator = Validator::make(
+            $data,
+            [
+                'name' => 'required|min:4|regex:/^[a-zA-Z_ ]*$/',
+                'email' => [
+                    'required',
+                    'email',
+                    'unique:users'
+                ],
+                'password' => 'required|min:6'
+            ]
+        );
+
+        $validated = $validator->validated();
+
+        if ($validator->fails()) :
+            return throw new HttpResponseException(response()->json([
+                'code' => 403,
+                'message' => 'Validasi gagal!',
+                'data' => $validator->errors(),
+            ], 403));
+        endif;
+
+        $validated['username'] = $validated['name'] . now()->timestamp;
+        $validated['password'] = Hash::make($validated['password']);
+
+        return $validated;
+    }
+
+    private function checkOccupation($data)
+    {
+        $validator = Validator::make(
+            $data,
+            [
+                'is_internal' => 'required|boolean',
+                'position' => [
+                    'required',
+                    Rule::in(($data['is_internal'] == 1 ? ['mahasiswa', 'dosen', 'staff'] : ['bekerja', 'tidak bekerja']))
+                ],
+            ]
+        );
+
+        if ($validator->fails()) :
+            return $this->errorValidation('Validasi gagal!', $validator->errors());
+        endif;
+
+        return $validator->validated();
+    }
+
+    private function addJobsAndInstitution($data)
+    {
+
+        if ((bool)$data['is_internal']) :
+            $jobs = $this->intern($data['position']);
+        else :
+
+            $jobs = $this->extern($data['position']);
+        endif;
+
+        return $jobs;
+    }
+
+    private function intern(string $position)
+    {
+        $data = [
+            'institution_id' => 1
         ];
 
-        switch ($identifier['intern_check']) {
-            case 'yes':
-                switch ($identifier['position']) {
-                    case 'dosen':
-                        $this->data = $this->createLecturerAccount(
-                            $credentials,
-                            $validatedData['nip']
-                        );
-                        $role = 'lecturer';
-                        break;
-                    case 'mahasiswa':
-                        $this->data = $this->createStudentAccount(
-                            $credentials,
-                            $validatedData['nim'],
-                            $validatedData['prodi']
-                        );
-                        $role = 'student';
-                        break;
-                    case 'staff':
-                        $this->data = $this->createStaffAccount(
-                            $credentials,
-                            $validatedData['nip'],
-                            $validatedData['unit']
-                        );
-                        $role = 'staff';
-                        break;
-                }
+        switch ($position) {
+            case 'dosen':
+                $data['profession_id'] = 64;
                 break;
 
-            case 'no':
-                $externIdentifier = ['identifier', 'institution', 'profession_id', 'identification_number'];
-                $this->data = $this->createExternAccount(
-                    $credentials,
-                    array_intersect_key($validatedData, $externIdentifier)
-                );
-                $role = 'extern';
+            case 'mahasiswa':
+                $data['profession_id'] = 3;
+                $data['study_program_id'] = $this->handleStudent($this->data);
+                break;
+
+            case 'staff':
+                $data['profession_id'] = 5;
+                $data['unit_id'] = $this->handleStaff($this->data);
                 break;
         }
 
-        $user = User::create($this->data);
-        $user->assignRole('user');
-        $user->assignRole($role);
-
-        return redirect(route('login'))->with('registerSuccess');
+        return $data;
     }
 
-    public function createLecturerAccount($userData, $nip)
+    private function extern(string $position)
     {
-        return $userData += [
-            'identifier' => 'NIP',
-            'identification_number' => $nip,
-            'profession_id' => '64',
-            'institution_id' => '1'
-        ];
+        $data = [];
+        if ($position == 'tidak bekerja') :
+            $data['profession_id'] = 1;
+            return $data;
+        endif;
+
+        $idProfession = Profession::select('id')->get()->pluck('id');
+
+        $validator = Validator::make(
+            $this->data,
+            [
+                'profession_id' => [
+                    'required',
+                    Rule::in($idProfession)
+                ],
+                'institution_id' => 'required'
+            ]
+        );
+
+        if ($validator->fails()) :
+            return throw new HttpResponseException(response()->json([
+                'code' => 403,
+                'message' => 'Data pekerjaan tidak valid',
+                'data' => $validator->errors()
+            ], 403));
+        endif;
+
+        $validated = $validator->validated();
+
+        $validated['institution_id'] = $this->checkInstitution($validated['institution_id']);
+
+        $data += $validated;
+
+        return $data;
     }
 
-    public function createStudentAccount($userData, $nim, $prodi)
+    private function handleStudent($data)
     {
-        return $userData += [
-            'identifier' => 'NIM',
-            'identification_number' => $nim,
-            'profession_id' => '3',
-            'study_program_id' => $prodi,
-            'institution_id' => '1'
-        ];
+        $validator = Validator::make(
+            $this->data,
+            [
+                'study_program_id' => 'required|numeric|min:1|max:3',
+            ]
+        );
+
+        if ($validator->fails()) :
+            return $this->errorValidation("Program studi harus diisi!", $validator->errors());
+        endif;
+
+        return ($validator->validated())['study_program_id'];
     }
 
-    public function createStaffAccount($userData, $nip, $unit)
+    private function handleStaff($data)
     {
-        return $userData += [
-            'identifier' => 'NIP',
-            'identification_number' => $nip,
-            'profession_id' => '5',
-            'unit_id' => $unit,
-            'institution_id' => '1'
-        ];
+        $units = Unit::select('id')->get()->pluck('id');
+
+        $validator = Validator::make(
+            $this->data,
+            [
+                'unit_id' => [
+                    'required',
+                    'numeric',
+                    Rule::in($units)
+                ],
+            ]
+        );
+
+        if ($validator->fails()) :
+            return $this->errorValidation("Unit harus diisi!", $validator->errors());
+        endif;
+
+        return ($validator->validated())['unit_id'];
     }
 
-    public function createExternAccount($userData, array $externData)
+    public function checkInstitution($data)
     {
-        return $userData += [
-            'identifier' => $externData['identifier'],
-            'identification_number' => $externData['identification_number'],
-            'profession_id' => $externData['profession_id'],
-            'institution_id' => $externData['institution']
-        ];
+        if ($data == 'other') :
+            $validator = Validator::make($this->data, [
+                'institution_name' => 'required',
+                'institution_address' => 'required'
+            ]);
+
+            $result = Institution::create($validator->validated());
+
+            return $result->id;
+        endif;
+
+        if (!Institution::select('id')->where('id', $data)->first()) :
+            return $this->errorValidation('ID tidak ditemukan', [
+                'ID Institusi tidak ditemukan',
+                "Isi institusi dengan 'other'",
+                'Tambahkan parameter institution_name (string) & institution_address (string)'
+            ]);
+        endif;
+
+        return $data;
+    }
+
+    private function checkIdentifier($data)
+    {
+        if ($data['position'] == 'mahasiswa') :
+            $identifier = 'nim';
+        elseif ($data['position'] == 'dosen' || $data['position'] == 'staff') :
+            $identifier = 'nip';
+        else :
+            $identifier = [
+                'ktp',
+                'sim',
+                'nip',
+                'nim',
+                'nis',
+                'paspor',
+                'kia'
+            ];
+        endif;
+
+        $data['identifier'] = isset($data['identifier']) ? strtolower($data['identifier']) : null;
+
+        $validator = Validator::make($data, [
+            'identifier' => [
+                'required',
+                Rule::in($identifier)
+            ],
+            'identification_number' => [
+                'required',
+                'numeric',
+                'min_digits:4',
+                'unique:users'
+                // 'unique:users,identification_number'
+            ]
+        ]);
+
+        if ($validator->fails()) :
+            return $this->errorValidation("Identitas tidak valid", $validator->errors());
+        endif;
+
+        $validated = $validator->validated();
+
+        $validated['identifier'] = Str::upper($validated['identifier']);
+
+        return $validated;
+    }
+
+    private function errorValidation(string $message, $data = [], int $code = 403,)
+    {
+        return throw new HttpResponseException(response()->json([
+            'code' => $code,
+            'message' => $message,
+            'data' => $data,
+        ], $code));
     }
 }

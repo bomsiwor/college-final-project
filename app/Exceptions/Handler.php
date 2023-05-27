@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -46,5 +48,26 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, Throwable $e)
+    {
+        if ($request->is("api/*")) :
+            if ($e instanceof MethodNotAllowedHttpException) :
+                return response()->json([
+                    'code' => 405,
+                    'message' => 'Request Method tidak diperbolehkan!',
+                    'data' => []
+                ], 405);
+            elseif ($e instanceof NotFoundHttpException) :
+                return response()->json([
+                    'code' => 404,
+                    'message' => 'URI tidak ada!',
+                    'data' => []
+                ], 404);
+            endif;
+        else :
+            return parent::render($request, $e);
+        endif;
     }
 }
