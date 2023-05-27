@@ -71,8 +71,6 @@ class RegisterService
             ]
         );
 
-        $validated = $validator->validated();
-
         if ($validator->fails()) :
             return throw new HttpResponseException(response()->json([
                 'code' => 403,
@@ -80,6 +78,8 @@ class RegisterService
                 'data' => $validator->errors(),
             ], 403));
         endif;
+
+        $validated = $validator->validated();
 
         $validated['username'] = $validated['name'] . now()->timestamp;
         $validated['password'] = Hash::make($validated['password']);

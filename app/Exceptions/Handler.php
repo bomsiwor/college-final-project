@@ -2,10 +2,12 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -65,6 +67,20 @@ class Handler extends ExceptionHandler
                     'message' => 'URI tidak ada!',
                     'data' => []
                 ], 404);
+            elseif ($e instanceof AuthenticationException) :
+                return response()->json([
+                    'code' => 401,
+                    'success' => false,
+                    'message' => 'Unauthenticated.',
+                    'data' => []
+                ], 401);
+            elseif ($e instanceof ModelNotFoundException) :
+                return response()->json([
+                    'code' => 404,
+                    'success' => false,
+                    'message' => 'Data tidak ada!',
+                    'data' => []
+                ], 401);
             endif;
         else :
             return parent::render($request, $e);

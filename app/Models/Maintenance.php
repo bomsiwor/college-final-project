@@ -31,4 +31,9 @@ class Maintenance extends Model
     {
         return $query->select('id', 'activity_name', 'is_done', 'in_charge', 'month')->get();
     }
+
+    public function scopeApiSummary(Builder $query, $limit, $offset)
+    {
+        return $query->select('id', 'activity_name', 'is_done', 'in_charge', 'month')->limit($limit)->offset($offset)->get();
+    }
 }

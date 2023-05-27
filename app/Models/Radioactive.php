@@ -32,6 +32,19 @@ class Radioactive extends Model
         )->orderByDesc('manufacturing_date')->get();
     }
 
+    public function scopeApiSummary(Builder $query)
+    {
+        return $query->select(
+            'id',
+            'entry_number',
+            'element_name',
+            'isotope_number',
+            'initial_activity',
+            'status',
+            'manufacturing_date'
+        )->orderByDesc('manufacturing_date')->get();
+    }
+
     protected function elementName(): Attribute
     {
         return Attribute::make(

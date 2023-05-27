@@ -39,10 +39,15 @@ class Tool extends Model
     ];
 
 
-
+    // Scope
     public function scopeSummary(Builder $query)
     {
         return $query->select('name', 'merk', 'series', 'condition', 'status', 'inventory_unique')->orderBy('purchase_date', 'desc')->get();
+    }
+
+    public function scopeApiSummary(Builder $query)
+    {
+        return $query->select('id', 'name', 'merk', 'series', 'condition', 'status', 'inventory_number', 'tool_image')->orderBy('id');
     }
 
     public function scopeTopBorrowed(Builder $query)
@@ -55,6 +60,8 @@ class Tool extends Model
         return $query->where($column, '=', $value)->update($data);
     }
 
+
+    // Relation
     public function borrow()
     {
         return $this->hasMany(Borrow::class, 'inventory_id', 'inventory_unique');
