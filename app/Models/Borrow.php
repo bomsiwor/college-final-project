@@ -47,6 +47,17 @@ class Borrow extends Model
         return $query->select('id', 'user_id', 'purpose', 'inventory_id', 'start_borrow_date', 'expected_return_date', 'status', 'verified_at')->with(['user:id,name', 'inventory:inventory_unique,name'])->orderByDesc('created_at')->get();
     }
 
+    public function scopeApiSummary(Builder $query, $limit, $offset)
+    {
+        return $query
+            ->select('id', 'user_id', 'purpose', 'inventory_id', 'start_borrow_date', 'expected_return_date', 'status', 'verified_at')
+            ->with(['user:id,name', 'inventory:inventory_unique,name'])
+            ->orderByDesc('created_at')
+            ->limit($limit)
+            ->offset($offset)
+            ->get();
+    }
+
     public function scopeNotif(Builder $query)
     {
         return $query->select('id', 'user_id', 'purpose', 'inventory_id', 'status', 'created_at')->with(['user:id,name', 'inventory:inventory_unique,name'])->where('status', 'pending')->get();

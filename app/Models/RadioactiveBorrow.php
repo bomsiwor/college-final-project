@@ -62,6 +62,26 @@ class RadioactiveBorrow extends Model
             ->orderByDesc('created_at')->get();
     }
 
+    // For API
+    public function scopeApiSummary(Builder $query, int $limit, int $offset)
+    {
+        return $query->select(
+            'id',
+            'user_id',
+            'purpose',
+            'inventory_id',
+            'start_borrow_date',
+            'expected_return_date',
+            'status',
+            'verified_at'
+        )
+            ->with(['user:id,name', 'radioactive:inventory_unique,entry_number,element_name,isotope_number'])
+            ->orderByDesc('created_at')
+            ->limit($limit)
+            ->offset($offset)
+            ->get();
+    }
+
     public function scopeForAdmin(Builder $query)
     {
         return $query->select(

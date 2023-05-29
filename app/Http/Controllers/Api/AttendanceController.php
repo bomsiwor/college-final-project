@@ -41,8 +41,6 @@ class AttendanceController extends Controller
             ]
         );
 
-        $validated = $validator->validated();
-
         if ($validator->fails()) :
             return response()->json([
                 'code' => 403,
@@ -51,6 +49,7 @@ class AttendanceController extends Controller
                 'data' => $validator->errors()
             ], 403);
         endif;
+        $validated = $validator->validated();
 
         $attendance = Attendance::create(
             [

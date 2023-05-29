@@ -40,6 +40,7 @@ class RegisterComponent extends Component
     public $identifier;
     public $identification_number;
     public $data;
+    public $wargaCheck;
 
     // protected $rules = [
     //     'name' => 'required|min:4|regex:/^[a-zA-Z_ ]*$/',
@@ -157,7 +158,7 @@ class RegisterComponent extends Component
 
     public function createData()
     {
-        $this->data =
+        return $this->data =
             [
                 'name' => Str::title($this->name),
                 'email' => $this->email,

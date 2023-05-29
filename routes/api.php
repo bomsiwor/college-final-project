@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\Api\AttendanceController;
+use App\Http\Controllers\Api\LogController;
 use App\Http\Controllers\Api\MaintenanceController;
+use App\Http\Controllers\Api\RadioactiveBorrowController;
 use App\Http\Controllers\Api\RadioactiveController;
+use App\Http\Controllers\Api\ToolBorrowController;
 use App\Http\Controllers\Api\ToolController;
+use App\Http\Controllers\Api\ToolReturnController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +59,35 @@ Route::controller(MaintenanceController::class)->middleware('auth:sanctum')->gro
     Route::post('/maintenance', 'store');
     Route::put('/maintenance/{maintenance}', 'update');
     Route::delete('/maintenance/{maintenance}', 'destroy');
+});
+
+// Log
+Route::controller(LogController::class)->middleware('auth:sanctum')->group(function () {
+    Route::get('/radiation-log', 'radiationIndex');
+    Route::post('/radiation-log', 'radiationStore');
+    Route::get('/tool-log', 'toolLogIndex');
+    Route::post('/tool-log', 'toolLogStore');
+});
+
+// Tool Borrowing
+Route::controller(ToolBorrowController::class)->middleware('auth:sanctum')->group(function () {
+    Route::get('/tool-borrow', 'index');
+    Route::post('/tool-borrow', 'store');
+    Route::post('/tool-borrow/verify/{borrow}', 'verify');
+    Route::delete('/tool-borrow/{borrow}', 'delete');
+});
+
+// Tool Return
+Route::controller(ToolReturnController::class)->middleware('auth:sanctum')->group(function () {
+    Route::get('/tool-return', 'index');
+});
+
+// Radioactive Borrowing
+Route::controller(RadioactiveBorrowController::class)->middleware('auth:sanctum')->group(function () {
+    Route::get('/radioactive-borrow', 'index');
+    Route::post('/radioactive-borrow', 'store');
+    Route::post('/radioactive-borrow/verify/{borrow}', 'verify');
+    Route::delete('/radioactive-borrow/{borrow}', 'delete');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

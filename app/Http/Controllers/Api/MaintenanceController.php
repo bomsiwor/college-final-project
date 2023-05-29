@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Maintenance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MaintenanceController extends Controller
 {
@@ -38,6 +39,101 @@ class MaintenanceController extends Controller
             'message' => 'Sukses',
             'data' => $maintenance
         ]);
+    }
+
+    public function store(Request $request, Maintenance $maintenance)
+    {
+        $input = $request->all();
+
+        $rules = [
+            'activity_name' => 'required|min:5',
+            'agenda' => 'required|min:10',
+            'in_charge' => 'required|min:5',
+            'month' => 'required|after_or_equal:today',
+        ];
+
+        $validator = Validator::make($input, $rules);
+
+        if ($validator->fails()) :
+            return response()->json([
+                'code' => 403,
+                'success' => false,
+                'message' => 'Gagal menyimpan!',
+                'data' => $validator->errors()
+            ], 403);
+        endif;
+
+        $validated = $validator->validated();
+
+        try {
+            $maintenance->create($validated);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'code' => 403,
+                'success' => false,
+                'message' => 'Gagal menyimpan!',
+                'data' => $e->getMessage()
+            ], 403);
+        }
+
+        return response()->json([
+            'code' => 201,
+            'success' => true,
+            'message' => 'Sukses menyimpan!',
+            'data' => $maintenance
+        ], 201);
+    }
+
+    public function update(Request $request, Maintenance $maintenance)
+    {
+        $rules = [
+            'activity_name' => 'sometimes|required',
+            'agenda' => 'sometimes|required',
+            'in_charge' => 'sometimes|required',
+            'month' => 'sometimes|required'
+        ];
+
+        $input = $request->all();
+
+        if (!$input) :
+            return response()->json([
+                'code' => 302,
+                'success' => false,
+                'message' => 'Data kosong',
+                'data' => []
+            ], 302);
+        endif;
+
+        $validator = Validator::make($input, $rules);
+
+        if ($validator->fails()) :
+            return response()->json([
+                'code' => 403,
+                'success' => false,
+                'message' => 'Gagal menyimpan!',
+                'data' => $validator->errors()
+            ], 403);
+        endif;
+
+        $validated = $validator->validated();
+
+        try {
+            $maintenance->update($validated);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'code' => 403,
+                'success' => false,
+                'message' => 'Gagal menghpapus!',
+                'data' => $e->getMessage()
+            ], 403);
+        }
+
+        return response()->json([
+            'code' => 200,
+            'success' => true,
+            'message' => 'Sukses terupdate!',
+            'data' => $maintenance
+        ], 200);
     }
 
     public function destroy(Maintenance $maintenance)

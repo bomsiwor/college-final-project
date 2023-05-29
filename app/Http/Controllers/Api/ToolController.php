@@ -58,8 +58,6 @@ class ToolController extends Controller
             'description' => 'nullable'
         ]);
 
-        $validated = $validator->validated();
-
         if ($validator->fails()) :
             return response()->json([
                 'code' => 403,
@@ -68,6 +66,8 @@ class ToolController extends Controller
                 'data' => $validator->errors()
             ], 403);
         endif;
+
+        $validated = $validator->validated();
 
         $validated += ['inventory_unique' => Str::uuid()];
 
