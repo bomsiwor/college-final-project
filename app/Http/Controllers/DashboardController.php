@@ -8,6 +8,7 @@ use App\Models\Message;
 use App\Models\Attendance;
 use App\Models\StudyProgram;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Actions\StoreMessageAction;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -18,13 +19,27 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $stats = Attendance::statistic();
-        $borrows = Borrow::summaryOfAll();
+        // Attendance
+        $attendances = Attendance::statistic()->get();
+        $label = $attendances->pluck('name')->map(function ($item) {
+            return __("activity.$item");
+        })->toArray();
+        $value = $attendances->pluck('value')->toArray();
+
+        // Check peminjaman pengumuman
+        $borrow_announce = DB::table('borrows')
+            ->where('created_at', '>=', now()->subDays(7))
+            ->whereNull('verified_at');
+
+        $borrow_announce_admin = $borrow_announce->count();
+
+        $borrow_announce_user = $borrow_announce
+            ->where('user_id', '=', auth()->id())
+            ->count();
+
         $title = 'Dashboard - Pagu';
 
-        $topTool = Tool::topBorrowed();
-        // dd($data);
-        return view('Dashboard.index', compact('stats', 'title', 'borrows', 'topTool'));
+        return view('Dashboard.index', compact('label', 'title', 'value', 'borrow_announce_admin', 'borrow_announce_user'));
     }
 
     public function profile()

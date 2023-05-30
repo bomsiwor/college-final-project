@@ -59,7 +59,46 @@
         <div class="row">
             {{-- Banner --}}
             <div class="col-lg-8 d-flex flex-column">
-                <div class="row flex-grow">
+
+                {{-- Card pengumuman --}}
+                <div class="row">
+                    <div class="col grid-margin stretch-card">
+                        <div class="card bg-primary">
+                            <div class="card-body text-white">
+                                <h5 class="card-title text-white"><span class="mdi mdi-information"></span> Pemberitahuan
+                                </h5>
+
+                                @role('admin')
+                                    @if ($borrow_announce_admin)
+                                        <small>
+                                            <h5><span class="fw-bold">ADMIN</span> : ada {{ $borrow_announce_admin }} pengajuan
+                                                pinjaman dalam 7 hari terakhir
+                                                belum diperiksa.</h5>
+                                        </small>
+                                    @endif
+
+                                    <hr>
+                                @endrole
+
+
+                                @if ($borrow_announce_user)
+                                    <small>
+                                        <h5>Ada <span class="badge rounded bg-white text-primary">
+                                                {{ $borrow_announce_user }}</span> pengajuan
+                                            pinjaman anda
+                                            belum diperiksa oleh Admin.</h5>
+                                    </small>
+                                @endif
+
+                                <a href="{{ route('borrow.index') }}"
+                                    class="btn btn-lg btn-info border-0 mb-0 text-white">Cek
+                                    sekarang!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-12 grid-margin stretch-card">
                         <div class="card card-rounded table-darkBGImg">
                             <div class="card-body">
@@ -73,6 +112,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
 
@@ -92,18 +133,12 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h4 class="card-title card-title-dash">Type By Amount</h4>
+                                        <h4 class="card-title card-title-dash">Statistik Kunjungan</h4>
                                     </div>
                                     <canvas class="my-auto chartjs-render-monitor" id="doughnutChart" height="484"
                                         width="726" style="display: block; width: 363px; height: 242px;"></canvas>
-                                    <div id="doughnut-chart-legend" class="mt-5 text-center">
-                                        <div class="chartjs-legend">
-                                            <ul class="justify-content-center">
-                                                <li><span style="background-color:#1F3BB3"></span>Total</li>
-                                                <li><span style="background-color:#FDD0C7"></span>Net</li>
-                                                <li><span style="background-color:#52CDFF"></span>Gross</li>
-                                                <li><span style="background-color:#81DADA"></span>AVG</li>
-                                            </ul>
+                                    <div id="doughnut-chart-legend" class="mt-5 text-center  ">
+                                        <div class="chartjs-legend d-flex flex-wrap">
                                         </div>
                                     </div>
                                 </div>
@@ -129,6 +164,7 @@
 
 @push('vendorScript')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('dist/js/Chart.min.js') }}"></script>
 @endpush
 
 @section('script')
@@ -158,5 +194,90 @@
                 });
             })
         })
+    </script>
+
+    <script>
+        if ($("#doughnutChart").length) {
+            var doughnutChartCanvas = $("#doughnutChart").get(0).getContext("2d");
+            var doughnutPieData = {
+                datasets: [{
+                    data: @json($value),
+                    backgroundColor: [
+                        "#1F3BB3",
+                        "#FDD0C7",
+                        "#52CDFF",
+                        "#81DADA",
+                        "#00C853", "#FFEB3B", "#FF6F00", "#4A148C"
+                    ],
+                    borderColor: [
+                        "#1F3BB3",
+                        "#FDD0C7",
+                        "#52CDFF",
+                        "#81DADA",
+                        "#00C853", "#FFEB3B", "#FF6F00", "#4A148C"
+                    ],
+                }],
+
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: @json($label)
+            };
+            var doughnutPieOptions = {
+                cutoutPercentage: 50,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: false,
+                responsive: true,
+                maintainAspectRatio: true,
+                showScale: true,
+                legend: false,
+                legendCallback: function(chart) {
+                    var text = [];
+                    text.push('<div class="chartjs-legend"><ul class="d-flex justify-content-center flex-wrap">');
+                    for (var i = 0; i < chart.data.datasets[0].data.length; i++) {
+                        text.push('<li><span style="background-color:' + chart.data.datasets[0].backgroundColor[i] +
+                            '">');
+                        text.push('</span>');
+                        if (chart.data.labels[i]) {
+                            text.push(chart.data.labels[i]);
+                        }
+                        text.push('</li>');
+                    }
+                    text.push('</div></ul>');
+                    return text.join("");
+                },
+
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                },
+                tooltips: {
+                    callbacks: {
+                        title: function(tooltipItem, data) {
+                            return data['labels'][tooltipItem[0]['index']];
+                        },
+                        label: function(tooltipItem, data) {
+                            return data['datasets'][0]['data'][tooltipItem['index']];
+                        }
+                    },
+
+                    backgroundColor: '#fff',
+                    titleFontSize: 14,
+                    titleFontColor: '#0B0F32',
+                    bodyFontColor: '#737F8B',
+                    bodyFontSize: 11,
+                    displayColors: false
+                }
+            };
+            var doughnutChart = new Chart(doughnutChartCanvas, {
+                type: 'doughnut',
+                data: doughnutPieData,
+                options: doughnutPieOptions
+            });
+            document.getElementById('doughnut-chart-legend').innerHTML = doughnutChart.generateLegend();
+        }
     </script>
 @endsection
