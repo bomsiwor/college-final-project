@@ -5,10 +5,8 @@
                 <thead class="text-center">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nama Lengkap</th>
+                        <th scope="col">Data</th>
                         <th scope="col">Role</th>
-                        <th scope="col">Pekerjaan</th>
-                        <th scope="col">Institusi</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -16,13 +14,36 @@
                     @foreach ($data as $da)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $da->name }}</td>
+                            <td>{{ $da->name }}
+                                <br>
+                                {{ $da->profession->profession_name }}
+                                <br>
+                                {{ $da->institution->institution_name }}
+                            </td>
                             <td><span
                                     class="badge {{ __('core.' . $da->getRoleNames()->first() . '.class') }}">{{ __('core.' . $da->getRoleNames()->first() . '.text') }}</span>
                             </td>
-                            <td>{{ $da->profession->profession_name }}</td>
-                            <td>{{ $da->institution->institution_name }}</td>
-                            <td><button class="btn btn-sm btn-primary">Detail</button></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle toggle-dark btn-sm mb-0 me-0"
+                                        type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false"> Aksi </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <a class="dropdown-item" href="#">Edit data</a>
+                                        @if ($da->getRoleNames()->first() == 'user')
+                                            <a class="dropdown-item" href="#">Jadikan admin</a>
+                                        @else
+                                            <a class="dropdown-item" href="#">Jadikan User</a>
+                                        @endif
+                                        <div class="dropdown-divider"></div>
+                                        <form action="{{ route('user.delete', ['user' => $da->id]) }}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="dropdown-item text-danger">Hapus user</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

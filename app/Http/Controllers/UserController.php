@@ -51,4 +51,11 @@ class UserController extends Controller
             ]);
         endif;
     }
+
+    public function delete(Request $request, User $user)
+    {
+        $user->delete();
+
+        return back()->with('success', 'Menghapus pengguna');
+    }
 }

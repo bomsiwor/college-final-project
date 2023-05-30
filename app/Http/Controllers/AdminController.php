@@ -6,6 +6,8 @@ use App\Models\Borrow;
 use App\Models\Message;
 use App\Models\Returning;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
 {
@@ -14,7 +16,9 @@ class AdminController extends Controller
     {
         $title = 'Kelola User';
 
-        return view('Admin.manageUser', compact('title'));
+        $previlege = Role::findByName('admin')->getAllPermissions();
+
+        return view('Admin.manageUser', compact('title', 'previlege'));
     }
 
     public function manageMessage()

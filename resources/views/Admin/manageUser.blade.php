@@ -22,10 +22,33 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            Sukses, {{ session('success') }}
+                        </div>
+                    @endif
                     <h5 class="card-title">Daftar User</h5>
                     <p>Kelola dan telusuri akun pengguna disini</p>
 
                     @livewire('admin.user-list')
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Admin Previleges</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Previlege</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

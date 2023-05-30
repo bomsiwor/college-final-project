@@ -171,4 +171,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->controller(AdminCont
 Route::middleware('auth')->controller(UserController::class)->group(function () {
     Route::post('update-profile', 'updateProfile')->name('updateProfile');
     Route::delete('photo', 'deletePhoto')->name('deletePhoto');
+
+    Route::middleware('auth', 'role:admin')->group(function () {
+        Route::post('change-previlege/{user}', 'updatePrevilege')->name('user.updatePrevilege');
+        Route::delete('user/{user}', 'delete')->name('user.delete');
+    });
 });
