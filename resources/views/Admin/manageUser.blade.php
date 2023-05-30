@@ -47,6 +47,15 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
+
+                            <tbody>
+                                @foreach ($previleges as $previlege)
+                                    <tr>
+                                        <td>{{ $previlege->name }}</td>
+                                        <td>Hapus</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>

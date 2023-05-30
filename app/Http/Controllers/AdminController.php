@@ -16,9 +16,9 @@ class AdminController extends Controller
     {
         $title = 'Kelola User';
 
-        $previlege = Role::findByName('admin')->getAllPermissions();
+        $previleges = Role::findByName('admin')->getAllPermissions();
 
-        return view('Admin.manageUser', compact('title', 'previlege'));
+        return view('Admin.manageUser', compact('title', 'previleges'));
     }
 
     public function manageMessage()

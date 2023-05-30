@@ -4,16 +4,18 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Imports\MaintenanceImport;
-use App\Imports\RadionuclideImport;
-use App\Imports\ToolImport;
+use Excel;
 use App\Models\Tool;
 use App\Models\User;
+use App\Imports\ToolImport;
 use App\Models\Radioactive;
 use Illuminate\Database\Seeder;
+use App\Imports\MaintenanceImport;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use App\Imports\RadionuclideImport;
 use Illuminate\Support\Facades\Hash;
-use Excel;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -41,6 +43,36 @@ class DatabaseSeeder extends Seeder
             UnitSeeder::class,
             ProfessionSeeder::class
         ]);
+
+        $arrayOfPermissions = [
+            'manage-user',
+            'manage-tool',
+            'manage-borrow',
+            'manage-radioactive',
+            'manage-radioactive-borrow',
+            'manage-document',
+            'manage-maintenance',
+            'manage-site',
+            'manage-agenda',
+            'kepala-lab'
+        ];
+
+        $permissions = collect($arrayOfPermissions)->map(function ($permission) {
+            return [
+                'name' => $permission,
+                'guard_name' => 'web'
+            ];
+        })->toArray();
+
+        Permission::insert($permissions);
+
+        DB::table('role_has_permissions')
+            ->insert(
+                collect($arrayOfPermissions)->map(fn ($id, $key) => [
+                    'role_id' => 1,
+                    'permission_id' => $key + 1
+                ])->toArray()
+            );
 
         $user = User::create([
             'email' => 'bomsiwor@gmail.com',
