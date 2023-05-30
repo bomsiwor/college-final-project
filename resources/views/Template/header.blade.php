@@ -23,13 +23,14 @@
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <form class="search-form" action="#">
                     <i class="fas fa-solid fa-magnifying-glass"></i>
                     <input type="search" class="form-control" placeholder="Search Here" title="Search here">
                 </form>
-            </li>
-            <li class="nav-item dropdown">
+            </li> --}}
+
+            {{-- <li class="nav-item dropdown">
                 <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                     <i class="fas fa-solid fa-envelope"></i>
                 </a>
@@ -110,7 +111,8 @@
                         </div>
                     </a>
                 </div>
-            </li>
+            </li> --}}
+            {{-- User --}}
             <li class="nav-item dropdown user-dropdown">
                 <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                     <img class="img-xs rounded-circle"

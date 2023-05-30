@@ -197,7 +197,9 @@ class RegisterComponent extends Component
 
 
         try {
-            User::create($this->createData());
+            $user = User::create($this->createData());
+
+            $user->assignRole('user');
         } catch (\Throwable $e) {
             return $this->addError('failed', $e->getMessage());
         }
