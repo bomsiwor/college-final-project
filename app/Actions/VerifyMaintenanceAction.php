@@ -4,6 +4,9 @@ namespace App\Actions;
 
 use App\Models\Maintenance;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Stmt\TryCatch;
 use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
 class VerifyMaintenanceAction
@@ -27,7 +30,15 @@ class VerifyMaintenanceAction
         $data->update($validated);
 
         if ($data->wasChanged()) :
-            Gdrive::put($filePath, $updatedData->file('document'));
+            // Menggunakan gdrive
+            // Gdrive::put($filePath, $updatedData->file('document'));
+
+            // Menggunakan local
+            try {
+                Storage::putFileAs('maintenance', $file, $fileName);
+            } catch (\Throwable $e) {
+                return $e->getMessage();
+            }
             return true;
         else :
             return false;
@@ -41,7 +52,11 @@ class VerifyMaintenanceAction
         $data->actual_date = null;
 
         if ($data->document) :
-            Gdrive::delete($data->document);
+            // Jika ingin menggunakna google drive
+            // Gdrive::delete($data->document);
+
+            // Locla storage
+            File::delete($data->document);
         endif;
         $data->document = null;
         $data->operation_note = null;

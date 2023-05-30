@@ -18,7 +18,11 @@ class Maintenance extends Model
         'activity_name',
         'agenda',
         'in_charge',
-        'month'
+        'month',
+        'document',
+        'actual_date',
+        'is_done',
+        'operation_note'
     ];
 
     protected $dates = [

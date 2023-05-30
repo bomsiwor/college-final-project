@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Maintenance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Actions\deleteMaintenanceAction;
 use App\Actions\VerifyMaintenanceAction;
-use App\Http\Requests\StoreMaintenanceRequest;
-use App\Http\Requests\UpdateMaintenanceRequest;
 use App\Http\Requests\VerifyMaintenance;
 use App\Services\MaintenanceAgendaService;
 use Yaza\LaravelGoogleDriveStorage\Gdrive;
+use App\Http\Requests\StoreMaintenanceRequest;
+use App\Http\Requests\UpdateMaintenanceRequest;
 
 class MaintenanceController extends Controller
 {
@@ -99,9 +100,13 @@ class MaintenanceController extends Controller
 
     public function download(Maintenance $maintenance)
     {
-        $data = Gdrive::get($maintenance->document);
-        return response($data->file, 200)
-            ->header('Content-Type', $data->ext)
-            ->header('Content-disposition', 'attachment; filename="' . $data->filename . '"');
+        // menggunakan gdrive
+        // $data = Gdrive::get($maintenance->document);
+        // return response($data->file, 200)
+        //     ->header('Content-Type', $data->ext)
+        //     ->header('Content-disposition', 'attachment; filename="' . $data->filename . '"');
+
+        // Storage local
+        return Storage::download($maintenance->document);
     }
 }

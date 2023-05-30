@@ -64,6 +64,26 @@
                                         <td>{{ $d->in_charge }}</td>
                                         <td><a href="{{ route('maintenance.detail', ['maintenance' => $d->id]) }}"
                                                 class="btn btn-primary btn-sm">Detail</a></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-primary dropdown-toggle toggle-dark btn-sm mb-0 me-0"
+                                                    type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false"> Aksi </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('maintenance.detail', ['maintenance' => $d->id]) }}">Detail</a>
+
+                                                    <div class="dropdown-divider"></div>
+                                                    <form action="{{ route('user.delete', ['user' => $da->id]) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="dropdown-item text-danger">Hapus
+                                                            user</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

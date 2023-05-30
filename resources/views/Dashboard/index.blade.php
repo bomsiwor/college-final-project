@@ -67,6 +67,9 @@
                             <div class="card-body text-white">
                                 <h5 class="card-title text-white"><span class="mdi mdi-information"></span> Pemberitahuan
                                 </h5>
+                                @if ($borrow_announce_admin ||$borrow_announce_user )
+                                    
+                                
 
                                 @role('admin')
                                     @if ($borrow_announce_admin)
@@ -93,6 +96,10 @@
                                 <a href="{{ route('borrow.index') }}"
                                     class="btn btn-lg btn-info border-0 mb-0 text-white">Cek
                                     sekarang!</a>
+                                    @else
+                                    <p class="fw-bold">All set!</p>
+                                    @endif
+
                             </div>
                         </div>
                     </div>

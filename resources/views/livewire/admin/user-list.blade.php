@@ -12,7 +12,7 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $da)
-                        <tr>
+                        <tr class="text-center">
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $da->name }}
                                 <br>
