@@ -108,5 +108,13 @@ return [
     'not late' => 'Sesuai Permohonan',
 
     // Radioaktif
-    'sealed' => 'Terbungkus'
+    'sealed' => 'Terbungkus',
+
+    // Status Laporan
+    'requested' => 'Diajukan',
+    'accepted' => 'Diterima',
+    'analyzed' => 'Tahap analisis',
+    'advancing' => 'Tahap tindak lanjut',
+    'repairing' => 'Tahap Perbaikan',
+    'done' => 'Laporan Selesai'
 ];

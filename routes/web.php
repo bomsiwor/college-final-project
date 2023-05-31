@@ -158,11 +158,16 @@ Route::middleware('auth')->prefix('report-problem')->controller(ReportProblemCon
     Route::post('store-request', 'store')->name('store');
 
     Route::post('verify', 'verify')->name('verify');
+    Route::post('accessing', 'accessing')->name('accessing');
+    Route::post('analyzing', 'analyzing')->name('analyzing');
+    Route::post('advancing', 'advancing')->name('advancing');
+    Route::post('repairing', 'repairing')->name('repairing');
+    Route::post('finalize', 'finalize')->name('finalize');
 });
 
 // Admin menu
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->controller(AdminController::class)->name('admin.')->group(function () {
-    Route::get('/users', 'manageUser')->name('manageUser');
+Route::middleware(['auth', 'permission:manage-site'])->prefix('admin')->controller(AdminController::class)->name('admin.')->group(function () {
+    Route::get('/users', 'manageUser')->name('manageUser')->middleware('permission:manage-user');
     Route::get('/messsage', 'manageMessage')->name('manageMessage');
     Route::get('/returns', 'returning')->name('returning');
 });

@@ -15,7 +15,7 @@
             </a>
         </li>
         {{-- Admin --}}
-        @role('admin')
+        @can('manage-site')
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#admin-menu" aria-expanded="false"
                     aria-controls="admin-menu">
@@ -43,7 +43,7 @@
                     </ul>
                 </div>
             </li>
-        @endrole
+        @endcan
 
         {{-- Aset --}}
         <li class="nav-item nav-category">Aset & Inventaris</li>

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('status')->default('requested');
             $table->foreignId('verificator_id')->nullable()->constrained('users', 'id');
+            $table->dateTime('verified_at')->nullable();
             $table->boolean('accessed')->default(false);
 
             // Analisa

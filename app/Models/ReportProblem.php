@@ -19,11 +19,35 @@ class ReportProblem extends Model
         'description',
         'condition',
         'status',
-        'tool_id'
+        'tool_id',
+        'verificator_id',
+        'verified_at',
+        'accessed',
+        'analysis',
+        'analyst_id',
+        'analyzed_at',
+        'advance_in_charge',
+        'advance_operator',
+        'advance_description',
+        'advance_target',
+        'repair_in_charge',
+        'repair_operator',
+        'repair_description',
+        'repair_target',
+        'supervisor_note',
+        'effective_status'
+    ];
+
+    protected $dates = [
+        'verified_at',
+        'analyzed_at',
+        'advance_target',
+        'repair_target'
     ];
 
     protected $casts = [
         'analyzed_at' => 'datetime',
+        // 'verfified_at' => 'datetime:d-m-Y H:i:s',
     ];
 
     public function tool()
