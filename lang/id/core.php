@@ -61,10 +61,26 @@ return [
         'text' => 'Administrator',
         'class' => 'text-primary'
     ],
+    'ka-lab' => [
+        'text' => 'Kepala Lab',
+        'class' => 'text-primary'
+    ],
     'user' => [
         'text' => 'Pengguna biasa',
         'class' => 'text-secondary'
     ],
+
+    // Permission
+    'manage-user' => 'Mengelola User',
+    'manage-tool' => 'Mengelola aset',
+    'manage-borrow' => 'Mengelola pinjaman aset',
+    'manage-radioactive' => 'Mengelola sumber RA',
+    'manage-radioactive-borrow' => 'Mengelola Pinjaman RA',
+    'manage-document' => 'Mengelola dokumen',
+    'manage-maintenance' => 'Mengelola perawatan',
+    'manage-site' => 'Mengelola situs',
+    'manage-agenda' => 'Mengelola agenda',
+    'kepala-lab' => 'Kepala LAB',
 
     // Identitas
     'NIM' => 'Nomor Induk Mahasiswa',

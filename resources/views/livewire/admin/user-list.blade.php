@@ -30,17 +30,25 @@
                                         aria-haspopup="true" aria-expanded="false"> Aksi </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                         <a class="dropdown-item" href="#">Edit data</a>
-                                        @if ($da->getRoleNames()->first() == 'user')
-                                            <a class="dropdown-item" href="#">Jadikan admin</a>
-                                        @else
-                                            <a class="dropdown-item" href="#">Jadikan User</a>
+                                        @if ($da->getRoleNames()->first() !== 'ka-lab' && $da->id !== auth()->id())
+                                            <form action="{{ route('user.role.update') }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="user_id" value="{{ $da->id }}">
+                                                @if ($da->getRoleNames()->first() == 'user')
+                                                    <input type="hidden" name="role" value="admin">
+                                                    <button type="submit" class="dropdown-item">Jadikan Admin</button>
+                                                @else
+                                                    <input type="hidden" name="role" value="user">
+                                                    <button type="submit" class="dropdown-item">Jadikan User</button>
+                                                @endif
+                                            </form>
+                                            <div class="dropdown-divider"></div>
+                                            <form action="{{ route('user.delete', ['user' => $da->id]) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="dropdown-item text-danger">Hapus user</button>
+                                            </form>
                                         @endif
-                                        <div class="dropdown-divider"></div>
-                                        <form action="{{ route('user.delete', ['user' => $da->id]) }}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="dropdown-item text-danger">Hapus user</button>
-                                        </form>
                                     </div>
                                 </div>
                             </td>

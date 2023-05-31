@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\Institution::factory(5)->create();
 
-        $arrayOfRoleNames = ['admin', 'user'];
+        $arrayOfRoleNames = ['admin', 'user', 'ka-lab'];
         $roles = collect($arrayOfRoleNames)->map(function ($role) {
             return [
                 'name' => $role,
@@ -74,6 +74,14 @@ class DatabaseSeeder extends Seeder
                 ])->toArray()
             );
 
+        DB::table('role_has_permissions')
+            ->insert(
+                collect($arrayOfPermissions)->map(fn ($id, $key) => [
+                    'role_id' => 3,
+                    'permission_id' => $key + 1
+                ])->toArray()
+            );
+
         $user = User::create([
             'email' => 'bomsiwor@gmail.com',
             'username' => 'bomsiwor',
@@ -86,7 +94,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('brek3le5758!')
         ]);
 
-        $user->assignRole('admin');
+        $user->assignRole('ka-lab');
 
         $user = User::create([
             'email' => 'admin@gmail.com',

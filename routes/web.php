@@ -175,5 +175,9 @@ Route::middleware('auth')->controller(UserController::class)->group(function () 
     Route::middleware('auth', 'role:admin')->group(function () {
         Route::post('change-previlege/{user}', 'updatePrevilege')->name('user.updatePrevilege');
         Route::delete('user/{user}', 'delete')->name('user.delete');
+
+        Route::get('/user/previlege/{previlege}', 'previlege')->name('user.previlege');
+        Route::post('/user/update-permission', 'updatePermission')->name('user.previlege.update');
+        Route::post('/user/update-roles', 'updateRole')->name('user.role.update');
     });
 });

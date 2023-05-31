@@ -58,4 +58,48 @@ class UserController extends Controller
 
         return back()->with('success', 'Menghapus pengguna');
     }
+
+    public function previlege($previlege)
+    {
+        $title = 'Kelola Previlege';
+        $users = User::permission($previlege)
+            ->select('id', 'name', 'institution_id', 'profession_id')
+            ->with('institution:id,institution_name', 'profession:id,profession_name')
+            ->get();
+
+        return view('Admin.manageUserPermission', compact('users', 'title', 'previlege'));
+    }
+
+    public function updatePermission(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'exists:users,id'
+        ]);
+
+        $user = User::find($request->user_id);
+
+        if ($request->operation == 'assign') :
+            $user->givePermissionTo($request->previlege);
+            $status = 'menambahkan';
+        elseif ($request->operation == 'revoke') :
+            $user->revokePermissionTo($request->previlege);
+            $status = 'menghapus';
+        else :
+            abort(404);
+        endif;
+
+        $message = "Sukses $status previlege";
+        return back()->with('success', $message);
+    }
+
+    public function updateRole(Request $request)
+    {
+        $user = User::find($request->user_id);
+
+        $user->assignRole($request->role);
+        $status = 'memperbarui';
+
+        $message = "Sukses $status peran menjadi $request->role";
+        return back()->with('success', $message);
+    }
 }

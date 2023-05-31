@@ -24,7 +24,7 @@
                 <div class="card-body">
                     @if (session('success'))
                         <div class="alert alert-success">
-                            Sukses, {{ session('success') }}
+                            {{ session('success') }}
                         </div>
                     @endif
                     <h5 class="card-title">Daftar User</h5>
@@ -39,6 +39,9 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Admin Previleges</h5>
+                    <div class="alert alert-info">
+                        Cek pengguna berdasarkan kemampuan pengguna yang dimiliki
+                    </div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -51,8 +54,9 @@
                             <tbody>
                                 @foreach ($previleges as $previlege)
                                     <tr>
-                                        <td>{{ $previlege->name }}</td>
-                                        <td>Hapus</td>
+                                        <td>{{ __("core.$previlege->name") }}</td>
+                                        <td><a href="{{ route('user.previlege', ['previlege' => $previlege->name]) }}"
+                                                class="btn btn-sm btn-info">Cek</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
