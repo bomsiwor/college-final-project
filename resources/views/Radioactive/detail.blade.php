@@ -386,9 +386,9 @@
         </div>
     </div>
 
-    <div class="row my-2">
-        @livewire('radioactive.levels-data-component', ['slug' => $radioactive->slug])
-    </div>
+
+    @livewire('radioactive.levels-data-component', ['slug' => $radioactive->slug, 'radioactive_id' => $radioactive->id])
+
 
     @livewire('radioactive.borrow-form', ['radioactive' => $radioactive])
     @livewireScripts
