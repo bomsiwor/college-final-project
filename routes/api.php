@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\LogController;
 use App\Http\Controllers\Api\MaintenanceController;
 use App\Http\Controllers\Api\RadioactiveBorrowController;
 use App\Http\Controllers\Api\RadioactiveController;
+use App\Http\Controllers\Api\RadioactiveReturnController;
 use App\Http\Controllers\Api\ToolBorrowController;
 use App\Http\Controllers\Api\ToolController;
 use App\Http\Controllers\Api\ToolReturnController;
@@ -101,6 +102,12 @@ Route::controller(RadioactiveBorrowController::class)->middleware('auth:sanctum'
     Route::delete('/radioactive-borrow/{borrow}', 'delete');
 
     Route::post('/radioactive-borrow/verify/{borrow}', 'verify')->middleware('api_role:admin');
+});
+
+Route::controller(RadioactiveReturnController::class)->middleware('auth:sanctum', 'api_role:admin')->group(function () {
+    Route::get('/radioactive-return', 'index');
+
+    Route::post('/radioactive-return/verify/{borrow}', 'verify')->middleware('api_role:admin');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
