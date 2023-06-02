@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Http;
 class GetNuclideAction
 {
 
-    public function handle(string $slug, string $field): Collection
+    public function handle(string $slug, string $field, string $rad_type = ''): Collection
     {
-        $response = Http::get("https://www-nds.iaea.org/relnsd/v1/data?fields=levels&nuclides=$slug");
+        $response = Http::get("https://www-nds.iaea.org/relnsd/v1/data?fields=$field&nuclides=$slug" . ($rad_type ? "&rad_types=$rad_type" : ''));
         // $response = Http::get('https://www-nds.iaea.org/relnsd/v1/data?fields=levels&nuclides=60co');
 
         $response = explode("\n", $response->body());

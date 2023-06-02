@@ -74,7 +74,7 @@
                         <div class="progress-bar bg-info" role="progressbar" aria-valuenow="25" aria-valuemin="0"
                             aria-valuemax="100" style="width: {{ ($activity / $initialActivity) * 100 }}%"></div>
                     </div>
-                    <p class="text-end">20%</p>
+                    <p class="text-end">{{ ($activity / $initialActivity) * 100 }}%</p>
                 @else
                     <p class="card-text placeholder-glow">
                         <span class="placeholder bg-info col-4"></span>
