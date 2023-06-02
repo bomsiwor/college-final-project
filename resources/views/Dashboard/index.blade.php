@@ -53,6 +53,121 @@
         </div>
     </div>
 
+    <div class="row my-2 d-md-none">
+        {{-- Presensi --}}
+        <div class="col-4 col-lg-4">
+            <div class="card mb-1">
+                <div class="card-body text-center py-2">
+                    <div class="d-flex justify-content-center">
+                        <div style="width:50px;height:50px"
+                            class="bg-primary rounded text-center text-white d-flex align-items-center justify-content-center fs-2">
+                            <span class="mdi mdi-book-clock-outline"></span>
+                        </div>
+                    </div>
+                    <small>
+                        <a data-bs-toggle="modal" data-bs-target="#attendanceModal"
+                            class="stretched-link text-decoration-none text-primary fw-bold" style="font-size: 10px">Catat
+                            kunjungan</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        {{-- Log Radiasi --}}
+        <div class="col-4 col-lg-4">
+            <div class="card mb-1">
+                <div class="card-body text-center py-2">
+                    <div class="d-flex justify-content-center">
+                        <div style="width:50px;height:50px"
+                            class="bg-primary rounded text-center text-white d-flex align-items-center justify-content-center fs-2">
+                            <span class="mdi mdi-cog"></span>
+                        </div>
+                    </div>
+                    <small>
+                        <a data-bs-toggle="modal" data-bs-target="#toolLogModal"
+                            class="stretched-link text-decoration-none text-primary fw-bold" style="font-size: 10px">Log
+                            Detektor</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        {{-- Log Alat --}}
+        <div class="col-4 col-lg-4">
+            <div class="card mb-1" style="height: 110px">
+                <div class="card-body text-center py-2">
+                    <div class="d-flex justify-content-center">
+                        <div style="width:50px;height:50px"
+                            class="bg-primary rounded text-center text-white d-flex align-items-center justify-content-center fs-2">
+                            <span class="mdi mdi-radioactive"></span>
+                        </div>
+                    </div>
+                    <small>
+                        <a data-bs-toggle="modal" data-bs-target="#radiationLogModal"
+                            class="stretched-link text-decoration-none text-primary fw-bold" style="font-size: 10px">Log
+                            Radiasi</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        {{-- Alat --}}
+        <div class="col-4 col-lg-4">
+            <div class="card mb-1" style="height: 110px">
+                <div class="card-body text-center py-2">
+                    <div class="d-flex justify-content-center">
+                        <div style="width:50px;height:50px"
+                            class="bg-primary rounded text-center text-white d-flex align-items-center justify-content-center fs-2">
+                            <span class="mdi mdi-tools"></span>
+                        </div>
+                    </div>
+                    <small>
+                        <a href="{{ route('tool.index') }}" class="stretched-link text-decoration-none text-primary fw-bold"
+                            style="font-size: 10px">Daftar Alat</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        {{-- Radioactive --}}
+        <div class="col-4 col-lg-4">
+            <div class="card mb-1" style="height: 110px">
+                <div class="card-body text-center py-2">
+                    <div class="d-flex justify-content-center">
+                        <div style="width:50px;height:50px"
+                            class="bg-primary rounded text-center text-white d-flex align-items-center justify-content-center fs-2">
+                            <span class="mdi mdi-radioactive-circle"></span>
+                        </div>
+                    </div>
+                    <small>
+                        <a href="{{ route('radioactive.index') }}"
+                            class="stretched-link text-decoration-none text-primary fw-bold"
+                            style="font-size: 10px">Daftar Sumber</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        {{-- Menu lain --}}
+        <div class="col-4 col-lg-4">
+            <div class="card mb-1 bg-primary" style="height: 110px">
+                <div class="card-body text-center py-2">
+                    <div class="d-flex justify-content-center">
+                        <div style="width:50px;height:50px"
+                            class="bg-white rounded text-center text-primary d-flex align-items-center justify-content-center fs-2">
+                            <span class="mdi mdi-view-grid"></span>
+                        </div>
+                    </div>
+                    <small>
+                        <a data-bs-toggle="offcanvas" class="stretched-link text-decoration-none text-white fw-bold"
+                            style="font-size: 10px">Menu lain</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     {{-- Banner --}}
     <div class="home-tab">
         {{-- Banner dan statistik --}}
