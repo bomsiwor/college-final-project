@@ -67,38 +67,36 @@
                             <div class="card-body text-white">
                                 <h5 class="card-title text-white"><span class="mdi mdi-information"></span> Pemberitahuan
                                 </h5>
-                                @if ($borrow_announce_admin ||$borrow_announce_user )
-                                    
-                                
+                                @if ($borrow_announce_admin || $borrow_announce_user)
+                                    @role('admin')
+                                        @if ($borrow_announce_admin)
+                                            <small>
+                                                <h5><span class="fw-bold">ADMIN</span> : ada {{ $borrow_announce_admin }}
+                                                    pengajuan
+                                                    pinjaman dalam 7 hari terakhir
+                                                    belum diperiksa.</h5>
+                                            </small>
+                                        @endif
 
-                                @role('admin')
-                                    @if ($borrow_announce_admin)
+                                        <hr>
+                                    @endrole
+
+
+                                    @if ($borrow_announce_user)
                                         <small>
-                                            <h5><span class="fw-bold">ADMIN</span> : ada {{ $borrow_announce_admin }} pengajuan
-                                                pinjaman dalam 7 hari terakhir
-                                                belum diperiksa.</h5>
+                                            <h5>Ada <span class="badge rounded bg-white text-primary">
+                                                    {{ $borrow_announce_user }}</span> pengajuan
+                                                pinjaman anda
+                                                belum diperiksa oleh Admin.</h5>
                                         </small>
                                     @endif
 
-                                    <hr>
-                                @endrole
-
-
-                                @if ($borrow_announce_user)
-                                    <small>
-                                        <h5>Ada <span class="badge rounded bg-white text-primary">
-                                                {{ $borrow_announce_user }}</span> pengajuan
-                                            pinjaman anda
-                                            belum diperiksa oleh Admin.</h5>
-                                    </small>
-                                @endif
-
-                                <a href="{{ route('borrow.index') }}"
-                                    class="btn btn-lg btn-info border-0 mb-0 text-white">Cek
-                                    sekarang!</a>
-                                    @else
+                                    <a href="{{ route('borrow.index') }}"
+                                        class="btn btn-lg btn-info border-0 mb-0 text-white">Cek
+                                        sekarang!</a>
+                                @else
                                     <p class="fw-bold">All set!</p>
-                                    @endif
+                                @endif
 
                             </div>
                         </div>
@@ -172,6 +170,7 @@
 @push('vendorScript')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('dist/js/Chart.min.js') }}"></script>
+    {{-- <script src="{{ asset('dist/js/chart.js') }}"></script> --}}
 @endpush
 
 @section('script')

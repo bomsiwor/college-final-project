@@ -2,10 +2,98 @@
 
 @push('vendorStyle')
     @livewireStyles
+
+    <style>
+        .icon-tab {
+            margin-top: 30px;
+
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .icon-tab span.mdi {
+            display: block;
+            font-size: 35px;
+
+            color: #8d98b8;
+
+            margin: 0px auto;
+            /* line-height: 65px; */
+
+            transition-duration: 0.25s;
+        }
+
+        .icon-tab span.mdi::before {
+            padding: 2px 6.5px;
+            border-radius: 80%;
+        }
+
+
+        .icon-tab.active span.mdi {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .icon-tab.active span.mdi::before {
+            padding: 15px 19.5px;
+            border-radius: 100%;
+
+            transition-duration: 0.4s;
+        }
+
+        .icon-tab.active span.mdi::before {
+            background: linear-gradient(to bottom right, #212974, #1F3BB3);
+        }
+
+
+        .icon-label {
+            color: #b3b3b3;
+            font-size: 16px;
+
+            transition-duration: 0.35s;
+        }
+
+
+        .icon-tab.active .icon-label,
+        .icon-tab:hover .icon-label {
+            color: black;
+        }
+
+        .icon-tab:hover span.mdi {
+            margin-bottom: 10px;
+        }
+
+
+        .item {
+            margin-top: 50px;
+        }
+
+
+        @media (max-width:767px) {
+            .icon-tab {}
+
+            .icon-tab span {
+                display: inline !important;
+                vertical-align: middle;
+            }
+
+            .icon-tab.active span.mdi {
+                padding-right: 10px;
+            }
+
+            .icon-tab:hover span.mdi {
+                padding-right: 10px;
+                transition-duration: 0.25s;
+            }
+        }
+    </style>
 @endpush
 
 @push('vendorScript')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script src="{{ asset('dist/js/Chart.min.js') }}"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
+    <script src="{{ asset('dist/js/chart.js') }}"></script>
 @endpush
 
 @section('main')
@@ -386,6 +474,78 @@
         </div>
     </div>
 
+    <div class="row my-2">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Radiasi Peluruhan</h4>
+                    <div class="alert alert-primary">
+                        <p>Data yang ditampilkan disinkronisasi dengan data yang disimpan oleh IAEA.</p>
+                    </div>
+                    <div class="row">
+                        <div class="icon-tab col-xs-12 col-sm-2 col-sm-offset-3 active">
+                            <span class="mdi mdi-alpha"></span>
+                            <span class="icon-label">Alpha</span>
+                        </div>
+                        <div class="icon-tab col-xs-12 col-sm-2 ">
+                            <span class="mdi mdi-beta"></span>
+                            <span class="icon-label">Beta</span>
+                        </div>
+                        <div class="icon-tab col-xs-12 col-sm-2">
+                            <span class="mdi mdi-gamma"></span>
+                            <span class="icon-label">Gamma</span>
+                        </div>
+                        <div class="icon-tab col-xs-12 col-sm-2">
+                            <span class="mdi mdi-alpha-x"></span>
+                            <span class="icon-label">Xray</span>
+                        </div>
+                    </div>
+
+                    <div class="item col-sm-10 col-sm-offset-1">
+                        <div class="panel panel-default">
+                            <h4 class="card-title">Energi Alpha</h4>
+                            <canvas id="alphaLineChart"></canvas>
+                            <div id="alphaNotFound"></div>
+                        </div>
+                    </div>
+
+                    <div class="item col-sm-10 col-sm-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel panel-default">
+                                <div class="panel panel-default">
+                                    <h4 class="card-title">Energi Beta</h4>
+                                    <canvas id="betaLineChart"></canvas>
+                                    <div id="betaNotFound"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item col-sm-10 col-sm-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel panel-default">
+                                <h4 class="card-title">Energi Gamma</h4>
+                                <canvas id="gammaLineChart"></canvas>
+                                <div id="gammaNotFound"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item col-sm-10 col-sm-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel panel-default">
+                                <h4 class="card-title">Energi XRay</h4>
+                                <canvas id="xrayLineChart"></canvas>
+                                <div id="xrayNotFound"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     @livewire('radioactive.levels-data-component', ['slug' => $radioactive->slug, 'radioactive_id' => $radioactive->id])
 
@@ -481,5 +641,194 @@
                 }
             })
         }
+    </script>
+
+    <script>
+        Livewire.on('makeChart', (data) => {
+            console.log(data);
+            $(function() {
+                /* ChartJS
+                 * -------
+                 * Data and config for chartjs
+                 */
+                'use strict';
+                var alphaSet = {
+                    labels: data.alpha.energy,
+                    datasets: [{
+                        label: 'Alpha',
+                        data: data.alpha.intensity,
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 4,
+                        fill: false,
+                        pointStyle: 'circle',
+                        pointRadius: 10,
+                        pointHoverRadius: 15
+                    }]
+                };
+
+                var gammaSet = {
+                    labels: data.gamma.energy,
+                    datasets: [{
+                        label: 'Gamma',
+                        data: data.gamma.intensity,
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 4,
+                        fill: true,
+                        pointStyle: 'circle',
+                        pointRadius: 10,
+                        pointHoverRadius: 15
+                    }]
+                };
+
+                var betaSet = {
+                    labels: data.beta.energy,
+                    datasets: [{
+                        label: 'Beta',
+                        data: data.beta.intensity,
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 4,
+                        fill: false,
+                        pointStyle: 'circle',
+                        pointRadius: 10,
+                        pointHoverRadius: 15
+                    }]
+                };
+
+                var xraySet = {
+                    labels: data.xray.energy,
+                    datasets: [{
+                        label: 'Xray',
+                        data: data.xray.intensity,
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 4,
+                        fill: false,
+                        pointStyle: 'circle',
+                        pointRadius: 10,
+                        pointHoverRadius: 15
+                    }]
+                };
+
+                var options = {
+                    scales: {
+                        y: {
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            title: {
+                                display: true,
+                                text: '% Intensitas',
+                                font: {
+                                    size: 20,
+                                    style: 'normal',
+                                    lineHeight: 1.2
+                                },
+                                padding: {
+                                    top: 30,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'energi (keV)',
+                                font: {
+                                    size: 20,
+                                    style: 'normal',
+                                    lineHeight: 1.2
+                                },
+                            }
+                        },
+                    },
+                    legend: {
+                        display: true
+                    },
+                    elements: {
+                        point: {
+                            radius: 0
+                        }
+                    }
+
+                };
+
+
+                if ($("#alphaLineChart").length && data.alpha.energy.length) {
+                    var lineChartCanvas = $("#alphaLineChart").get(0).getContext("2d");
+                    var alphaLineChart = new Chart(lineChartCanvas, {
+                        type: 'line',
+                        data: alphaSet,
+                        options: options
+                    });
+                } else {
+                    $("#alphaLineChart").remove();
+                    $("#alphaNotFound").html("Data tidak ada!");
+                }
+
+                if ($("#betaLineChart").length && data.beta.energy.length) {
+                    var lineChartCanvas = $("#betaLineChart").get(0).getContext("2d");
+                    var betaLineChart = new Chart(lineChartCanvas, {
+                        type: 'line',
+                        data: betaSet,
+                        options: options
+                    });
+                } else {
+                    $("#betaLineChart").remove();
+                    $("#betaNotFound").html("Data tidak ada!");
+                }
+
+                if ($("#gammaLineChart").length && data.gamma.energy.length) {
+                    var gammaChartCanvas = $("#gammaLineChart").get(0).getContext("2d");
+                    var gammaLineChart = new Chart(gammaChartCanvas, {
+                        type: 'line',
+                        data: gammaSet,
+                        options: options
+                    });
+                } else {
+                    $("#gammaLineChart").remove();
+                    $("#gammaNotFound").html("Data tidak ada!");
+                }
+
+                if ($("#xrayLineChart").length && data.xray.energy.length) {
+                    var xrayChartCanvas = $("#xrayLineChart").get(0).getContext("2d");
+                    var xrayLineChart = new Chart(xrayChartCanvas, {
+                        type: 'line',
+                        data: xraySet,
+                        options: options
+                    });
+                } else {
+                    $("#xrayLineChart").remove();
+                    $("#xrayNotFound").html("Data tidak ada!");
+                }
+
+            });
+        })
+    </script>
+
+    <script>
+        $(function() {
+            $('div.icon-tab').click(function() {
+                $(this).addClass('active').siblings().removeClass('active');
+                setDisplay(450);
+            });
+
+            function setDisplay(time) {
+                $('div.icon-tab').each(function(rang) {
+                    $('.item').eq(rang).css('display', 'none');
+
+                    if ($(this).hasClass('active')) {
+                        $('.item').eq(rang).fadeIn(time);
+                    }
+                });
+            }
+
+            //Disable the animation on page load
+            setDisplay(0);
+        });
     </script>
 @endsection

@@ -5,9 +5,8 @@
             <div class="card-body">
                 <h5 class="card-title">Data IAEA</h5>
                 @isset($apiData)
-
-                    <div class="table-responsive">
-                        <table class="table table-hover">
+                    <div class="table-responsive" style="height: 600px">
+                        <table class="table table-hover table-bordered border-primary">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -16,7 +15,6 @@
                                     <th>Energi</th>
                                     <th>jp</th>
                                     <th>Waktu paruh</th>
-                                    <th>satuan</th>
                                     <th>Waktu paruh (s)</th>
                                     <th>Decay</th>
                                     <th>Magnetic Dipole</th>
@@ -26,13 +24,12 @@
                             <tbody>
                                 @foreach ($apiData as $api)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td class="text-center">{{ $loop->iteration }}</td>
                                         <td>{{ $api['z'] }}</td>
                                         <td>{{ $api['n'] }}</td>
                                         <td>{{ $api['energy'] }}</td>
                                         <td>{{ $api['jp'] }}</td>
-                                        <td>{{ $api['half_life'] }}</td>
-                                        <td>{{ $api['unit_hl'] }}</td>
+                                        <td>{{ $api['half_life'] }} {{ $api['unit_hl'] }}</td>
                                         <td>{{ $api['half_life_sec'] }}</td>
                                         <td>{{ $api['decay_1'] }}</td>
                                         <td>{{ $api['magnetic_dipole'] }}</td>
