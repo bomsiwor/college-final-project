@@ -20,7 +20,7 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td class="text-center">{{ $returning->id }} - <a
-                                        href="{{ route('borrow.tool.show', ['borrow' => $returning->id]) }}"
+                                        href="{{ route('borrow.tool.show', ['borrow' => $returning->borrow_id]) }}"
                                         class="border border-primary px-1 py-1" style="text-decoration: none">Detail</a>
                                 <td class="text-center">{{ $returning->verificator->name }}</td>
                                 <td class="text-center">

@@ -42,7 +42,7 @@ class ToolBorrowController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'inventory_id' => 'required',
+            'inventory_id' => 'required|exists:tools,inventory_unique',
             'before_condition' => 'required',
             'start_borrow_date' => 'required|date|after_or_equal:today',
             'expected_return_date' => 'required|date|after_or_equal:start_borrow_date',
@@ -81,6 +81,15 @@ class ToolBorrowController extends Controller
 
     public function verify(Request $request, Borrow $borrow)
     {
+        if ($borrow->status) :
+            return response()->json([
+                'code' => 403,
+                'success' => false,
+                'message' => 'Sudah diverifikasi',
+                'data' => []
+            ], 403);
+        endif;
+
         $status = [
             'accepted',
             'rejected'

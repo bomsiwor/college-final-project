@@ -84,6 +84,15 @@ class RadioactiveBorrowController extends Controller
 
     public function verify(Request $request, RadioactiveBorrow $borrow)
     {
+        if ($borrow->status) :
+            return response()->json([
+                'code' => 403,
+                'success' => false,
+                'message' => 'Sudah diverifikasi',
+                'data' => []
+            ], 403);
+        endif;
+
         $status = [
             'accepted',
             'rejected'

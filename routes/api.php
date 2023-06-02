@@ -38,27 +38,36 @@ Route::controller(AttendanceController::class)->middleware('auth:sanctum')->grou
 Route::controller(ToolController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/tool', 'index');
     Route::get('/tool/{tool}', 'show');
-    Route::post('/tool', 'store')->middleware('api_role');
-    Route::put('/tool/{tool:inventory_unique}', 'update');
-    Route::delete('/tool/{tool:inventory_unique}', 'destroy')->middleware('api_role');
+
+    Route::middleware('api_role:admin')->group(function () {
+        Route::post('/tool', 'store');
+        Route::put('/tool/{tool:inventory_unique}', 'update');
+        Route::delete('/tool/{tool:inventory_unique}', 'destroy');
+    });
 });
 
 // Radioactive
 Route::controller(RadioactiveController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/radioactive', 'index');
     Route::get('/radioactive/{radioactive}', 'show');
-    Route::post('/radioactive', 'store');
-    Route::put('/radioactive/{radioactive:inventory_unique}', 'update');
-    Route::delete('/radioactive/{radioactive:inventory_unique}', 'destroy');
+
+    Route::middleware('api_role:admin')->group(function () {
+        Route::post('/radioactive', 'store');
+        Route::put('/radioactive/{radioactive:inventory_unique}', 'update');
+        Route::delete('/radioactive/{radioactive:inventory_unique}', 'destroy');
+    });
 });
 
 // Maintenance
 Route::controller(MaintenanceController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/maintenance', 'index');
     Route::get('/maintenance/{maintenance}', 'show');
-    Route::post('/maintenance', 'store');
-    Route::put('/maintenance/{maintenance}', 'update');
-    Route::delete('/maintenance/{maintenance}', 'destroy');
+
+    Route::middleware('api_role:admin')->group(function () {
+        Route::post('/maintenance', 'store');
+        Route::put('/maintenance/{maintenance}', 'update');
+        Route::delete('/maintenance/{maintenance}', 'destroy');
+    });
 });
 
 // Log
@@ -73,21 +82,25 @@ Route::controller(LogController::class)->middleware('auth:sanctum')->group(funct
 Route::controller(ToolBorrowController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/tool-borrow', 'index');
     Route::post('/tool-borrow', 'store');
-    Route::post('/tool-borrow/verify/{borrow}', 'verify');
     Route::delete('/tool-borrow/{borrow}', 'delete');
+
+    Route::post('/tool-borrow/verify/{borrow}', 'verify')->middleware('api_role:admin');
 });
 
 // Tool Return
 Route::controller(ToolReturnController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/tool-return', 'index');
+
+    Route::post('/tool-return/verify/{borrow}', 'verify')->middleware('api_role:admin');
 });
 
 // Radioactive Borrowing
 Route::controller(RadioactiveBorrowController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/radioactive-borrow', 'index');
     Route::post('/radioactive-borrow', 'store');
-    Route::post('/radioactive-borrow/verify/{borrow}', 'verify');
     Route::delete('/radioactive-borrow/{borrow}', 'delete');
+
+    Route::post('/radioactive-borrow/verify/{borrow}', 'verify')->middleware('api_role:admin');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

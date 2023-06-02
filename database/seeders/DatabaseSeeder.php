@@ -29,10 +29,20 @@ class DatabaseSeeder extends Seeder
         \App\Models\Institution::factory(5)->create();
 
         $arrayOfRoleNames = ['admin', 'user', 'ka-lab'];
+
         $roles = collect($arrayOfRoleNames)->map(function ($role) {
             return [
                 'name' => $role,
                 'guard_name' => 'web'
+            ];
+        });
+
+        Role::insert($roles->toArray());
+
+        $roles = collect($arrayOfRoleNames)->map(function ($role) {
+            return [
+                'name' => $role,
+                'guard_name' => 'api'
             ];
         });
 
@@ -54,6 +64,7 @@ class DatabaseSeeder extends Seeder
             'manage-maintenance',
             'manage-site',
             'manage-agenda',
+            'manage-report',
             'kepala-lab'
         ];
 

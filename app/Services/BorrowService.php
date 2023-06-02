@@ -50,6 +50,35 @@ class BorrowService
             DB::transaction(function () use ($data, $request) {
                 $data->actual_return_date = $request->returning_date;
                 $data->after_condition = $request->condition;
+                $data->status = 'returned';
+                $data->save();
+
+                Returning::create([
+                    'borrow_id' => $data->id,
+                    'verificator_id' => Auth::user()->id,
+                    'returning_date' => $request->returning_date,
+                    'condition' => $request->condition
+                ]);
+
+                Tool::where('inventory_unique', $data->inventory_id)->update([
+                    'status' => 'available',
+                    'condition' => $request->condition
+                ]);
+            });
+        } catch (\Throwable $e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function returningApi($data, $request)
+    {
+        try {
+            DB::transaction(function () use ($data, $request) {
+                $data->actual_return_date = $request->returning_date;
+                $data->after_condition = $request->condition;
+                $data->status = 'returned';
                 $data->save();
 
                 Returning::create([

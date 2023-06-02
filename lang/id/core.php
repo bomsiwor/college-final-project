@@ -92,6 +92,10 @@ return [
         'text' => 'Disetujui',
         'class' => 'border-success border text-success'
     ],
+    'returned' => [
+        'text' => 'Dikembalikan',
+        'class' => 'border-success border text-success'
+    ],
     'pending' => [
         'text' => 'Menunggu',
         'class' => 'border-warning border text-warning'
@@ -112,7 +116,7 @@ return [
 
     // Status Laporan
     'requested' => 'Diajukan',
-    'accepted' => 'Diterima',
+    // 'accepted' => 'Diterima',
     'analyzed' => 'Tahap analisis',
     'advancing' => 'Tahap tindak lanjut',
     'repairing' => 'Tahap Perbaikan',
