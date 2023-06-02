@@ -16,7 +16,7 @@
     <div class="row">
         {{-- Semua data card --}}
         <div class="col-lg-3">
-            <div class="card bg-info">
+            <div class="card bg-info mb-2">
                 <div class="card-body">
                     <h5 class="card-title text-white">Semua data</h5>
                     <p class="text-white">Semua data presensi</p>

@@ -97,8 +97,8 @@
                                                     {{ __("core.$d->status.text") }}</td>
                                                 <td class="text-right d-flex flex-wrap">
                                                     <a href="{{ route('tool.detail', ['tool' => $d->inventory_unique]) }}"
-                                                        class="btn btn-sm btn-light">
-                                                        <i class="ti-eye text-primary"></i>View
+                                                        class="btn btn-sm btn-primary">
+                                                        <i class="mdi mdi-eye"></i>Detail
                                                     </a>
                                                 </td>
                                             </tr>

@@ -3,19 +3,17 @@
     <div class="col-md-9 order-2 order-md-1">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Data IAEA</h5>
+                <h5 class="card-title">Profil Radioisotop</h5>
                 @isset($apiData)
                     <div class="table-responsive" style="height: 600px">
                         <table class="table table-hover table-bordered border-primary">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>z</th>
-                                    <th>n</th>
+                                    <th>Nomor Atom</th>
                                     <th>Energi</th>
                                     <th>jp</th>
                                     <th>Waktu paruh</th>
-                                    <th>Waktu paruh (s)</th>
                                     <th>Decay</th>
                                     <th>Magnetic Dipole</th>
                                     <th>Electric Quadrupole</th>
@@ -25,13 +23,28 @@
                                 @foreach ($apiData as $api)
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
-                                        <td>{{ $api['z'] }}</td>
-                                        <td>{{ $api['n'] }}</td>
+                                        <td><b>z</b> : {{ $api['z'] }}
+                                            <br>
+                                            <b>n</b> : {{ $api['n'] }}
+                                        </td>
                                         <td>{{ $api['energy'] }}</td>
                                         <td>{{ $api['jp'] }}</td>
-                                        <td>{{ $api['half_life'] }} {{ $api['unit_hl'] }}</td>
-                                        <td>{{ $api['half_life_sec'] }}</td>
-                                        <td>{{ $api['decay_1'] }}</td>
+                                        <td>
+                                            @if ($api['half_life'] !== ' ')
+                                                {{ $api['half_life'] }} {{ __('nuclear.hl.' . $api['unit_hl']) }}
+                                                <br>
+                                                {{ $api['half_life_sec'] }} s
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($api['decay_1'] !== ' ')
+                                                {{ __('nuclear.decay.' . $api['decay_1']) }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
                                         <td>{{ $api['magnetic_dipole'] }}</td>
                                         <td>{{ $api['electric_quadrupole'] }}</td>
                                     </tr>

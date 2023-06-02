@@ -109,12 +109,6 @@ class LevelsDataComponent extends Component
             return $action->handle($this->slug, $field, "x");
         });
 
-        $cleanerXrayData = $this->xray_decay->reject(function ($item) {
-            if ($item['intensity'] == " " || $item['intensity'] < 0.001) :
-                return true;
-            endif;
-        });
-
 
         $data['gamma']['energy'] = $cleanerGammaData->pluck('energy');
         $data['gamma']['intensity'] = $cleanerGammaData->pluck('intensity');

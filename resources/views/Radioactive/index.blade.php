@@ -89,12 +89,9 @@
                                                     {{ __("core.$d->status.text") }}</td>
                                                 <td class="text-right">
                                                     <a href="{{ route('radioactive.detail', ['radioactive' => $d->inventory_unique]) }}"
-                                                        class="btn btn-light">
-                                                        <i class="ti-eye text-primary"></i>View
+                                                        class="btn btn-sm btn-primary">
+                                                        <i class="mdi mdi-eye"></i>Detail
                                                     </a>
-                                                    <button class="btn btn-light">
-                                                        <i class="ti-close text-danger"></i>Remove
-                                                    </button>
                                                 </td>
                                             </tr>
                                         @endforeach

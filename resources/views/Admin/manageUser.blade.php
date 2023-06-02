@@ -19,7 +19,7 @@
     </nav>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 mb-2">
             <div class="card">
                 <div class="card-body">
                     @if (session('success'))

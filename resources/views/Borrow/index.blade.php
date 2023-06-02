@@ -15,7 +15,7 @@
     <h4>Pilih Data</h4>
     <div class="row">
         {{-- Semua data card --}}
-        <div class="col-lg-3">
+        <div class="col-lg-3 mb-2">
             <div class="card bg-info">
                 <div class="card-body">
                     <h5 class="card-title text-white">Peminjaman Alat</h5>
