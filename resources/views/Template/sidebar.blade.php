@@ -103,12 +103,12 @@
         </li>
         <li class="nav-item nav-category">Laboratorium</li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="#">
                 <i class="mdi mdi-location-enter menu-icon"></i>
                 <span class="menu-title">Izin Penggunaan</span>
             </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
             <a class="nav-link" href="{{ route('activity.radiationLog') }}">
                 <i class="mdi mdi-skull-scan menu-icon"></i>

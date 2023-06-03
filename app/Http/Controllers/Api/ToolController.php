@@ -21,26 +21,33 @@ class ToolController extends Controller
 
         $tools = Tool::ApiSummary()->limit($this->limit)->offset($this->offset)->get();
 
-        return response()->json([
-            'code' => 200,
-            'success' => true,
-            'message' => 'Sukses',
-            'data' => [
-                'tools' => $tools,
-                'limit' => $this->limit,
-                'offset' => $this->offset
-            ]
+        // return response()->json([
+        //     'code' => 200,
+        //     'success' => true,
+        //     'message' => 'Sukses',
+        //     'data' => [
+        //         'tools' => $tools,
+        //         'limit' => $this->limit,
+        //         'offset' => $this->offset
+        //     ]
+        // ]);
+
+        return response()->success([
+            'tools' => $tools,
+            'limit' => $this->limit,
+            'offset' => $this->offset
         ]);
     }
 
     public function show(Tool $tool)
     {
-        return response()->json([
-            'code' => 200,
-            'success' => true,
-            'message' => 'Sukses',
-            'data' => $tool
-        ]);
+        // return response()->json([
+        //     'code' => 200,
+        //     'success' => true,
+        //     'message' => 'Sukses',
+        //     'data' => $tool
+        // ]);
+        return response()->success($tool);
     }
 
     public function store(Request $request)
@@ -73,12 +80,13 @@ class ToolController extends Controller
 
         $tool = Tool::create($validated);
 
-        return response()->json([
-            'code' => 201,
-            'success' => true,
-            'message' => 'Sukses tercatat!',
-            'data' => $tool
-        ], 201);
+        // return response()->json([
+        //     'code' => 201,
+        //     'success' => true,
+        //     'message' => 'Sukses tercatat!',
+        //     'data' => $tool
+        // ], 201);
+        return response()->created($tool);
     }
 
     public function update(Request $request, Tool $tool)
@@ -123,12 +131,14 @@ class ToolController extends Controller
             ], 403);
         }
 
-        return response()->json([
-            'code' => 200,
-            'success' => true,
-            'message' => 'Sukses terupdate!',
-            'data' => $tool
-        ], 200);
+        // return response()->json([
+        //     'code' => 200,
+        //     'success' => true,
+        //     'message' => 'Sukses terupdate!',
+        //     'data' => $tool
+        // ], 200);
+
+        return response()->success($tool, "Sukses terupdate!");
     }
 
     public function destroy(Tool $tool)
@@ -153,11 +163,12 @@ class ToolController extends Controller
             ], 403);
         }
 
-        return response()->json([
-            'code' => 200,
-            'success' => true,
-            'message' => 'Sukses terhapus!',
-            'data' => []
-        ], 200);
+        // return response()->json([
+        //     'code' => 200,
+        //     'success' => true,
+        //     'message' => 'Sukses terhapus!',
+        //     'data' => []
+        // ], 200);
+        return response()->success([], "Sukses terhapus!");
     }
 }

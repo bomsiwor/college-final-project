@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Response;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -49,5 +50,26 @@ class AppServiceProvider extends ServiceProvider
         if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
             $this->app['request']->server->set('HTTPS', true);
         }
+
+        // Response
+        // 200
+        Response::macro('success', function ($data = null, $message = 'Sukses') {
+            return response()->json([
+                'code' => 200,
+                'success' => true,
+                'message' => $message,
+                'data' => $data
+            ]);
+        });
+
+        // 201
+        Response::macro('created', function ($data = null, $message = "tersimpan") {
+            return response()->json([
+                'code' => 201,
+                'success' => true,
+                'message' => "Sukses $message!",
+                'data' => $data
+            ], 201);
+        });
     }
 }

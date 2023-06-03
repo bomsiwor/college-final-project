@@ -21,26 +21,33 @@ class RadioactiveController extends Controller
 
         $radioactives = Radioactive::apiSummary();
 
-        return response()->json([
-            'code' => 200,
-            'success' => true,
-            'message' => 'Sukses',
-            'data' => [
-                'radioactives' => $radioactives,
-                'limit' => $this->limit,
-                'offset' => $this->offset
-            ]
+        // return response()->json([
+        //     'code' => 200,
+        //     'success' => true,
+        //     'message' => 'Sukses',
+        //     'data' => [
+        //         'radioactives' => $radioactives,
+        //         'limit' => $this->limit,
+        //         'offset' => $this->offset
+        //     ]
+        // ]);
+
+        return response()->success([
+            'radioactives' => $radioactives,
+            'limit' => $this->limit,
+            'offset' => $this->offset
         ]);
     }
 
     public function show(Radioactive $radioactive)
     {
-        return response()->json([
-            'code' => 200,
-            'success' => true,
-            'message' => 'Sukses',
-            'data' => $radioactive
-        ]);
+        // return response()->json([
+        //     'code' => 200,
+        //     'success' => true,
+        //     'message' => 'Sukses',
+        //     'data' => $radioactive
+        // ]);
+        return response()->success($radioactive);
     }
 
     public function store(Request $request, Radioactive $radioactive)
@@ -97,12 +104,13 @@ class RadioactiveController extends Controller
             ], 403);
         }
 
-        return response()->json([
-            'code' => 201,
-            'success' => true,
-            'message' => 'Sukses menyimpan!',
-            'data' => $radioactive
-        ], 201);
+        // return response()->json([
+        //     'code' => 201,
+        //     'success' => true,
+        //     'message' => 'Sukses menyimpan!',
+        //     'data' => $radioactive
+        // ], 201);
+        return response()->created($radioactive);
     }
 
     public function update(Request $request, Radioactive $radioactive)
@@ -175,11 +183,12 @@ class RadioactiveController extends Controller
     {
         $radioactive->delete();
 
-        return response()->json([
-            'code' => 200,
-            'success' => true,
-            'message' => 'Sukses terhapus!',
-            'data' => []
-        ], 200);
+        // return response()->json([
+        //     'code' => 200,
+        //     'success' => true,
+        //     'message' => 'Sukses terhapus!',
+        //     'data' => []
+        // ], 200);
+        return response()->success([], "Sukses terhapus!");
     }
 }

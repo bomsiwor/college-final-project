@@ -19,15 +19,21 @@ class AttendanceController extends Controller
 
         $attendances = Attendance::limit($this->limit)->offset($this->offset)->with('user:id,name')->get();
 
-        return response()->json([
-            'code' => 200,
-            'success' => true,
-            'message' => 'Sukses',
-            'data' => [
-                'attendances' => $attendances,
-                'limit' => $this->limit,
-                'offset' => $this->offset
-            ]
+        // return response()->json([
+        //     'code' => 200,
+        //     'success' => true,
+        //     'message' => 'Sukses',
+        //     'data' => [
+        //         'attendances' => $attendances,
+        //         'limit' => $this->limit,
+        //         'offset' => $this->offset
+        //     ]
+        // ]);
+
+        return response()->success([
+            'attendances' => $attendances,
+            'limit' => $this->limit,
+            'offset' => $this->offset
         ]);
     }
 
@@ -60,11 +66,12 @@ class AttendanceController extends Controller
             ]
         );
 
-        return response()->json([
-            'code' => 201,
-            'success' => true,
-            'message' => 'Sukses tercatat!',
-            'data' => $attendance
-        ], 201);
+        // return response()->json([
+        //     'code' => 201,
+        //     'success' => true,
+        //     'message' => 'Sukses tercatat!',
+        //     'data' => $attendance
+        // ], 201);
+        return response()->created($attendance);
     }
 }
