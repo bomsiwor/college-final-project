@@ -10,6 +10,7 @@ use App\Models\StudyProgram;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Actions\StoreMessageAction;
+use App\Models\Agenda;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Yaza\LaravelGoogleDriveStorage\Gdrive;
@@ -37,9 +38,12 @@ class DashboardController extends Controller
             ->where('user_id', '=', auth()->id())
             ->count();
 
+        // Agenda hari ini
+        $agendas = Agenda::todayEvent();
+
         $title = 'Dashboard - Pagu';
 
-        return view('Dashboard.index', compact('label', 'title', 'value', 'borrow_announce_admin', 'borrow_announce_user'));
+        return view('Dashboard.index', compact('label', 'title', 'value', 'borrow_announce_admin', 'borrow_announce_user', 'agendas'));
     }
 
     public function profile()

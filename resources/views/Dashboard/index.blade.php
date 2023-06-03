@@ -53,6 +53,7 @@
         </div>
     </div>
 
+    {{-- Quick menu mobile --}}
     <div class="row my-2 d-md-none">
         {{-- Presensi --}}
         <div class="col-4 col-lg-4">
@@ -196,7 +197,6 @@
                                         <hr>
                                     @endrole
 
-
                                     @if ($borrow_announce_user)
                                         <small>
                                             <h5>Ada <span class="badge rounded bg-white text-primary">
@@ -212,6 +212,20 @@
                                 @else
                                     <p class="fw-bold">All set!</p>
                                 @endif
+                                @if ($agendas->isNotEmpty())
+                                    <hr class="text-white">
+                                    <h6 class="fw-bold">Agenda hari ini :</h6>
+                                    <ul class="mb-0">
+                                        @foreach ($agendas as $agenda)
+                                            <li>
+                                                {{ $agenda->agenda_name }} : {{ $agenda->start_time }} -
+                                                {{ $agenda->end_time }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <h6 class="fw-bold">Tidak ada agenda hari ini</h6>
+                                @endif
 
                             </div>
                         </div>
@@ -226,7 +240,8 @@
                                     <h3 class="text-white upgrade-info mb-0">
                                         Data radioisotop terintegrasi dengan <span class="fw-bold">IAEA</span> !
                                     </h3>
-                                    <a href="#" class="btn btn-info upgrade-btn">Let's Go!</a>
+                                    <a href="{{ route('radioactive.index') }}" class="btn btn-info upgrade-btn">Let's
+                                        Go!</a>
                                 </div>
                             </div>
                         </div>
