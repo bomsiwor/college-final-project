@@ -31,9 +31,8 @@
                         <li class="nav-item"> <a class="nav-link" href="{{ route('admin.returning') }}">Kelola
                                 Pengembalian</a>
                         </li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Kelola Dokumen</a>
-                        </li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Kelola Agenda</a>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('document.admin.index') }}">Kelola
+                                Dokumen</a>
                         </li>
                         <li class="nav-item"> <a class="nav-link" href="#">Kelola Postingan</a>
                         </li>

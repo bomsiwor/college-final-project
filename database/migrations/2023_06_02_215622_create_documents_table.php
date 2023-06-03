@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('category');
             $table->string('topic')->nullable();
+            $table->string('status')->default('published');
             $table->text('description')->nullable();
             $table->string('file');
             $table->timestamps();

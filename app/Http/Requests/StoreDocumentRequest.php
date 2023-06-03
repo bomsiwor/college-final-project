@@ -13,7 +13,7 @@ class StoreDocumentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class StoreDocumentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|min:5',
+            'category' => 'required|min:5',
+            'topic' => 'nullable|min:5|required_if:category,other',
+            'description' => 'nullable|required_if:category,other',
+            'file' => 'required|file|mimetypes:application/pdf'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'Judul dokumen',
+            'file' => 'File',
+            'category' => 'Kategori',
+            'topic' => 'Topik'
         ];
     }
 }

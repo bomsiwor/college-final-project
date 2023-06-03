@@ -10,6 +10,7 @@ use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\RadioactiveController;
 use App\Http\Controllers\RadioactiveBorrowController;
@@ -165,6 +166,7 @@ Route::middleware('auth')->prefix('report-problem')->controller(ReportProblemCon
     Route::post('finalize', 'finalize')->name('finalize');
 });
 
+// Agenda
 Route::middleware('auth:sanctum')->prefix('agenda')->controller(AgendaController::class)->name('agenda.')->group(function () {
     Route::get('/', 'index')->name('index');
 
@@ -174,6 +176,15 @@ Route::middleware('auth:sanctum')->prefix('agenda')->controller(AgendaController
 
         Route::get('edit', 'edit')->name('edit');
         Route::post('update', 'update')->name('update');
+    });
+});
+
+// Document
+Route::middleware('auth:sanctum')->prefix('document')->controller(DocumentController::class)->name('document.')->group(function () {
+    Route::middleware('permission:manage-document')->name('admin.')->group(function () {
+        Route::get('manage', 'adminIndex')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
     });
 });
 
