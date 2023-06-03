@@ -136,7 +136,7 @@
         </li>
         <li class="nav-item nav-category">Penting</li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard.agenda') }}">
+            <a class="nav-link" href="{{ route('agenda.index') }}">
                 <i class="menu-icon mdi mdi-calendar"></i>
                 <span class="menu-title">Jadwal</span>
             </a>

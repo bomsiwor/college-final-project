@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\MaintenanceController;
@@ -48,7 +49,6 @@ Route::middleware('auth')->controller(DashboardController::class)->name('dashboa
     Route::get('/profile', 'profile')->name('profile');
     Route::get('/help', 'help')->name('help');
     Route::get('/contact-us', 'contact')->name('contact');
-    Route::get('/agenda', 'agenda')->name('agenda');
 
     // Form request method
     Route::post('/blank', 'blank')->name('blank');
@@ -163,6 +163,18 @@ Route::middleware('auth')->prefix('report-problem')->controller(ReportProblemCon
     Route::post('advancing', 'advancing')->name('advancing');
     Route::post('repairing', 'repairing')->name('repairing');
     Route::post('finalize', 'finalize')->name('finalize');
+});
+
+Route::middleware('auth:sanctum')->prefix('agenda')->controller(AgendaController::class)->name('agenda.')->group(function () {
+    Route::get('/', 'index')->name('index');
+
+    Route::middleware('permission:manage-agenda')->group(function () {
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+
+        Route::get('edit', 'edit')->name('edit');
+        Route::post('update', 'update')->name('update');
+    });
 });
 
 // Admin menu

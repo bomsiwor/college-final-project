@@ -63,13 +63,6 @@ class DashboardController extends Controller
         return view('Dashboard.contact', compact('title'));
     }
 
-    public function agenda()
-    {
-        $title = 'Agenda Laboratorium';
-
-        return view('Dashboard.agenda', compact('title'));
-    }
-
     public function blank(Request $request)
     {
         $file = $request->file('file');

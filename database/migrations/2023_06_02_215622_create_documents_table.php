@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('category');
+            $table->string('topic')->nullable();
+            $table->text('description')->nullable();
+            $table->string('file');
             $table->timestamps();
         });
     }
