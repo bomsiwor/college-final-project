@@ -18,6 +18,7 @@ class Document extends Model
         'category',
         'topic',
         'description',
-        'file'
+        'file',
+        'status'
     ];
 }

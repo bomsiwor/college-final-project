@@ -120,5 +120,10 @@ return [
     'analyzed' => 'Tahap analisis',
     'advancing' => 'Tahap tindak lanjut',
     'repairing' => 'Tahap Perbaikan',
-    'done' => 'Laporan Selesai'
+    'done' => 'Laporan Selesai',
+
+    // Document
+    'modul' => 'Modul',
+    'procedure' => 'Prosedur',
+    'sop' => 'SOP/Tata tertib',
 ];

@@ -51,7 +51,10 @@
                                 @foreach ($docs as $doc)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $doc->title }}</td>
+                                        <td class="lh-base">{{ $doc->title }}
+                                            <br> Diupload pada : @tanggal($doc->created_at)
+                                            <br>Terakhir di-update : @tanggal($doc->updated_at)
+                                        </td>
                                         <td>{{ $doc->category }}</td>
                                         <td>{{ $doc->topic }}</td>
                                         <td>{{ $doc->status }}</td>
@@ -61,12 +64,32 @@
                                                     type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                                                     aria-haspopup="true" aria-expanded="false"> Aksi </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                                    <a class="dropdown-item" href="#">Detail</a>
-                                                    <a class="dropdown-item" href="#">Edit data</a>
-                                                    <a class="dropdown-item" href="#">Arsipkan</a>
-                                                    <a class="dropdown-item" href="#">Publikasikan</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('document.show', ['document' => $doc->id]) }}">Detail</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('document.admin.edit', ['document' => $doc->id]) }}">Edit
+                                                        data</a>
+                                                    <form action="{{ route('document.admin.updateStatus') }}"
+                                                        method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $doc->id }}">
+                                                        @if ($doc->status == 'published')
+                                                            <button type="submit" name="status" value="archived"
+                                                                class="dropdown-item">Arsipkan</button>
+                                                        @else
+                                                            <button class="dropdown-item" name="status"
+                                                                value="published">Publikasikan</button>
+                                                        @endif
+                                                    </form>
                                                     <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item text-danger" href="#">Hapus</a>
+                                                    <form action="{{ route('document.admin.delete') }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <input type="hidden" name="id" value="{{ $doc->id }}">
+                                                        <button type="submit"
+                                                            class="dropdown-item text-danger">Hapus</button>
+                                                    </form>
+
                                                 </div>
                                             </div>
                                         </td>

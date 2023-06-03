@@ -6,6 +6,8 @@ use App\Models\Document;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreDocumentRequest;
+use App\Http\Requests\UpdateDocumentRequest;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
@@ -15,6 +17,20 @@ class DocumentController extends Controller
         $this->model = new Document();
     }
     //
+    public function show(Document $document)
+    {
+        $title = 'Detail - ' . $document->title;
+
+        return view('Document.show', compact('title', 'document'));
+    }
+
+    public function download(Request $request)
+    {
+        $data = $this->model->find($request->id);
+
+        return Storage::download($data->file);
+    }
+
     public function adminIndex()
     {
         $title = 'Kelola dokumen';
@@ -46,5 +62,41 @@ class DocumentController extends Controller
         $this->model->create($input);
 
         return to_route('document.admin.index')->with('created', "Sukses menyimpan dokumen");
+    }
+
+    public function edit(Document $document)
+    {
+        $title = 'Edit dokumen';
+
+        return view('Document.edit', compact('title', 'document'));
+    }
+
+    public function update(UpdateDocumentRequest $request)
+    {
+        $this->model->where('id', $request->id)->update($request->validated());
+
+        return to_route('document.admin.index')->with('created', "Sukses mengupdate dokumen");
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $data = $this->model->find($request->id);
+
+        $data->update([
+            'status' => $request->status
+        ]);
+
+        return to_route('document.admin.index')->with('created', "Status dokumen ID-$data->id diubah!");
+    }
+
+    public function destroy(Request $request)
+    {
+        $data = $this->model->find($request->id);
+
+        Storage::delete($data->file);
+
+        $data->delete();
+
+        return to_route('document.admin.index')->with('deleted', "Berhasil menghapus dokumen");
     }
 }
