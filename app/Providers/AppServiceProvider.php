@@ -71,5 +71,7 @@ class AppServiceProvider extends ServiceProvider
                 'data' => $data
             ], 201);
         });
+
+        Paginator::useBootstrapFive();
     }
 }

@@ -124,12 +124,18 @@
             </a>
             <div class="collapse" id="documentLab">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html">
+                    <li class="nav-item"> <a class="nav-link"
+                            href="{{ route('document.index', ['document' => 'modul']) }}">
                             Praktikum</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login-2.html">
+                    <li class="nav-item"> <a class="nav-link"
+                            href="{{ route('document.index', ['document' => 'sop']) }}">
                             Tata-tertib</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.html">
+                    <li class="nav-item"> <a class="nav-link"
+                            href="{{ route('document.index', ['document' => 'procedure']) }}">
                             Prosedur Kinerja</a></li>
+                    <li class="nav-item"> <a class="nav-link"
+                            href="{{ route('document.index', ['document' => 'other']) }}">
+                            Lainnya</a></li>
                 </ul>
             </div>
         </li>

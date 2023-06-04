@@ -25,7 +25,7 @@ class StoreDocumentRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5',
-            'category' => 'required|min:5',
+            'category' => 'required|min:3',
             'topic' => 'nullable|min:5|required_if:category,other',
             'description' => 'nullable|required_if:category,other',
             'file' => 'required|file|mimetypes:application/pdf'

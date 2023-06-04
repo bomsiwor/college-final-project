@@ -180,11 +180,12 @@ Route::middleware('auth:sanctum')->prefix('agenda')->controller(AgendaController
 });
 
 // Document
-Route::middleware('auth:sanctum')->prefix('document')->controller(DocumentController::class)->name('document.')->group(function () {
-    Route::get('/{document}/detail', 'show')->name('show');
-    Route::post('download', 'download')->name('download');
+Route::middleware('auth:sanctum')->controller(DocumentController::class)->name('document.')->group(function () {
+    Route::get('/document/{document:category}', 'index')->name('index');
+    Route::get('/document/{document}/detail', 'show')->name('show');
+    Route::post('document/download', 'download')->name('download');
 
-    Route::middleware('permission:manage-document')->name('admin.')->group(function () {
+    Route::middleware('permission:manage-document')->prefix('admin/document')->name('admin.')->group(function () {
         Route::get('manage', 'adminIndex')->name('index');
         Route::get('create', 'create')->name('create');
         Route::post('store', 'store')->name('store');

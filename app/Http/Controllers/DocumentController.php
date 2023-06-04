@@ -17,6 +17,21 @@ class DocumentController extends Controller
         $this->model = new Document();
     }
     //
+
+    public function index(Request $request, $category)
+    {
+        $title = "Dokumen";
+        $model = $this->model->category($category);
+        if ($request->search) :
+            $model->filter($request->search);
+        endif;
+
+        $document = $model->paginate($perPage = 10, $columns = ['*'], $pageName = 'halaman')->withQueryString();
+        $topics = $model->select('topic')->get()->pluck('topic');
+
+        return view('Document.index', compact('title', 'document', 'category', 'topics'));
+    }
+
     public function show(Document $document)
     {
         $title = 'Detail - ' . $document->title;
