@@ -156,6 +156,16 @@
                                             </div>
                                         @endif
 
+                                        @if (auth()->user()->unit)
+                                            <!-- Prodi -->
+                                            <div class="form-group mb-1">
+                                                <label for="study_program">Unit</label>
+                                                <input type="study_program" class="form-control form-control"
+                                                    id="study_program" value="{{ auth()->user()->unit->unit_name }}"
+                                                    disabled />
+                                            </div>
+                                        @endif
+
                                         <!-- Indentifier -->
                                         <div class="form-group mb-1">
                                             <label for="identifier">Jenis Identitas</label>
@@ -183,6 +193,22 @@
                                             <label for="phone">Nomor Telepon</label>
                                             <input type="phone" class="form-control form-control" id="phone"
                                                 value="{{ auth()->user()->phone }}" name="phone" />
+                                        </div>
+
+                                        <!-- Instansi -->
+                                        <div class="form-group mb-1">
+                                            <label for="institution_name">Asal Instansi</label>
+                                            <input type="institution_name" class="form-control form-control"
+                                                id="institution_name"
+                                                value="{{ auth()->user()->institution->institution_name }}"
+                                                name="institution_name" disabled style="height: 60px" />
+                                        </div>
+                                        <div class="form-group mb-1">
+                                            <label for="insitituion_address">Alamat Instansi</label>
+                                            <input type="insitituion_address" class="form-control form-control"
+                                                id="insitituion_address"
+                                                value="{{ auth()->user()->institution->institution_address }}"
+                                                name="insitituion_address" disabled style="height: 60px" />
                                         </div>
 
                                         <!-- Deskpripsi -->

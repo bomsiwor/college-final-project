@@ -27,9 +27,7 @@ use App\Http\Controllers\ReportProblemController;
 |
 */
 // Landing page
-Route::get('/', function () {
-    return redirect()->to('/dashboard');
-});
+Route::view('/', 'Landing-page.index');
 
 // Authenctication
 Route::controller(AuthController::class)->group(function () {

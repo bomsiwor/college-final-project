@@ -127,7 +127,7 @@
 
                     <a class="dropdown-item" href="{{ route('dashboard.profile') }}"><i
                             class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Atur Profil
-                        <span class="badge badge-pill badge-danger">1</span></a>
+                    </a>
                     <a class="dropdown-item" href="{{ route('dashboard.contact') }}"><i
                             class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
                         Kontak kami</a>
