@@ -25,6 +25,13 @@ class AgendaController extends Controller
         return view('Dashboard.agenda', compact('title', 'data'));
     }
 
+    public function show(Request $request, $id)
+    {
+        $title = 'Detail agenda';
+        $agenda = $this->model->find($id);
+        return view('Agenda.show', compact('title', 'agenda'));
+    }
+
     public function create()
     {
         $title = 'Tambah data';

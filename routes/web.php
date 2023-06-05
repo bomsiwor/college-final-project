@@ -56,7 +56,7 @@ Route::middleware('auth')->controller(DashboardController::class)->name('dashboa
 
     // Form request method
     Route::post('/blank', 'blank')->name('blank');
-    Route::post('/send-message', 'storeMessage')->name('message.store');
+    Route::post('/send-message', 'storeMessage')->name('message.store')->withoutMiddleware('auth');
 });
 
 // Activity
@@ -172,6 +172,7 @@ Route::middleware('auth')->prefix('report-problem')->controller(ReportProblemCon
 // Agenda
 Route::middleware('auth:sanctum')->prefix('agenda')->controller(AgendaController::class)->name('agenda.')->group(function () {
     Route::get('/', 'index')->name('index');
+    Route::get('/{id}/detail', 'show')->name('show');
 
     Route::middleware('permission:manage-agenda')->group(function () {
         Route::get('create', 'create')->name('create');

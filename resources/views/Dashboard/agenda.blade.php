@@ -53,7 +53,9 @@
                                         <td class="text-center">
                                             {{ $d->start_time }} - {{ $d->end_time }}
                                         </td>
-                                        <td><a href="#" class="btn btn-primary btn-sm">Detail</a></td>
+                                        <td><a href="{{ route('agenda.show', ['id' => $d->id]) }}"
+                                                class="btn btn-primary btn-sm">Detail</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
