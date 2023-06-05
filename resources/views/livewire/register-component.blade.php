@@ -118,10 +118,6 @@
                             @enderror
                         </div>
                     @elseif($position == 'lecturer')
-                        <div class="col-lg-8">
-                            <label for="identification_number">NIP</label>
-                            <input type="text" name="identification_number" id="identification_number" class="form-control">
-                        </div>
                         <div class="col-lg-6">
                             <input type="hidden" name="identifier" wire:model.defer='identifier' value="NIP">
                             <label for="identification_number">NIP</label>

@@ -76,9 +76,10 @@
                 <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
                     <div data-aos="zoom-out">
                         <h1>Selamat Datang di <span>Laboratorium Instrumentasi Nuklir</span></h1>
-                        <h2>Login untuk mendapatkan layanan yang lebih lengkap!</h2>
+                        <h2>Terintegrasi dengan data radioisotop IAEA. Login untuk mendapatkan layanan yang lebih
+                            lengkap!</h2>
                         <div class="text-center text-lg-start">
-                            <a href="#about" class="btn-get-started scrollto">Login</a>
+                            <a href="{{ route('dashboard.index') }}" class="btn-get-started scrollto">Login</a>
                         </div>
                     </div>
                 </div>
@@ -119,25 +120,32 @@
 
                     <div class="col-lg-5 icon-boxes py-5 px-lg-5">
                         <h3>Agenda hari ini</h3>
-                        <p>Kegiatan yang berlangsung pada laboratorium instrumentasi nuklir hari ini :</p>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Kegiatan</th>
-                                    <th>Waktu</th>
-                                </tr>
-                            </thead>
+                        @if ($agendas->isNotEmpty())
+                            <p>Kegiatan yang berlangsung pada laboratorium instrumentasi nuklir hari ini :</p>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Kegiatan</th>
+                                        <th>Waktu</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Lorem ipsum dolor sit amet.</td>
-                                    <td>sekarang</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>Anda dapat melihat detail kegiatan setelah login!</p>
+                                <tbody>
+                                    @foreach ($agendas as $agenda)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $agenda->agenda_name }}</td>
+                                            <td>{{ $agenda->start_time }} -
+                                                {{ $agenda->end_time }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <p>Anda dapat melihat detail kegiatan setelah login!</p>
+                        @else
+                            <p>Tidak ada agenda!</p>
+                        @endif
                     </div>
 
                     <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
@@ -246,8 +254,8 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="count-box">
                             <i class="mdi mdi-counter"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $count }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
                             <p>Pengunjung</p>
                         </div>
                     </div>

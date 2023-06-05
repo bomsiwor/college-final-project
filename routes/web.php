@@ -15,6 +15,8 @@ use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\RadioactiveController;
 use App\Http\Controllers\RadioactiveBorrowController;
 use App\Http\Controllers\ReportProblemController;
+use App\Models\Agenda;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +29,10 @@ use App\Http\Controllers\ReportProblemController;
 |
 */
 // Landing page
-Route::view('/', 'Landing-page.index');
+Route::view('/', 'Landing-page.index', [
+    'count' => DB::table('attendances')->count(),
+    'agendas' => Agenda::todayEvent()
+]);
 
 // Authenctication
 Route::controller(AuthController::class)->group(function () {

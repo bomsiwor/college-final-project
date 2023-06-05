@@ -135,7 +135,7 @@
                     @role('admin')
                         @empty($borrow->verified_at)
                             <div class="container-fluid w-100">
-                                <form id="verification" action="{{ route('borrow.verify') }}" method="POST">
+                                <form id="verification" action="{{ route('borrow.tool.verify') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $borrow->id }}">
                                     <input type="hidden" name="unique_id" value="{{ $borrow->inventory_id }}">
