@@ -33,7 +33,10 @@ class User extends Authenticatable
         'institution_id',
         'profession_id',
         'unit_id',
-        'study_program_id'
+        'study_program_id',
+
+        'github_id',
+        'linkedin_id'
     ];
 
     /**
@@ -53,7 +56,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         // 'email_verified_at' => 'datetime',
-        'identifier' => IdentifierEnum::class
+        // 'identifier' => IdentifierEnum::class
     ];
 
 

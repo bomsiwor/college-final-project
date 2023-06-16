@@ -30,8 +30,13 @@ class DatabaseSeeder extends Seeder
             'institution_name' => 'Poltek Nuklir',
             'institution_address' => 'Jl. Babarsari Kotak POB 6101/YKKB, Ngentak, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281'
         ]);
+        \App\Models\Institution::create([
+            'institution_name' => '- tidak ada',
+            'institution_address' => '-'
+        ]);
 
         \App\Models\Institution::factory(5)->create();
+
 
         $arrayOfRoleNames = ['admin', 'user', 'ka-lab'];
 

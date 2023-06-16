@@ -11,6 +11,8 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\GithubController;
+use App\Http\Controllers\LinkedinController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\RadioactiveController;
 use App\Http\Controllers\RadioactiveBorrowController;
@@ -45,6 +47,17 @@ Route::controller(AuthController::class)->group(function () {
 
     // Only logged in user
     Route::get('/logout', 'logout')->name('logout')->middleware('auth');
+});
+
+Route::controller(GithubController::class)->group(function () {
+    Route::get('/auth/github', 'redirectToGithub')->name('auth.github');
+    Route::get('auth/callback/github', 'handleGithubCallback');
+    Route::post('/auth/github', 'proceedCallback')->name('auth.github.form');
+});
+
+Route::controller(LinkedinController::class)->group(function () {
+    Route::get('/auth/linkedin', 'linkedinRedirect')->name('auth.linkedin');
+    Route::get('/auth/callback/linkedin', 'linkedinCallback');
 });
 
 // Dashboard

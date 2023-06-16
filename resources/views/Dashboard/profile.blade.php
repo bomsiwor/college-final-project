@@ -225,11 +225,11 @@
                                     <div class="alert alert-warning">
                                         Kamu login menggunakan sosial media. Tambahkan
                                         sandi agar dapat login menggunakan email &
-                                        password
+                                        password. <br> Jika kamu login menggunakan social media, maka <b> kata sandi
+                                            default</b> adalah 'password'
                                     </div>
                                     <p>
-                                        Kata sandi minimal memuat 8 karakter dengan 1
-                                        huruf kapital & 1 simbol.
+                                        Kata sandi minimal memuat 6 karakter
                                     </p>
                                     @livewire('change-password-component')
                                 </div>

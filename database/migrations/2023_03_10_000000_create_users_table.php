@@ -38,6 +38,10 @@ return new class extends Migration
             // For Staff Position
             $table->foreignId('unit_id')->nullable()->constrained('units')->cascadeOnDelete();
 
+            // Github
+            $table->string('github_id')->nullable();
+            $table->string('linkedin_id')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

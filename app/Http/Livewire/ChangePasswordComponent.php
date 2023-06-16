@@ -12,8 +12,9 @@ class ChangePasswordComponent extends Component
     public $pwdChanged = false;
 
     protected $rules = [
-        'currentpwd' => 'required_with:newpwd|min:8|regex:/^.*(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/|current_password',
-        'newpwd' => 'required_with:currentpwd|min:8|regex:/^.*(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/|confirmed'
+        'currentpwd' => 'required_with:newpwd|min:6|current_password',
+        // 'newpwd' => 'required_with:currentpwd|min:6|regex:/^.*(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/|confirmed'
+        'newpwd' => 'required_with:currentpwd|min:6|confirmed'
     ];
 
     protected $validationAttributes = [

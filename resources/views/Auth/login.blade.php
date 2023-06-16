@@ -79,12 +79,13 @@
                                 <button type="button" class="btn btn-social-icon btn-outline-facebook mx-3">
                                     <i class="fa-brands fa-facebook-f"></i>
                                 </button>
-                                <button type="button" class="btn btn-social-icon btn-outline-twitter mx-2">
+                                <a href="{{ route('auth.github') }}" class="btn btn-social-icon btn-outline-twitter mx-2">
                                     <i class="fa-brands fa-github"></i>
-                                </button>
-                                <button type="button" class="btn btn-social-icon btn-outline-linkedin mx-2">
+                                </a>
+                                <a href="{{ route('auth.linkedin') }}"
+                                    class="btn btn-social-icon btn-outline-linkedin mx-2">
                                     <i class="fa-brands fa-linkedin-in"></i>
-                                </button>
+                                </a>
                                 <button type="button" class="btn btn-social-icon btn-outline-google mx-2">
                                     <i class="fa-brands fa-google"></i>
                                 </button>
