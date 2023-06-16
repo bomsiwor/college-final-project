@@ -15,6 +15,8 @@
                             <h4>Registrasi</h4>
                             <h6 class="fw-light">Isi data-data yang diperlukan</h6>
                             @livewire('register-component')
+                            <hr class="text-muted">
+                            <p>Sudah mendaftar ? <a href="{{ route('login') }}"> Login disini</a></p>
                         </div>
                     </div>
                 </div>

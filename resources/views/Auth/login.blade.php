@@ -34,7 +34,7 @@
                             <form class="pt-1" method="post" action="/auth">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="exampleInputEmail">Username/Email</label>
+                                    <label for="exampleInputEmail">Surel</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend bg-transparent">
                                             <span class="input-group-text bg-transparent border-right-0">
@@ -43,7 +43,7 @@
                                         </div>
                                         <input type="email" name="email"
                                             class="form-control form-control-lg border-left-0" id="exampleInputEmail"
-                                            placeholder="Username / Email" />
+                                            placeholder="Surel" value="{{ old('email') }}" />
                                     </div>
                                 </div>
                                 <div class="form-group">

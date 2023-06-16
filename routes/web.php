@@ -205,6 +205,8 @@ Route::middleware(['auth', 'permission:manage-site'])->prefix('admin')->controll
     Route::get('/users', 'manageUser')->name('manageUser')->middleware('permission:manage-user');
     Route::get('/messsage', 'manageMessage')->name('manageMessage');
     Route::get('/returns', 'returning')->name('returning');
+
+    Route::get('/reset-user-password', 'resetPassword')->name('reset-password');
 });
 
 // User Controller

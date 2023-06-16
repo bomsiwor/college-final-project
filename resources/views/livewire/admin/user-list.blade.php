@@ -30,6 +30,11 @@
                                         aria-haspopup="true" aria-expanded="false"> Aksi </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                         <a class="dropdown-item" href="#">Edit data</a>
+                                        <div class="dropdown-divider"></div>
+                                        <form action="{{ route('admin.reset-password') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item">Reset Password</button>
+                                        </form>
                                         @if ($da->getRoleNames()->first() !== 'ka-lab' && $da->id !== auth()->id())
                                             <form action="{{ route('user.role.update') }}" method="post">
                                                 @csrf
@@ -42,7 +47,7 @@
                                                     <button type="submit" class="dropdown-item">Jadikan User</button>
                                                 @endif
                                             </form>
-                                            <div class="dropdown-divider"></div>
+
                                             <form action="{{ route('user.delete', ['user' => $da->id]) }}" method="post">
                                                 @csrf
                                                 @method('delete')

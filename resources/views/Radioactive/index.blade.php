@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="pagetitle">
-        <h2 class="fw-bold">Aset Alat</h2>
+        <h2 class="fw-bold">Aset Sumber RA</h2>
         <nav>
             <ol class="breadcrumb bg-primary">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Pagu</a></li>
