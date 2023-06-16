@@ -43,6 +43,10 @@ Route::controller(AuthController::class)->group(function () {
         Route::get('/login', 'login')->middleware('guest')->name('login');
         Route::get('/register', 'register')->middleware('guest')->name('register');
         Route::post('/auth', 'authenticate');
+
+        // With Google
+        Route::get('/auth/google', 'redirectToGoogle')->name('auth.google');
+        Route::get('/auth/callback/google', 'callbackGoogle');
     });
 
     // Only logged in user

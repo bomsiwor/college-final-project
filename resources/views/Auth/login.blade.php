@@ -76,19 +76,21 @@
                                 Atau masuk menggunakan
                             </div>
                             <div class="mb-2 d-flex justify-content-center">
-                                <button type="button" class="btn btn-social-icon btn-outline-facebook mx-3">
+                                {{-- <button type="button" class="btn btn-social-icon btn-outline-facebook mx-3">
                                     <i class="fa-brands fa-facebook-f"></i>
-                                </button>
-                                <a href="{{ route('auth.github') }}" class="btn btn-social-icon btn-outline-twitter mx-2">
-                                    <i class="fa-brands fa-github"></i>
+                                </button> --}}
+                                <a href="{{ route('auth.github') }}"
+                                    class="btn btn-social-icon btn-outline-twitter mx-2 d-flex justify-content-center align-items-center">
+                                    <i class="mdi mdi-github"></i>
                                 </a>
                                 <a href="{{ route('auth.linkedin') }}"
-                                    class="btn btn-social-icon btn-outline-linkedin mx-2">
-                                    <i class="fa-brands fa-linkedin-in"></i>
+                                    class="btn btn-social-icon btn-outline-linkedin mx-2 d-flex justify-content-center align-items-center">
+                                    <i class="mdi mdi-linkedin"></i>
                                 </a>
-                                <button type="button" class="btn btn-social-icon btn-outline-google mx-2">
-                                    <i class="fa-brands fa-google"></i>
-                                </button>
+                                <a href="{{ route('auth.google') }}"
+                                    class="btn btn-social-icon btn-outline-google mx-2 d-flex justify-content-center align-items-center">
+                                    <i class="mdi mdi-google"></i>
+                                </a>
                             </div>
                             <div class="text-center mt-4 fw-light">
                                 Belum memiliki akun?

@@ -41,6 +41,8 @@ return new class extends Migration
             // Github
             $table->string('github_id')->nullable();
             $table->string('linkedin_id')->nullable();
+            $table->string('google_id')->nullable();
+            $table->string('facebook_id')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

@@ -27,7 +27,9 @@ class GithubController extends Controller
         //     return view('Auth.register-by-socialite', compact('user'));
         // }
         try {
-            $user = Socialite::driver('github')->user();
+            // dd(Socialite::driver('github')->stateless()->user());
+            // $user = Socialite::driver('github')->user();
+            $user = Socialite::driver('github')->stateless()->user();
             $finduser = User::where('github_id', $user->id)->first();
 
             if ($finduser) {

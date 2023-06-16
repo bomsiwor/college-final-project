@@ -226,7 +226,7 @@
                                         Kamu login menggunakan sosial media. Tambahkan
                                         sandi agar dapat login menggunakan email &
                                         password. <br> Jika kamu login menggunakan social media, maka <b> kata sandi
-                                            default</b> adalah 'password'
+                                            default</b> adalah 'password123'
                                     </div>
                                     <p>
                                         Kata sandi minimal memuat 6 karakter

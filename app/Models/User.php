@@ -36,7 +36,9 @@ class User extends Authenticatable
         'study_program_id',
 
         'github_id',
-        'linkedin_id'
+        'linkedin_id',
+        'google_id',
+        'facebook_id'
     ];
 
     /**
