@@ -65,7 +65,8 @@
                                             Ingat saya
                                             <i class="input-helper"></i></label>
                                     </div>
-                                    <a href="#" class="auth-link text-black">Lupa kata sandi?</a>
+                                    <a href="{{ route('reset-password') }}" class="auth-link text-black">Lupa kata
+                                        sandi?</a>
                                 </div>
                                 <div class="my-3">
                                     <button type="submit"

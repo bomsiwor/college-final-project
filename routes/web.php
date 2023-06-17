@@ -44,6 +44,10 @@ Route::controller(AuthController::class)->group(function () {
         Route::get('/register', 'register')->middleware('guest')->name('register');
         Route::post('/auth', 'authenticate');
 
+        // Reset password
+        Route::get('/reset-password', 'resetPassword')->name('reset-password');
+        Route::post('/reset-password', 'resetPasswordForm')->name('reset-password.form');
+
         // With Google
         Route::get('/auth/google', 'redirectToGoogle')->name('auth.google');
         Route::get('/auth/callback/google', 'callbackGoogle');
@@ -87,6 +91,7 @@ Route::middleware('auth')->prefix('attendance')->controller(AttendanceController
     Route::get('/', 'index')->name('index');
     Route::get('show-all', 'total')->name('total');
     Route::get('show-me', 'me')->name('me');
+    Route::get('download', 'download')->name('download');
 });
 
 // Radioactive Assets
@@ -223,7 +228,7 @@ Route::middleware(['auth', 'permission:manage-site'])->prefix('admin')->controll
     Route::get('/messsage', 'manageMessage')->name('manageMessage');
     Route::get('/returns', 'returning')->name('returning');
 
-    Route::get('/reset-user-password', 'resetPassword')->name('reset-password');
+    Route::post('/reset-user-password', 'resetPassword')->name('reset-password');
 });
 
 // User Controller

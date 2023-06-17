@@ -33,6 +33,7 @@
                                         <div class="dropdown-divider"></div>
                                         <form action="{{ route('admin.reset-password') }}" method="post">
                                             @csrf
+                                            <input type="hidden" name="id" value="{{ $da->id }}">
                                             <button type="submit" class="dropdown-item">Reset Password</button>
                                         </form>
                                         @if ($da->getRoleNames()->first() !== 'ka-lab' && $da->id !== auth()->id())

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Profession;
+use App\Mail\ResetPassword;
 use App\Models\Institution;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -102,5 +104,28 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $title = 'Reset Kata sandi';
+
+        return view('Auth.reset-password', compact('title'));
+    }
+
+    public function resetPasswordForm(Request $request)
+    {
+        $data = $request->validate([
+            'email' => 'required|exists:users,email'
+        ]);
+
+        $realPassword = strtolower(Str::random(6));
+        $password = Hash::make($realPassword);
+        $user = User::where('email', $request->email)->first();
+        Mail::to($user->email)->send(new ResetPassword($realPassword));
+        $user->password = $password;
+        $user->save();
+
+        return back()->with('success', "Sukses");
     }
 }

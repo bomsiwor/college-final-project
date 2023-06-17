@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use Illuminate\Http\Request;
+use App\Exports\AttendanceExport;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AttendanceController extends Controller
 {
@@ -36,5 +38,14 @@ class AttendanceController extends Controller
         $data = $this->attendance->where('user_id', auth()->id())->get();
 
         return view('Activity.Attendance.me', compact('title', 'data'));
+    }
+
+    public function download()
+    {
+        try {
+            return Excel::download(new AttendanceExport, 'presensi.xlsx');
+        } catch (\Throwable $e) {
+            dd($e->getMessage());
+        }
     }
 }

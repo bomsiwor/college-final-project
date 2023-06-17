@@ -86,10 +86,12 @@
                                 </div>
                             </div>
                             <div class="my-3 d-flex justify-content-around">
-                                <button class="btn btn-primary btn-sm mb-2" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#borrowModal">
-                                    Pinjam
-                                </button>
+                                @if ($tool->status !== 'borrowed' && $tool->status !== 'unavailable' && $tool->used_status == 'used')
+                                    <button class="btn btn-primary btn-sm mb-2" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#borrowModal">
+                                        Pinjam
+                                    </button>
+                                @endif
                                 @role('admin')
                                     <button class="btn btn-danger btn-sm mb-2" onclick="deleteButton()">
                                         Hapus Data

@@ -23,21 +23,11 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-content-center mb-2">
                         <h4 class="card-title mb-0">Data Kunjungan Total</h4>
+
+                        @role('admin|ka-lab')
+                            <a href="{{ route('attendance.download') }}" class="btn btn-primary btn-sm">Cetak Data</a>
+                        @endrole
                     </div>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            <p>{{ session('success') }}</p>
-                        </div>
-                    @endif
                     <p>
                         Menampilkan semua data kunjungan di laboratorium Insnuk.
                     </p>
