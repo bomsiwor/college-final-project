@@ -71,14 +71,21 @@ class Borrow extends Model
             'inventory_id',
             'purpose',
             'start_borrow_date',
+            'expected_return_date',
             'actual_return_date',
+            'status',
+            'after_condition',
             DB::raw("CASE 
         WHEN actual_return_date IS NULL THEN 'not returned'
         WHEN actual_return_date > expected_return_date THEN 'overdue'
         ELSE 'on time'
     END AS status_peminjaman")
         )
-            ->where('inventory_id', $toolId)->where('status', 'accepted')->with('user:id,name');
+            ->where('inventory_id', $toolId)
+            ->where('status', 'accepted')
+            ->orWhere('status', 'returned')
+            ->with('user:id,name')
+            ->orderByDesc('created_at');
     }
 
     public function scopeForAdmin(Builder $query)

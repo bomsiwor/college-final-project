@@ -14,6 +14,7 @@ class BorrowComponent extends Component
     public function loadData()
     {
         $this->data = Borrow::ofTool($this->toolId)->get();
+        // dd($this->data->inventory);
     }
 
     public function render()

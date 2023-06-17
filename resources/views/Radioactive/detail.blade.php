@@ -177,6 +177,7 @@
                             </div>
                         </div>
 
+                        {{-- Kolom kanan --}}
                         <div class="col-lg-8">
                             <div class="home-tab">
                                 {{-- Tab --}}
@@ -187,16 +188,16 @@
                                                 href="#detail" role="tab" aria-controls="detail"
                                                 aria-selected="true">Detail</a>
                                         </li>
-                                        @role('admin')
+                                        @role('admin|ka-lab')
                                             <li class="nav-item">
                                                 <a class="nav-link" id="edit-tab" data-bs-toggle="tab" href="#edit"
                                                     role="tab" aria-selected="false">Edit Detail</a>
                                             </li>
                                         @endrole
-                                        <li class="nav-item">
+                                        {{-- <li class="nav-item">
                                             <a class="nav-link" id="borrowing-tab" data-bs-toggle="tab" href="#borrowing"
                                                 role="tab" aria-selected="false">Peminjaman</a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
 
@@ -258,7 +259,7 @@
                                     </div>
 
                                     {{-- Edit --}}
-                                    @role('admin')
+                                    @role('admin|ka-lab')
                                         <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">
                                             <h4>Form ubah data</h4>
                                             <form action="{{ route('radioactive.update') }}" method="post"
@@ -449,7 +450,7 @@
                                     @endrole
 
                                     {{-- Peminjaman --}}
-                                    <div class="tab-pane fade" id="borrowing" role="tabpanel"
+                                    {{-- <div class="tab-pane fade" id="borrowing" role="tabpanel"
                                         aria-labelledby="borrowing-tab">
                                         <h4>Contact us </h4>
                                         <p>
@@ -463,7 +464,7 @@
                                             <i class="ti-email text-success"></i>
                                             contactus@example.com
                                         </p>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

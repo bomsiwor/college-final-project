@@ -92,7 +92,7 @@
                                         Pinjam
                                     </button>
                                 @endif
-                                @role('admin')
+                                @role('admin|ka-lab')
                                     <button class="btn btn-danger btn-sm mb-2" onclick="deleteButton()">
                                         Hapus Data
                                     </button>
@@ -194,7 +194,7 @@
                                     </div>
 
                                     {{-- Edit --}}
-                                    @role('admin')
+                                    @role('admin|ka-lab')
                                         <div class="tab-pane fade" id="edit" role="tabpanel"
                                             aria-labelledby="edit-tab">
                                             <h4>Form ubah data</h4>
@@ -364,18 +364,8 @@
                                     {{-- Peminjaman --}}
                                     <div class="tab-pane fade" id="borrowing" role="tabpanel"
                                         aria-labelledby="borrowing-tab">
-                                        <h4>Contact us </h4>
-                                        <p>
-                                            Feel free to contact us if you have any questions!
-                                        </p>
-                                        <p>
-                                            <i class="ti-headphone-alt text-info"></i>
-                                            +123456789
-                                        </p>
-                                        <p>
-                                            <i class="ti-email text-success"></i>
-                                            contactus@example.com
-                                        </p>
+                                        @livewire('tool.borrow-component', ['toolId' => $tool->inventory_unique])
+
                                     </div>
                                 </div>
                             </div>

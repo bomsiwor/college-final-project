@@ -17,5 +17,6 @@ return [
         'IT' => 'Isomer Transition',
         'B-' => 'Beta min',
         'B+' => 'Beta plus',
+        'A' => 'Alpha'
     ]
 ];
