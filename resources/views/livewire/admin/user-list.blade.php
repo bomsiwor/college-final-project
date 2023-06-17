@@ -29,7 +29,8 @@
                                         type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false"> Aksi </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                        <a class="dropdown-item" href="#">Edit data</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.edit-user', ['user' => $da->id]) }}">Edit data</a>
                                         <div class="dropdown-divider"></div>
                                         <form action="{{ route('admin.reset-password') }}" method="post">
                                             @csrf

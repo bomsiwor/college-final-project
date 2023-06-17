@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Models\Borrow;
 use App\Models\Message;
 use App\Models\Returning;
 use App\Mail\ResetPassword;
+use App\Models\Institution;
+use App\Models\Profession;
+use App\Models\Unit;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -39,6 +43,27 @@ class AdminController extends Controller
         $title = 'Admin - Peminjaman';
 
         return view('Admin.returning', compact('title'));
+    }
+
+    public function editUser(User $user)
+    {
+        $title = 'Edit data Pengguna';
+        $professions = Profession::all();
+        $institutions = Institution::all();
+        $units = Unit::all();
+
+        return view('Admin.edit-user', compact('title', 'user', 'professions', 'institutions', 'units'));
+    }
+
+    public function updateUser(UpdateUserRequest $request)
+    {
+        $user = User::find($request->user_id);
+
+        $user->update($request->all());
+
+        $message = ($user->wasChanged) ? "Berhasil memperbarui data" : "Tidak ada data yang dirubah";
+
+        return back()->with('success', $message);
     }
 
     public function resetPassword(Request $request)

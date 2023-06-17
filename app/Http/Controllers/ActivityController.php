@@ -8,6 +8,7 @@ use App\Models\Attendance;
 use App\Models\RadiationLog;
 use App\Models\Returning;
 use Excel;
+use Illuminate\Support\Facades\Cache;
 
 class ActivityController extends Controller
 {

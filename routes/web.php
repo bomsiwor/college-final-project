@@ -229,6 +229,9 @@ Route::middleware(['auth', 'permission:manage-site'])->prefix('admin')->controll
     Route::get('/messsage', 'manageMessage')->name('manageMessage');
     Route::get('/returns', 'returning')->name('returning');
 
+    Route::get('/edit-user/{user}', 'editUser')->name('edit-user');
+    Route::post('/update-user', 'updateUser')->name('update-user');
+
     Route::post('/reset-user-password', 'resetPassword')->name('reset-password');
 });
 
@@ -237,7 +240,7 @@ Route::middleware('auth')->controller(UserController::class)->group(function () 
     Route::post('update-profile', 'updateProfile')->name('updateProfile');
     Route::delete('photo', 'deletePhoto')->name('deletePhoto');
 
-    Route::middleware('auth', 'role:admin')->group(function () {
+    Route::middleware('auth', 'permission:manage-user')->group(function () {
         Route::post('change-previlege/{user}', 'updatePrevilege')->name('user.updatePrevilege');
         Route::delete('user/{user}', 'delete')->name('user.delete');
 

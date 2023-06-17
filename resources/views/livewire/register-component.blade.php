@@ -29,7 +29,7 @@
                         @enderror
                     </div>
                     <div class="col-lg-6">
-                        <label for="password">Kata Sandi</label>
+                        <label for="password">Kata Sandi (minimum 6 karakter)</label>
                         <input type="password" name="password" id="password"
                             class="form-control form-control-sm @error('password') is-invalid @enderror"
                             wire:model.defer='password'>
@@ -102,7 +102,8 @@
                             <label for="unit">Unit</label>
                             <select class="form-select" name="unit" id="unit" wire:model.defer='unit'>
                                 @foreach ($units as $unit)
-                                    <option value="{{ $unit->id }}">{{ $unit->unit_name }}</option>
+                                    <option value="{{ $unit->id }}" @selected($user->unit_id == $unit->id)>{{ $unit->unit_name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>

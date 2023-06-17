@@ -218,7 +218,7 @@ class RegisterComponent extends Component
         $data = [
             'professions' => Profession::all(),
             'units' => DB::table('units')->get(),
-            'institutions' => Institution::all(),
+            'institutions' => Institution::where('id', '!=', 2)->get(),
             'study_program' => StudyProgram::all()
         ];
 

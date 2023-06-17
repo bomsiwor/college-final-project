@@ -28,8 +28,10 @@
                             <div class="card border border-primary my-1">
                                 <div class="card-body">
                                     <div class="d-sm-flex flex-row flex-wrap text-start align-items-center">
-                                        <img src="../../../../images/faces/face11.jpg" class="img-lg rounded"
-                                            alt="profile image">
+                                        <div class="bg-primary rounded rounded-lg p-2 d-none d-md-block">
+                                            <img src="{{ asset('assets/img/detector/logo gm.png') }}" alt="profile image"
+                                                class="detector-logo">
+                                        </div>
                                         <div class="ms-sm-3 ms-md-0 ms-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
                                             <h6 class="mb-0">GM</h6>
                                             <p class="text-muted mb-1">Detektor Geiger Muller</p>
@@ -45,8 +47,10 @@
                             <div class="card border border-primary my-1">
                                 <div class="card-body">
                                     <div class="d-sm-flex flex-row flex-wrap text-start align-items-center">
-                                        <img src="../../../../images/faces/face11.jpg" class="img-lg rounded"
-                                            alt="profile image">
+                                        <div class="bg-primary rounded rounded-lg p-2">
+                                            <img src="{{ asset('assets/img/detector/logo naitl.png') }}" alt="profile image"
+                                                class="detector-logo">
+                                        </div>
                                         <div class="ms-sm-3 ms-md-0 ms-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
                                             <h6 class="mb-0">NaI(Tl)</h6>
                                             <p class="text-muted mb-1">Detektor Sintilasi</p>
@@ -62,8 +66,9 @@
                             <div class="card border border-primary my-1">
                                 <div class="card-body">
                                     <div class="d-sm-flex flex-row flex-wrap text-start align-items-center">
-                                        <img src="../../../../images/faces/face11.jpg" class="img-lg rounded"
-                                            alt="profile image">
+                                        <div class="bg-primary rounded rounded-lg p-2">
+                                            <i class="mdi mdi-alpha text-white" style="font-size: 60px;max-height:80px"></i>
+                                        </div>
                                         <div class="ms-sm-3 ms-md-0 ms-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
                                             <h6 class="mb-0">Alpha</h6>
                                             <p class="text-muted mb-1">Spektroskopi Alpha</p>
@@ -79,8 +84,10 @@
                             <div class="card border border-primary my-1">
                                 <div class="card-body">
                                     <div class="d-sm-flex flex-row flex-wrap text-start align-items-center">
-                                        <img src="../../../../images/faces/face11.jpg" class="img-lg rounded"
-                                            alt="profile image">
+                                        <div class="bg-primary rounded rounded-lg p-2">
+                                            <img src="{{ asset('assets/img/detector/logo cdte.png') }}" alt="profile image"
+                                                class="detector-logo">
+                                        </div>
                                         <div class="ms-sm-3 ms-md-0 ms-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
                                             <h6 class="mb-0">CdTe</h6>
                                             <p class="text-muted mb-1">Detektor Sintilasi</p>
@@ -96,8 +103,10 @@
                             <div class="card border border-primary my-1">
                                 <div class="card-body">
                                     <div class="d-sm-flex flex-row flex-wrap text-start align-items-center">
-                                        <img src="../../../../images/faces/face11.jpg" class="img-lg rounded"
-                                            alt="profile image">
+                                        <div class="bg-primary rounded rounded-lg p-2">
+                                            <img src="{{ asset('assets/img/detector/logo xrf.png') }}" alt="profile image"
+                                                class="detector-logo">
+                                        </div>
                                         <div class="ms-sm-3 ms-md-0 ms-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
                                             <h6 class="mb-0">XRF</h6>
                                             <p class="text-muted mb-1">Detektor XRF</p>
@@ -118,6 +127,12 @@
 
 @push('vendorStyle')
     <link rel="stylesheet" href="{{ asset('dist/vendor/dataTables/dataTables.bootstrap4.css') }}">
+
+    <style>
+        .detector-logo {
+            max-width: 80px;
+        }
+    </style>
 @endpush
 
 @push('vendorScript')

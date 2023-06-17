@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Radioactive;
 
 use App\Actions\GetNuclideAction;
 use Carbon\Carbon;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -24,13 +25,20 @@ class LevelsDataComponent extends Component
     public $beta_decay;
     public $xray_decay;
 
+    public $error = 0;
+
     public function loadData(GetNuclideAction $action)
     {
         // Get IAEA Data form API
         $field = "levels";
-        $this->apiData = Cache::remember("$field.$this->slug", now()->addMonths(3), function () use ($action, $field) {
-            return $action->handle($this->slug, $field);
-        }); // Save to cache
+
+        try {
+            $this->apiData = Cache::remember("$field.$this->slug", now()->addMonths(3), function () use ($action, $field) {
+                return $action->handle($this->slug, $field);
+            }); // Save to cache
+        } catch (ConnectionException $e) {
+            return $this->error = 1;
+        }
 
         // Get half life
         $this->half_life = (float) ($this->apiData)[0]['half_life_sec'];
