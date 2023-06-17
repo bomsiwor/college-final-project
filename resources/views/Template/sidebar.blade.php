@@ -34,8 +34,8 @@
                         <li class="nav-item"> <a class="nav-link" href="{{ route('document.admin.index') }}">Kelola
                                 Dokumen</a>
                         </li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Kelola Postingan</a>
-                        </li>
+                        {{-- <li class="nav-item"> <a class="nav-link" href="#">Kelola Postingan</a>
+                        </li> --}}
                         <li class="nav-item"> <a class="nav-link" href="{{ route('admin.manageMessage') }}">Kritik & Saran
                                 User</a>
                         </li>

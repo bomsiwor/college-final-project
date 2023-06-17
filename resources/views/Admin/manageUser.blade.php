@@ -30,7 +30,9 @@
                     <h5 class="card-title">Daftar User</h5>
                     <p>Kelola dan telusuri akun pengguna disini</p>
 
-                    @livewire('admin.user-list')
+                    <div class="overflow-scroll" style="max-height: 300px">
+                        @livewire('admin.user-list')
+                    </div>
                 </div>
             </div>
         </div>

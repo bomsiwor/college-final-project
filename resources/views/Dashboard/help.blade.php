@@ -15,34 +15,44 @@
 
                 <div class="card basic">
                     <div class="card-body">
-                        <h5 class="card-title">Basic Questions</h5>
+                        <h5 class="card-title">Pertanyaan Umum</h5>
 
                         <div>
-                            <h6>1. Nisi ut ut exercitationem voluptatem esse sunt rerum?</h6>
-                            <p>Saepe perspiciatis ea. Incidunt blanditiis enim mollitia qui voluptates. Id rem nulla
-                                tenetur nihil in unde rerum. Quae consequatur placeat qui cumque earum eius omnis quos.
+                            <h6>1. Bagaimana cara mengatur profil sendiri ?</h6>
+                            <p>Tekan ikon profil di pojok kanan atas, lalu pilih <strong>atur profil</strong>. Di menu
+                                tersebut anda dapat mengganti beberapa data anda. Termasuk mengganti kata sandi.
                             </p>
                         </div>
 
                         <div class="pt-2">
-                            <h6>2. Reiciendis dolores repudiandae?</h6>
-                            <p>Id ipsam non ut. Placeat doloremque deserunt quia tenetur inventore laboriosam dolores
-                                totam odio. Aperiam incidunt et. Totam ut quos sunt atque modi molestiae dolorem.</p>
+                            <h6>2. Tabel tidak tertampil dengan maksimum</h6>
+                            <p>
+                                <code>Untuk pengguna PC/Komputer</code> :
+                                Bila anda menggunakan perangkat PC :geser hingga ke halaman paling bawah. Di situ anda akan
+                                menemukan scrollbar horizontal untuk tabel. Kini kolom lain di sisi kanan tabel dapat
+                                terlihat.
+                                <br>
+                                <code>Untuk pengguna mobile</code> : Swipe ke arah kiri, untuk melihat konten tabel lebih
+                                lengkap. Disarankan menggunakan perangkat android.
+
+                            </p>
                         </div>
 
                         <div class="pt-2">
-                            <h6>3. Qui qui reprehenderit ut est illo numquam voluptatem?</h6>
-                            <p>Enim inventore in consequuntur ipsam voluptatem consequatur beatae. Nostrum consequuntur
-                                voluptates et blanditiis.</p>
+                            <h6>3. Informasi yang saya cari tidak ada.</h6>
+                            <p>Pada kasus anda tidak dapat menemukan informasi yang dicari pada aplikasi ini, silakan
+                                menghubungi Pengelola Laboratorium. Kontak Pengelola dapat ditemukan pada halaman <a
+                                    href="{{ route('dashboard.contact') }}"><strong>Kontak</strong></a>
+                            </p>
                         </div>
 
                     </div>
                 </div>
 
                 <!-- F.A.Q Group 1 -->
-                <div class="card">
+                <div class="card my-1">
                     <div class="card-body">
-                        <h5 class="card-title">Laborum dolorem quam porro</h5>
+                        <h5 class="card-title">Pertanyaan Terkait dengan Akun</h5>
 
                         <div class="accordion accordion-flush" id="faq-group-1">
 
@@ -50,15 +60,18 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsOne-1" type="button"
                                         data-bs-toggle="collapse">
-                                        Debitis adipisci eius?
+                                        Beberapa data akun tidak dapat diubah.
                                     </button>
                                 </h2>
                                 <div id="faqsOne-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
                                     <div class="accordion-body">
-                                        Ut quasi odit odio totam accusamus vero eius. Nostrum asperiores voluptatem eos
-                                        nulla ab dolores est asperiores iure. Quo est quis praesentium aut maiores.
-                                        Corrupti sed aut expedita fugit vero dolorem. Nemo rerum sapiente. A quaerat
-                                        dignissimos.
+                                        <p>
+                                            Terdapat beberapa data yang tidak dapat diubah sendiri oleh pemilik akun. Hal
+                                            ini
+                                            terkait dengan keamanan aset Laboratorium. <br>
+                                            Jika terdapat kesalahan pada data akun
+                                            anda, silakan langsung menghubungi Pengelola laboratorium.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -67,14 +80,22 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsOne-2" type="button"
                                         data-bs-toggle="collapse">
-                                        Omnis fugiat quis repellendus?
+                                        Login menggunakan sosial media?
                                     </button>
                                 </h2>
                                 <div id="faqsOne-2" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
                                     <div class="accordion-body">
-                                        In minus quia impedit est quas deserunt deserunt et. Nulla non quo dolores
-                                        minima fugiat aut saepe aut inventore. Qui nesciunt odio officia beatae iusto
-                                        sed voluptatem possimus quas. Officia vitae sit voluptatem nostrum a.
+                                        <p>
+                                            Jika anda sudah memiliki akun dengan cara mendaftar melalui proses registrasi.
+                                            Anda
+                                            dapat langsung login menggunakan sosial media yang terintegrasi dengan
+                                            <strong>email
+                                                yang sama</strong>. Data akun yg sudah didaftarkan tidak akan
+                                            berubah/ter-reset.
+                                            Jika akun sosial media yang digunakan memiliki email yang berbeda, maka sistem
+                                            akan
+                                            membuatkan akun baru.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -83,15 +104,18 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsOne-3" type="button"
                                         data-bs-toggle="collapse">
-                                        Et occaecati praesentium aliquam modi incidunt?
+                                        Bagaimana cara mengganti kata sandi akun yang login menggunakan sosial media?
                                     </button>
                                 </h2>
                                 <div id="faqsOne-3" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
                                     <div class="accordion-body">
-                                        Voluptates magni amet enim perspiciatis atque excepturi itaque est. Sit beatae
-                                        animi incidunt eum repellat sequi ea saepe inventore. Id et vel et et. Nesciunt
-                                        itaque corrupti quia ducimus. Consequatur maiores voluptatum fuga quod ut non
-                                        fuga.
+                                        <p>
+                                            Jika anda mendaftar langsung menggunakan sosial media dan hendak mengganti kata
+                                            sandi. Silakan ikuti panduan yang terdapat di menu <strong>ubah kata
+                                                sandi</strong>
+                                            di halaman <a
+                                                href="{{ route('dashboard.profile') }}"><strong>profil</strong></a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -100,13 +124,17 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsOne-4" type="button"
                                         data-bs-toggle="collapse">
-                                        Quo unde eaque vero dolor quis ipsam?
+                                        Lupa kata sandi tapi masih login.
                                     </button>
                                 </h2>
                                 <div id="faqsOne-4" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
                                     <div class="accordion-body">
-                                        Numquam ut reiciendis aliquid. Quia veritatis quasi ipsam sed quo ut eligendi et
-                                        non. Doloremque sed voluptatem at in voluptas aliquid dolorum.
+                                        <p>
+                                            Jika anda masih login dan dapat mengakses pagu utama & fitur-fitur di dalamnya,
+                                            silakan logout terlebih dahulu. Gunakan fitur lupa kata sandi, di halaman login.
+                                            Masukkan email yang terdaftar. <strong>Kata sandi baru</strong> akan dikirimkan
+                                            melalui Email.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -115,15 +143,17 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsOne-5" type="button"
                                         data-bs-toggle="collapse">
-                                        Natus sunt quo atque mollitia accusamus?
+                                        Apakah data personal aman?
                                     </button>
                                 </h2>
                                 <div id="faqsOne-5" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
                                     <div class="accordion-body">
-                                        Aut necessitatibus maxime quis dolor et. Nihil laboriosam molestiae qui
-                                        molestias placeat corrupti non quo accusamus. Nemo qui quis harum enim sed.
-                                        Aliquam molestias pariatur delectus voluptas quidem qui rerum id quisquam.
-                                        Perspiciatis voluptatem voluptatem eos. Vel aut minus labore at rerum eos.
+                                        <p>
+                                            Hanya admin dan kepala laboratorium yang dapat melihat data personal Anda,
+                                            seperti
+                                            Alamat & Nomor telepon. Hal ini bertujuan untuk keamanan aset & informasi
+                                            Laboratorium Instrumentasi Nuklir.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -138,9 +168,9 @@
             <div class="col-lg-6">
 
                 <!-- F.A.Q Group 2 -->
-                <div class="card">
+                <div class="card my-1">
                     <div class="card-body">
-                        <h5 class="card-title">Deserunt ut unde corporis</h5>
+                        <h5 class="card-title">Peminjaman & Pengembalian</h5>
 
                         <div class="accordion accordion-flush" id="faq-group-2">
 
@@ -148,31 +178,61 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsTwo-1" type="button"
                                         data-bs-toggle="collapse">
-                                        Cumque voluptatem recusandae blanditiis?
+                                        Bagaimana cara mengajukan peminjaman?
                                     </button>
                                 </h2>
                                 <div id="faqsTwo-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                     <div class="accordion-body">
-                                        Ut quasi odit odio totam accusamus vero eius. Nostrum asperiores voluptatem eos
-                                        nulla ab dolores est asperiores iure. Quo est quis praesentium aut maiores.
-                                        Corrupti sed aut expedita fugit vero dolorem. Nemo rerum sapiente. A quaerat
-                                        dignissimos.
+                                        <p>
+                                        <ol>
+                                            <li>Buka halaman detail barang / sumber radioaktif yang hendak dipinjam</li>
+                                            <li>Tekan tombol pinjam dan isi data yang diperlukan.</li>
+                                            <li>Tunggu admin memverifikasi pinjaman.</li>
+                                            <li>Apabila pinjaman disetujui, silakan datang ke Laboratorium Instrumentasi
+                                                Nuklir pada jam kerja.</li>
+                                            <li>Ketentuan di lapangan mengikuti peraturan laboratorium.</li>
+                                        </ol>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-2" type="button"
+                                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-1" type="button"
                                         data-bs-toggle="collapse">
-                                        Provident beatae eveniet placeat est aperiam repellat adipisci?
+                                        Bagaimana cara mengajukan peminjaman?
                                     </button>
                                 </h2>
-                                <div id="faqsTwo-2" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
+                                <div id="faqsTwo-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                     <div class="accordion-body">
-                                        In minus quia impedit est quas deserunt deserunt et. Nulla non quo dolores
-                                        minima fugiat aut saepe aut inventore. Qui nesciunt odio officia beatae iusto
-                                        sed voluptatem possimus quas. Officia vitae sit voluptatem nostrum a.
+                                        <p>
+                                        <ol>
+                                            <li>Buka halaman detail barang / sumber radioaktif yang hendak dipinjam</li>
+                                            <li>Tekan tombol pinjam dan isi data yang diperlukan.</li>
+                                            <li>Tunggu admin memverifikasi pinjaman.</li>
+                                            <li>Apabila pinjaman disetujui, silakan datang ke Laboratorium Instrumentasi
+                                                Nuklir pada jam kerja.</li>
+                                            <li>Ketentuan di lapangan mengikuti peraturan laboratorium.</li>
+                                        </ol>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-7" type="button"
+                                        data-bs-toggle="collapse">
+                                        Apakah bisa mengajukan pinjaman di hari libur?
+                                    </button>
+                                </h2>
+                                <div id="faqsTwo-7" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
+                                    <div class="accordion-body">
+                                        <p>
+                                            <strong>Bisa!</strong> Namun, perlu diketahui proses verifikasi pengajuan tetap
+                                            dilakukan di waktu kerja.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -181,15 +241,22 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsTwo-3" type="button"
                                         data-bs-toggle="collapse">
-                                        Minus aliquam modi id reprehenderit nihil?
+                                        Pengajuan pinjaman sumber ditolak?
                                     </button>
                                 </h2>
                                 <div id="faqsTwo-3" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                     <div class="accordion-body">
-                                        Voluptates magni amet enim perspiciatis atque excepturi itaque est. Sit beatae
-                                        animi incidunt eum repellat sequi ea saepe inventore. Id et vel et et. Nesciunt
-                                        itaque corrupti quia ducimus. Consequatur maiores voluptatum fuga quod ut non
-                                        fuga.
+                                        <p>
+                                            Pertama, lihat catatan verifikasi. Jika kurang jelas, beberapa kemungkinan
+                                            alasan pengajuan peminjaman sumber radioaktif ditolak adalah : <br>
+                                        <ol>
+                                            <li>Nama akun tidak jelas</li>
+                                            <li>Pengajuan pinjaman lebih dari 1 hari</li>
+                                            <li>Anda belum menghubungi pengelola laboratorium untuk berkonsultasi terkait
+                                                peminjaman sumber</li>
+                                        </ol>
+
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -198,13 +265,16 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsTwo-4" type="button"
                                         data-bs-toggle="collapse">
-                                        Quaerat qui est iusto asperiores qui est reiciendis eos et?
+                                        Bagaimana prosedur pengembalian ?
                                     </button>
                                 </h2>
                                 <div id="faqsTwo-4" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                     <div class="accordion-body">
-                                        Numquam ut reiciendis aliquid. Quia veritatis quasi ipsam sed quo ut eligendi et
-                                        non. Doloremque sed voluptatem at in voluptas aliquid dolorum.
+                                        <p>
+                                            Silakan <strong> datang langsung</strong> ke Laboratorium Instrumentasi Nuklir.
+                                            Temui pengelola laboratorium. Selanjutnya pengembalian akan diverifikasi oleh
+                                            pengelola laboratorium.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -213,15 +283,16 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsTwo-5" type="button"
                                         data-bs-toggle="collapse">
-                                        Laboriosam asperiores eum?
+                                        Bagaimana jika pengembalian melewati batas waktu dari yang diajukan?
                                     </button>
                                 </h2>
                                 <div id="faqsTwo-5" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
                                     <div class="accordion-body">
-                                        Aut necessitatibus maxime quis dolor et. Nihil laboriosam molestiae qui
-                                        molestias placeat corrupti non quo accusamus. Nemo qui quis harum enim sed.
-                                        Aliquam molestias pariatur delectus voluptas quidem qui rerum id quisquam.
-                                        Perspiciatis voluptatem voluptatem eos. Vel aut minus labore at rerum eos.
+                                        <p>
+                                            Hal ini tergantung pada kebijakan Laboratorium Instrumentasi Nuklir.
+                                            Barang yang dipinjam tetap harus dikembalikan langsung ke Laboratorium meskipun
+                                            telah melewati batas waktu yang diajukan.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -232,9 +303,9 @@
                 </div><!-- End F.A.Q Group 2 -->
 
                 <!-- F.A.Q Group 3 -->
-                <div class="card">
+                <div class="card my-1">
                     <div class="card-body">
-                        <h5 class="card-title">Dolore occaecati ducimus quam</h5>
+                        <h5 class="card-title">Pertanyaan Lain</h5>
 
                         <div class="accordion accordion-flush" id="faq-group-3">
 
@@ -242,15 +313,15 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsThree-1"
                                         type="button" data-bs-toggle="collapse">
-                                        Assumenda doloribus est fugiat sint incidunt animi totam nisi?
+                                        Bagaimana melihat data pencatatan penggunaan detektor?
                                     </button>
                                 </h2>
                                 <div id="faqsThree-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
                                     <div class="accordion-body">
-                                        Ut quasi odit odio totam accusamus vero eius. Nostrum asperiores voluptatem eos
-                                        nulla ab dolores est asperiores iure. Quo est quis praesentium aut maiores.
-                                        Corrupti sed aut expedita fugit vero dolorem. Nemo rerum sapiente. A quaerat
-                                        dignissimos.
+                                        <p>
+                                            Catatan penggunaan detektor terdapat di menu yang sama dengan menu alat. Silakan
+                                            buka sidebar.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -259,14 +330,15 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsThree-2"
                                         type="button" data-bs-toggle="collapse">
-                                        Consequatur saepe explicabo odio atque nisi?
+                                        Apakah username dapat digunakan untuk login?
                                     </button>
                                 </h2>
                                 <div id="faqsThree-2" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
                                     <div class="accordion-body">
-                                        In minus quia impedit est quas deserunt deserunt et. Nulla non quo dolores
-                                        minima fugiat aut saepe aut inventore. Qui nesciunt odio officia beatae iusto
-                                        sed voluptatem possimus quas. Officia vitae sit voluptatem nostrum a.
+                                        <p>
+                                            Sampai saat ini fitur tersebut masih dikembangkan. Silakan login menggunakan
+                                            email dan kata sandi. Atau gunakan sosial media yang tersedia.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -275,15 +347,16 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsThree-3"
                                         type="button" data-bs-toggle="collapse">
-                                        Voluptates vel est fugiat molestiae rem sit eos sint?
+                                        Jika melakukan kegiatan berkelompok, apakah semua orang harus melakukan presensi?
                                     </button>
                                 </h2>
                                 <div id="faqsThree-3" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
                                     <div class="accordion-body">
-                                        Voluptates magni amet enim perspiciatis atque excepturi itaque est. Sit beatae
-                                        animi incidunt eum repellat sequi ea saepe inventore. Id et vel et et. Nesciunt
-                                        itaque corrupti quia ducimus. Consequatur maiores voluptatum fuga quod ut non
-                                        fuga.
+                                        <p>
+                                            Hal ini tergantung dari kebijakan pengelola laboratorium.
+                                            Disarankan setiap individu melakukan presensi mandiri. Hal ini dimaksudkan untuk
+                                            meningkatkan akurasi data sistem ini dengan kondisi riil di lapangan.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -292,13 +365,15 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsThree-4"
                                         type="button" data-bs-toggle="collapse">
-                                        Ab ipsa cum autem voluptas doloremque velit?
+                                        Melakukan request dokumen untuk di unggah di sistem
                                     </button>
                                 </h2>
                                 <div id="faqsThree-4" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
                                     <div class="accordion-body">
-                                        Numquam ut reiciendis aliquid. Quia veritatis quasi ipsam sed quo ut eligendi et
-                                        non. Doloremque sed voluptatem at in voluptas aliquid dolorum.
+                                        <p>
+                                            Silakan langsung menghubungi pengelola laboratorium untuk mengusulkan
+                                            pengunggahan dokumen yang diperlukan.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -307,15 +382,15 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" data-bs-target="#faqsThree-5"
                                         type="button" data-bs-toggle="collapse">
-                                        Aliquam magni ducimus facilis numquam dolorum harum eveniet iusto?
+                                        Grafik Peluruhan radioaktif terlihat kecil?
                                     </button>
                                 </h2>
                                 <div id="faqsThree-5" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
                                     <div class="accordion-body">
-                                        Aut necessitatibus maxime quis dolor et. Nihil laboriosam molestiae qui
-                                        molestias placeat corrupti non quo accusamus. Nemo qui quis harum enim sed.
-                                        Aliquam molestias pariatur delectus voluptas quidem qui rerum id quisquam.
-                                        Perspiciatis voluptatem voluptatem eos. Vel aut minus labore at rerum eos.
+                                        <p>
+                                            Fitur tersebut sedang dikembangkan. Untuk saat ini, disarankan menggunakan PC
+                                            untuk mengakses seluruh fitur di sistem.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
