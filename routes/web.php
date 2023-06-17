@@ -133,29 +133,32 @@ Route::middleware('auth')->prefix('borrow')->name('borrow.')->group(function () 
     // Tool Borrowing
     Route::controller(BorrowController::class)->name('tool.')->prefix('tool')->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/{borrow}', 'show')->name('show');
 
         // Admin previleges
-        Route::middleware('role:admin')->group(function () {
+        Route::middleware('role:admin|ka-lab')->group(function () {
             Route::get('/create', 'create')->name('create');
             Route::post('/store', 'store')->name('store');
             Route::delete('/delete', 'delete')->name('delete');
             Route::post('/return', 'return')->name('return');
             Route::post('verify', 'verify')->name('verify');
+            Route::get('print-data', 'download')->name('download');
         });
+
+        Route::get('/{borrow}', 'show')->name('show');
     });
 
     // Radioactive Borrowing
     Route::controller(RadioactiveBorrowController::class)->name('radioactive.')->prefix('radioactive')->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/{borrow}', 'show')->name('show');
         Route::delete('/delete', 'delete')->name('delete');
 
         // Admin previlege
-        Route::middleware('role:admin')->group(function () {
+        Route::middleware('role:admin|ka-lab')->group(function () {
             Route::post('/return', 'return')->name('return');
             Route::post('verify', 'verify')->name('verify');
+            Route::get('print-data', 'download')->name('download');
         });
+        Route::get('/{borrow}', 'show')->name('show');
     });
 });
 

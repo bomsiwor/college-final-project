@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ToolBorrowExport;
 use App\Models\Borrow;
 use App\Models\RadioactiveBorrow;
 use App\Services\BorrowService;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BorrowController extends Controller
 {
@@ -49,5 +51,10 @@ class BorrowController extends Controller
         else :
             abort(500);
         endif;
+    }
+
+    public function download()
+    {
+        return Excel::download(new ToolBorrowExport, 'peminjaman-alat' . now()->getTimestamp() . '.xlsx');
     }
 }

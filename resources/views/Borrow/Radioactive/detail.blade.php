@@ -111,7 +111,7 @@
                             <hr />
                         @endempty
                     </div>
-                    @role('admin')
+                    @role('admin|ka-lab')
                         @empty($borrow->verified_at)
                             <div class="container-fluid w-100">
                                 <form id="verification" action="{{ route('borrow.radioactive.verify') }}" method="POST">

@@ -17,7 +17,12 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Peminjaman - Sumber</h4>
+                    <div class="d-flex justify-content-between align-content-center mb-1">
+                        <h4 class="card-title mb-0">Peminjaman - Sumber RA</h4>
+                        @role('admin|ka-lab')
+                            <a href="{{ route('borrow.radioactive.download') }}" class="btn btn-sm btn-primary">Cetak Data</a>
+                        @endrole
+                    </div>
                     <div class="row grid-margin mb-1">
                         <div class="col-12">
                             <div class="alert alert-warning" role="alert">
@@ -30,7 +35,7 @@
                                         class="mdi mdi-eye text-primary"></i></span>
                                 untuk
                                 melihat
-                                detail peminjaman, @role('admin')
+                                detail peminjaman, @role('admin|ka-lab')
                                     tombol <span class="btn-sm btn-success d-inline-block"><i class="mdi mdi-check"></i></span>
                                     / <span class="btn-sm btn-danger d-inline-block"><i
                                             class="mdi mdi-close-circle-outline"></i></span>

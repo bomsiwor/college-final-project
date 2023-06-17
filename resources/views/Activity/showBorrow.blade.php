@@ -10,7 +10,7 @@
             <li class="breadcrumb-item active">Detail</li>
         </ol>
     </nav>
-    <a href="{{ route('borrow.index') }}" class="btn btn-primary"><span class="mdi mdi-arrow-left"></span>
+    <a href="{{ route('borrow.tool.index') }}" class="btn btn-primary"><span class="mdi mdi-arrow-left"></span>
         Kembali</a>
 
     <div class="row my-2 animate__animated animate__fadeIn">
@@ -132,7 +132,7 @@
                             <hr />
                         @endempty
                     </div>
-                    @role('admin')
+                    @role('admin|ka-lab')
                         @empty($borrow->verified_at)
                             <div class="container-fluid w-100">
                                 <form id="verification" action="{{ route('borrow.tool.verify') }}" method="POST">
