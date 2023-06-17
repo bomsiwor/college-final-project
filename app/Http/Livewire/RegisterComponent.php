@@ -195,6 +195,12 @@ class RegisterComponent extends Component
             'acceptTerms' => 'accepted'
         ]);
 
+        if ($this->institution_address && $this->institution == 'other') :
+            $this->institution = Institution::create([
+                'institution_name' => $this->institution_name,
+                'institution_address' => $this->institution_address
+            ])->id;
+        endif;
 
         try {
             $user = User::create($this->createData());

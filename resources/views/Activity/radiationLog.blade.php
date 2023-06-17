@@ -19,6 +19,11 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-content-center mb-2">
                         <h4 class="card-title mb-0">Catatan Penerimaan Radiasi</h4>
+
+                        @role('admin|ka-lab')
+                            <a href="{{ route('activity.radiation-log.download') }}" class="btn btn-sm btn-primary">Cetak
+                                data</a>
+                        @endrole
                     </div>
                     <p>
                         Data penerimaan radiasi pengguna laboratorium Insnuk.

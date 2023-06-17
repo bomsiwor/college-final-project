@@ -84,6 +84,7 @@ Route::middleware('auth')->controller(DashboardController::class)->name('dashboa
 // Perizinan penggunaan laboratorium
 Route::middleware('auth')->controller(ActivityController::class)->name('activity.')->group(function () {
     Route::get('/radiation-log', 'radiationLog')->name('radiationLog');
+    Route::get('/radiation-log-download', 'radiationLogDownload')->name('radiation-log.download');
 });
 
 // Attendance
