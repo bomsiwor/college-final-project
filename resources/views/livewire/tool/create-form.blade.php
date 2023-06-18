@@ -15,7 +15,7 @@
             </ul>
         </div>
     @endif
-    <form action="" id="createTool" wire:submit.prevent='submit'>
+    <form action="" id="createTool" wire:submit.prevent='submit' enctype="multipart/form-data">
         <div class="row mb-3 form-group">
             {{-- Nama alat --}}
             <div class="col-lg-6">
@@ -159,6 +159,14 @@
 
         {{-- Deskripsi --}}
         <div class="row mb-3 form-group">
+            <div class="col-12">
+                <label for="image">Foto Barang</label>
+                <input type="file" name="image[]" id="image" multiple class="form-control"
+                    wire:model.defer='image'>
+            </div>
+            <div class="col-12">
+
+            </div>
             <label for="description">Deskripsi/Keterangan</label>
             <textarea class="form-control" id="description" rows="4" style="height: 75px"></textarea>
         </div>

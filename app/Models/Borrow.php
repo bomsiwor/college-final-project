@@ -82,8 +82,7 @@ class Borrow extends Model
     END AS status_peminjaman")
         )
             ->where('inventory_id', $toolId)
-            ->where('status', 'accepted')
-            ->orWhere('status', 'returned')
+            ->whereIn('status', ['returned', 'accepted'])
             ->with('user:id,name')
             ->orderByDesc('created_at');
     }

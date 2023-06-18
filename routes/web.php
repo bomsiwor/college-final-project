@@ -112,13 +112,14 @@ Route::middleware('auth')->prefix('radioactive')->controller(RadioactiveControll
 Route::middleware('auth')->prefix('tool')->controller(ToolController::class)->name('tool.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/detail/{tool:inventory_unique}', 'show')->name('detail');
+    Route::post('/manual/download', 'download')->name('download');
 
     // Logging
     Route::get('logs', 'indexLog')->name('logs.index');
     Route::get('logs/{flag}', 'showLog')->name('logs.show');
 
     // Admin previleges
-    Route::middleware('role:admin')->group(function () {
+    Route::middleware('permission:manage-tool')->group(function () {
         Route::get('/create', 'create')->name('create');
         Route::post('/bulk-upload', 'storeExcel')->name('create.bulk');
         Route::put('/edit-data', 'update')->name('update');

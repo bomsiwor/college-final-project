@@ -6,6 +6,7 @@ use App\Models\Tool;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\UpdateToolRequest;
+use Illuminate\Support\Facades\Storage;
 use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
 class UpdateToolAction
@@ -55,8 +56,12 @@ class UpdateToolAction
         if ($manual !== null) :
             $manualFile = $manual;
             $manualName  = time() . rand(1, 99) . Str::slug($name) . '.' . $manualFile->extension();
+
+            // Gunakan google drive
             $manualPath = "/manuals/$manualName";
-            Gdrive::put($manualPath, $manualFile);
+            // Gdrive::put($manualPath, $manualFile);
+
+            Storage::putFileAs('manuals', $manualFile, $manualName);
         else :
             $manualPath = null;
         endif;
@@ -80,7 +85,10 @@ class UpdateToolAction
 
         if ($tool->manual) :
             $oldManual = $tool->manual;
-            Gdrive::delete("/manual/$oldManual");
+            // Gunakan Gdrive
+            // Gdrive::delete("/manual/$oldManual");
+            // File::delete(public_path("storage" . $oldManual));
+            Storage::disk('public')->delete($oldManual);
         endif;
     }
 }

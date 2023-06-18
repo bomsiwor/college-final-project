@@ -34,6 +34,7 @@ class Tool extends Model
         'purchase_date',
         'price',
         'manual',
+        'tool_image',
         'tool_image->image_0',
         'tool_image->image_1',
     ];

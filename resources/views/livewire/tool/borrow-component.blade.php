@@ -2,7 +2,7 @@
     @empty($data)
         Tidak ada data!
     @else
-        @foreach ($data as $da)
+        @forelse ($data as $da)
             <div class="col-lg-6 my-2">
                 <div class="card shadow">
                     <div class="card-body">
@@ -24,7 +24,9 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <p>Kosong</p>
+        @endforelse
 
         {{-- <div class="table-responsive">
             <table class="table table-hover">

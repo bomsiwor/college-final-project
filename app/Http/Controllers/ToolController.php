@@ -11,7 +11,7 @@ use App\Actions\UpdateToolAction;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\UpdateToolRequest;
-
+use Illuminate\Support\Facades\Storage;
 
 class ToolController extends Controller
 {
@@ -139,5 +139,11 @@ class ToolController extends Controller
         $data = $toolLog->where('log_flag', $flag)->get();
 
         return view('Tools.Log.show', compact('title', 'data', 'flag'));
+    }
+
+    public function download(Request $request)
+    {
+        $tool = Tool::where('inventory_unique', $request->inventory_unique)->first();
+        return Storage::download($tool->manual);
     }
 }

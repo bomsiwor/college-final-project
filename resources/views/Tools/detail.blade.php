@@ -109,7 +109,7 @@
                                                 href="#detail" role="tab" aria-controls="detail"
                                                 aria-selected="true">Detail</a>
                                         </li>
-                                        @role('admin')
+                                        @role('admin|ka-lab')
                                             <li class="nav-item">
                                                 <a class="nav-link" id="edit-tab" data-bs-toggle="tab" href="#edit"
                                                     role="tab" aria-selected="false">Edit Detail</a>
@@ -164,7 +164,8 @@
                                                 <address>
                                                     <p class="fw-bold">Manual & Spesifikasi</p>
                                                     @if ($tool->manual)
-                                                        <form action="#" method="post">
+                                                        <form action="{{ route('tool.download') }}" method="post">
+                                                            @csrf
                                                             <input type="hidden" name="inventory_unique"
                                                                 value="{{ $tool->inventory_unique }}">
                                                             <button type="submit" class="btn btn-sm btn-outline-info">Unduh
