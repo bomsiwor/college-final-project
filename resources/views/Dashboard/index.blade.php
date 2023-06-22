@@ -67,7 +67,7 @@
                     </div>
                     <small>
                         <a data-bs-toggle="modal" data-bs-target="#attendanceModal"
-                            class="stretched-link text-decoration-none text-primary fw-bold" style="font-size: 10px">Catat
+                            class="stretched-link text-decoration-none text-primary fw-bold" style="font-size: 8px">Catat
                             kunjungan</a>
                     </small>
                 </div>
@@ -184,7 +184,7 @@
                                 <h5 class="card-title text-white"><span class="mdi mdi-information"></span> Pemberitahuan
                                 </h5>
                                 @if ($borrow_announce_admin || $borrow_announce_user)
-                                    @role('admin')
+                                    @role('admin|ka-lab')
                                         @if ($borrow_announce_admin)
                                             <small>
                                                 <h5><span class="fw-bold">ADMIN</span> : ada {{ $borrow_announce_admin }}

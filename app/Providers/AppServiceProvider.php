@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -44,12 +46,17 @@ class AppServiceProvider extends ServiceProvider
             return "Rp. <?php echo number_format($data,0,',','.'); ?>";
         });
 
-        Paginator::useBootstrapFive();
-
         // Fix https
         if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
             $this->app['request']->server->set('HTTPS', true);
         }
+
+        if (App::environment([
+            'staging',
+            'production'
+        ])) :
+            URL::forceScheme('https');
+        endif;
 
         // Response
         // 200

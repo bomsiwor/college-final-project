@@ -37,7 +37,7 @@
                                 Nama Pelapor : {{ $report->user->name }}
                                 <br>
                                 Identitas :
-                                {{ $report->user->identifier->value . ' - ' . $report->user->identification_number }}
+                                {{ $report->user->identifier . ' - ' . $report->user->identification_number }}
                                 <br>
                                 Diajukan pada : @tanggal($report->created_at)
                             </p>
@@ -128,7 +128,7 @@
                                     <p>Dianalisis pada @tanggal($report->analyzed_at)</p>
                                 </div>
                             </div>
-                        @elseif(!$report->analyzed_at)
+                        @elseif(!$report->analyzed_at && $report->accessed)
                             <div class="row">
                                 <p>Jika analisis telah dilakukan, Isi hasil analisis dengan klik tombol di bawah.</p>
 

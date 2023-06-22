@@ -14,7 +14,7 @@
                 <li class="breadcrumb-item active">Tambah data</li>
             </ol>
         </nav>
-        <a href="{{ route('radioactive.index') }}" class="btn btn-primary mb-2"><span class="mdi mdi-arrow-left"></span>
+        <a href="{{ route('report.index') }}" class="btn btn-primary mb-2"><span class="mdi mdi-arrow-left"></span>
             Kembali</a>
     </div><!-- End Page Title -->
 
