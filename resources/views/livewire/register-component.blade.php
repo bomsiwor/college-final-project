@@ -100,9 +100,10 @@
                     @elseif($position == 'staff')
                         <div class="col-lg-6">
                             <label for="unit">Unit</label>
-                            <select class="form-select" name="unit" id="unit" wire:model.defer='unit'>
+                            <select class="form-select" name="unit" id="unit" wire:model.defer='unit'>\
+                                <option value="">Pilih...</option>
                                 @foreach ($units as $unit)
-                                    <option value="{{ $unit->id }}" @selected($user->unit_id == $unit->id)>{{ $unit->unit_name }}
+                                    <option value="{{ $unit->id }}">{{ $unit->unit_name }}
                                     </option>
                                 @endforeach
                             </select>

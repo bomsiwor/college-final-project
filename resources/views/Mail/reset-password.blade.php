@@ -174,7 +174,7 @@
                                                                 <td style="line-height: 24px; font-size: 16px; margin: 0;"
                                                                     align="left">
                                                                     <img class="w-24"
-                                                                        src="https://assets.bootstrapemail.com/logos/light/square.png"
+                                                                        src="{{ asset('assets/icons/favicon-32x32.png') }}"
                                                                         style="height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; width: 96px; border-style: none; border-width: 0;"
                                                                         width="96">
                                                                 </td>
@@ -271,21 +271,6 @@
                                                                 <td style="line-height: 40px; font-size: 40px; width: 100%; height: 40px; margin: 0;"
                                                                     align="left" width="100%" height="40">
                                                                     &#160;
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <table class="ax-center" role="presentation" align="center"
-                                                        border="0" cellpadding="0" cellspacing="0"
-                                                        style="margin: 0 auto;">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td style="line-height: 24px; font-size: 16px; margin: 0;"
-                                                                    align="left">
-                                                                    <img class="w-40"
-                                                                        src="https://assets.bootstrapemail.com/logos/light/text.png"
-                                                                        style="height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; width: 160px; border-style: none; border-width: 0;"
-                                                                        width="160">
                                                                 </td>
                                                             </tr>
                                                         </tbody>
