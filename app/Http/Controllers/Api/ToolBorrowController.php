@@ -39,6 +39,20 @@ class ToolBorrowController extends Controller
         ]);
     }
 
+    public function show(Borrow $borrow)
+    {
+        return response()->json(
+            [
+                'code' => 200,
+                'success' => true,
+                'message' => 'Sukses',
+                'data' => [
+                    'borrows' => $borrow,
+                ]
+            ]
+        );
+    }
+
     public function store(Request $request)
     {
         $rules = [
@@ -81,7 +95,7 @@ class ToolBorrowController extends Controller
 
     public function verify(Request $request, Borrow $borrow)
     {
-        if ($borrow->status) :
+        if ($borrow->verified_at) :
             return response()->json([
                 'code' => 403,
                 'success' => false,

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Radioactive;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
@@ -71,14 +72,14 @@ class RadioactiveController extends Controller
             'entry_number' => 'required|numeric|unique:radioactives,entry_number|min:1'
         ];
 
-        if (!$input) :
-            return response()->json([
-                'code' => 302,
-                'success' => false,
-                'message' => 'Data kosong',
-                'data' => []
-            ], 302);
-        endif;
+        // if (!$input) :
+        //     return response()->json([
+        //         'code' => 302,
+        //         'success' => false,
+        //         'message' => 'Data kosong',
+        //         'data' => []
+        //     ], 302);
+        // endif;
 
         $validator = Validator::make($input, $rules);
 
@@ -92,6 +93,10 @@ class RadioactiveController extends Controller
         endif;
 
         $validated = $validator->validated();
+
+        $validated += [
+            'inventory_unique' => Str::uuid()
+        ];
 
         try {
             $radioactive->create($validated);

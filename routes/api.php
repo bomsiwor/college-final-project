@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AgendaController;
 use App\Http\Controllers\Api\AttendanceController;
 use App\Http\Controllers\Api\LogController;
 use App\Http\Controllers\Api\MaintenanceController;
@@ -82,6 +83,7 @@ Route::controller(LogController::class)->middleware('auth:sanctum')->group(funct
 // Tool Borrowing
 Route::controller(ToolBorrowController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/tool-borrow', 'index');
+    Route::get('/tool-borrow/{borrow}', 'show');
     Route::post('/tool-borrow', 'store');
     Route::delete('/tool-borrow/{borrow}', 'delete');
 
@@ -98,6 +100,7 @@ Route::controller(ToolReturnController::class)->middleware('auth:sanctum')->grou
 // Radioactive Borrowing
 Route::controller(RadioactiveBorrowController::class)->middleware('auth:sanctum')->group(function () {
     Route::get('/radioactive-borrow', 'index');
+    Route::get('/radioactive-borrow/{borrow}', 'show');
     Route::post('/radioactive-borrow', 'store');
     Route::delete('/radioactive-borrow/{borrow}', 'delete');
 
@@ -108,6 +111,10 @@ Route::controller(RadioactiveReturnController::class)->middleware('auth:sanctum'
     Route::get('/radioactive-return', 'index');
 
     Route::post('/radioactive-return/verify/{borrow}', 'verify')->middleware('api_role:admin');
+});
+
+Route::controller(AgendaController::class)->middleware('auth:sanctum')->group(function () {
+    Route::get('/agenda', 'index');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

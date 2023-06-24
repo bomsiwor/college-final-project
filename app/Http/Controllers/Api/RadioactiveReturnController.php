@@ -23,7 +23,11 @@ class RadioactiveReturnController extends Controller
         $returns = RadioactiveReturning::select('id', 'borrow_id', 'verificator_id', 'returning_date', 'created_at')
             ->with('verificator:id,name')
             ->orderBy('created_at')
+            ->limit($this->limit)
+            ->offset($this->offset)
             ->get();
+
+        // $returns = RadioactiveReturning::all();
 
         return response()->json([
             'code' => 200,

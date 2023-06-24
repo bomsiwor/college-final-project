@@ -43,6 +43,18 @@ class RadioactiveBorrowController extends Controller
         ]);
     }
 
+    public function show(RadioactiveBorrow $borrow)
+    {
+        return response()->json([
+            'code' => 200,
+            'success' => true,
+            'message' => 'Sukses',
+            'data' => [
+                'borrows' => $borrow,
+            ]
+        ]);
+    }
+
     public function store(Request $request)
     {
         $rules = [
@@ -84,14 +96,14 @@ class RadioactiveBorrowController extends Controller
 
     public function verify(Request $request, RadioactiveBorrow $borrow)
     {
-        if ($borrow->status) :
-            return response()->json([
-                'code' => 403,
-                'success' => false,
-                'message' => 'Sudah diverifikasi',
-                'data' => []
-            ], 403);
-        endif;
+        // if ($borrow->verified_at !== null) :
+        //     return response()->json([
+        //         'code' => 403,
+        //         'success' => false,
+        //         'message' => 'Sudah diverifikasi',
+        //         'data' => []
+        //     ], 403);
+        // endif;
 
         $status = [
             'accepted',
