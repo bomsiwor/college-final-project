@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-content-center mb-2">
                         <h4 class="card-title mb-0">Data agenda kegiatan</h4>
-                        @role('admin')
+                        @role('admin|ka-lab')
                             <a href="{{ route('agenda.create') }}" class="btn btn-sm btn-primary">
                                 <i class="mdi mdi-plus-circle"></i> Tambah data
                             </a>

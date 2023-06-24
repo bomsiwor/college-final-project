@@ -160,7 +160,7 @@ class RadioactiveBorrowController extends Controller
 
     public function delete(Request $request, RadioactiveBorrow $borrow)
     {
-        if ($request->user()->id !== $borrow->user_id) :
+        if ($request->user()->id !== intval($borrow->user_id)) :
             return response()->json([
                 'code' => 401,
                 'success' => false,
