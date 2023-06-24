@@ -81,6 +81,7 @@ return [
     'manage-site' => 'Mengelola situs',
     'manage-agenda' => 'Mengelola agenda',
     'kepala-lab' => 'Kepala LAB',
+    'manage-report' => 'Mengelola laporan',
 
     // Identitas
     'NIM' => 'Nomor Induk Mahasiswa',
