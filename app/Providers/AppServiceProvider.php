@@ -51,12 +51,12 @@ class AppServiceProvider extends ServiceProvider
             $this->app['request']->server->set('HTTPS', true);
         }
 
-        if (App::environment([
-            'staging',
-            'production'
-        ])) :
-            URL::forceScheme('https');
-        endif;
+        // if (App::environment([
+        //     'staging',
+        //     'production'
+        // ])) :
+        //     URL::forceScheme('https');
+        // endif;
 
         // Response
         // 200

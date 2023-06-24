@@ -31,10 +31,17 @@ use Illuminate\Support\Facades\DB;
 |
 */
 // Landing page
-Route::view('/', 'Landing-page.index', [
-    'count' => DB::table('attendances')->count(),
-    'agendas' => Agenda::todayEvent()
-]);
+// Route::view('/', 'Landing-page.index', [
+//     'count' => DB::table('attendances')->count(),
+//     'agendas' => Agenda::todayEvent()
+// ]);
+
+Route::get('/', function () {
+    return view('Landing-page.index', [
+        'count' => DB::table('attendances')->count(),
+        'agendas' => Agenda::todayEvent()
+    ]);
+});
 
 // Authenctication
 Route::controller(AuthController::class)->group(function () {
