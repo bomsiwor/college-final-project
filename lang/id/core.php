@@ -115,16 +115,22 @@ return [
     // Radioaktif
     'sealed' => 'Terbungkus',
 
-    // Status Laporan
-    'requested' => 'Diajukan',
-    // 'accepted' => 'Diterima',
-    'analyzed' => 'Tahap analisis',
-    'advancing' => 'Tahap tindak lanjut',
-    'repairing' => 'Tahap Perbaikan',
-    'done' => 'Laporan Selesai',
+
 
     // Document
     'modul' => 'Modul',
     'procedure' => 'Prosedur',
     'sop' => 'SOP/Tata tertib',
+
+    'report' => [
+        // Status Laporan
+        'requested' => 'Diajukan',
+        'accept' => 'Diterima',
+        'accessed' => 'Disetujui',
+        'reject' => 'Ditolak',
+        'analyzed' => 'Tahap analisis',
+        'advancing' => 'Tahap tindak lanjut',
+        'repairing' => 'Tahap Perbaikan',
+        'done' => 'Laporan Selesai',
+    ]
 ];

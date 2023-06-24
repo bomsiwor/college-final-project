@@ -52,7 +52,7 @@
                                                 <td>{{ $report->tool->name }} <br> {{ $report->tool->inventory_number }}
                                                 </td>
                                                 <td>{{ $report->created_at->isoFormat('dddd, DD-MM-Y') }}</td>
-                                                <td>{{ __("core.$report->status") }}</td>
+                                                <td>{{ __("core.report.$report->status") }}</td>
                                                 <td><a href="{{ route('report.show', ['report' => $report->id]) }}"
                                                         class="btn btn-sm btn-primary">Detail</a></td>
                                             </tr>
