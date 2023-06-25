@@ -1,5 +1,40 @@
 @extends('Template.layouts')
 
+@section('script')
+    @livewireScripts
+
+    <script>
+        window.addEventListener('attendance-stored', event => {
+            let timerInterval
+            Swal.fire({
+                title: 'Sukses!',
+                icon: 'success',
+                html: 'Data anda sudah tercatat<br>Pesan ini akan tertutup dalam <b></b> milliseconds.',
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                $(function() {
+                    $('#attendanceModal').modal('hide');
+                });
+            })
+        })
+    </script>
+@endsection
+
+@push('vendorStyle')
+    @livewireStyles
+@endpush
+
 @section('main')
     <div class="pagetitle">
         <h2 class="fw-bold">Data Kunjungan</h2>
@@ -14,6 +49,18 @@
 
     <h4>Pilih Data</h4>
     <div class="row">
+        {{-- Isi presensi --}}
+        <div class="col-lg-3">
+            <div class="card bg-linkedin mb-2">
+                <div class="card-body">
+                    <h5 class="card-title text-white">ISI PRESENSI</h5>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#attendanceModal"
+                        class="stretched-link text-decoration-none text-white fw-bold">Klik disini <span
+                            class="mdi mdi-arrow-right"></span></a>
+                </div>
+            </div>
+        </div>
+
         {{-- Semua data card --}}
         <div class="col-lg-3">
             <div class="card bg-info mb-2">
@@ -36,4 +83,10 @@
             </div>
         </div>
     </div>
+
+    @livewire('activity.attendance-form')
 @endsection
+
+@push('vendorScript')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@endpush

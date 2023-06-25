@@ -177,7 +177,7 @@ Route::middleware('auth')->prefix('maintenance')->controller(MaintenanceControll
     Route::get('/download/{maintenance}', 'download')->name('download');
 
     // Admin previleges
-    Route::middleware('role:admin')->group(function () {
+    Route::middleware('permission:manage-maintenance')->group(function () {
         Route::get('/create', 'create')->name('create');
         Route::post('store', 'store')->name('store');
         Route::post('/update', 'update')->name('update');

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('radioactive_returnings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('borrow_id')->constrained('borrows')->cascadeOnDelete();
+            $table->foreignId('borrow_id')->constrained('radioactive_borrows')->cascadeOnDelete();
             $table->foreignId('verificator_id')->constrained('users')->cascadeOnDelete();
             $table->dateTime('returning_date');
             $table->timestamps();

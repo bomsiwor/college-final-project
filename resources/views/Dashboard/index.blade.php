@@ -291,6 +291,50 @@
     @livewire('activity.tool-log')
     @livewire('radiation-log-component')
     @livewire('activity.attendance-form')
+
+    {{-- Modal petunjuk --}}
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="welcomeModalLabel">Petunjuk awal</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="fw-bold">
+                        SELAMAT DATANG
+                    </h4>
+                    <p>
+                        Ini adalah halaman utama aplikasi sistem informasi Laboratorium Instrumentasi Nuklir. <br>
+                        Gunakan <b> menu cepat</b> untuk mengisi data :
+                    </p>
+                    <ol>
+                        <li>
+                            <b>Kunjungan</b>
+                        </li>
+                        <li>
+                            <b>Pencatatan penggunaan
+                                detektor</b>
+                        </li>
+                        <li>
+                            <b>Pencatatan penerimaan radiasi</b>.
+                        </li>
+                    </ol>
+
+                    <p>
+                        Menu lain dapat ditemukan melalui tombol di pojok kiri atas (untuk pengguna mobile) dan di sidebar
+                        di sisi kiri layar (untuk pengguna komputer).
+                        <hr class="text-muted">
+                        Petunjuk lain dapat anda temukan di halaman bantuan atau dapat di klik <a
+                            href="{{ route('dashboard.help') }}">DI SINI!</a>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('vendorStyle')
@@ -415,5 +459,11 @@
             });
             document.getElementById('doughnut-chart-legend').innerHTML = doughnutChart.generateLegend();
         }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#welcomeModal').modal('show');
+        });
     </script>
 @endsection

@@ -60,7 +60,7 @@
 
                         {{-- Kolom kanan --}}
                         <div class="col-md-4">
-                            @role('admin')
+                            @role('admin|ka-lab')
                                 <div>
                                     <button data-bs-toggle="modal" data-bs-target="#editModal" href="#"
                                         class="btn btn-sm btn-warning mb-2">Edit data</button>
@@ -111,7 +111,7 @@
                             </address>
                             <hr class="d-md-none">
                         </div>
-                        @role('admin')
+                        @role('admin|ka-lab')
                             @if (!$maintenance->is_done)
                                 <div class="col-md-4">
                                     <h4 class="card-title">Verifikasi</h4>

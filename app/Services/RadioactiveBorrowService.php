@@ -56,14 +56,14 @@ class RadioactiveBorrowService
                 $data->actual_return_date = $request->returning_date;
                 $data->save();
 
+                Radioactive::where('inventory_unique', $data->inventory_id)->update([
+                    'status' => 'available',
+                ]);
+
                 RadioactiveReturning::create([
                     'borrow_id' => $data->id,
                     'verificator_id' => Auth::user()->id,
                     'returning_date' => $request->returning_date,
-                ]);
-
-                Radioactive::where('inventory_unique', $data->inventory_id)->update([
-                    'status' => 'available',
                 ]);
             });
         } catch (\Throwable $e) {
