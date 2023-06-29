@@ -15,15 +15,16 @@ class RoleApi
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, string $role)
+    public function handle(Request $request, Closure $next, string $permission)
     {
-        if ($request->user()->hasRole($role)) :
+        if ($request->user()->can($permission)) :
             return $next($request);
         endif;
 
         return response()->json([
             'code' => '401',
-            'message' => 'Tidak punya ijin untuk melakukan request ini.'
+            'message' => 'Tidak punya ijin untuk melakukan request ini.',
+            'data' => []
         ], 401);
     }
 }

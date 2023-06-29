@@ -28,6 +28,7 @@ class BorrowController extends Controller
 
     public function delete()
     {
+        
     }
 
     public function verify(Request $request, BorrowService $service)

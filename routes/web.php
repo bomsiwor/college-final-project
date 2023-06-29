@@ -204,7 +204,7 @@ Route::middleware('auth')->prefix('report-problem')->controller(ReportProblemCon
 });
 
 // Agenda
-Route::middleware('auth:sanctum')->prefix('agenda')->controller(AgendaController::class)->name('agenda.')->group(function () {
+Route::middleware('auth')->prefix('agenda')->controller(AgendaController::class)->name('agenda.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/{id}/detail', 'show')->name('show');
 
@@ -218,7 +218,7 @@ Route::middleware('auth:sanctum')->prefix('agenda')->controller(AgendaController
 });
 
 // Document
-Route::middleware('auth:sanctum')->controller(DocumentController::class)->name('document.')->group(function () {
+Route::middleware('auth')->controller(DocumentController::class)->name('document.')->group(function () {
     Route::get('/document/{document:category}', 'index')->name('index');
     Route::get('/document/{document}/detail', 'show')->name('show');
     Route::post('document/download', 'download')->name('download');
