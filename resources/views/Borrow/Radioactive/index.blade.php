@@ -81,7 +81,7 @@
                                                         class="btn btn-sm btn-light">
                                                         <i class="mdi mdi-eye text-primary me-0"></i>
                                                     </a>
-                                                    @role('admin')
+                                                    @role('admin|ka-lab')
                                                         @empty($borrow->verified_at)
                                                             <form action="{{ route('borrow.radioactive.verify') }}" method="post">
                                                                 @csrf

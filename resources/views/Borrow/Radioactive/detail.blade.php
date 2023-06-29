@@ -133,9 +133,6 @@
                             </div>
                         @endempty
                     @endrole
-                    <button id="generate-pdf" class="btn btn-primary">
-                        Generate PDF
-                    </button>
                 </div>
             </div>
         </div>

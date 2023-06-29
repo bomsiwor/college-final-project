@@ -35,7 +35,8 @@
                                         class="mdi mdi-eye text-primary"></i></span>
                                 untuk
                                 melihat
-                                detail peminjaman, @role('admin|ka-lab')
+                                detail peminjaman,
+                                @role('admin|ka-lab')
                                     tombol <span class="btn-sm btn-success d-inline-block"><i class="mdi mdi-check"></i></span>
                                     / <span class="btn-sm btn-danger d-inline-block"><i
                                             class="mdi mdi-close-circle-outline"></i></span>
@@ -81,7 +82,7 @@
                                                         class="btn btn-sm btn-light">
                                                         <i class="mdi mdi-eye text-primary me-0"></i>
                                                     </a>
-                                                    @role('admin')
+                                                    @role('admin|ka-lab')
                                                         @empty($borrow->verified_at)
                                                             <form action="{{ route('borrow.tool.verify') }}" method="post">
                                                                 @csrf

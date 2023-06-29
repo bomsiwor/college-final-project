@@ -29,6 +29,10 @@ class LevelsDataComponent extends Component
 
     public function loadData(GetNuclideAction $action)
     {
+        if (!$this->slug) :
+            return $this->error = 1;
+        endif;
+
         // Get IAEA Data form API
         $field = "levels";
 
